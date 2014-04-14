@@ -99,7 +99,7 @@
 
 #pragma mark - private
 /* 输入提示 搜索.*/
-- (void)searchTipsWithKey:(NSString *)key
+- (void)searchTipsWithKey:(NSString *)key  city:(NSArray*) citys
 {
     if (key.length == 0)
     {
@@ -107,10 +107,13 @@
     }
     AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
     tips.keywords = key;
+    if (citys) {
+        tips.city = citys;
+    }
     [self.search AMapInputTipsSearch:tips];
 }
 /* 地理编码 搜索. */
-- (void)searchGeocodeWithKey:(NSString *)key
+- (void)searchGeocodeWithKey:(NSString *)key city:(NSArray*) citys
 {
     if (key.length == 0)
     {
@@ -119,6 +122,9 @@
     
     AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
     geo.address = key;
+    if (citys) {
+        geo.city = citys;
+    }
     
     [self.search AMapGeocodeSearch:geo];
 }
@@ -192,7 +198,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AMapTip *tip = self.tips[indexPath.row];
-    [self searchGeocodeWithKey:tip.name];
+    [self searchGeocodeWithKey:tip.name city:nil];
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = tip.name;
 }
@@ -235,14 +241,15 @@
     }
     self.annotationSearch = annotations;
     [self updateMapView];
-//    [self.mapView addAnnotations:annotations];
 }
 /* 逆地理编码回调. */
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
     // hud消失
-    [self.hud removeFromSuperview];
-    self.hud = nil;
+    if (self.hud) {
+        [self.hud removeFromSuperview];
+        self.hud = nil;
+    }
     if (response.regeocode != nil)
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(request.location.latitude, request.location.longitude);
@@ -324,10 +331,11 @@
     }
     return nil;
 }
+
 #pragma mark - UISearchDisplayDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self searchTipsWithKey:searchString];
+    [self searchTipsWithKey:searchString city:nil];
     return NO;
 }
 - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
@@ -353,9 +361,9 @@
 }
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-//    NSString *key = searchBar.text;
-//    [self searchGeocodeWithKey:key];
-//    [self.searchDisplayController setActive:NO animated:YES];
-//    self.searchDisplayController.searchBar.text = key;
+    NSString *key = searchBar.text;
+    [self searchGeocodeWithKey:key city:nil];
+    [self.searchDisplayController setActive:NO animated:YES];
+    self.searchDisplayController.searchBar.text = key;
 }
 @end
