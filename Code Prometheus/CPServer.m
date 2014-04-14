@@ -883,17 +883,17 @@ Reachability * reach;
     dispatch_once(&onceToken, ^{
         reach = [Reachability reachabilityWithHostname:URL_SERVER_ROOT];
     });
-    if ([reach currentReachabilityStatus] == NotReachable) {
-        CPLogWarn(@"%s没有网络,不进行同步",__FUNCTION__);
-        return;
-    }
-    if ([reach currentReachabilityStatus] == ReachableViaWWAN) {
-        CPLogWarn(@"%s正在使用3G网络",__FUNCTION__);
-        if (CPSyncOnlyWifi) {
-            CPLogWarn(@"用户要求仅在Wifi下同步,SO 不进行同步");
-            return;
-        }
-    }
+//    if ([reach currentReachabilityStatus] == NotReachable) {
+//        CPLogWarn(@"%s没有网络,不进行同步",__FUNCTION__);
+//        return;
+//    }
+//    if ([reach currentReachabilityStatus] == ReachableViaWWAN) {
+//        CPLogWarn(@"%s正在使用3G网络",__FUNCTION__);
+//        if (CPSyncOnlyWifi) {
+//            CPLogWarn(@"用户要求仅在Wifi下同步,SO 不进行同步");
+//            return;
+//        }
+//    }
     reach.reachableBlock = ^(Reachability * reachability)
     {
         if ([reachability currentReachabilityStatus] == ReachableViaWWAN && CPSyncOnlyWifi) {
@@ -901,10 +901,12 @@ Reachability * reach;
             return;
         }
         [wySyncSimple notifyNeedSync];
+        [reachability stopNotifier];
     };
     reach.unreachableBlock = ^(Reachability * reachability)
     {
         CPLogWarn(@"有网络,但是无法连接到服务器");
+        [reachability stopNotifier];
     };
     [reach startNotifier];
 }

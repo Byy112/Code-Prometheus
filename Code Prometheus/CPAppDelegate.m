@@ -43,16 +43,6 @@
     // 创建数据库
     [CPDB creatDBIfNotExist];
     
-    // 自动登录
-    [CPServer loginAutoWithBlock:^(BOOL success,NSString* message) {
-        if (success) {
-            // 数据库操作
-            [CPDB creatDBFromOFFLineDB];
-            // 同步
-            [CPServer sync];
-        }
-    }];
-    
     // 地图
     [MAMapServices sharedServices].apiKey = (NSString *)MapAPIKey;
     
@@ -67,6 +57,17 @@
     }
     
     return YES;
+}
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+    // 自动登录
+    [CPServer loginAutoWithBlock:^(BOOL success,NSString* message) {
+        if (success) {
+            // 数据库操作
+            [CPDB creatDBFromOFFLineDB];
+            // 同步
+            [CPServer sync];
+        }
+    }];
 }
 
 //- (void)applicationDidEnterBackground:(UIApplication *)application
