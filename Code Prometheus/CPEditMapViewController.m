@@ -353,9 +353,9 @@
 }
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSString *key = searchBar.text;
-    [self searchGeocodeWithKey:key];
-    [self.searchDisplayController setActive:NO animated:YES];
-    self.searchDisplayController.searchBar.text = key;
+//    NSString *key = searchBar.text;
+//    [self searchGeocodeWithKey:key];
+//    [self.searchDisplayController setActive:NO animated:YES];
+//    self.searchDisplayController.searchBar.text = key;
 }
 @end
