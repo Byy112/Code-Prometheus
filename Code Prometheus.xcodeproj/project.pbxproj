@@ -110,7 +110,7 @@
 		038F759D18F7EF5F00BDD35C /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F759718F7EF5F00BDD35C /* TPKeyboardAvoidingScrollView.m */; };
 		038F759E18F7EF5F00BDD35C /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F759918F7EF5F00BDD35C /* TPKeyboardAvoidingTableView.m */; };
 		038F759F18F7EF5F00BDD35C /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F759B18F7EF5F00BDD35C /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		03B5CE6318E2A9A800151F11 /* 记事本.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 03B5CE6218E2A9A800151F11 /* 记事本.rtf */; };
+		03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03B5CE6218E2A9A800151F11 /* 记事本.txt */; };
 		03B75FDC17F4106500D1141E /* CPLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B75FDB17F4106500D1141E /* CPLog.m */; };
 		03C5B35E18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5B35A18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png */; };
 		03C5B35F18DBF4FF004CBE3A /* cp_schedule_all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5B35B18DBF4FF004CBE3A /* cp_schedule_all@2x.png */; };
@@ -416,7 +416,7 @@
 		038F759A18F7EF5F00BDD35C /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		038F759B18F7EF5F00BDD35C /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		039F30E6180E67E30040E2CC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		03B5CE6218E2A9A800151F11 /* 记事本.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "记事本.rtf"; sourceTree = "<group>"; };
+		03B5CE6218E2A9A800151F11 /* 记事本.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "记事本.txt"; sourceTree = "<group>"; };
 		03B75FDA17F4106500D1141E /* CPLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLog.h; sourceTree = "<group>"; };
 		03B75FDB17F4106500D1141E /* CPLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLog.m; sourceTree = "<group>"; };
 		03C5B35A18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_schedule_yellow@2x.png"; sourceTree = "<group>"; };
@@ -833,7 +833,7 @@
 		031E209017B0851100125321 = {
 			isa = PBXGroup;
 			children = (
-				03B5CE6218E2A9A800151F11 /* 记事本.rtf */,
+				03B5CE6218E2A9A800151F11 /* 记事本.txt */,
 				031E20A217B0851100125321 /* Code Prometheus */,
 				03778FF717D9C1E000377FAF /* Thirdparty */,
 				031E209B17B0851100125321 /* Frameworks */,
@@ -1413,7 +1413,7 @@
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
 				0364B4EB18EBEC9700690DBB /* cp_map_company.png in Resources */,
 				03C5B37518DC2336004CBE3A /* cp_home_07@2x.png in Resources */,
-				03B5CE6318E2A9A800151F11 /* 记事本.rtf in Resources */,
+				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
 				037D51341871668600B740A3 /* cp_radio_yes.png in Resources */,
 				03C5B37018DC2336004CBE3A /* cp_home_02@2x.png in Resources */,
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,

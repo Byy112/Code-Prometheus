@@ -198,7 +198,6 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     self.contacts.cp_im = sender.text;
 }
 -(void) editContactsEmail:(UITextField*)sender{
-#warning TPKeyboard BUG 当点击这个textfield时,布局不正确
     self.contacts.cp_email = sender.text;
 }
 -(void) editContactsBloodType:(UIButton*)sender{
