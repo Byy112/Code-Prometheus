@@ -37,7 +37,7 @@
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClick:)];
     self.navigationItem.leftBarButtonItem = leftButton;
-    self.searchDisplayController.searchBar.placeholder = self.name;
+    self.searchDisplayController.searchBar.text = self.name;
     
     // 长按手势
     UILongPressGestureRecognizer *btnLongTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
@@ -47,15 +47,6 @@
     self.goUserLocation = self.cpAnnotation == nil;
     self.goPoint = self.cpAnnotation != nil;
     
-    
-    if (!self.cpAnnotation && self.name) {
-        NSString* addressName = [self.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        if (![addressName isEqualToString:@""]) {
-            AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
-            geo.address = addressName;
-            [self.search AMapGeocodeSearch:geo];
-        }
-    }
     // 数据库点
     self.annotationDB = [NSMutableArray array];
     if (self.cpAnnotation) {
@@ -70,6 +61,18 @@
         self.goPoint = NO;
     }
     [self updateMapView];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    // 需要搜索
+    if (!self.cpAnnotation && self.name) {
+        NSString* addressName = [self.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (![addressName isEqualToString:@""]) {
+            [self.searchDisplayController setActive:YES animated:YES];
+            [self.searchDisplayController.searchBar setText:addressName];
+        }
+    }
 }
 
 -(void) updateMapView{
@@ -119,18 +122,6 @@
     
     [self.search AMapGeocodeSearch:geo];
 }
-//- (void)clearAndSearchGeocodeWithKey:(NSString *)key
-//{
-//    /* 清除annotation. */
-//    [self clear];
-//    
-//    [self searchGeocodeWithKey:key];
-//}
-///* 清除annotation. */
-//- (void)clear
-//{
-//    [self.mapView removeAnnotations:self.mapView.annotations];
-//}
 #pragma mark - IBAction
 -(IBAction) saveButtonClick:(UIButton*)sender{
     // 保存信息
@@ -201,10 +192,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AMapTip *tip = self.tips[indexPath.row];
-//    [self clearAndSearchGeocodeWithKey:tip.name];
     [self searchGeocodeWithKey:tip.name];
-    [self.searchDisplayController setActive:NO animated:NO];
-    self.searchDisplayController.searchBar.placeholder = tip.name;
+    [self.searchDisplayController setActive:NO animated:YES];
+    self.searchDisplayController.searchBar.text = tip.name;
 }
 #pragma mark - AMapSearchDelegate
 // 搜索异常
@@ -340,6 +330,9 @@
     [self searchTipsWithKey:searchString];
     return NO;
 }
+- (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
+    controller.searchBar.text = controller.searchBar.text;
+}
 -(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         CGRect statusBarFrame =  [[UIApplication sharedApplication] statusBarFrame];
@@ -361,9 +354,8 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSString *key = searchBar.text;
-//    [self clearAndSearchGeocodeWithKey:key];
     [self searchGeocodeWithKey:key];
-    [self.searchDisplayController setActive:NO animated:NO];
-    self.searchDisplayController.searchBar.placeholder = key;
+    [self.searchDisplayController setActive:NO animated:YES];
+    self.searchDisplayController.searchBar.text = key;
 }
 @end
