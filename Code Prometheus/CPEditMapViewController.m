@@ -131,7 +131,7 @@
 #pragma mark - IBAction
 -(IBAction) saveButtonClick:(UIButton*)sender{
     // 保存信息
-    if (self.mapView.selectedAnnotations.count>0) {
+    if (self.mapView.selectedAnnotations.count>0 && ![self.mapView.selectedAnnotations.firstObject isKindOfClass:[MAUserLocation class]]) {
         // 选点
         id<MAAnnotation> annotation = self.mapView.selectedAnnotations.lastObject;
         
