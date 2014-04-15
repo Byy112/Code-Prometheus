@@ -47,7 +47,7 @@
 }
 -(void)updateUI{
     if (CPLastSendSMSTimeInterval!=0 && CPLastSendSMSTimeInterval+CP_SendSMSTimeInterval >= [[NSDate date] timeIntervalSince1970]) {
-        [self.sendButton setTitle:[NSString stringWithFormat:@"重新发送(%ds)",(NSInteger)(CPLastSendSMSTimeInterval+CP_SendSMSTimeInterval-[[NSDate date] timeIntervalSince1970])] forState:UIControlStateNormal];
+        [self.sendButton setTitle:[NSString stringWithFormat:@"重新发送(%ds)",(NSInteger)(CPLastSendSMSTimeInterval+CP_SendSMSTimeInterval-[[NSDate date] timeIntervalSince1970])] forState:UIControlStateDisabled];
         self.sendButton.enabled = NO;
     }else{
         [self.sendButton setTitle:@"发送安全码到手机" forState:UIControlStateNormal];

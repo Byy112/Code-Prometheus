@@ -234,7 +234,7 @@ static char CPAssociatedKeyRechargeItem;
     [hud show:YES];
     [CPServer requestRechargeCreateWithItemID:self.selectRechargeItemId block:^(BOOL success, NSString *message, NSNumber *rechargeId, NSString *signInfo, NSString *sign) {
         if (success) {
-            NSString *appScheme = @"Code Prometheus";
+            NSString *appScheme = @"保险家";
             NSString* orderInfo = signInfo;
             NSString* signedStr = sign;
             NSString *orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
@@ -252,6 +252,7 @@ static char CPAssociatedKeyRechargeItem;
 //wap回调函数
 -(void)paymentResult:(NSString *)resultd
 {
+    CPLogWarn(@"支付宝支付回调结果:%@",resultd);
     //结果处理
     AlixPayResult* result = [[AlixPayResult alloc] initWithString:resultd];
 	if (result)
