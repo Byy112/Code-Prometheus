@@ -181,9 +181,9 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CPContacts* selectContacts = [self contactsWithtTable:tableView IndexPath:indexPath];
     self.contacts.cp_refer_contact = selectContacts.cp_uuid;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark - UISearchBarDelegate

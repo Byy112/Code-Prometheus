@@ -484,6 +484,7 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.model = CPGlobalMapModelSearchedContacts;
     NSString* aleph = self.contactsForAlephSortKeys[indexPath.section];
     self.contacts = self.contactsForAlephSort[aleph][indexPath.row];

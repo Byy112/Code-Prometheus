@@ -197,6 +197,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AMapTip *tip = self.tips[indexPath.row];
     [self searchGeocodeWithKey:tip.name city:nil];
     [self.searchDisplayController setActive:NO animated:YES];

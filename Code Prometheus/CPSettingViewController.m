@@ -39,6 +39,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // 取消现有提示
     [[TWMessageBarManager sharedInstance] hideAll];
     if (indexPath.row == 2) {
@@ -50,7 +51,6 @@
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                            description:@"请先登录"
                                                                   type:TWMessageBarMessageTypeInfo];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
     }
     if (indexPath.row == 3) {
@@ -80,7 +80,6 @@
                 }];
             }
         }];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     if (indexPath.row == 4) {
         CPSyncSettingViewController* controller = [[CPSyncSettingViewController alloc] initWithNibName:nil bundle:nil];
