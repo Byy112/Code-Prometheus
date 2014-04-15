@@ -49,6 +49,8 @@
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"OK" description:@"修改成功" type:TWMessageBarMessageTypeSuccess];
             [hud hide:YES];
             
+            // 返回上一级目录
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             // 提示
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
