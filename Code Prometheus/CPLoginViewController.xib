@@ -102,28 +102,27 @@
                                                         <action selector="loginButtonClick:" destination="-1" eventType="touchUpInside" id="eNw-0B-vVr"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-kZ-ONB">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-kZ-ONB">
                                                     <rect key="frame" x="20" y="156" width="55" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="Thy-8N-M9g"/>
                                                         <constraint firstAttribute="height" constant="19" id="XEO-ay-0jD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <state key="normal" title="忘记密码?">
                                                         <color key="titleColor" red="0.22970700820000001" green="0.68967918979999998" blue="0.69724569520000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="findPassword:" destination="-1" eventType="touchUpInside" id="0dx-Hw-zAN"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdl-US-Vdc">
-                                                    <rect key="frame" x="20" y="175" width="64" height="1"/>
+                                                    <rect key="frame" x="20" y="171" width="56" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.22970700820000001" green="0.68967918979999998" blue="0.69724569520000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="REx-6r-qar"/>
+                                                        <constraint firstAttribute="width" constant="56" id="REx-6r-qar"/>
                                                         <constraint firstAttribute="height" constant="1" id="qEc-3i-sx7"/>
                                                     </constraints>
                                                 </view>
@@ -137,7 +136,7 @@
                                                 <constraint firstItem="Lcz-kZ-ONB" firstAttribute="top" secondItem="ruo-VV-Lq8" secondAttribute="bottom" constant="8" id="RHS-SC-Q5V"/>
                                                 <constraint firstItem="kHK-za-L9j" firstAttribute="centerX" secondItem="6mF-Ue-L7c" secondAttribute="centerX" id="TVS-U8-J4G"/>
                                                 <constraint firstItem="kHK-za-L9j" firstAttribute="centerX" secondItem="ruo-VV-Lq8" secondAttribute="centerX" id="W3N-Da-yqW"/>
-                                                <constraint firstItem="Gdl-US-Vdc" firstAttribute="top" secondItem="Lcz-kZ-ONB" secondAttribute="bottom" id="WZe-1g-Bon"/>
+                                                <constraint firstItem="Gdl-US-Vdc" firstAttribute="top" secondItem="Lcz-kZ-ONB" secondAttribute="bottom" constant="-4" id="WZe-1g-Bon"/>
                                                 <constraint firstItem="Lcz-kZ-ONB" firstAttribute="leading" secondItem="Gdl-US-Vdc" secondAttribute="leading" id="XnZ-bU-cex"/>
                                                 <constraint firstAttribute="bottom" secondItem="Lcz-kZ-ONB" secondAttribute="bottom" constant="8" id="eCr-ix-VTO"/>
                                                 <constraint firstItem="6mF-Ue-L7c" firstAttribute="top" secondItem="kHK-za-L9j" secondAttribute="bottom" constant="2" id="nBL-ap-Gxn"/>
