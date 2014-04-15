@@ -13,6 +13,21 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
+  - BlocksKit (2.2.2):
+    - BlocksKit/All
+  - BlocksKit/All (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.2)
+  - BlocksKit/DynamicDelegate (2.2.2)
+  - BlocksKit/MessageUI (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - CocoaLumberjack (1.6.5.1):
     - CocoaLumberjack/Core
     - CocoaLumberjack/Extensions
@@ -103,6 +118,7 @@ PODS:
 DEPENDENCIES:
   - ABCalendarPicker (= 1.1.2)
   - ASIHTTPRequest (= 1.8.2)
+  - BlocksKit (= 2.2.2)
   - CocoaLumberjack (= 1.6.5.1)
   - FDTake (= 0.1)
   - HPGrowingTextView (= 1.0.1)
@@ -130,6 +146,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ABCalendarPicker: a7057f2007592ea4688a9c259ab223460852b8a0
   ASIHTTPRequest: 0b05282cf3c422c3474eff98c5bb8c1192b91b86
+  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
   CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
   DACircularProgress: 659d6fd11b5fc099c13ba9350239d9dca324916a
   FDTake: 1b8a6647bf132df32868b00b423f5ab8b938e00d

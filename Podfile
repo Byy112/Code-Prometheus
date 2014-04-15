@@ -33,5 +33,5 @@ pod 'MWPhotoBrowser', '1.1.4'
 pod 'ASIHTTPRequest', '1.8.2'
 
 
-#pod 'BlocksKit', '2.0.0'
+pod 'BlocksKit', '2.2.2'
 end
