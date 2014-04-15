@@ -16,6 +16,7 @@
 #import "CPNavigationController.h"
 #import "CPAccountRechargeViewController.h"
 #import "CPAboutUsViewController.h"
+#import <BlocksKit+UIKit.h>
 
 @interface CPSettingViewController ()
 @property (weak, nonatomic) IBOutlet TDBadgedCell *systemMessageCell;
@@ -53,27 +54,31 @@
         }
     }
     if (indexPath.row == 3) {
-        // 启动进度条
-        MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
-        hud.mode = MBProgressHUDModeAnnularDeterminate;
-        hud.removeFromSuperViewOnHide = YES;
-        [self.view addSubview:hud];
-        [hud show:YES];
-        [self addContactsFromAddressBookWithCompleteBlock:^(BOOL success, NSInteger count) {
-            if (success) {
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"OK"
-                                                               description:[NSString stringWithFormat:@"导入%d条通讯录",count]
-                                                                      type:TWMessageBarMessageTypeSuccess];
-                // 同步
-                [CPServer sync];
-            }else{
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                               description:@"导入通讯录失败,请查看权限设置"
-                                                                      type:TWMessageBarMessageTypeError];
+        [UIAlertView bk_showAlertViewWithTitle:@"导入通讯录" message:@"将要把您通讯录里所有人导入手机" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex == 1) {
+                // 启动进度条
+                MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
+                hud.mode = MBProgressHUDModeAnnularDeterminate;
+                hud.removeFromSuperViewOnHide = YES;
+                [self.view addSubview:hud];
+                [hud show:YES];
+                [self addContactsFromAddressBookWithCompleteBlock:^(BOOL success, NSInteger count) {
+                    if (success) {
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"OK"
+                                                                       description:[NSString stringWithFormat:@"导入%d条通讯录",count]
+                                                                              type:TWMessageBarMessageTypeSuccess];
+                        // 同步
+                        [CPServer sync];
+                    }else{
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                                       description:@"导入通讯录失败,请查看权限设置"
+                                                                              type:TWMessageBarMessageTypeError];
+                    }
+                    [hud hide:YES];
+                } progressBlock:^(NSInteger total, NSInteger done) {
+                    hud.progress = ((double)done)/((double)total);
+                }];
             }
-            [hud hide:YES];
-        } progressBlock:^(NSInteger total, NSInteger done) {
-            hud.progress = ((double)done)/((double)total);
         }];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
