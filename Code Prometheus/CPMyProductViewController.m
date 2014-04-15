@@ -204,6 +204,8 @@ static char CPAssociatedKeyProduct;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"OK"
                                                                description:@"更改套餐成功"
                                                                       type:TWMessageBarMessageTypeSuccess];
+                // 修改本地的数据
+                [self requestMemberInfoAndUpdate];
             }else{
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                                description:message
@@ -217,5 +219,75 @@ static char CPAssociatedKeyProduct;
     CPProduct* product = objc_getAssociatedObject(sender, &CPAssociatedKeyProduct);
     self.selectProductId = product.productId;
     [self updateMyButton];
+}
+
+
+
+-(void) requestMemberInfoAndUpdate{
+    MBProgressHUD* hud = nil;
+    if (!CPMemberName) {
+        hud = [[MBProgressHUD alloc] initWithView:self.view];
+        hud.removeFromSuperViewOnHide = YES;
+        [self.view addSubview:hud];
+        [hud show:YES];
+    }
+    [CPServer requestMemberInfo:^(BOOL success,NSString* message,NSString* name,NSString* productId,NSNumber* price,NSString* room,NSNumber* memberTime,NSNumber* usage,NSString* usePercent,NSNumber* leftRoom,NSNumber* balance) {
+        if (success) {
+            BOOL needUpdateUI = NO;
+            if (!CPMemberName || ![CPMemberName isEqualToString:name]) {
+                CPLogInfo(@"更新会员名称:%@->%@",CPMemberName,name);
+                CPSetMemberName(name);
+                needUpdateUI = YES;
+            }
+            if (!CPProductId || ![CPProductId isEqualToString:productId]) {
+                CPLogInfo(@"更新会员产品ID:%@->%@",CPProductId,productId);
+                CPSetProductId(productId);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberPrice || ![CPMemberPrice isEqual:price]) {
+                CPLogInfo(@"更新会员消费价格:%@->%@",CPMemberPrice,price);
+                CPSetMemberPrice(price);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberRoom || ![CPMemberRoom isEqualToString:room]) {
+                CPLogInfo(@"更新会员空间:%@->%@",CPMemberRoom,room);
+                CPSetMemberRoom(room);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberTime || ![CPMemberTime isEqual:memberTime]) {
+                CPLogInfo(@"更新会员剩余时间:%@->%@",CPMemberTime,memberTime);
+                CPSetMemberTime(memberTime);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberUsage || ![CPMemberUsage isEqual:usage]) {
+                CPLogInfo(@"更新会员使用的空间:%@->%@",CPMemberUsage,usage);
+                CPSetMemberUsage(usage);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberUsePercent || ![CPMemberUsePercent isEqualToString:usePercent]) {
+                CPLogInfo(@"更新会员使用空间百分比:%@->%@",CPMemberUsePercent,usePercent);
+                CPSetMemberUsePercent(usePercent);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberLeftRoom || ![CPMemberLeftRoom isEqual:leftRoom]) {
+                CPLogInfo(@"更新会员剩余空间:%@->%@",CPMemberLeftRoom,leftRoom);
+                CPSetMemberLeftRoom(leftRoom);
+                needUpdateUI = YES;
+            }
+            if (!CPMemberBalance || ![CPMemberBalance isEqual:balance]) {
+                CPLogInfo(@"更新会员余额(豆):%@->%@",CPMemberBalance,balance);
+                CPSetMemberBalance(balance);
+                needUpdateUI = YES;
+            }
+            [self updateUI];
+        }else{
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:message
+                                                                  type:TWMessageBarMessageTypeError];
+        }
+        if (hud) {
+            [hud hide:YES];
+        }
+    }];
 }
 @end
