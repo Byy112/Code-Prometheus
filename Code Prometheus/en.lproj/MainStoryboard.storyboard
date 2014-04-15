@@ -413,18 +413,20 @@
                         <sections>
                             <tableViewSection id="7r4-tq-IGy">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="MML-RH-Mir">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="70"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="MML-RH-Mir">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MML-RH-Mir" id="hSh-cc-3uW">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-4P-ywI">
-                                                    <rect key="frame" x="170" y="12" width="46" height="45"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="cp_contacts_detail_call.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="170" y="8" width="46" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
+                                                    <state key="normal" title="Number" image="cp_contacts_detail_call.png">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -435,10 +437,12 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8Z-Gg-aDC">
-                                                    <rect key="frame" x="220" y="12" width="46" height="45"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="cp_contacts_detail_sms.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="220" y="8" width="46" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
+                                                    <state key="normal" title="Message" image="cp_contacts_detail_sms.png">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -449,13 +453,15 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zD-24-xrv">
-                                                    <rect key="frame" x="270" y="12" width="46" height="45"/>
+                                                    <rect key="frame" x="270" y="8" width="46" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="46" id="KhP-Ge-lXM"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="cp_contacts_detail_email.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
+                                                    <state key="normal" title="Mail" image="cp_contacts_detail_email.png">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -466,11 +472,10 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBg-z9-Y0F">
-                                                    <rect key="frame" x="10" y="11" width="52" height="47"/>
+                                                    <rect key="frame" x="4" y="8" width="60" height="59"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="47" id="6ri-W1-JyV"/>
-                                                        <constraint firstAttribute="width" constant="52" id="kQP-qN-kto"/>
+                                                        <constraint firstAttribute="width" constant="60" id="kQP-qN-kto"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal">
@@ -481,8 +486,8 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="90" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-C6-b2t">
-                                                    <rect key="frame" x="72" y="4" width="90" height="61"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="88" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-C6-b2t">
+                                                    <rect key="frame" x="74" y="4" width="88" height="67"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -492,14 +497,15 @@
                                             <constraints>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="height" secondItem="9zD-24-xrv" secondAttribute="height" id="0Ox-Br-gzf"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="centerY" secondItem="7Y0-4P-ywI" secondAttribute="centerY" id="1el-2c-yfK"/>
-                                                <constraint firstAttribute="bottom" secondItem="9zD-24-xrv" secondAttribute="bottom" constant="12" id="M2L-fm-DUg"/>
+                                                <constraint firstAttribute="bottom" secondItem="9zD-24-xrv" secondAttribute="bottom" constant="8" id="M2L-fm-DUg"/>
                                                 <constraint firstItem="7Y0-4P-ywI" firstAttribute="leading" secondItem="Wpf-C6-b2t" secondAttribute="trailing" constant="8" id="M8Z-Bl-kjf"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="centerY" secondItem="9zD-24-xrv" secondAttribute="centerY" id="O2U-eB-jrP"/>
                                                 <constraint firstAttribute="trailing" secondItem="9zD-24-xrv" secondAttribute="trailing" constant="4" id="O41-fV-i7k"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="width" secondItem="7Y0-4P-ywI" secondAttribute="width" id="OSe-E7-FwV"/>
                                                 <constraint firstAttribute="bottom" secondItem="Wpf-C6-b2t" secondAttribute="bottom" constant="4" id="PPz-Om-fb0"/>
+                                                <constraint firstAttribute="bottom" secondItem="WBg-z9-Y0F" secondAttribute="bottom" constant="8" id="WY7-X5-itI"/>
                                                 <constraint firstItem="Wpf-C6-b2t" firstAttribute="leading" secondItem="WBg-z9-Y0F" secondAttribute="trailing" constant="10" id="YDF-88-jVn"/>
-                                                <constraint firstItem="9zD-24-xrv" firstAttribute="top" secondItem="hSh-cc-3uW" secondAttribute="top" constant="12" id="bZB-8d-psr"/>
+                                                <constraint firstItem="9zD-24-xrv" firstAttribute="top" secondItem="hSh-cc-3uW" secondAttribute="top" constant="8" id="bZB-8d-psr"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="leading" secondItem="7Y0-4P-ywI" secondAttribute="trailing" constant="4" id="hha-KX-fVh"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="height" secondItem="7Y0-4P-ywI" secondAttribute="height" id="lw7-K6-vc2"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="width" secondItem="9zD-24-xrv" secondAttribute="width" id="mGn-x5-jaY"/>
@@ -508,12 +514,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="WBg-z9-Y0F" firstAttribute="top" secondItem="MML-RH-Mir" secondAttribute="top" constant="11" id="Nfu-W8-5bc"/>
-                                            <constraint firstItem="WBg-z9-Y0F" firstAttribute="leading" secondItem="MML-RH-Mir" secondAttribute="leading" constant="10" id="g1v-o9-zKL"/>
+                                            <constraint firstItem="WBg-z9-Y0F" firstAttribute="top" secondItem="MML-RH-Mir" secondAttribute="top" constant="8" id="Nfu-W8-5bc"/>
+                                            <constraint firstItem="WBg-z9-Y0F" firstAttribute="leading" secondItem="MML-RH-Mir" secondAttribute="leading" constant="4" id="g1v-o9-zKL"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EuE-wT-Uyj" style="IBUITableViewCellStyleDefault" id="kxx-IR-adR">
-                                        <rect key="frame" x="0.0" y="134" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="140" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kxx-IR-adR" id="OHh-1t-pfJ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -532,7 +538,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xGl-o7-9xi" style="IBUITableViewCellStyleDefault" id="zuq-xX-Wf3">
-                                        <rect key="frame" x="0.0" y="178" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="184" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zuq-xX-Wf3" id="DhP-XY-9HJ">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -551,7 +557,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6YN-dI-3gi" style="IBUITableViewCellStyleDefault" id="UeR-nF-cVg">
-                                        <rect key="frame" x="0.0" y="222" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UeR-nF-cVg" id="TOr-Vi-Tgv">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -570,7 +576,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4S5-G4-8dh" style="IBUITableViewCellStyleDefault" id="8mi-Nz-pv1">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="272" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8mi-Nz-pv1" id="Cbn-o6-dlq">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -589,7 +595,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NWp-eU-cNM" style="IBUITableViewCellStyleDefault" id="o9d-9y-otm">
-                                        <rect key="frame" x="0.0" y="310" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="316" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9d-9y-otm" id="NYh-Sb-5rd">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -608,7 +614,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="mXJ-Y1-gY2" style="IBUITableViewCellStyleDefault" id="V0m-Pv-eYa">
-                                        <rect key="frame" x="0.0" y="354" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="360" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V0m-Pv-eYa" id="ttN-Cj-Rdb">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -627,7 +633,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="HWh-yd-6LS" style="IBUITableViewCellStyleDefault" id="kfP-iM-4Wu">
-                                        <rect key="frame" x="0.0" y="398" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="404" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfP-iM-4Wu" id="cnB-95-VXx">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
