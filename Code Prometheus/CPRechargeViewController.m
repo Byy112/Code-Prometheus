@@ -24,13 +24,6 @@ static char CPAssociatedKeyRechargeItem;
 @implementation CPRechargeItem
 @end
 
-//@interface CPSign : NSObject
-//@property(nonatomic) NSNumber* rechargeId;
-//@property(nonatomic) NSString* signInfo;
-//@property(nonatomic) NSString* sign;
-//@end
-//@implementation CPSign
-//@end
 
 @interface CPRechargeViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -41,7 +34,7 @@ static char CPAssociatedKeyRechargeItem;
 @property (nonatomic) BOOL dirty;
 @property (nonatomic) NSString* selectRechargeItemId;
 
-@property (weak,nonatomic) MBProgressHUD* hud;
+//@property (weak,nonatomic) MBProgressHUD* hud;
 
 @property (nonatomic) BOOL needDisplayMessage;
 @property (nonatomic) BOOL paySuccess;
@@ -228,7 +221,7 @@ static char CPAssociatedKeyRechargeItem;
         return;
     }
     MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
-    self.hud = hud;
+//    self.hud = hud;
     hud.removeFromSuperViewOnHide = YES;
 	[self.view addSubview:hud];
     [hud show:YES];
@@ -241,13 +234,20 @@ static char CPAssociatedKeyRechargeItem;
                                      orderInfo, signedStr, @"RSA"];
             CPLogInfo(@"请求支付宝 orderString:%@",orderString);
             [AlixLibService payOrder:orderString AndScheme:appScheme seletor:@selector(paymentResult:) target:self];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                            description:message
                                                                   type:TWMessageBarMessageTypeError];
-            [hud hide:YES];
+//            [hud hide:YES];
         }
+        [hud hide:YES];
     }];
+}
+#pragma mark - Notification
+- (void) receiveNotification:(NSNotification*) notification{
+    CPLogInfo(@"充值返回");
+    [self.navigationController popViewControllerAnimated:NO];
 }
 //wap回调函数
 -(void)paymentResult:(NSString *)resultd
@@ -291,9 +291,9 @@ static char CPAssociatedKeyRechargeItem;
         self.paySuccess = NO;
         
     }
-    if (self.hud) {
-        [self.hud hide:YES];
-        self.hud = nil;
-    }
+//    if (self.hud) {
+//        [self.hud hide:YES];
+//        self.hud = nil;
+//    }
 }
 @end
