@@ -60,7 +60,9 @@
     updateDateLabel.text = rechargeInfo.updateDate;
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 #pragma mark - private
 -(void) requestRechargeLog{
     MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];

@@ -82,6 +82,9 @@
     id controller = segue.destinationViewController;
     [controller setValue:self.contactsUUID forKey:@"contactsUUID"];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 #pragma mark - Notification
 - (void) receiveNotification:(NSNotification*) notification{
     self.dirty = YES;

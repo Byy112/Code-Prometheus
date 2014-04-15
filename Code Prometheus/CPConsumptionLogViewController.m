@@ -58,6 +58,9 @@
     updateDateLabel.text = orderInfo.updateDate;
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - private
 -(void) requestConsumptionLog{

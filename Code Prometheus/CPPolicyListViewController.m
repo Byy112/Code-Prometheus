@@ -116,6 +116,9 @@ static char CPAssociatedKeyPolicy;
         [alert show];
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 #pragma mark - Notification
 //- (void) addPolicyWithNotification:(NSNotification*) notification{
 //    CPLogInfo(@"%@,收到通知,添加保单",self);
