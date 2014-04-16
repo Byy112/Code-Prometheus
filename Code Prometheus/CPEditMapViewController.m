@@ -241,8 +241,7 @@
     }
     else
     {
-        [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:annotations]
-                               animated:YES];
+        [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:annotations] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
     }
     self.annotationSearch = annotations;
     [self updateMapView];
