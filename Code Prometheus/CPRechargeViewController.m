@@ -46,6 +46,7 @@ static char CPAssociatedKeyRechargeItem;
 {
     [super viewDidLoad];
     self.dirty = YES;
+    self.navigationItem.title = @"充值";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

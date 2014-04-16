@@ -41,6 +41,7 @@ static char CPAssociatedKeyProduct;
     [super viewDidLoad];
     self.dirty = YES;
     self.selectProductId = CPProductId;
+    self.navigationItem.title = @"我的套餐";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

@@ -401,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="-10" y="-1253"/>
         </scene>
-        <!--Contacts Detail View Controller-->
+        <!--Contacts Detail View Controller - 详细资料-->
         <scene sceneID="f9k-Pz-zK1">
             <objects>
                 <tableViewController storyboardIdentifier="CPContactsDetailViewController" id="ZQH-hU-2bj" customClass="CPContactsDetailViewController" sceneMemberID="viewController">
@@ -659,7 +659,7 @@
                             <outlet property="delegate" destination="ZQH-hU-2bj" id="ifl-2I-OoC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="x0F-ga-9g4"/>
+                    <navigationItem key="navigationItem" title="详细资料" id="x0F-ga-9g4"/>
                     <connections>
                         <outlet property="nameLable" destination="Wpf-C6-b2t" id="Ivm-VA-lvY"/>
                         <outlet property="portraitButton" destination="WBg-z9-Y0F" id="Uro-9C-3c8"/>
@@ -669,7 +669,7 @@
             </objects>
             <point key="canvasLocation" x="495" y="-1203"/>
         </scene>
-        <!--Trace List View Controller-->
+        <!--Trace List View Controller - 跟进信息-->
         <scene sceneID="z4r-bV-kTN">
             <objects>
                 <viewController id="V87-Dw-f9o" customClass="CPTraceListViewController" sceneMemberID="viewController">
@@ -738,7 +738,7 @@
                             <constraint firstItem="4XC-Je-cJd" firstAttribute="top" secondItem="2oD-OO-J0b" secondAttribute="top" id="oI4-9T-cpe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cwI-Xh-bmg">
+                    <navigationItem key="navigationItem" title="跟进信息" id="cwI-Xh-bmg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HyZ-RL-OYu">
                             <connections>
                                 <segue destination="Flf-tD-maJ" kind="push" identifier="cp_segue_trace_2_edit" id="cmq-dK-i0I"/>
@@ -1079,7 +1079,7 @@
             </objects>
             <point key="canvasLocation" x="1048" y="295"/>
         </scene>
-        <!--Policy List View Controller-->
+        <!--Policy List View Controller - 保单信息-->
         <scene sceneID="j1H-Mt-CEu">
             <objects>
                 <tableViewController id="m2B-aZ-DfP" customClass="CPPolicyListViewController" sceneMemberID="viewController">
@@ -1134,7 +1134,7 @@
                             <outlet property="delegate" destination="m2B-aZ-DfP" id="wkG-Ul-XGU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OHT-RN-Nvu">
+                    <navigationItem key="navigationItem" title="保单信息" id="OHT-RN-Nvu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qld-zo-Idf">
                             <connections>
                                 <segue destination="1MU-S5-PZ5" kind="push" identifier="cp_segue_policy_2_edit" id="J4X-Ef-exp"/>
@@ -2965,7 +2965,7 @@
             </objects>
             <point key="canvasLocation" x="1581" y="1051"/>
         </scene>
-        <!--Policy Edit View Controller-->
+        <!--Policy Edit View Controller - 保单信息-->
         <scene sceneID="bg5-G6-RqU">
             <objects>
                 <viewController id="1MU-S5-PZ5" customClass="CPPolicyEditViewController" sceneMemberID="viewController">
@@ -3329,7 +3329,7 @@
                             <constraint firstAttribute="trailing" secondItem="XGy-P0-qME" secondAttribute="trailing" id="spG-GD-1Q4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ato-rt-S2D">
+                    <navigationItem key="navigationItem" title="保单信息" id="Ato-rt-S2D">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oJ0-NC-Muf">
                             <connections>
                                 <action selector="cancel:" destination="1MU-S5-PZ5" id="Goe-dM-nNj"/>
@@ -3363,7 +3363,7 @@
             </objects>
             <point key="canvasLocation" x="1581" y="1743"/>
         </scene>
-        <!--Policy Read View Controller-->
+        <!--Policy Read View Controller - 保单信息-->
         <scene sceneID="pUg-bM-WBS">
             <objects>
                 <viewController id="Y4w-R2-BTZ" customClass="CPPolicyReadViewController" sceneMemberID="viewController">
@@ -3683,7 +3683,7 @@
                             <constraint firstAttribute="trailing" secondItem="Pew-9I-edU" secondAttribute="trailing" id="cmT-cZ-oXz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Nqh-7e-FQ2">
+                    <navigationItem key="navigationItem" title="保单信息" id="Nqh-7e-FQ2">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="F3Q-Bx-1Xm">
                             <connections>
                                 <segue destination="1MU-S5-PZ5" kind="custom" identifier="cp_segue_policy_read_2_edit" customClass="CPPushNoAnimation" id="Hxi-Xk-tBr"/>
@@ -4122,7 +4122,7 @@
             </objects>
             <point key="canvasLocation" x="1581" y="295"/>
         </scene>
-        <!--Trace Read View Controller-->
+        <!--Trace Read View Controller - 跟进信息-->
         <scene sceneID="eTq-qc-Dim">
             <objects>
                 <viewController id="buz-JH-qOy" customClass="CPTraceReadViewController" sceneMemberID="viewController">
@@ -4331,7 +4331,7 @@
                             <constraint firstAttribute="bottom" secondItem="pho-m1-ru2" secondAttribute="bottom" id="yf9-Os-7G3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qzU-oW-TOx">
+                    <navigationItem key="navigationItem" title="跟进信息" id="qzU-oW-TOx">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="aUE-L1-c26">
                             <connections>
                                 <segue destination="Flf-tD-maJ" kind="custom" identifier="cp_segue_trace_read_2_edit" customClass="CPPushNoAnimation" id="mcw-QB-anL"/>
@@ -4353,7 +4353,7 @@
             </objects>
             <point key="canvasLocation" x="1581" y="-431"/>
         </scene>
-        <!--Personal Details Read View Controller-->
+        <!--Personal Details Read View Controller - 个人信息-->
         <scene sceneID="7EO-gb-HEu">
             <objects>
                 <viewController id="cml-Tf-GQ5" customClass="CPPersonalDetailsReadViewController" sceneMemberID="viewController">
@@ -4404,7 +4404,7 @@
                             <outlet property="delegate" destination="cml-Tf-GQ5" id="XR8-zA-207"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2BH-D0-xg5">
+                    <navigationItem key="navigationItem" title="个人信息" id="2BH-D0-xg5">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="wvx-gb-iyF">
                             <connections>
                                 <segue destination="SlH-Fd-fHt" kind="custom" identifier="cp_segue_info_2_edit" customClass="CPPushNoAnimation" id="dWl-ZK-dcq"/>
@@ -4419,7 +4419,7 @@
             </objects>
             <point key="canvasLocation" x="1048" y="-1203"/>
         </scene>
-        <!--Trace Edit View Controller-->
+        <!--Trace Edit View Controller - 跟进信息-->
         <scene sceneID="JM0-9a-h27">
             <objects>
                 <viewController id="Flf-tD-maJ" customClass="CPTraceEditViewController" sceneMemberID="viewController">
@@ -4647,7 +4647,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="zeB-k8-ZN2">
+                    <navigationItem key="navigationItem" title="跟进信息" id="zeB-k8-ZN2">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gTj-uf-1wv">
                             <connections>
                                 <action selector="cancel:" destination="Flf-tD-maJ" id="8sH-Vn-OFf"/>
@@ -4676,7 +4676,7 @@
             </objects>
             <point key="canvasLocation" x="1581" y="-1203"/>
         </scene>
-        <!--Personal Details Edit View Controller-->
+        <!--Personal Details Edit View Controller - 个人信息-->
         <scene sceneID="1dY-a5-6EG">
             <objects>
                 <viewController id="SlH-Fd-fHt" customClass="CPPersonalDetailsEditViewController" sceneMemberID="viewController">
@@ -4975,7 +4975,7 @@
                             <constraint firstItem="AzJ-eU-dIc" firstAttribute="leading" secondItem="Epd-rU-yDc" secondAttribute="leading" id="rxn-l0-JWN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="92x-Od-Ftu">
+                    <navigationItem key="navigationItem" title="个人信息" id="92x-Od-Ftu">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2tZ-06-lr2">
                             <connections>
                                 <action selector="cancelButtonClick:" destination="SlH-Fd-fHt" id="p3y-ia-CJ8"/>
@@ -5904,7 +5904,7 @@
             </objects>
             <point key="canvasLocation" x="53" y="1679"/>
         </scene>
-        <!--Debug View Controller-->
+        <!--Debug View Controller - 开发者-->
         <scene sceneID="PKG-pK-VdT">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="1pl-bN-vCA" customClass="CPDebugViewController" sceneMemberID="viewController">
@@ -6019,7 +6019,7 @@
                             <outlet property="delegate" destination="1pl-bN-vCA" id="gpN-g2-fzd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nh4-LW-Qxb"/>
+                    <navigationItem key="navigationItem" title="开发者" id="Nh4-LW-Qxb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsc-9S-ug2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6130,10 +6130,10 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="6E2-kA-WPj"/>
-        <segue reference="eIF-TL-SHF"/>
-        <segue reference="Fd3-pp-7IU"/>
-        <segue reference="VFQ-1i-fdr"/>
-        <segue reference="Hxi-Xk-tBr"/>
+        <segue reference="duM-7h-8OJ"/>
         <segue reference="mcw-QB-anL"/>
+        <segue reference="dWl-ZK-dcq"/>
+        <segue reference="DEN-3J-ehe"/>
+        <segue reference="Hxi-Xk-tBr"/>
     </inferredMetricsTieBreakers>
 </document>

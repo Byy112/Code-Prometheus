@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     self.dirty = YES;
+    self.navigationItem.title = @"消费记录";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
