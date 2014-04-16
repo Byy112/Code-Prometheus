@@ -8,6 +8,7 @@
 
 #import "BaseMapViewController.h"
 #import <TWMessageBarManager.h>
+#import "ReGeocodeAnnotation.h"
 
 @implementation BaseMapViewController
 
@@ -78,10 +79,16 @@
 
 #pragma mark - MAMapViewDelegate
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+    // 如果非地理位置变化,则返回
+    if (!updatingLocation) {
+        return;
+    }
+    CLLocationCoordinate2D coordinate = userLocation.location.coordinate;
     if (_goUserLocation && [self.mapView.userLocation location]) {
-        [self.mapView setRegion:MACoordinateRegionMake(self.mapView.userLocation.coordinate, MACoordinateSpanMake(1, 1)) animated:YES];
+        [self.mapView setRegion:MACoordinateRegionMake(coordinate, MACoordinateSpanMake(1, 1)) animated:YES];
         _goUserLocation = NO;
     }
+    [CPMapUtil updateCityAndLocation:userLocation];
 }
 - (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
     [[TWMessageBarManager sharedInstance] hideAll];

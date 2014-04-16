@@ -11,6 +11,7 @@
 #import "CommonUtility.h"
 #import "ReGeocodeAnnotation.h"
 #import <MBProgressHUD.h>
+#import <TWMessageBarManager.h>
 
 
 @interface CPEditMapViewController ()<UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
@@ -166,7 +167,6 @@
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:[lp locationInView:self.view] toCoordinateFromView:self.mapView];
     AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
     regeo.location = [AMapGeoPoint locationWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    regeo.requireExtension = YES;
     [self.search AMapReGoecodeSearch:regeo];
 }
 #pragma mark - UITableViewDataSource
@@ -199,7 +199,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AMapTip *tip = self.tips[indexPath.row];
-    [self searchGeocodeWithKey:tip.name city:nil];
+    [self searchGeocodeWithKey:tip.name city:@[tip.adcode]];
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = tip.name;
 }
@@ -219,6 +219,10 @@
 {
     if (response.geocodes.count == 0)
     {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"无结果"
+                                                              type:TWMessageBarMessageTypeInfo];
         return;
     }
     
@@ -336,7 +340,7 @@
 #pragma mark - UISearchDisplayDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self searchTipsWithKey:searchString city:nil];
+    [self searchTipsWithKey:searchString city:@[CP_MAP_UTIL_CITY]];
     return NO;
 }
 - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
@@ -363,7 +367,7 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSString *key = searchBar.text;
-    [self searchGeocodeWithKey:key city:nil];
+    [self searchGeocodeWithKey:key city:@[CP_MAP_UTIL_CITY]];
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = key;
 }

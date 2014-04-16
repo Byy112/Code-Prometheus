@@ -7,8 +7,6 @@
 //
 
 #import "CPGlobalMapViewController.h"
-#import <MAMapKit/MAMapKit.h>
-#import <AMapSearchKit/AMapSearchAPI.h>
 #import "CPContacts.h"
 #import "CPFamily.h"
 #import "CPCompany.h"
