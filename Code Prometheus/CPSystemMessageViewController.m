@@ -54,6 +54,12 @@
                 pushMessage.createTime = [dic objectForKey:@"createTime"];
                 [self.pushMessageArray addObject:pushMessage];
             }
+            // 按时间反向排序
+            [self.pushMessageArray sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                CPPushMessage* mes1 = obj1;
+                CPPushMessage* mes2 = obj2;
+                return -[mes1.createTime compare:mes2.createTime];
+            }];
             [self.tableView reloadData];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
