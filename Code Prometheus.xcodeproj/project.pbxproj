@@ -589,11 +589,11 @@
 		03F2EE6D1855A8FA00E003F5 /* CPReadMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPReadMapViewController.m; sourceTree = "<group>"; };
 		03F2EE6E1855A8FA00E003F5 /* CPReadMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPReadMapViewController.xib; sourceTree = "<group>"; };
 		03F2EE711855BABA00E003F5 /* CPCompanyReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCompanyReadViewController.h; sourceTree = "<group>"; };
-		03F2EE721855BABA00E003F5 /* CPCompanyReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCompanyReadViewController.m; sourceTree = "<group>"; };
+		03F2EE721855BABA00E003F5 /* CPCompanyReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPCompanyReadViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		03F2EE741855BCDE00E003F5 /* CPCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCompany.h; sourceTree = "<group>"; };
 		03F2EE751855BCDE00E003F5 /* CPCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCompany.m; sourceTree = "<group>"; };
 		03F2EE771855C39300E003F5 /* CPCompanyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCompanyEditViewController.h; sourceTree = "<group>"; };
-		03F2EE781855C39300E003F5 /* CPCompanyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCompanyEditViewController.m; sourceTree = "<group>"; };
+		03F2EE781855C39300E003F5 /* CPCompanyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPCompanyEditViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		03F92676180BD07100F59B28 /* UITableView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IndexPath.h"; sourceTree = "<group>"; };
 		03F92677180BD07100F59B28 /* UITableView+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+IndexPath.m"; sourceTree = "<group>"; };
 		03FA61E818488A5C00F1AECE /* CPPushNoAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPushNoAnimation.h; sourceTree = "<group>"; };

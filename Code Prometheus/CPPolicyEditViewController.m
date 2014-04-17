@@ -15,8 +15,8 @@
 #import <NYXImagesKit.h>
 #import <TDDatePickerController.h>
 #import <PopoverView.h>
-#import <MBProgressHUD.h>
 #import <TWMessageBarManager.h>
+#import <Masonry.h>
 
 static char CPAssociatedKeyTag;
 
@@ -80,40 +80,21 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
     [self.photoLayoutView addSubview:self.addPhotoButton];
     // 内容textview
     self.growingTextView = [[HPGrowingTextView alloc] initWithFrame:self.descriptionLayoutView.bounds];
-    //    self.growingTextView.isScrollable = NO;
-    //    self.growingTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-    //	self.growingTextView.minNumberOfLines = 1;
-    //	self.growingTextView.maxNumberOfLines = MaxNumberOfLines;
-    // you can also set the maximum height in points with maxHeight
+    self.growingTextView.isScrollable = NO;
     self.growingTextView.minHeight = 44;
     self.growingTextView.maxHeight = NSIntegerMax;
-    //	self.growingTextView.returnKeyType = UIReturnKeyGo;
-    //	self.growingTextView.font = [UIFont systemFontOfSize:15.0f];
+	self.growingTextView.font = [UIFont systemFontOfSize:17.0f];
+    self.growingTextView.textColor = [UIColor blueColor];
 	self.growingTextView.delegate = self;
-    self.growingTextView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
-    //    self.growingTextView.backgroundColor = [UIColor whiteColor];
-    //    self.growingTextView.placeholder = @"Type to see the textView grow!";
-    
-    // self.growingTextView.text = @"test\n\ntest";
-	// self.growingTextView.animateHeightChange = NO; //turns off animation
+	self.growingTextView.animateHeightChange = NO;
     [self.descriptionLayoutView addSubview:self.growingTextView];
     // 照片
     self.takeController = [[FDTakeController alloc] init];
     self.takeController.delegate = self;
-    // 启动进度条
-    MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    hud.removeFromSuperViewOnHide = YES;
-    [self.navigationController.view addSubview:hud];
-    [hud showAnimated:YES whileExecutingBlock:^{
-        // 加载数据
-        [self loadPolicy];
-        [self loadFiles];
-    } completionBlock:^{
-        // 更新UI
-        [self updateUI];
-        // hud消失
-        [hud removeFromSuperview];
-    }];
+    
+    [self loadPolicy];
+    [self loadFiles];
+    [self updateUI];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -121,17 +102,6 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     }
 }
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // 删除uiimageview
-//    for(UIView *subv in [self.photoLayoutView subviews])
-//    {
-//        if (subv != self.addPhotoButton) {
-//            [subv removeFromSuperview];
-//        }
-//    }
-//}
 #pragma mark - private
 -(void) loadPolicy{
     if (!self.policyUUID) {
@@ -379,9 +349,10 @@ static const CGFloat kImageSpacing = 5;
     float diff = (growingTextView.frame.size.height - height);
     float priorHeight = self.descriptionLayoutView.frame.size.height;
     priorHeight -= diff;
-    [self.descriptionLayoutView removeConstraint:self.descriptionLayoutViewHeight];
-    self.descriptionLayoutViewHeight = [NSLayoutConstraint constraintWithItem:self.descriptionLayoutView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.descriptionLayoutView.superview attribute:NSLayoutAttributeHeight multiplier:0 constant:priorHeight];
-    [self.descriptionLayoutView addConstraint:self.descriptionLayoutViewHeight];
+    
+    [self.descriptionLayoutView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(priorHeight));
+    }];
     [self.view layoutIfNeeded];
 }
 - (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView{

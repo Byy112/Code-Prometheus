@@ -227,7 +227,7 @@ static const int kStateKey;
     TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
     UIEdgeInsets newInset = self.contentInset;
     CGRect keyboardRect = state.keyboardRect;
-    newInset.bottom = keyboardRect.size.height + 10.f;
+    newInset.bottom = keyboardRect.size.height + 80.f;
     return newInset;
 }
 

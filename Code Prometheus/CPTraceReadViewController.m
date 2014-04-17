@@ -11,13 +11,12 @@
 #import "CPImage.h"
 #import <NYXImagesKit.h>
 #import <MWPhotoBrowser.h>
-#import <MBProgressHUD.h>
 
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 static NSString* const CP_TIME_TITLE_NULL = @"未定义";
 
 // 阶段
-static NSString* const CP_TRACE_STAGE_TITLE_NULL = @"-无-";
+static NSString* const CP_TRACE_STAGE_TITLE_NULL = @"–– 无 ––";
 static NSString* const CP_TRACE_STAGE_TITLE_NO_BOND = @"未接洽";
 static NSString* const CP_TRACE_STAGE_TITLE_CALL_BOND = @"电话接洽";
 static NSString* const CP_TRACE_STAGE_TITLE_CALL_DEEP = @"电话深度沟通";
@@ -58,21 +57,10 @@ static NSString* const CP_TRACE_STAGE_TITLE_ADD_INSURANCE = @"加保中";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
-        // 启动进度条
-        MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        hud.removeFromSuperViewOnHide = YES;
-        [self.navigationController.view addSubview:hud];
-        [hud showAnimated:YES whileExecutingBlock:^{
-            // 加载数据
-            [self loadTrace];
-            [self loadFiles];
-        } completionBlock:^{
-            // 更新UI
-            [self updateUI];
-            // hud消失
-            [hud removeFromSuperview];
-        }];
+        // 加载数据
+        [self loadTrace];
+        [self loadFiles];
+        [self updateUI];
         self.dirty = NO;
     }
 }
@@ -82,15 +70,6 @@ static NSString* const CP_TRACE_STAGE_TITLE_ADD_INSURANCE = @"加保中";
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     }
 }
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // 删除uiimageview
-//    for(UIView *subv in [self.photoLayoutView subviews])
-//    {
-//        [subv removeFromSuperview];
-//    }
-//}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"cp_segue_trace_read_2_edit"])
     {
@@ -137,7 +116,7 @@ static const CGFloat kImageSpacing = 5;
         static NSDateFormatter* CP_DF_DATE = nil;
         if (!CP_DF_DATE) {
             CP_DF_DATE = [[NSDateFormatter alloc] init];
-            [CP_DF_DATE setDateFormat:@"yyyy-MM-dd"];
+            [CP_DF_DATE setDateFormat:@"yy-MM-dd"];
         }
         static NSDateFormatter* CP_DF_TIME = nil;
         if (!CP_DF_TIME) {

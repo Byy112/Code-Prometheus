@@ -16,8 +16,8 @@
 #import "CPFile.h"
 #import <NYXImagesKit.h>
 #import "CPImage.h"
-#import <MBProgressHUD.h>
 #import <TWMessageBarManager.h>
+#import <Masonry.h>
 
 static char CPAssociatedKeyTag;
 
@@ -25,7 +25,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 static NSString* const CP_TIME_TITLE_NULL = @"未定义";
 
 // 阶段
-static NSString* const CP_TRACE_STAGE_TITLE_NULL = @"-无-";
+static NSString* const CP_TRACE_STAGE_TITLE_NULL = @"–– 无 ––";
 static NSString* const CP_TRACE_STAGE_TITLE_NO_BOND = @"未接洽";
 static NSString* const CP_TRACE_STAGE_TITLE_CALL_BOND = @"电话接洽";
 static NSString* const CP_TRACE_STAGE_TITLE_CALL_DEEP = @"电话深度沟通";
@@ -77,40 +77,21 @@ static NSString* const CP_TRACE_STAGE_TITLE_ADD_INSURANCE = @"加保中";
     [self.photoLayoutView addSubview:self.addPhotoButton];
     // 内容textview
     self.growingTextView = [[HPGrowingTextView alloc] initWithFrame:self.contentLayoutView.bounds];
-//    self.growingTextView.isScrollable = NO;
-//    self.growingTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-//	self.growingTextView.minNumberOfLines = 1;
-//	self.growingTextView.maxNumberOfLines = MaxNumberOfLines;
-    // you can also set the maximum height in points with maxHeight
+    self.growingTextView.isScrollable = NO;
     self.growingTextView.minHeight = 44;
     self.growingTextView.maxHeight = NSIntegerMax;
-//	self.growingTextView.returnKeyType = UIReturnKeyGo;
-//	self.growingTextView.font = [UIFont systemFontOfSize:15.0f];
+	self.growingTextView.font = [UIFont systemFontOfSize:17.0f];
+    self.growingTextView.textColor = [UIColor blueColor];
 	self.growingTextView.delegate = self;
-    self.growingTextView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
-//    self.growingTextView.backgroundColor = [UIColor whiteColor];
-//    self.growingTextView.placeholder = @"Type to see the textView grow!";
-    
-    // self.growingTextView.text = @"test\n\ntest";
-	// self.growingTextView.animateHeightChange = NO; //turns off animation
+	self.growingTextView.animateHeightChange = NO;
     [self.contentLayoutView addSubview:self.growingTextView];
     // 照片
     self.takeController = [[FDTakeController alloc] init];
     self.takeController.delegate = self;
-    // 启动进度条
-    MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    hud.removeFromSuperViewOnHide = YES;
-    [self.navigationController.view addSubview:hud];
-    [hud showAnimated:YES whileExecutingBlock:^{
-        // 加载数据
-        [self loadTrace];
-        [self loadFiles];
-    } completionBlock:^{
-        // 更新UI
-        [self updateUI];
-        // hud消失
-        [hud removeFromSuperview];
-    }];
+    
+    [self loadTrace];
+    [self loadFiles];
+    [self updateUI];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -118,17 +99,6 @@ static NSString* const CP_TRACE_STAGE_TITLE_ADD_INSURANCE = @"加保中";
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     }
 }
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // 删除uiimageview
-//    for(UIView *subv in [self.photoLayoutView subviews])
-//    {
-//        if (subv != self.addPhotoButton) {
-//            [subv removeFromSuperview];
-//        }
-//    }
-//}
 #pragma mark - private
 // 布局计算
 static const CGFloat kFramePadding = 10;
@@ -174,7 +144,7 @@ static const CGFloat kImageSpacing = 5;
         static NSDateFormatter* CP_DF_DATE = nil;
         if (!CP_DF_DATE) {
             CP_DF_DATE = [[NSDateFormatter alloc] init];
-            [CP_DF_DATE setDateFormat:@"yyyy-MM-dd"];
+            [CP_DF_DATE setDateFormat:@"yy-MM-dd"];
         }
         static NSDateFormatter* CP_DF_TIME = nil;
         if (!CP_DF_TIME) {
@@ -338,9 +308,10 @@ static const CGFloat kImageSpacing = 5;
     float diff = (growingTextView.frame.size.height - height);
     float priorHeight = self.contentLayoutView.frame.size.height;
     priorHeight -= diff;
-    [self.contentLayoutView removeConstraint:self.contentHeightConstraint];
-    self.contentHeightConstraint = [NSLayoutConstraint constraintWithItem:self.contentLayoutView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentLayoutView.superview attribute:NSLayoutAttributeHeight multiplier:0 constant:priorHeight];
-    [self.contentLayoutView addConstraint:self.contentHeightConstraint];
+    
+    [self.contentLayoutView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(priorHeight));
+    }];
     [self.view layoutIfNeeded];
 }
 - (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView{
@@ -352,7 +323,7 @@ static const CGFloat kImageSpacing = 5;
     static NSDateFormatter* CP_DF_DATE = nil;
     if (!CP_DF_DATE) {
         CP_DF_DATE = [[NSDateFormatter alloc] init];
-        [CP_DF_DATE setDateFormat:@"yyyy-MM-dd"];
+        [CP_DF_DATE setDateFormat:@"yy-MM-dd"];
     }
     static NSDateFormatter* CP_DF_TIME = nil;
     if (!CP_DF_TIME) {

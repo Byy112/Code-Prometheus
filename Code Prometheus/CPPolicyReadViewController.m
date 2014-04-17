@@ -11,7 +11,6 @@
 #import "CPImage.h"
 #import <NYXImagesKit.h>
 #import <MWPhotoBrowser.h>
-#import <MBProgressHUD.h>
 
 
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
@@ -67,20 +66,9 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
-        MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        hud.removeFromSuperViewOnHide = YES;
-        [self.navigationController.view addSubview:hud];
-        [hud showAnimated:YES whileExecutingBlock:^{
-            // 加载数据
-            [self loadPolicy];
-            [self loadFiles];
-        } completionBlock:^{
-            // 更新UI
-            [self updateUI];
-            // hud消失
-            [hud removeFromSuperview];
-        }];
+        [self loadPolicy];
+        [self loadFiles];
+        [self updateUI];
         self.dirty = NO;
     }
 }
@@ -90,15 +78,6 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
         [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     }
 }
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // 删除uiimageview
-//    for(UIView *subv in [self.photoLayoutView subviews])
-//    {
-//        [subv removeFromSuperview];
-//    }
-//}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"cp_segue_policy_read_2_edit"])
     {

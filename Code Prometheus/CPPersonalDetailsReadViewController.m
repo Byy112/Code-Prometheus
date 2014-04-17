@@ -27,7 +27,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_NATIVE_PLACE = @"籍贯";
 static NSString* const CP_CONTACTS_CELL_TITLE_SEX_MAN = @"男";
 static NSString* const CP_CONTACTS_CELL_TITLE_SEX_WOMAN = @"女";
 // 线索来源
-static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_NULL = @"-无-";
+static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_NULL = @"–– 无 ––";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_QUESTIONNAIRE = @"陌生问卷";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_LOT = @"陌生随缘";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_PHONE = @"陌生电话";
