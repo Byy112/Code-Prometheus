@@ -19,7 +19,7 @@ static char CPAssociatedKeyTag;
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 
 // 学历
-static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_0 = @"无";
+static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_0 = @"–– 无 ––";
 static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_1 = @"高中";
 static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_2 = @"中专";
 static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_3 = @"大专";
@@ -30,7 +30,7 @@ static NSString* const CP_ORGANIZATION_EDUCATION_TITLE_7 = @"留学生";
 #define CP_ORGANIZATION_EDUCATION_TITLE_ITEM @[CP_ORGANIZATION_EDUCATION_TITLE_0,CP_ORGANIZATION_EDUCATION_TITLE_1,CP_ORGANIZATION_EDUCATION_TITLE_2,CP_ORGANIZATION_EDUCATION_TITLE_3,CP_ORGANIZATION_EDUCATION_TITLE_4,CP_ORGANIZATION_EDUCATION_TITLE_5,CP_ORGANIZATION_EDUCATION_TITLE_6,CP_ORGANIZATION_EDUCATION_TITLE_7]
 
 // 工作现状
-static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_0 = @"无";
+static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_0 = @"–– 无 ––";
 static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_1 = @"自主创业";
 static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_2 = @"企业管理层";
 static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_3 = @"职员";
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
     self.meetingControllerArray = [NSMutableArray array];
     // 日期格式化
     self.df = [[NSDateFormatter alloc] init];
-    [self.df setDateFormat:@"yyyy-MM-dd"];
+    [self.df setDateFormat:@"yy-MM-dd"];
     
 	[self loadDB];
     // 更新UI

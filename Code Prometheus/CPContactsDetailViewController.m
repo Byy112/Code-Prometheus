@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     self.dirty = YES;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // 添加通知监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NSStringFromClass([CPContacts class]) object:nil];
 }

@@ -32,6 +32,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.title = @"账户充值";
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self updateUI];
 }
 

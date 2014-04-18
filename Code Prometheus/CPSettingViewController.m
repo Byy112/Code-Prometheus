@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#warning 待做
 //    self.systemMessageCell.badgeString = @"99";
 //    self.systemMessageCell.badgeColor = [UIColor colorWithRed:0.792 green:0.197 blue:0.219 alpha:1.000];
 //    

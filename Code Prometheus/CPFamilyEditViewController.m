@@ -20,7 +20,7 @@ static char CPAssociatedKeyTag;
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 
 // 车辆
-static NSString* const CP_FAMILY_CAR_TITLE_0 = @"无";
+static NSString* const CP_FAMILY_CAR_TITLE_0 = @"–– 无 ––";
 static NSString* const CP_FAMILY_CAR_TITLE_1 = @"1辆";
 static NSString* const CP_FAMILY_CAR_TITLE_2 = @"2辆";
 static NSString* const CP_FAMILY_CAR_TITLE_3 = @"3辆";
@@ -28,7 +28,7 @@ static NSString* const CP_FAMILY_CAR_TITLE_4 = @"4辆及以上";
 #define CP_FAMILY_CAR_TITLE_ITEM @[CP_FAMILY_CAR_TITLE_0,CP_FAMILY_CAR_TITLE_1,CP_FAMILY_CAR_TITLE_2,CP_FAMILY_CAR_TITLE_3,CP_FAMILY_CAR_TITLE_4]
 
 // 房产
-static NSString* const CP_FAMILY_ESTATE_TITLE_0 = @"无";
+static NSString* const CP_FAMILY_ESTATE_TITLE_0 = @"–– 无 ––";
 static NSString* const CP_FAMILY_ESTATE_TITLE_1 = @"1套";
 static NSString* const CP_FAMILY_ESTATE_TITLE_2 = @"2套";
 static NSString* const CP_FAMILY_ESTATE_TITLE_3 = @"3套";
