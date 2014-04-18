@@ -214,6 +214,9 @@
     // 重载table
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
+}
 #pragma mark - UISearchDisplayDelegate
 - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView{
     [self.contactsArrayFiltered removeAllObjects];

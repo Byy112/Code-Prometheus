@@ -26,14 +26,11 @@ sync 模块,   当后台时, 接着运行同步队列！
 
 详细信息页面， 发短信，email  改为程序内。  并且  如果 没有相应信息，提示用户 。（ 按 打电话，没有电话号，  没有提示用户。）
 
-刚进入保单编辑页面， 会出现 有数字的生效日期等，   进度条读取玩后才显示正常！
-
-
 uitableview 无数据  显示问题  http://stackoverflow.com/questions/4840591/show-custom-label-when-no-data-available-for-tableview
 
-ios7 左边滑动返回功能，当滑动比较快速时，cell的颜色无法恢复成未点击状态。
-
 缩略图，不要用大图！
+
+地图编辑页面 搜索框太 透明
 
 
 

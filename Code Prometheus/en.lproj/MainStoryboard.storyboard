@@ -6128,10 +6128,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6E2-kA-WPj"/>
-        <segue reference="duM-7h-8OJ"/>
         <segue reference="mcw-QB-anL"/>
-        <segue reference="dWl-ZK-dcq"/>
+        <segue reference="duM-7h-8OJ"/>
+        <segue reference="6E2-kA-WPj"/>
+        <segue reference="eIF-TL-SHF"/>
         <segue reference="DEN-3J-ehe"/>
         <segue reference="Hxi-Xk-tBr"/>
     </inferredMetricsTieBreakers>

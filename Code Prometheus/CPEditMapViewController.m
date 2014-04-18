@@ -370,4 +370,7 @@
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = key;
 }
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
+}
 @end

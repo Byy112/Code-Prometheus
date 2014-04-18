@@ -379,7 +379,9 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     // 重载table
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
-
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
+}
 //- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
 //    NSLog(@"%s",__FUNCTION__);
 //}
