@@ -211,14 +211,22 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     objc_setAssociatedObject(self.popoverView, &CPAssociatedKeyIndexPath, indexPath, OBJC_ASSOCIATION_RETAIN);
 }
 -(void) editContactsHeightBefore:(UITextField*)sender{
-    sender.text = [sender.text substringToIndex:sender.text.length-2];
+    if (sender.text && ![sender.text isEqualToString:@""]) {
+        sender.text = [sender.text substringToIndex:sender.text.length-2];
+    }else{
+        sender.text = @"";
+    }
 }
 -(void) editContactsHeight:(UITextField*)sender{
     self.contacts.cp_height = sender.text;
     sender.text = [NSString stringWithFormat:@"%@cm",sender.text];
 }
 -(void) editContactsWeightBefore:(UITextField*)sender{
-    sender.text = [sender.text substringToIndex:sender.text.length-2];
+    if (sender.text && ![sender.text isEqualToString:@""]) {
+        sender.text = [sender.text substringToIndex:sender.text.length-2];
+    }else{
+        sender.text = @"";
+    }
 }
 -(void) editContactsWeight:(UITextField*)sender{
     self.contacts.cp_weight = sender.text;
@@ -490,7 +498,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_HEIGHT];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
         tf.keyboardType = UIKeyboardTypeNumberPad;
-        [tf setText:self.contacts&&self.contacts.cp_height?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@"cm"];
+        [tf setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsHeightBefore:) forControlEvents:UIControlEventEditingDidBegin];
         [tf addTarget:self action:@selector(editContactsHeight:) forControlEvents:UIControlEventEditingDidEnd];
@@ -502,7 +510,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_WEIGHT];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
         tf.keyboardType = UIKeyboardTypeNumberPad;
-        [tf setText:self.contacts&&self.contacts.cp_weight?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@"kg"];
+        [tf setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsWeightBefore:) forControlEvents:UIControlEventEditingDidBegin];
         [tf addTarget:self action:@selector(editContactsWeight:) forControlEvents:UIControlEventEditingDidEnd];

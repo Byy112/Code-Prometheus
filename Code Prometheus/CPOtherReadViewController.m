@@ -10,7 +10,6 @@
 #import "CPOther.h"
 #import "CPCar.h"
 #import <Masonry.h>
-#import <MBProgressHUD.h>
 
 // 日期
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
@@ -46,18 +45,8 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
-        MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        hud.removeFromSuperViewOnHide = YES;
-        [self.navigationController.view addSubview:hud];
-        [hud showAnimated:YES whileExecutingBlock:^{
-            [self loadDB];
-        } completionBlock:^{
-            // 更新UI
-            [self updateUI];
-            // hud消失
-            [hud removeFromSuperview];
-        }];
+        [self loadDB];
+        [self updateUI];
         self.dirty = NO;
     }
 }

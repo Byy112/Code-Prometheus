@@ -81,7 +81,7 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
     // 内容textview
     self.growingTextView = [[HPGrowingTextView alloc] initWithFrame:self.descriptionLayoutView.bounds];
     self.growingTextView.isScrollable = NO;
-    self.growingTextView.minHeight = 44;
+    self.growingTextView.minHeight = 37;
     self.growingTextView.maxHeight = NSIntegerMax;
 	self.growingTextView.font = [UIFont systemFontOfSize:17.0f];
     self.growingTextView.textColor = [UIColor blueColor];

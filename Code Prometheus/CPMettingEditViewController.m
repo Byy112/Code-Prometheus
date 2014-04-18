@@ -18,22 +18,13 @@
     [super viewDidLoad];
     // 内容textview
     self.growingTextView = [[HPGrowingTextView alloc] initWithFrame:self.meetingContentLayoutView.bounds];
-    //    self.growingTextView.isScrollable = NO;
-    //    self.growingTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-    //	self.growingTextView.minNumberOfLines = 1;
-    //	self.growingTextView.maxNumberOfLines = MaxNumberOfLines;
-    // you can also set the maximum height in points with maxHeight
-    self.growingTextView.minHeight = 30;
+    self.growingTextView.isScrollable = NO;
+    self.growingTextView.minHeight = 37;
     self.growingTextView.maxHeight = NSIntegerMax;
-    //	self.growingTextView.returnKeyType = UIReturnKeyGo;
-    //	self.growingTextView.font = [UIFont systemFontOfSize:15.0f];
+	self.growingTextView.font = [UIFont systemFontOfSize:17.0f];
+    self.growingTextView.textColor = [UIColor blueColor];
 	self.growingTextView.delegate = self;
-    self.growingTextView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-    //    self.growingTextView.backgroundColor = [UIColor whiteColor];
-    //    self.growingTextView.placeholder = @"Type to see the textView grow!";
-    
-    // self.growingTextView.text = @"test\n\ntest";
-	// self.growingTextView.animateHeightChange = NO; //turns off animation
+	self.growingTextView.animateHeightChange = NO;
     [self.meetingContentLayoutView addSubview:self.growingTextView];
 }
 #pragma mark - HPGrowingTextViewDelegate

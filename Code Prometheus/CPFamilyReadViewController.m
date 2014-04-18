@@ -11,7 +11,6 @@
 #import "CPFamilyMember.h"
 #import "CPFamilyMemberReadViewController.h"
 #import "CPReadMapViewController.h"
-#import <MBProgressHUD.h>
 #import <TWMessageBarManager.h>
 #import "CPContacts.h"
 
@@ -74,18 +73,8 @@ static NSString* const CP_FAMILY_MARRIAGE_TITLE_WIDOWED = @"丧偶";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
-        MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        hud.removeFromSuperViewOnHide = YES;
-        [self.navigationController.view addSubview:hud];
-        [hud showAnimated:YES whileExecutingBlock:^{
-            [self loadDB];
-        } completionBlock:^{
-            // 更新UI
-            [self updateUI];
-            // hud消失
-            [hud removeFromSuperview];
-        }];
+        [self loadDB];
+        [self updateUI];
         self.dirty = NO;
     }
 }
@@ -191,9 +180,9 @@ static NSString* const CP_FAMILY_MARRIAGE_TITLE_WIDOWED = @"丧偶";
     }
     // 性别
     if (fm.cp_sex && fm.cp_sex.boolValue) {
-        fmrc.familySexLabel.text = @"男";
-    }else{
         fmrc.familySexLabel.text = @"女";
+    }else{
+        fmrc.familySexLabel.text = @"男";
     }
     // 生日
     if (fm.cp_birthday) {

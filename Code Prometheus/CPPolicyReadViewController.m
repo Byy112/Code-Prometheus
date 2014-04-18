@@ -144,6 +144,9 @@ static const CGFloat kImageSpacing = 5;
     if (self.policy.cp_description) {
         self.descriptionLabel.text = self.policy.cp_description;
         CGSize size = [self.descriptionLabel sizeThatFits:CGSizeMake(self.descriptionLabel.bounds.size.width, CGFLOAT_MAX)];
+        if (size.height<21) {
+            size.height = 21;
+        }
         // layoutview高度
         [self.descriptionLabel removeConstraint:self.descriptionLabelHeight];
         self.descriptionLabelHeight = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.descriptionLabel.superview attribute:NSLayoutAttributeHeight multiplier:0 constant:size.height];

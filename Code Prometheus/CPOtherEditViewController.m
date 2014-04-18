@@ -180,6 +180,8 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     // 车险到期
     UIButton* carMaturityDateButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [carMaturityDateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    carMaturityDateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    carMaturityDateButton.titleLabel.font = [UIFont systemFontOfSize:17];
     carMaturityDateButton.tag = index;
     if (car.cp_maturity_date) {
         [carMaturityDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:car.cp_maturity_date.doubleValue]] forState:UIControlStateNormal];

@@ -239,14 +239,14 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         // 身高
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_HEIGHT];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_height?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@"cm"];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@""];
         return cell;
     }
     if (indexPath.row==10) {
         // 体重
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_WEIGHT];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_weight?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@"kg"];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@""];
         return cell;
     }
     if (indexPath.row==11) {
