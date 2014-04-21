@@ -21,6 +21,7 @@
 		0311827218E96C6600979264 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827018E96C6600979264 /* AMapSearchKit.framework */; };
 		0311827318E96C6600979264 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827118E96C6600979264 /* MAMapKit.framework */; };
 		0311827518E96D0600979264 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0311827418E96D0600979264 /* AMap.bundle */; };
+		03192E491904E8D200813646 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03192E481904E8D200813646 /* Images.xcassets */; };
 		031E209D17B0851100125321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E209C17B0851100125321 /* UIKit.framework */; };
 		031E209F17B0851100125321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E209E17B0851100125321 /* Foundation.framework */; };
 		031E20A117B0851100125321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E20A017B0851100125321 /* CoreGraphics.framework */; };
@@ -195,7 +196,6 @@
 		03F0CD1A182B89B200BD64DF /* CPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F0CD19182B89B200BD64DF /* CPServer.m */; };
 		03F11227186BE1FA0074F798 /* CPSyncSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F11225186BE1FA0074F798 /* CPSyncSettingViewController.m */; };
 		03F11228186BE1FA0074F798 /* CPSyncSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F11226186BE1FA0074F798 /* CPSyncSettingViewController.xib */; };
-		03F1C59A184F136F006C3578 /* cp_image_notfound.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F1C599184F136F006C3578 /* cp_image_notfound.png */; };
 		03F1C59C184F1F92006C3578 /* cp_map_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F1C59B184F1F92006C3578 /* cp_map_0.png */; };
 		03F1C59F184F3B8C006C3578 /* CPPolicyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F1C59E184F3B8C006C3578 /* CPPolicyEditViewController.m */; };
 		03F1C5A2184F3F39006C3578 /* CPPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F1C5A1184F3F39006C3578 /* CPPolicy.m */; };
@@ -272,6 +272,7 @@
 		0311827018E96C6600979264 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = map/AMapSearchKit.framework; sourceTree = "<group>"; };
 		0311827118E96C6600979264 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = map/MAMapKit.framework; sourceTree = "<group>"; };
 		0311827418E96D0600979264 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = ../map/MAMapKit.framework/Versions/2.2.0.1498.60159/Resources/AMap.bundle; sourceTree = "<group>"; };
+		03192E481904E8D200813646 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		031E209917B0851100125321 /* Code Prometheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Prometheus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		031E209C17B0851100125321 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		031E209E17B0851100125321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -542,7 +543,6 @@
 		03F11224186BE1FA0074F798 /* CPSyncSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSyncSettingViewController.h; sourceTree = "<group>"; };
 		03F11225186BE1FA0074F798 /* CPSyncSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSyncSettingViewController.m; sourceTree = "<group>"; };
 		03F11226186BE1FA0074F798 /* CPSyncSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSyncSettingViewController.xib; sourceTree = "<group>"; };
-		03F1C599184F136F006C3578 /* cp_image_notfound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_image_notfound.png; sourceTree = "<group>"; };
 		03F1C59B184F1F92006C3578 /* cp_map_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_0.png; sourceTree = "<group>"; };
 		03F1C59D184F3B8C006C3578 /* CPPolicyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPolicyEditViewController.h; sourceTree = "<group>"; };
 		03F1C59E184F3B8C006C3578 /* CPPolicyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPolicyEditViewController.m; sourceTree = "<group>"; };
@@ -845,6 +845,7 @@
 				031E20AB17B0851100125321 /* CPAppDelegate.h */,
 				031E20AC17B0851100125321 /* CPAppDelegate.m */,
 				03DA5C11183F60160005E5AF /* MainStoryboard.storyboard */,
+				03192E481904E8D200813646 /* Images.xcassets */,
 				031E20A317B0851100125321 /* Supporting Files */,
 			);
 			path = "Code Prometheus";
@@ -1230,10 +1231,6 @@
 				0364B4E818EBEC1D00690DBB /* map */,
 				035A744418E3CEFA003028E6 /* base */,
 				03C5B36218DC2324004CBE3A /* home */,
-				03C5B35A18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png */,
-				03C5B35B18DBF4FF004CBE3A /* cp_schedule_all@2x.png */,
-				03C5B35C18DBF4FF004CBE3A /* cp_schedule_red@2x.png */,
-				03C5B35D18DBF4FF004CBE3A /* cp_schedule_blue@2x.png */,
 				037D51311871668600B740A3 /* cp_radio_no.png */,
 				037D51321871668600B740A3 /* cp_radio_yes.png */,
 				03F22D011868452700C18DAD /* cp_email_0.png */,
@@ -1243,12 +1240,15 @@
 				0325B849185C2A6E00FFF42B /* cp_schedule_cell_call.png */,
 				0325B84A185C2A6E00FFF42B /* cp_schedule_cell_sms.png */,
 				03D9F4591850885F00B95F93 /* cp_add_0.png */,
-				03F2011F1849E32D00055B8D /* cp_add_1.png */,
 				03D9F45A1850885F00B95F93 /* cp_delete_0.png */,
-				03F1C599184F136F006C3578 /* cp_image_notfound.png */,
+				03F2011F1849E32D00055B8D /* cp_add_1.png */,
 				036513B6184730D5006389FA /* cp_contacts_detail_call.png */,
 				036513B7184730D5006389FA /* cp_contacts_detail_email.png */,
 				036513B8184730D5006389FA /* cp_contacts_detail_sms.png */,
+				03C5B35A18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png */,
+				03C5B35B18DBF4FF004CBE3A /* cp_schedule_all@2x.png */,
+				03C5B35C18DBF4FF004CBE3A /* cp_schedule_red@2x.png */,
+				03C5B35D18DBF4FF004CBE3A /* cp_schedule_blue@2x.png */,
 				030552C2185AC5A000C2534C /* cp_tab_contacts_h@2x.png */,
 				030552C3185AC5A000C2534C /* cp_tab_contacts@2x.png */,
 				030552B2185A9E3F00C2534C /* cp_tab_schedule_h@2x.png */,
@@ -1422,6 +1422,7 @@
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,
 				036513BA184730D5006389FA /* cp_contacts_detail_email.png in Resources */,
 				03D9F45B1850885F00B95F93 /* cp_add_0.png in Resources */,
+				03192E491904E8D200813646 /* Images.xcassets in Resources */,
 				036C1E3318F4EA4F00D5EDB0 /* cp_map_local.png in Resources */,
 				03C5B38E18DC242C004CBE3A /* cp_home_light_08@2x.png in Resources */,
 				033425CA1871108400518C7B /* CPConsumptionLogViewController.storyboard in Resources */,
@@ -1478,7 +1479,6 @@
 				03C5B39018DC242C004CBE3A /* cp_home_light_10@2x.png in Resources */,
 				03C5B38A18DC242C004CBE3A /* cp_home_light_04@2x.png in Resources */,
 				03F22F8A1863E7B40030359E /* CPLoginViewController.xib in Resources */,
-				03F1C59A184F136F006C3578 /* cp_image_notfound.png in Resources */,
 				03E5A3DE1859ADD200FD23F0 /* cp_sort_0@2x.png in Resources */,
 				037D512B187129CD00B740A3 /* CPRechargeLogViewController.storyboard in Resources */,
 				03C5B37418DC2336004CBE3A /* cp_home_06@2x.png in Resources */,
@@ -1743,6 +1743,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4ACFE03F0D674739AD9B87F3 /* Pods-Code Prometheus.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1768,6 +1770,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4ACFE03F0D674739AD9B87F3 /* Pods-Code Prometheus.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

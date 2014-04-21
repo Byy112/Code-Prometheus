@@ -8,7 +8,6 @@
 
 #import "BaseMapViewController.h"
 #import <TWMessageBarManager.h>
-#import "ReGeocodeAnnotation.h"
 
 @implementation BaseMapViewController
 

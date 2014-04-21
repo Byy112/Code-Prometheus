@@ -28,10 +28,6 @@ static NSString* const CP_RESOURCE_IMAGE_CONTACTS_DETAIL_SMS = @"cp_contacts_det
 static NSString* const CP_RESOURCE_IMAGE_TRACE_ADD_PHOTO = @"cp_add_1";
 static NSString* const CP_RESOURCE_IMAGE_POLICY_ADD_PHOTO = @"cp_add_1";
 
-static NSString* const CP_RESOURCE_IMAGE_NOTFOUND = @"cp_image_notfound";
-
-
-
 
 
 static NSString* const CP_RESOURCE_IMAGE_ADD_0 = @"cp_add_0";
