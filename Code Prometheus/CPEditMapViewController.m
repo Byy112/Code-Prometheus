@@ -7,16 +7,15 @@
 //
 
 #import "CPEditMapViewController.h"
-#import "GeocodeAnnotation.h"
 #import "CommonUtility.h"
 #import "ReGeocodeAnnotation.h"
+#import "POIAnnotation.h"
 #import <MBProgressHUD.h>
 #import <TWMessageBarManager.h>
 
 
 @interface CPEditMapViewController ()<UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
 @property(nonatomic) MBProgressHUD* hud;
-@property (nonatomic, strong) NSMutableArray *tips;
 @property (nonatomic) BOOL goPoint;
 
 // 数据库点
@@ -25,13 +24,14 @@
 @property (nonatomic) NSMutableArray* annotationTap;
 // 搜索的点
 @property (nonatomic) NSMutableArray* annotationSearch;
+
+@property (nonatomic) NSArray* pois;
 @end
 
 @implementation CPEditMapViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tips = [NSMutableArray array];
     // UI
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonClick:)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -80,10 +80,7 @@
     // 清空大头针
     NSMutableArray* annotationForRemove = [@[] mutableCopy];
     for (id <MAAnnotation> annotation in self.mapView.annotations) {
-        if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
-            [annotationForRemove addObject:annotation];
-        }
-        if ([annotation isKindOfClass:[GeocodeAnnotation class]]) {
+        if ([annotation isKindOfClass:[POIAnnotation class]]) {
             [annotationForRemove addObject:annotation];
         }
         if ([annotation isKindOfClass:[ReGeocodeAnnotation class]]) {
@@ -99,35 +96,35 @@
 }
 
 #pragma mark - private
-/* 输入提示 搜索.*/
-- (void)searchTipsWithKey:(NSString *)key  city:(NSArray*) citys
-{
-    if (key.length == 0)
-    {
+typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
+    CP_MAP_SEARCH_TYPE_TIP,
+    CP_MAP_SEARCH_TYPE_PLACE_UID,
+    CP_MAP_SEARCH_TYPE_PLACE_KEY
+};
+/* 地点 搜索. */
+- (void)searchPlaceWithKey:(NSString *)key type:(CP_MAP_SEARCH_TYPE)type{
+    if (key.length == 0){
         return;
     }
-    AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
-    tips.keywords = key;
-    if (citys) {
-        tips.city = citys;
-    }
-    [self.search AMapInputTipsSearch:tips];
-}
-/* 地理编码 搜索. */
-- (void)searchGeocodeWithKey:(NSString *)key city:(NSArray*) citys
-{
-    if (key.length == 0)
-    {
-        return;
-    }
+    AMapPlaceSearchRequest *request = [[AMapPlaceSearchRequest alloc] init];
     
-    AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
-    geo.address = key;
-    if (citys) {
-        geo.city = citys;
+    if (type == CP_MAP_SEARCH_TYPE_TIP) {
+        request.searchType = AMapSearchType_PlaceKeyword;
+        request.keywords = key;
+        request.requireExtension = NO;
+    }else if (type == CP_MAP_SEARCH_TYPE_PLACE_UID){
+        request.searchType = AMapSearchType_PlaceID;
+        request.uid = key;
+        request.requireExtension = YES;
+    }else if (type == CP_MAP_SEARCH_TYPE_PLACE_KEY){
+        request.searchType = AMapSearchType_PlaceKeyword;
+        request.keywords = key;
+        request.requireExtension = YES;
     }
-    
-    [self.search AMapGeocodeSearch:geo];
+    if (CP_MAP_UTIL_CITY) {
+        request.city = @[CP_MAP_UTIL_CITY];
+    }
+    [self.search AMapPlaceSearch:request];
 }
 #pragma mark - IBAction
 -(IBAction) saveButtonClick:(UIButton*)sender{
@@ -172,7 +169,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tips.count;
+    return self.pois.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -187,10 +184,10 @@
                                       reuseIdentifier:tipCellIdentifier];
     }
     
-    AMapTip *tip = self.tips[indexPath.row];
+    AMapPOI *poi = self.pois[indexPath.row];
     
-    cell.textLabel.text = tip.name;
-    
+    cell.textLabel.text = poi.name;
+    cell.detailTextLabel.text = poi.address;
     return cell;
 }
 #pragma mark - UITableViewDelegate
@@ -198,10 +195,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    AMapTip *tip = self.tips[indexPath.row];
-    [self searchGeocodeWithKey:tip.name city:@[tip.adcode]];
+    AMapPOI *poi = self.pois[indexPath.row];
+    [self searchPlaceWithKey:poi.uid type:CP_MAP_SEARCH_TYPE_PLACE_UID];
     [self.searchDisplayController setActive:NO animated:YES];
-    self.searchDisplayController.searchBar.text = tip.name;
+    self.searchDisplayController.searchBar.text = poi.name;
 }
 #pragma mark - AMapSearchDelegate
 // 搜索异常
@@ -214,41 +211,47 @@
     }
 }
 
-/* 地理编码回调.*/
-- (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response
+/* POI 搜索回调. */
+- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)respons
 {
-    if (response.geocodes.count == 0)
-    {
-        [[TWMessageBarManager sharedInstance] hideAll];
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                       description:@"无结果"
-                                                              type:TWMessageBarMessageTypeInfo];
-        return;
-    }
     
-    NSMutableArray *annotations = [NSMutableArray array];
-    
-    [response.geocodes enumerateObjectsUsingBlock:^(AMapGeocode *obj, NSUInteger idx, BOOL *stop) {
-        GeocodeAnnotation *geocodeAnnotation = [[GeocodeAnnotation alloc] initWithGeocode:obj];
+    if (request.searchType == AMapSearchType_PlaceKeyword && request.requireExtension == NO) {
+//        CPLogVerbose(@"输入提示回调 %@",respons);
+        self.pois = respons.pois;
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }else if(request.searchType == AMapSearchType_PlaceID || (request.searchType == AMapSearchType_PlaceKeyword && request.requireExtension == YES)){
+//        CPLogVerbose(@"POI回调 %@",respons);
+        if (respons.pois.count == 0)
+        {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"无结果"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+        NSMutableArray *annotations = [NSMutableArray array];
         
-        [annotations addObject:geocodeAnnotation];
-    }];
-    
-    if (annotations.count == 1)
-    {
-        [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:YES];
-        [self.mapView setCenterCoordinate:[annotations[0] coordinate] animated:YES];
+        [respons.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
+            POIAnnotation *poi = [[POIAnnotation alloc] initWithPOI:obj];
+            [annotations addObject:poi];
+        }];
+        
+        if (annotations.count == 1)
+        {
+            [self.mapView setRegion:MACoordinateRegionMake([annotations[0] coordinate], MACoordinateSpanMake(0.01, 0.01)) animated:YES];
+        }
+        else
+        {
+            [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:annotations] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
+        }
+        self.annotationSearch = annotations;
+        [self updateMapView];
     }
-    else
-    {
-        [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:annotations] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
-    }
-    self.annotationSearch = annotations;
-    [self updateMapView];
 }
 /* 逆地理编码回调. */
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
+//    CPLogVerbose(@"逆地理编码回调 %@",response);
     // hud消失
     if (self.hud) {
         [self.hud removeFromSuperview];
@@ -264,12 +267,7 @@
         [self.mapView selectAnnotation:reGeocodeAnnotation animated:YES];
     }
 }
-/* 输入提示回调. */
-- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response
-{
-    [self.tips setArray:response.tips];
-    [self.searchDisplayController.searchResultsTableView reloadData];
-}
+
 #pragma mark - MAMapViewDelegate
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
@@ -299,7 +297,7 @@
         return annotationView;
     }
     // 地理搜索的点
-    if ([annotation isKindOfClass:[GeocodeAnnotation class]])
+    if ([annotation isKindOfClass:[POIAnnotation class]])
     {
         annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
         if (annotationView == nil)
@@ -309,12 +307,12 @@
                                                              reuseIdentifier:customReuseIndetifier];
         }
         
-        GeocodeAnnotation* geocodeAnnotation = annotation;
+        POIAnnotation* poi = annotation;
         CPPointAnnotation* cpAnnotation = [[CPPointAnnotation alloc] init];
         cpAnnotation.uuid = nil;
-        cpAnnotation.title = geocodeAnnotation.title;
-        cpAnnotation.subtitle = geocodeAnnotation.subtitle;
-        cpAnnotation.coordinate = geocodeAnnotation.coordinate;
+        cpAnnotation.title = poi.title;
+        cpAnnotation.subtitle = poi.subtitle;
+        cpAnnotation.coordinate = poi.coordinate;
         cpAnnotation.type = CPPointAnnotationTypeNone;
         annotationView.cpAnnotation = cpAnnotation;
         return annotationView;
@@ -339,7 +337,9 @@
 #pragma mark - UISearchDisplayDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self searchTipsWithKey:searchString city:@[CP_MAP_UTIL_CITY]];
+    if (self.searchDisplayController.active) {
+        [self searchPlaceWithKey:searchString type:CP_MAP_SEARCH_TYPE_TIP];
+    }
     return NO;
 }
 - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
@@ -366,7 +366,7 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSString *key = searchBar.text;
-    [self searchGeocodeWithKey:key city:@[CP_MAP_UTIL_CITY]];
+    [self searchPlaceWithKey:key type:CP_MAP_SEARCH_TYPE_PLACE_KEY];
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = key;
 }
