@@ -183,7 +183,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 #warning 这里的tableview滚动不合理,有闪屏的感觉\
 解决方案,让弹出框尽量居中,tableview滚动到合适位置
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    self.popoverView = [PopoverView showPopoverAtPoint:sender.center inView:sender.superview withStringArray:CP_CONTACTS_CELL_TITLE_SOURCE_ITEM delegate:self];
+    self.popoverView = [PopoverView showPopoverAtPoint:sender.titleLabel.center inView:sender.titleLabel withStringArray:CP_CONTACTS_CELL_TITLE_SOURCE_ITEM delegate:self];
     self.popoverView.tag = 10000;
     objc_setAssociatedObject(self.popoverView, &CPAssociatedKeyIndexPath, indexPath, OBJC_ASSOCIATION_RETAIN);
 }
@@ -206,7 +206,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 #warning 这里的tableview滚动不合理,有闪屏的感觉\
 解决方案,让弹出框尽量居中,tableview滚动到合适位置
 //    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    self.popoverView = [PopoverView showPopoverAtPoint:sender.center inView:sender.superview withStringArray:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM delegate:self];
+    self.popoverView = [PopoverView showPopoverAtPoint:sender.titleLabel.center inView:sender.titleLabel withStringArray:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM delegate:self];
     self.popoverView.tag = 10001;
     objc_setAssociatedObject(self.popoverView, &CPAssociatedKeyIndexPath, indexPath, OBJC_ASSOCIATION_RETAIN);
 }

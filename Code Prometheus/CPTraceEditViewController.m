@@ -263,8 +263,8 @@ static const CGFloat kImageSpacing = 5;
     [self presentSemiModalViewController:self.datePickerView];
 }
 - (IBAction)stageButtonClick:(id)sender {
-    UIView* button = sender;
-    self.popoverView = [PopoverView showPopoverAtPoint:button.center inView:button.superview withStringArray:CP_TRACE_STAGE_TITLE_ITEM delegate:self];
+    UIButton* button = sender;
+    self.popoverView = [PopoverView showPopoverAtPoint:button.titleLabel.center inView:button.titleLabel withStringArray:CP_TRACE_STAGE_TITLE_ITEM delegate:self];
 }
 #pragma mark - Action
 #define CP_MAX_PICTURE 9

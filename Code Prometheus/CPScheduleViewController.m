@@ -389,8 +389,8 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
         [labelArray addObject:textButton];
     }
     
-    [popoverView showAtPoint:CGPointMake(sender.frame.origin.x + sender.frame.size.width, sender.frame.origin.y + sender.frame.size.height) inView:sender.superview withViewArray:labelArray];
-    
+    [popoverView showAtPoint:sender.center inView:sender.superview withViewArray:labelArray];
+//    [popoverView showAtPoint:CGPointMake(sender.frame.origin.x + sender.frame.size.width, sender.frame.origin.y + sender.frame.size.height) inView:sender.superview withViewArray:labelArray];
 }
 #pragma mark - ABCalendarPickerDataSourceProtocol
 - (NSInteger)calendarPicker:(ABCalendarPicker*)calendarPicker numberOfEventsForDate:(NSDate*)date onState:(ABCalendarPickerState)state

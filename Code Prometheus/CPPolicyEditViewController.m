@@ -285,16 +285,16 @@ static const CGFloat kImageSpacing = 5;
 }
 
 - (IBAction)payTypeButtonClick:(id)sender {
-    UIView* button = sender;
-    self.popoverView = [PopoverView showPopoverAtPoint:button.center inView:button.superview withStringArray:CP_POLICY_PAY_TYPE_TITLE_ITEM delegate:self];
+    UIButton* button = sender;
+    self.popoverView = [PopoverView showPopoverAtPoint:button.titleLabel.center inView:button.titleLabel withStringArray:CP_POLICY_PAY_TYPE_TITLE_ITEM delegate:self];
     self.popoverView.tag = 0;
 }
 - (IBAction)payAmountTextFieldValueChange:(UITextField*)sender {
     self.policy.cp_pay_amount = @(sender.text.integerValue);
 }
 - (IBAction)payWayButtonClick:(id)sender {
-    UIView* button = sender;
-    self.popoverView = [PopoverView showPopoverAtPoint:button.center inView:button.superview withStringArray:CP_POLICY_PAY_WAY_TITLE_ITEM delegate:self];
+    UIButton* button = sender;
+    self.popoverView = [PopoverView showPopoverAtPoint:button.titleLabel.center inView:button.titleLabel withStringArray:CP_POLICY_PAY_WAY_TITLE_ITEM delegate:self];
     self.popoverView.tag = 1;
 }
 - (IBAction)remindDateButtonClick:(id)sender {

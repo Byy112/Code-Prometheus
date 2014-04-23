@@ -261,11 +261,11 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
     self.organization.cp_graduated = sender.text;
 }
 - (IBAction)educationButtonClick:(UIButton*)sender {
-    self.popoverView = [PopoverView showPopoverAtPoint:sender.center inView:sender.superview withStringArray:CP_ORGANIZATION_EDUCATION_TITLE_ITEM delegate:self];
+    self.popoverView = [PopoverView showPopoverAtPoint:sender.titleLabel.center inView:sender.titleLabel withStringArray:CP_ORGANIZATION_EDUCATION_TITLE_ITEM delegate:self];
     self.popoverView.tag = CP_ORGANIZATION_POPOVER_TAG_EDUCATION;
 }
 - (IBAction)workingConditionsButtonClick:(UIButton*)sender {
-    self.popoverView = [PopoverView showPopoverAtPoint:sender.center inView:sender.superview withStringArray:CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_ITEM delegate:self];
+    self.popoverView = [PopoverView showPopoverAtPoint:sender.titleLabel.center inView:sender.titleLabel withStringArray:CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_ITEM delegate:self];
     self.popoverView.tag = CP_ORGANIZATION_POPOVER_TAG_WORKING_CONDITIONS;
 }
 - (IBAction)toBeijingDateButtonClick:(UIButton*)sender {

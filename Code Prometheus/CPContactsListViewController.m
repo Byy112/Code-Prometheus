@@ -1202,7 +1202,8 @@ static char CPAssociatedKeyPolicy;
         [labelArray addObject:textButton];
     }
     
-    [popoverView showAtPoint:CGPointMake(sender.frame.origin.x + sender.frame.size.width, sender.frame.origin.y + sender.frame.size.height) inView:sender.superview withViewArray:labelArray];
+    [popoverView showAtPoint:sender.center inView:sender.superview withViewArray:labelArray];
+//    [popoverView showAtPoint:CGPointMake(sender.frame.origin.x + sender.frame.size.width, sender.frame.origin.y + sender.frame.size.height) inView:sender.superview withViewArray:labelArray];
 }
 -(void) addContacts:(id)sender{
     [self performSegueWithIdentifier:@"cp_segue_list_2_edit" sender:sender];

@@ -169,8 +169,8 @@ typedef NS_ENUM(NSInteger, CP_COMPANY_POPOVER_TAG) {
 }
 
 - (IBAction)incomeButtonClick:(id)sender {
-    UIView* button = sender;
-    self.popoverView = [PopoverView showPopoverAtPoint:button.center inView:button.superview withStringArray:CP_COMPANY_INCOME_TITLE_ITEM delegate:self];
+    UIButton* button = sender;
+    self.popoverView = [PopoverView showPopoverAtPoint:[button.superview convertPoint:button.titleLabel.center fromView:button.titleLabel] inView:button.superview withStringArray:CP_COMPANY_INCOME_TITLE_ITEM delegate:self];
     self.popoverView.tag = CP_COMPANY_POPOVER_TAG_INCOME;
 }
 - (IBAction)industryTextFieldChange:(UITextField*)sender {
@@ -200,8 +200,8 @@ typedef NS_ENUM(NSInteger, CP_COMPANY_POPOVER_TAG) {
     self.company.cp_zip = sender.text;
 }
 - (IBAction)workerAmountButtonClick:(id)sender {
-    UIView* button = sender;
-    self.popoverView = [PopoverView showPopoverAtPoint:button.center inView:button.superview withStringArray:CP_COMPANY_WORKER_AMOUNT_TITLE_ITEM delegate:self];
+    UIButton* button = sender;
+    self.popoverView = [PopoverView showPopoverAtPoint:[button.superview convertPoint:button.titleLabel.center fromView:button.titleLabel] inView:button.superview withStringArray:CP_COMPANY_WORKER_AMOUNT_TITLE_ITEM delegate:self];
     self.popoverView.tag = CP_COMPANY_POPOVER_TAG_WORKER_AMOUNT;
 }
 
