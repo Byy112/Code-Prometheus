@@ -40,6 +40,7 @@
                                                            description:@"请进入邮箱确认"
                                                                   type:TWMessageBarMessageTypeSuccess];
             [hud hide:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                            description:message

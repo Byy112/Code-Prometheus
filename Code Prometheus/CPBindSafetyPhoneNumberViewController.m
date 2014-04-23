@@ -123,6 +123,7 @@
                                                            description:@"绑定成功"
                                                                   type:TWMessageBarMessageTypeSuccess];
             [hud hide:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                            description:message
