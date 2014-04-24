@@ -181,7 +181,7 @@ static char CPAssociatedKeyTrace;
     static NSDateFormatter* CP_DF_Trace = nil;
     if (!CP_DF_Trace) {
         CP_DF_Trace = [[NSDateFormatter alloc] init];
-        [CP_DF_Trace setDateFormat:@"yyyy-MM-dd"];
+        [CP_DF_Trace setDateFormat:@"yy-MM-dd"];
     }
     if (trace.cp_date) {
         [(UILabel*)[cell viewWithTag:CP_TRACE_CELL_SUB_TAG_1] setText:[CP_DF_Trace stringFromDate:[NSDate dateWithTimeIntervalSince1970:trace.cp_date.doubleValue]]];
