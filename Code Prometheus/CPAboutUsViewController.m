@@ -17,6 +17,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.title = @"关于我们";
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
