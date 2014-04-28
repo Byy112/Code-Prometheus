@@ -34,10 +34,7 @@ android登录这个账号结果是一样的。
 
 支付宝app充值,出现白屏现象
 
-除了每个tab的第一页，其他的也都不现实 地步的tab
-
 关于我们
-
 --------------------------------------     高优先级  界面 ----------------------------------------------------------
 
 横屏的照片  点击放大，缩小， 效果很差
@@ -67,6 +64,15 @@ uitableview 无数据  显示问题  http://stackoverflow.com/questions/484059
 每次启动应用，首次搜朝阳公园， search dis controller 的右侧 光标短 不好看
 
 下拉框可以双击
+
+
+美化页面 参考：
+JVFloatLabeledTextField 好看的占位符   
+UITextField-Shake       震动
+HTAutocompleteTextField 自动完成（用于邮箱）
+YLGIFImage              gif动画
+MHTextField             表单，数据校验功能（非法显示红色），datePicker，keyboard功能等
+
 ----- ------------- -------------------------  测试case----- ------------- -------------------------  
 
 测试图片是否能和数据一样,增加和删除

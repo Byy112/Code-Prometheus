@@ -34,4 +34,7 @@ pod 'ASIHTTPRequest', '1.8.2'
 
 
 pod 'BlocksKit', '2.2.2'
+
+pod 'iVersion', '1.10.6'
+pod 'iRate', '1.10.2'
 end

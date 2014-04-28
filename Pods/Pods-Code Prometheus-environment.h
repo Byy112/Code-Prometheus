@@ -303,3 +303,15 @@
 #define COCOAPODS_VERSION_MINOR_TWMessageBarManager 3
 #define COCOAPODS_VERSION_PATCH_TWMessageBarManager 0
 
+// iRate
+#define COCOAPODS_POD_AVAILABLE_iRate
+#define COCOAPODS_VERSION_MAJOR_iRate 1
+#define COCOAPODS_VERSION_MINOR_iRate 10
+#define COCOAPODS_VERSION_PATCH_iRate 2
+
+// iVersion
+#define COCOAPODS_POD_AVAILABLE_iVersion
+#define COCOAPODS_VERSION_MAJOR_iVersion 1
+#define COCOAPODS_VERSION_MINOR_iVersion 10
+#define COCOAPODS_VERSION_PATCH_iVersion 6
+

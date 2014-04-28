@@ -37,6 +37,8 @@ PODS:
   - DACircularProgress (2.2.0)
   - FDTake (0.1)
   - HPGrowingTextView (1.0.1)
+  - iRate (1.10.2)
+  - iVersion (1.10.6)
   - JSONKit-NoWarning (1.1)
   - KSCrash (0.0.3):
     - KSCrash/Installations
@@ -122,6 +124,8 @@ DEPENDENCIES:
   - CocoaLumberjack (= 1.6.5.1)
   - FDTake (= 0.1)
   - HPGrowingTextView (= 1.0.1)
+  - iRate (= 1.10.2)
+  - iVersion (= 1.10.6)
   - JSONKit-NoWarning (= 1.1)
   - KSCrash (= 0.0.3)
   - Masonry (= 0.3.1)
@@ -151,6 +155,8 @@ SPEC CHECKSUMS:
   DACircularProgress: 659d6fd11b5fc099c13ba9350239d9dca324916a
   FDTake: 1b8a6647bf132df32868b00b423f5ab8b938e00d
   HPGrowingTextView: fd77b93b9096dd1493a312c8856810b652b04dcc
+  iRate: eb8ca35519dd57a586e4c72bb5135ccb6abee908
+  iVersion: 260d17038c6e2c256b17d77c4ca2f74cddd5128a
   JSONKit-NoWarning: 85857d86cd61cfddd691c7eb4855496e2ec9b2a9
   KSCrash: ff0ff6cd9646b7127a39aa128fbc412af6d72b8f
   Masonry: 9d43e954fbe6e903002acd063e11aa648800a310
@@ -168,4 +174,4 @@ SPEC CHECKSUMS:
   TDSemiModal: 2edc2ef115a04b280865bac2e5afd6c6277a886a
   TWMessageBarManager: 82343e43813dba4e66e75bc73d265a361a661eed
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1
