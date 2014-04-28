@@ -84,7 +84,7 @@
     }
     CLLocationCoordinate2D coordinate = userLocation.location.coordinate;
     if (_goUserLocation && [self.mapView.userLocation location]) {
-        [self.mapView setRegion:MACoordinateRegionMake(coordinate, MACoordinateSpanMake(1, 1)) animated:YES];
+        [self.mapView setRegion:MACoordinateRegionMake(coordinate, MACoordinateSpanMake(0.01, 0.01)) animated:YES];
         _goUserLocation = NO;
     }
     [CPMapUtil updateCityAndLocation:userLocation];
