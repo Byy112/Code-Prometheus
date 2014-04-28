@@ -8,6 +8,8 @@
 
 #import "CPAboutUsViewController.h"
 #import "CPFeedbackViewController.h"
+#import <iRate.h>
+#import <iVersion.h>
 
 @interface CPAboutUsViewController ()
 
@@ -28,7 +30,8 @@
             break;
         }
         case 1:{
-            
+            // 升级
+            [[iVersion sharedInstance] openAppPageInAppStore];
             break;
         }
         case 2:{
@@ -38,7 +41,8 @@
             break;
         }
         case 3:{
-            
+            // 打分
+            [[iRate sharedInstance] openRatingsPageInAppStore];
             break;
         }
         default:
