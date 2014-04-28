@@ -15,7 +15,6 @@
 #import <NSDate-Utilities.h>
 #import <ABCalendarPicker.h>
 #import "CPCalendarPickerStyleProvider.h"
-#import <MBProgressHUD.h>
 #import <PopoverView_Configuration.h>
 
 static char CPAssociatedKeyCellTag;
@@ -461,46 +460,40 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     [self.view layoutSubviews];
 }
 - (void)calendarPicker:(ABCalendarPicker*)calendarPicker dateSelected:(NSDate*)date withState:(ABCalendarPickerState)state{
-    MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:hud];
-    [hud showAnimated:YES whileExecutingBlock:^{
-        // 清空table数据
-        if (self.contactsForTable) {
-            [self.contactsForTable removeAllObjects];
-            self.contactsForTable = nil;
-        }
-        self.contactsForTable = [NSMutableArray array];
-        // 如果不是 day Weekdays 模式,则返回
-        if(state != ABCalendarPickerStateDays && state != ABCalendarPickerStateWeekdays){
-            [self.tableView reloadData];
-            return;
-        }
-        switch (self.type) {
-            case CP_SCHEDULE_TYPE_ALL:{
-                [self.contactsForTable addObjectsFromArray:[self contactsWithTraceArryInDBCorrectToDayWithDate:date]];
-                [self.contactsForTable addObjectsFromArray:[self contactsWithPolicyArryInDBCorrectToDayWithDate:date]];
-                [self.contactsForTable addObjectsFromArray:[self contactsCaredBirthdayArryInDBWithDate:date]];
-                break;
-            }
-            case CP_SCHEDULE_TYPE_TRACE:{
-                [self.contactsForTable addObjectsFromArray:[self contactsWithTraceArryInDBCorrectToDayWithDate:date]];
-                break;
-            }
-            case CP_SCHEDULE_TYPE_PAY_REMIND:{
-                [self.contactsForTable addObjectsFromArray:[self contactsWithPolicyArryInDBCorrectToDayWithDate:date]];
-                break;
-            }
-            case CP_SCHEDULE_TYPE_BIRTHDAY:{
-                [self.contactsForTable addObjectsFromArray:[self contactsCaredBirthdayArryInDBWithDate:date]];
-                break;
-            }
-            default:
-                break;
-        }
-    } completionBlock:^{
+    // 清空table数据
+    if (self.contactsForTable) {
+        [self.contactsForTable removeAllObjects];
+        self.contactsForTable = nil;
+    }
+    self.contactsForTable = [NSMutableArray array];
+    // 如果不是 day Weekdays 模式,则返回
+    if(state != ABCalendarPickerStateDays && state != ABCalendarPickerStateWeekdays){
         [self.tableView reloadData];
-        [hud removeFromSuperview];
-    }];
+        return;
+    }
+    switch (self.type) {
+        case CP_SCHEDULE_TYPE_ALL:{
+            [self.contactsForTable addObjectsFromArray:[self contactsWithTraceArryInDBCorrectToDayWithDate:date]];
+            [self.contactsForTable addObjectsFromArray:[self contactsWithPolicyArryInDBCorrectToDayWithDate:date]];
+            [self.contactsForTable addObjectsFromArray:[self contactsCaredBirthdayArryInDBWithDate:date]];
+            break;
+        }
+        case CP_SCHEDULE_TYPE_TRACE:{
+            [self.contactsForTable addObjectsFromArray:[self contactsWithTraceArryInDBCorrectToDayWithDate:date]];
+            break;
+        }
+        case CP_SCHEDULE_TYPE_PAY_REMIND:{
+            [self.contactsForTable addObjectsFromArray:[self contactsWithPolicyArryInDBCorrectToDayWithDate:date]];
+            break;
+        }
+        case CP_SCHEDULE_TYPE_BIRTHDAY:{
+            [self.contactsForTable addObjectsFromArray:[self contactsCaredBirthdayArryInDBWithDate:date]];
+            break;
+        }
+        default:
+            break;
+    }
+    [self.tableView reloadData];
 }
 - (BOOL)calendarPicker:(ABCalendarPicker*)calendarPicker
         shouldSetState:(ABCalendarPickerState)state
