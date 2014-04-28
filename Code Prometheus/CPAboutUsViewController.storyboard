@@ -116,6 +116,9 @@
                             <outlet property="delegate" destination="Dz6-wp-W7d" id="Qeu-iK-8nz"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="versionLabel" destination="INi-9K-5S3" id="ANw-OB-6WI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7V7-d1-QSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

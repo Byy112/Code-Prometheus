@@ -12,6 +12,7 @@
 #import <iVersion.h>
 
 @interface CPAboutUsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end
 
@@ -20,6 +21,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"关于我们";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.versionLabel.text = [NSString stringWithFormat:@"v%@",[[iVersion sharedInstance] applicationVersion]];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
