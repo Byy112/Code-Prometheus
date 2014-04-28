@@ -47,6 +47,7 @@
         if (CPUserName) {
             UIStoryboard *accountRechargeStoryboard = [UIStoryboard storyboardWithName:@"CPAccountRechargeViewController" bundle:nil];
             CPAccountRechargeViewController* controller = [accountRechargeStoryboard instantiateViewControllerWithIdentifier:@"CPAccountRechargeViewController"];
+            controller.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:controller animated:YES];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
@@ -84,11 +85,13 @@
     }
     if (indexPath.row == 4) {
         CPSyncSettingViewController* controller = [[CPSyncSettingViewController alloc] initWithNibName:nil bundle:nil];
+        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
     if (indexPath.row == 5) {
         UIStoryboard *accountRechargeStoryboard = [UIStoryboard storyboardWithName:@"CPAboutUsViewController" bundle:nil];
         CPAboutUsViewController* controller = [accountRechargeStoryboard instantiateViewControllerWithIdentifier:@"CPAboutUsViewController"];
+        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

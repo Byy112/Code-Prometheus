@@ -150,6 +150,7 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 -(void) listButtonClick:(id)sender{
     CPContactsInMapTableViewController* controller = [[CPContactsInMapTableViewController alloc] initWithNibName:nil bundle:nil];
+    controller.hidesBottomBarWhenPushed = YES;
     controller.annotationArray = self.annotationArray;
     [self.navigationController pushViewController:controller animated:YES];
 }
