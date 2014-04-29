@@ -156,8 +156,11 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
     if (self.policy.cp_pay_way) {
         [self.payWayButton setTitle:CP_POLICY_PAY_WAY_TITLE_ITEM[self.policy.cp_pay_way.integerValue] forState:UIControlStateNormal];
     }
+    // 缴费提醒
     if (self.policy.cp_remind_date) {
         [self.remindDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]] forState:UIControlStateNormal];
+    }else{
+        [self.remindDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
     }
     // 照片
     [self updatePhotoViews];
