@@ -24,7 +24,9 @@ static char CPAssociatedKeyPolicy;
 @end
 
 @implementation CPPolicyListViewController
-
+- (void)dealloc{
+    self.tableView.editing = NO;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

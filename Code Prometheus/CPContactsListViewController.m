@@ -59,7 +59,9 @@ static char CPAssociatedKeyPolicy;
 @end
 
 @implementation CPContactsListViewController
-
+- (void)dealloc{
+    self.tableView.editing = NO;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

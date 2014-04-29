@@ -24,7 +24,9 @@ static char CPAssociatedKeyTrace;
 @end
 
 @implementation CPTraceListViewController
-
+- (void)dealloc{
+    self.tableView.editing = NO;
+}
 
 - (void)viewDidLoad
 {
