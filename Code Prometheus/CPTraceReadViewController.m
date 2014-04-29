@@ -96,7 +96,7 @@ static const CGFloat kImageSpacing = 5;
     }
     // layoutview高度
     [self.photoLayoutView removeConstraint:self.photoLayoutViewHeightConstraint];
-    self.photoLayoutViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.photoLayoutView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.photoLayoutView.superview attribute:NSLayoutAttributeHeight multiplier:0 constant:i==0?0:2*kFramePadding+(i/3)*(height+kImageSpacing)+height];
+    self.photoLayoutViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.photoLayoutView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.photoLayoutView.superview attribute:NSLayoutAttributeHeight multiplier:0 constant:i==0?0:2*kFramePadding+((i - 1)/3 + 1)*(height+kImageSpacing)];
     [self.photoLayoutView addConstraint:self.photoLayoutViewHeightConstraint];
     [self.view setNeedsLayout];
 }
