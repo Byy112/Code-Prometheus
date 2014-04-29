@@ -208,6 +208,8 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     CPLogWarn(@"清除用户信息");
     [CPUserDefaults resetDefaults];
     [CPDB creatDBIfNotExist];
+    CPLogWarn(@"清除缓存数据");
+    [[SDImageCache sharedImageCache] clearDisk];
     // 通知
     CPLogInfo(@"注销成功,发出通知:CPLogoutNotification");
     [[NSNotificationCenter defaultCenter] postNotificationName:CPLogoutNotification object:nil];
