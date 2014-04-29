@@ -5323,7 +5323,7 @@
             </objects>
             <point key="canvasLocation" x="-886" y="897"/>
         </scene>
-        <!--Setting View Controller - 设置-->
+        <!--Setting View Controller - 更多-->
         <scene sceneID="c0P-k1-TSJ">
             <objects>
                 <tableViewController id="0Ow-mZ-1US" customClass="CPSettingViewController" sceneMemberID="viewController">
@@ -5521,7 +5521,7 @@
                             <outlet property="delegate" destination="0Ow-mZ-1US" id="dIt-52-VVW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="设置" id="KPA-ed-ZUu"/>
+                    <navigationItem key="navigationItem" title="更多" id="KPA-ed-ZUu"/>
                     <connections>
                         <outlet property="systemMessageCell" destination="hWs-5J-n0k" id="l2l-gS-h23"/>
                     </connections>
