@@ -90,12 +90,8 @@
     [CPMapUtil updateCityAndLocation:userLocation];
 }
 - (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
-    [[TWMessageBarManager sharedInstance] hideAll];
-    [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                   description:@"定位失败"
-                                                          type:TWMessageBarMessageTypeError];
     _goUserLocation = NO;
-    self.mapView.visibleMapRect = MAMapRectMake(220880104, 101476980, 272496, 466656);
+    CPLogError(@"定位失败! error:%@",error);
 }
 
 #pragma mark - AMapSearchDelegate
