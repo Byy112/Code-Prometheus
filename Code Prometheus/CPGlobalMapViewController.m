@@ -339,17 +339,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 
 #pragma mark - UISearchBarDelegate
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    if (!searchText || [searchText isEqualToString:@""]) {
-        return;
-    }
-    // 加载数据
-    [self loadContactsWithSearchString:searchText];
-    // 排序
-    [self initContactsForSort];
-    // 重载table
-    [self.searchDisplayController.searchResultsTableView reloadData];
-}
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
 }
@@ -371,6 +360,23 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 //}
 
 #pragma mark - UISearchDisplayDelegate
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if (!searchString || [searchString isEqualToString:@""]) {
+        return NO;
+    }
+    // 加载数据
+    [self loadContactsWithSearchString:searchString];
+    // 排序
+    [self initContactsForSort];
+    // 重载table
+    [self.searchDisplayController.searchResultsTableView reloadData];
+    return YES;
+}
+
+- (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
+    controller.searchBar.text = controller.searchBar.text;
+}
 //- (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
 //    if (self.searchDisplayController.searchBar.tag != 1) {
 //        self.model = CPGlobalMapModelContactsInRegion;
