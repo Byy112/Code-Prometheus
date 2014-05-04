@@ -258,6 +258,7 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
         }
         self.annotationSearch = annotations;
         [self updateMapView];
+        [self.mapView selectAnnotation:annotations[0] animated:YES];
     }
 }
 /* 逆地理编码回调. */
