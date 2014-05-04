@@ -20,10 +20,6 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
 
 
 @interface CPReadMapViewController ()
-// UI
-@property (nonatomic,weak) UIView* bottomView;
-@property (nonatomic,weak) UILabel* nameLabel;
-@property (nonatomic,weak) UILabel* addressLabel;
 
 // 显示的标记
 @property (nonatomic) NSMutableArray* annotationArray;
@@ -41,39 +37,6 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
     self.goUserLocation = NO;
     self.goPoint = YES;
     self.model = CPReadMapModelOnlySelfContacts;
-    // 底部的view
-    UIView* bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor grayColor];
-    bottomView.alpha = 0.9;
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewClick:)];
-    [bottomView addGestureRecognizer:tap];
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view.mas_width);
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-self.tabBarController.tabBar.frame.size.height);
-    }];
-    self.bottomView = bottomView;
-    
-    UILabel* nameLabel = [[UILabel alloc] init];
-    [bottomView addSubview:nameLabel];
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@(20));
-        make.top.equalTo(@(4));
-    }];
-    self.nameLabel = nameLabel;
-    
-    UILabel* addressLabel = [[UILabel alloc] init];
-    [addressLabel setFont:[UIFont systemFontOfSize:12]];
-    [bottomView addSubview:addressLabel];
-    [addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@(10));
-        make.top.equalTo(nameLabel.mas_bottom).offset(4);
-        make.bottom.equalTo(@(0));
-    }];
-    self.addressLabel = addressLabel;
-    
-    bottomView.hidden = YES;
     
     // 右侧view
     UIButton* allContactsButton = [[UIButton alloc] init];
@@ -241,13 +204,6 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
 }
 
 #pragma mark - Action
--(void) bottomViewClick:(id)sender{
-    CPPointAnnotation* annotation = self.mapView.selectedAnnotations.firstObject;
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
-    controller.contactsUUID = annotation.uuid;
-    [self.navigationController pushViewController:controller animated:YES];
-}
 
 -(void) allContactsButtonClick:(id)sender{
     switch (self.model) {
@@ -278,15 +234,17 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
     if ([annotation isKindOfClass:[CPPointAnnotation class]])
     {
         static NSString *customReuseIndetifier = @"customReuseIndetifier";
-        CPCusAnnotationView *annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        if (annotationView == nil)
-        {
-#warning 这里每次都执行？ 影响效率
-            annotationView = [[CPCusAnnotationView alloc] initWithAnnotation:annotation
-                                                             reuseIdentifier:customReuseIndetifier];
+        CPAnnotationView *annotationView = (CPAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
+        if (annotationView == nil){
+            annotationView = [[CPAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
+            annotationView.block =  ^(CPAnnotationView* view) {
+                CPPointAnnotation* annotation = view.annotation;
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
+                controller.contactsUUID = annotation.uuid;
+                [self.navigationController pushViewController:controller animated:YES];
+            };
         }
-        annotationView.cpAnnotation = annotation;
-        
         return annotationView;
     }
     return nil;
@@ -295,19 +253,5 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
     if (self.model == CPReadMapModelContactsInRegion) {
         [self loadModelAndUpdateUI];
     }
-}
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
-    if (![view isKindOfClass:CPCusAnnotationView.class]) {
-        return;
-    }
-    CPPointAnnotation* annotation = [(CPCusAnnotationView*)view cpAnnotation];
-    self.nameLabel.text = annotation.title;
-    self.addressLabel.text = annotation.subtitle;
-    self.bottomView.hidden = NO;
-    [self.view bringSubviewToFront:self.bottomView];
-}
-
-- (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
-    self.bottomView.hidden = YES;
 }
 @end

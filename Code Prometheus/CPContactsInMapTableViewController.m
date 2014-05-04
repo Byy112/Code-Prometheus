@@ -7,7 +7,7 @@
 //
 
 #import "CPContactsInMapTableViewController.h"
-#import "CPCusAnnotationView.h"
+#import "CPAnnotationView.h"
 #import "CPContactsDetailViewController.h"
 
 @interface CPContactsInMapTableViewController ()

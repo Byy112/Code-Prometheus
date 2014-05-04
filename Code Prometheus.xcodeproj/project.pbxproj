@@ -75,6 +75,8 @@
 		0364B4EC18EBEC9700690DBB /* cp_map_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 0364B4EA18EBEC9700690DBB /* cp_map_family.png */; };
 		036513B518473073006389FA /* CPContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513B418473073006389FA /* CPContactsDetailViewController.m */; };
 		036513BE18473B41006389FA /* CPPersonalDetailsReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513BD18473B41006389FA /* CPPersonalDetailsReadViewController.m */; };
+		0365B63F191092E1009D55EE /* CPAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B63E191092E1009D55EE /* CPAnnotationView.m */; };
+		0365B643191094F0009D55EE /* CPCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B642191094F0009D55EE /* CPCustomCalloutView.m */; };
 		036C1E3118F4EA4F00D5EDB0 /* cp_map_all_contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E2E18F4EA4F00D5EDB0 /* cp_map_all_contacts.png */; };
 		036C1E3218F4EA4F00D5EDB0 /* cp_map_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E2F18F4EA4F00D5EDB0 /* cp_map_list.png */; };
 		036C1E3318F4EA4F00D5EDB0 /* cp_map_local.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E3018F4EA4F00D5EDB0 /* cp_map_local.png */; };
@@ -92,7 +94,6 @@
 		0379A26918EA942000331ADB /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A25A18EA942000331ADB /* POIAnnotation.m */; };
 		0379A26A18EA942000331ADB /* ReGeocodeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A25C18EA942000331ADB /* ReGeocodeAnnotation.m */; };
 		0379A26B18EA942000331ADB /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A25F18EA942000331ADB /* CommonUtility.m */; };
-		0379A26E18EA9C5300331ADB /* CPCusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A26D18EA9C5300331ADB /* CPCusAnnotationView.m */; };
 		037D5129187129B500B740A3 /* CPRechargeLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037D5128187129B500B740A3 /* CPRechargeLogViewController.m */; };
 		037D512B187129CD00B740A3 /* CPRechargeLogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037D512A187129CD00B740A3 /* CPRechargeLogViewController.storyboard */; };
 		037D512F1871440000B740A3 /* CPMyProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037D512D1871440000B740A3 /* CPMyProductViewController.m */; };
@@ -351,6 +352,10 @@
 		036513B418473073006389FA /* CPContactsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsDetailViewController.m; sourceTree = "<group>"; };
 		036513BC18473B41006389FA /* CPPersonalDetailsReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPersonalDetailsReadViewController.h; sourceTree = "<group>"; };
 		036513BD18473B41006389FA /* CPPersonalDetailsReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPersonalDetailsReadViewController.m; sourceTree = "<group>"; };
+		0365B63D191092E0009D55EE /* CPAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPAnnotationView.h; sourceTree = "<group>"; };
+		0365B63E191092E1009D55EE /* CPAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPAnnotationView.m; sourceTree = "<group>"; };
+		0365B641191094F0009D55EE /* CPCustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCustomCalloutView.h; sourceTree = "<group>"; };
+		0365B642191094F0009D55EE /* CPCustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCustomCalloutView.m; sourceTree = "<group>"; };
 		036C1E2E18F4EA4F00D5EDB0 /* cp_map_all_contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_all_contacts.png; sourceTree = "<group>"; };
 		036C1E2F18F4EA4F00D5EDB0 /* cp_map_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_list.png; sourceTree = "<group>"; };
 		036C1E3018F4EA4F00D5EDB0 /* cp_map_local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_local.png; sourceTree = "<group>"; };
@@ -381,8 +386,6 @@
 		0379A25C18EA942000331ADB /* ReGeocodeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReGeocodeAnnotation.m; sourceTree = "<group>"; };
 		0379A25E18EA942000331ADB /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
 		0379A25F18EA942000331ADB /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
-		0379A26C18EA9C5300331ADB /* CPCusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCusAnnotationView.h; sourceTree = "<group>"; };
-		0379A26D18EA9C5300331ADB /* CPCusAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCusAnnotationView.m; sourceTree = "<group>"; };
 		037D5127187129B500B740A3 /* CPRechargeLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPRechargeLogViewController.h; sourceTree = "<group>"; };
 		037D5128187129B500B740A3 /* CPRechargeLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPRechargeLogViewController.m; sourceTree = "<group>"; };
 		037D512A187129CD00B740A3 /* CPRechargeLogViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPRechargeLogViewController.storyboard; sourceTree = "<group>"; };
@@ -835,6 +838,7 @@
 		031E20A217B0851100125321 /* Code Prometheus */ = {
 			isa = PBXGroup;
 			children = (
+				0365B6401910930B009D55EE /* old */,
 				031E20BF17B0852E00125321 /* Controller */,
 				03750EF417D9DE7800B54E92 /* Models */,
 				03E0966818288E2C0034D1A6 /* UI */,
@@ -936,8 +940,10 @@
 				0379A25D18EA942000331ADB /* Utility */,
 				03FB40271851A9BC0036501B /* BaseMapViewController.h */,
 				03FB40281851A9BC0036501B /* BaseMapViewController.m */,
-				0379A26C18EA9C5300331ADB /* CPCusAnnotationView.h */,
-				0379A26D18EA9C5300331ADB /* CPCusAnnotationView.m */,
+				0365B63D191092E0009D55EE /* CPAnnotationView.h */,
+				0365B63E191092E1009D55EE /* CPAnnotationView.m */,
+				0365B641191094F0009D55EE /* CPCustomCalloutView.h */,
+				0365B642191094F0009D55EE /* CPCustomCalloutView.m */,
 			);
 			name = MapHelper;
 			sourceTree = "<group>";
@@ -988,6 +994,13 @@
 				03F2EE5C18555DC100E003F5 /* cp_map_3.png */,
 			);
 			name = map;
+			sourceTree = "<group>";
+		};
+		0365B6401910930B009D55EE /* old */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = old;
 			sourceTree = "<group>";
 		};
 		03750EF417D9DE7800B54E92 /* Models */ = {
@@ -1585,6 +1598,7 @@
 				03F2EE6F1855A8FA00E003F5 /* CPReadMapViewController.m in Sources */,
 				03F2EE661855749E00E003F5 /* CPFamilyReadViewController.m in Sources */,
 				03D9F44A1850651C00B95F93 /* CPFamilyEditViewController.m in Sources */,
+				0365B63F191092E1009D55EE /* CPAnnotationView.m in Sources */,
 				03FF00DF17DEAF0B000CE349 /* FMResultSet.m in Sources */,
 				0331B52F18FCE534004A4BC2 /* NSObject+SBJSON.m in Sources */,
 				03FF00E017DEAF0B000CE349 /* LKDB+Manager.m in Sources */,
@@ -1593,7 +1607,6 @@
 				038F759C18F7EF5F00BDD35C /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				03D9F3FE185024A000B95F93 /* CPPolicyListViewController.m in Sources */,
 				03F22F97186447260030359E /* CPFindPasswordByPhoneNumberViewController.m in Sources */,
-				0379A26E18EA9C5300331ADB /* CPCusAnnotationView.m in Sources */,
 				033A28331862DE1900B0AD79 /* CPAccountViewController.m in Sources */,
 				0361437318432C8500B433DC /* CPTrace.m in Sources */,
 				0379A26318EA942000331ADB /* CusAnnotationView.m in Sources */,
@@ -1652,6 +1665,7 @@
 				03DA5C0E183F571F0005E5AF /* CPTabBarController.m in Sources */,
 				030772251803EA8900048A53 /* CPDB.m in Sources */,
 				03D9011E186D575700925CE1 /* CPAccountRechargeViewController.m in Sources */,
+				0365B643191094F0009D55EE /* CPCustomCalloutView.m in Sources */,
 				03EAA4601869940900EC911B /* CPResetPasswordByPhoneNumberViewController.m in Sources */,
 				03FB40311851B0D30036501B /* CPMapUtil.m in Sources */,
 				0325B848185C0D0D00FFF42B /* CPCalendarPickerStyleProvider.m in Sources */,

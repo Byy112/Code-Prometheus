@@ -10,7 +10,7 @@
 #import "CPContacts.h"
 #import "CPFamily.h"
 #import "CPCompany.h"
-#import "CPCusAnnotationView.h"
+#import "CPAnnotationView.h"
 #import <Masonry.h>
 #import "CPContactsDetailViewController.h"
 #import "CommonUtility.h"
@@ -31,14 +31,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 // 地图范围内人脉读取线程池
 @property (nonatomic) NSOperationQueue* queue;
 
-
-
-// UI
-@property (nonatomic,weak) UIView* bottomView;
-@property (nonatomic,weak) UILabel* nameLabel;
-@property (nonatomic,weak) UILabel* addressLabel;
-
-
 // 搜索table相关的model
 @property (nonatomic) NSMutableArray* contactsArray;
 @property (nonatomic) NSMutableDictionary* contactsForAlephSort;
@@ -57,39 +49,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     queue.maxConcurrentOperationCount = 1;
     self.queue = queue;
-    // 底部的view
-    UIView* bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor grayColor];
-    bottomView.alpha = 0.9;
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewClick:)];
-    [bottomView addGestureRecognizer:tap];
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view.mas_width);
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-self.tabBarController.tabBar.frame.size.height);
-    }];
-    self.bottomView = bottomView;
-    
-    UILabel* nameLabel = [[UILabel alloc] init];
-    [bottomView addSubview:nameLabel];
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@(20));
-        make.top.equalTo(@(4));
-    }];
-    self.nameLabel = nameLabel;
-    
-    UILabel* addressLabel = [[UILabel alloc] init];
-    [addressLabel setFont:[UIFont systemFontOfSize:12]];
-    [bottomView addSubview:addressLabel];
-    [addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@(10));
-        make.top.equalTo(nameLabel.mas_bottom).offset(4);
-        make.bottom.equalTo(@(0));
-    }];
-    self.addressLabel = addressLabel;
-    
-    bottomView.hidden = YES;
     
     // 右侧view
     UIButton* allContactsButton = [[UIButton alloc] init];
@@ -131,13 +90,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 
 #pragma mark - Action
--(void) bottomViewClick:(id)sender{
-    CPPointAnnotation* annotation = self.mapView.selectedAnnotations.firstObject;
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
-    controller.contactsUUID = annotation.uuid;
-    [self.navigationController pushViewController:controller animated:YES];
-}
 
 -(void) allContactsButtonClick:(id)sender{
     self.model = CPGlobalMapModelContactsInRegion;
@@ -164,8 +116,15 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 -(void) updateUIForModelSearchedContactsUpdateRegion:(BOOL)updateRegion{
     [self doItInQueue:^{
-        [self findAnnotationByContacts];
+        CPPointAnnotation* selectAn = [self findAnnotationByContacts];
         [self performSelectorOnMainThread:@selector(updateMapView) withObject:nil waitUntilDone:YES];
+        if (selectAn) {
+#warning 做到这里了！！！  2014 4 30
+//            [self.mapView performSelectorOnMainThread:@selector(selectAnnotation:animated:) withObject:@[selectAn,@(NO)] waitUntilDone:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.mapView selectAnnotation:selectAn animated:NO];
+            });
+        }
         if (updateRegion) {
             [self performSelectorOnMainThread:@selector(updateRegion) withObject:nil waitUntilDone:YES];
         }
@@ -282,7 +241,8 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     }];
 }
 
--(void) findAnnotationByContacts{
+-(CPPointAnnotation*) findAnnotationByContacts{
+    CPPointAnnotation* returnAn = nil;
     CPContacts* contacts = self.contacts;
     self.annotationArray = [NSMutableArray array];
     CPFamily* family = [[CPDB getLKDBHelperByUser] searchSingle:[CPFamily class] where:[NSString stringWithFormat:@"cp_contact_uuid = '%@' AND cp_invain NOTNULL AND cp_invain == 1",contacts.cp_uuid] orderBy:nil];
@@ -294,6 +254,7 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         annotation.coordinate = CLLocationCoordinate2DMake(family.cp_latitude.doubleValue, family.cp_longitude.doubleValue);
         annotation.type = CPPointAnnotationTypeFamily;
         [self.annotationArray addObject:annotation];
+        returnAn = annotation;
     }
     CPCompany* company = [[CPDB getLKDBHelperByUser] searchSingle:[CPCompany class] where:[NSString stringWithFormat:@"cp_contact_uuid = '%@' AND cp_invain NOTNULL AND cp_invain == 1",contacts.cp_uuid] orderBy:nil];
     if (company) {
@@ -304,7 +265,12 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         annotation.coordinate = CLLocationCoordinate2DMake(company.cp_latitude.doubleValue, company.cp_longitude.doubleValue);
         annotation.type = CPPointAnnotationTypeCompany;
         [self.annotationArray addObject:annotation];
+        if (!returnAn) {
+            returnAn = annotation;
+        }
     }
+    
+    return returnAn;
 }
 -(void) loadContactsWithSearchString:(NSString*)searchString{
     [[CPDB getLKDBHelperByUser] executeDB:^(FMDatabase *db) {
@@ -361,8 +327,9 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 -(void) updateRegion{
     // 调整地图可视范围
     if (self.annotationArray.count == 1){
-        [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
-        [self.mapView setCenterCoordinate:[self.annotationArray[0] coordinate] animated:YES];
+        [self.mapView setRegion:MACoordinateRegionMake([self.annotationArray[0] coordinate], MACoordinateSpanMake(0.01, 0.01)) animated:YES];
+//        [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
+//        [self.mapView setCenterCoordinate:[self.annotationArray[0] coordinate] animated:YES];
     } else{
         [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:self.annotationArray] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
     }
@@ -421,15 +388,17 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     if ([annotation isKindOfClass:[CPPointAnnotation class]])
     {
         static NSString *customReuseIndetifier = @"customReuseIndetifier";
-        CPCusAnnotationView *annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        if (annotationView == nil)
-        {
-#warning 这里每次都执行？ 影响效率
-            annotationView = [[CPCusAnnotationView alloc] initWithAnnotation:annotation
-                                                           reuseIdentifier:customReuseIndetifier];
+        CPAnnotationView *annotationView = (CPAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
+        if (annotationView == nil){
+            annotationView = [[CPAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
+            annotationView.block =  ^(CPAnnotationView* view) {
+                CPPointAnnotation* annotation = view.annotation;
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
+                controller.contactsUUID = annotation.uuid;
+                [self.navigationController pushViewController:controller animated:YES];
+            };
         }
-        annotationView.cpAnnotation = annotation;
-        
         return annotationView;
     }
     return nil;
@@ -438,21 +407,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     if (self.model == CPGlobalMapModelContactsInRegion) {
         [self updateUIForModelContactsInRegion];
     }
-}
-
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
-    if (![view isKindOfClass:CPCusAnnotationView.class]) {
-        return;
-    }
-    CPPointAnnotation* annotation = [(CPCusAnnotationView*)view cpAnnotation];
-    self.nameLabel.text = annotation.title;
-    self.addressLabel.text = annotation.subtitle;
-    self.bottomView.hidden = NO;
-    [self.view bringSubviewToFront:self.bottomView];
-}
-
-- (void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
-    self.bottomView.hidden = YES;
 }
 
 #pragma mark - UITableViewDataSource

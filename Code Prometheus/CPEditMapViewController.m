@@ -8,10 +8,17 @@
 
 #import "CPEditMapViewController.h"
 #import "CommonUtility.h"
-#import "ReGeocodeAnnotation.h"
-#import "POIAnnotation.h"
 #import <MBProgressHUD.h>
 #import <TWMessageBarManager.h>
+#import <BlocksKit.h>
+
+
+static char CPAnnotationTypeKey;
+typedef NS_ENUM(NSInteger, CPAnnotationType) {
+    CPAnnotationTypeCPPointAnnotation,
+    CPAnnotationTypeReGeocodeAnnotation,
+    CPAnnotationTypePOIAnnotation
+};
 
 
 @interface CPEditMapViewController ()<UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
@@ -51,6 +58,7 @@
     // 数据库点
     self.annotationDB = [NSMutableArray array];
     if (self.cpAnnotation) {
+        [self.cpAnnotation bk_associateValue:@(CPAnnotationTypeCPPointAnnotation) withKey:&CPAnnotationTypeKey];
         [self.annotationDB addObject:self.cpAnnotation];
     }
 }
@@ -80,15 +88,13 @@
     // 清空大头针
     NSMutableArray* annotationForRemove = [@[] mutableCopy];
     for (id <MAAnnotation> annotation in self.mapView.annotations) {
-        if ([annotation isKindOfClass:[POIAnnotation class]]) {
-            [annotationForRemove addObject:annotation];
-        }
-        if ([annotation isKindOfClass:[ReGeocodeAnnotation class]]) {
+        NSObject* obje = annotation;
+        CPAnnotationType type = [[obje bk_associatedValueForKey:&CPAnnotationTypeKey] integerValue];
+        if (type == CPAnnotationTypeReGeocodeAnnotation || type == CPAnnotationTypePOIAnnotation) {
             [annotationForRemove addObject:annotation];
         }
     }
     [self.mapView removeAnnotations:annotationForRemove];
-    
     // 添加大头针
     [self.mapView addAnnotations:self.annotationDB];
     [self.mapView addAnnotations:self.annotationTap];
@@ -232,8 +238,14 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
         NSMutableArray *annotations = [NSMutableArray array];
         
         [respons.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
-            POIAnnotation *poi = [[POIAnnotation alloc] initWithPOI:obj];
-            [annotations addObject:poi];
+            CPPointAnnotation* annotation = [[CPPointAnnotation alloc] init];
+            annotation.uuid = nil;
+            annotation.title = obj.name;
+            annotation.subtitle = nil;
+            annotation.coordinate = CLLocationCoordinate2DMake(obj.location.latitude, obj.location.longitude) ;
+            annotation.type = CPPointAnnotationTypeNone;
+            [annotation bk_associateValue:@(CPAnnotationTypePOIAnnotation) withKey:&CPAnnotationTypeKey];
+            [annotations addObject:annotation];
         }];
         
         if (annotations.count == 1)
@@ -260,11 +272,23 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
     if (response.regeocode != nil)
     {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(request.location.latitude, request.location.longitude);
-        ReGeocodeAnnotation *reGeocodeAnnotation = [[ReGeocodeAnnotation alloc] initWithCoordinate:coordinate reGeocode:response.regeocode];
-        
-        self.annotationTap = [@[reGeocodeAnnotation] mutableCopy];
+        CPPointAnnotation* annotation = [[CPPointAnnotation alloc] init];
+        annotation.uuid = nil;
+        annotation.title = [NSString stringWithFormat:@"%@%@%@%@",response.regeocode.addressComponent.district,response.regeocode.addressComponent.township,response.regeocode.addressComponent.neighborhood,response.regeocode.addressComponent.building];
+        if (annotation.title.length == 0) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"无结果"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+        annotation.subtitle = nil;
+        annotation.coordinate = coordinate;
+        annotation.type = CPPointAnnotationTypeNone;
+        [annotation bk_associateValue:@(CPAnnotationTypeReGeocodeAnnotation) withKey:&CPAnnotationTypeKey];
+        self.annotationTap = [@[annotation] mutableCopy];
         [self updateMapView];
-        [self.mapView selectAnnotation:reGeocodeAnnotation animated:YES];
+        [self.mapView selectAnnotation:annotation animated:YES];
     }
 }
 
@@ -273,62 +297,12 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
     static NSString *customReuseIndetifier = @"customReuseIndetifier";
-    CPCusAnnotationView *annotationView = nil;
-    
-    // 用户点击的点
-    if ([annotation isKindOfClass:[ReGeocodeAnnotation class]])
-    {
-        annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        if (annotationView == nil)
-        {
-#warning 这里每次都执行？ 影响效率
-            annotationView = [[CPCusAnnotationView alloc] initWithAnnotation:annotation
-                                                             reuseIdentifier:customReuseIndetifier];
-        }
-        
-        ReGeocodeAnnotation* geocodeAnnotation = annotation;
-        CPPointAnnotation* cpAnnotation = [[CPPointAnnotation alloc] init];
-        cpAnnotation.uuid = nil;
-        cpAnnotation.title = geocodeAnnotation.title;
-        cpAnnotation.subtitle = geocodeAnnotation.subtitle;
-        cpAnnotation.coordinate = geocodeAnnotation.coordinate;
-        cpAnnotation.type = CPPointAnnotationTypeNone;
-        annotationView.cpAnnotation = cpAnnotation;
-        return annotationView;
-    }
-    // 地理搜索的点
-    if ([annotation isKindOfClass:[POIAnnotation class]])
-    {
-        annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        if (annotationView == nil)
-        {
-#warning 这里每次都执行？ 影响效率
-            annotationView = [[CPCusAnnotationView alloc] initWithAnnotation:annotation
-                                                             reuseIdentifier:customReuseIndetifier];
-        }
-        
-        POIAnnotation* poi = annotation;
-        CPPointAnnotation* cpAnnotation = [[CPPointAnnotation alloc] init];
-        cpAnnotation.uuid = nil;
-        cpAnnotation.title = poi.title;
-        cpAnnotation.subtitle = poi.subtitle;
-        cpAnnotation.coordinate = poi.coordinate;
-        cpAnnotation.type = CPPointAnnotationTypeNone;
-        annotationView.cpAnnotation = cpAnnotation;
-        return annotationView;
-    }
-    // 数据库保存经纬度的点
     if ([annotation isKindOfClass:[CPPointAnnotation class]])
     {
-        annotationView = (CPCusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        if (annotationView == nil)
-        {
-#warning 这里每次都执行？ 影响效率
-            annotationView = [[CPCusAnnotationView alloc] initWithAnnotation:annotation
-                                                             reuseIdentifier:customReuseIndetifier];
+        CPAnnotationView *annotationView = (CPAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
+        if (annotationView == nil){
+            annotationView = [[CPAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
         }
-        
-        annotationView.cpAnnotation = annotation;
         return annotationView;
     }
     return nil;

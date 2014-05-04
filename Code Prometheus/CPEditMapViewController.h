@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseMapViewController.h"
-#import "CPCusAnnotationView.h"
+#import "CPAnnotationView.h"
 
 @class CPEditMapViewController;
 
