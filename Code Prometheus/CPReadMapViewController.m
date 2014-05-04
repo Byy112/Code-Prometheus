@@ -96,10 +96,17 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
             [annotationForRemove addObject:annotation];
         }
     }
+    id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
     [self.mapView removeAnnotations:annotationForRemove];
-    
-    // 添加大头针
     [self.mapView addAnnotations:self.annotationArray];
+    if (selectAn) {
+        for (id<MAAnnotation> objAn in self.mapView.annotations) {
+            if ([[selectAn title] isEqualToString:[objAn title]] && selectAn.coordinate.latitude == objAn.coordinate.latitude && selectAn.coordinate.longitude == objAn.coordinate.longitude) {
+                [self.mapView selectAnnotation:objAn animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 -(void) findAnnotationInMapViewRegion{

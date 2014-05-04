@@ -119,8 +119,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         CPPointAnnotation* selectAn = [self findAnnotationByContacts];
         [self performSelectorOnMainThread:@selector(updateMapView) withObject:nil waitUntilDone:YES];
         if (selectAn) {
-#warning 做到这里了！！！  2014 4 30
-//            [self.mapView performSelectorOnMainThread:@selector(selectAnnotation:animated:) withObject:@[selectAn,@(NO)] waitUntilDone:YES];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.mapView selectAnnotation:selectAn animated:NO];
             });
@@ -309,7 +307,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 #pragma mark - private ui
 -(void) updateMapView{
-//    CPLogVerbose(@"地图更新UI开始");
     // 清空大头针
     NSMutableArray* annotationForRemove = [@[] mutableCopy];
     for (id <MAAnnotation> annotation in self.mapView.annotations) {
@@ -317,11 +314,17 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
             [annotationForRemove addObject:annotation];
         }
     }
+    id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
     [self.mapView removeAnnotations:annotationForRemove];
-    
-    // 添加大头针
     [self.mapView addAnnotations:self.annotationArray];
-//    CPLogVerbose(@"地图更新UI结束");
+    if (selectAn) {
+        for (id<MAAnnotation> objAn in self.mapView.annotations) {
+            if ([[selectAn title] isEqualToString:[objAn title]] && selectAn.coordinate.latitude == objAn.coordinate.latitude && selectAn.coordinate.longitude == objAn.coordinate.longitude) {
+                [self.mapView selectAnnotation:objAn animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 -(void) updateRegion{
