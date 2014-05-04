@@ -68,6 +68,8 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
         [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
         [self.mapView setCenterCoordinate:[self.cpAnnotation coordinate] animated:YES];
         self.goPoint = NO;
+        [self.mapView addAnnotation:self.cpAnnotation];
+        [self.mapView selectAnnotation:self.cpAnnotation animated:NO];
     }
     [self updateMapView];
 }
@@ -94,11 +96,20 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
             [annotationForRemove addObject:annotation];
         }
     }
+    id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
     [self.mapView removeAnnotations:annotationForRemove];
     // 添加大头针
     [self.mapView addAnnotations:self.annotationDB];
     [self.mapView addAnnotations:self.annotationTap];
     [self.mapView addAnnotations:self.annotationSearch];
+    if (selectAn) {
+        for (id<MAAnnotation> objAn in self.mapView.annotations) {
+            if ([[selectAn title] isEqualToString:[objAn title]] && selectAn.coordinate.latitude == objAn.coordinate.latitude && selectAn.coordinate.longitude == objAn.coordinate.longitude) {
+                [self.mapView selectAnnotation:objAn animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 #pragma mark - private

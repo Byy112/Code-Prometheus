@@ -80,12 +80,13 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
 -(void) loadModelAndUpdateUI{
     if (self.model == CPReadMapModelContactsInRegion) {
         [self findAnnotationInMapViewRegion];
+        [self updateMapView];
     }else{
         self.annotationArray = [NSMutableArray array];
         [self.annotationArray addObject:self.cpAnnotation];
+        [self updateMapView];
+        [self.mapView selectAnnotation:self.cpAnnotation animated:YES];
     }
-    
-    [self updateMapView];
 }
 
 -(void) updateMapView{
