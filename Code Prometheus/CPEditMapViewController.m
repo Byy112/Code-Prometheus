@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.searchDisplayController.searchBar.searchBarStyle = UISearchBarStyleDefault;
     // UI
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonClick:)];
     self.navigationItem.rightBarButtonItem = rightButton;

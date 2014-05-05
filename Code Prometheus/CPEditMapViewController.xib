@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oxb-CY-wad" customClass="CPSearchBar">
+                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="请输入地址名称" translatesAutoresizingMaskIntoConstraints="NO" id="Oxb-CY-wad" customClass="CPSearchBar">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
@@ -32,7 +32,6 @@
                 <constraint firstItem="Oxb-CY-wad" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="XN0-F0-EcX"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <searchDisplayController id="T9C-dQ-vtD">
