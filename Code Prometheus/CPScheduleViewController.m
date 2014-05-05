@@ -16,6 +16,7 @@
 #import <ABCalendarPicker.h>
 #import "CPCalendarPickerStyleProvider.h"
 #import <PopoverView_Configuration.h>
+#import <BlocksKit+UIKit.h>
 
 static char CPAssociatedKeyCellTag;
 static char CPAssociatedKeyTrace;
@@ -329,8 +330,12 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
             self.popoverView.tag = 1;
             return;
         }else if (numbers.count ==1){
-            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[0]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [UIAlertView bk_showAlertViewWithTitle:@"确认" message:[NSString stringWithFormat:@"确认是否拨打电话 %@",numbers.firstObject] cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[0]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                }
+            }];
             return;
         }
     }
@@ -600,8 +605,12 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
             // 电话
             CPContacts* contacts = objc_getAssociatedObject(popoverView, &CPAssociatedKeyContacts);
             NSArray* numbers = [contacts.cp_phone_number componentsSeparatedByString:@" "];
-            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[index]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [UIAlertView bk_showAlertViewWithTitle:@"拨打电话" message:[NSString stringWithFormat:@"确认是否拨打电话 %@",numbers[index]] cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[index]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                }
+            }];
             break;
         }
         case 2:{

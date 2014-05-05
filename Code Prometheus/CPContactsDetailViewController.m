@@ -9,6 +9,7 @@
 #import "CPContactsDetailViewController.h"
 #import "CPContacts.h"
 #import <PopoverView.h>
+#import <BlocksKit+UIKit.h>
 
 @interface CPContactsDetailViewController ()<PopoverViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *portraitButton;
@@ -101,8 +102,12 @@
             self.popoverView.tag = 0;
             return;
         }else if (numbers.count ==1){
-            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[0]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [UIAlertView bk_showAlertViewWithTitle:@"确认" message:[NSString stringWithFormat:@"确认是否拨打电话 %@",numbers.firstObject] cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[0]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                }
+            }];
             return;
         }
     }
@@ -159,8 +164,13 @@
         case 0:{
             // 电话
             NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@" "];
-            NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[index]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+            [UIAlertView bk_showAlertViewWithTitle:@"拨打电话" message:[NSString stringWithFormat:@"确认是否拨打电话 %@",numbers[index]] cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[index]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
+                }
+            }];
+            
             break;
         }
         case 1:{
