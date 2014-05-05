@@ -11,20 +11,16 @@
 #import "CPContactsDetailViewController.h"
 #import "CPContactsInMapTableViewController.h"
 
+@interface CPReadMapViewController ()
 
 // 地图模式
-typedef NS_ENUM(NSInteger, CPReadMapModel) {
-    CPReadMapModelOnlySelfContacts,
-    CPReadMapModelContactsInRegion
-};
-
-
-@interface CPReadMapViewController ()
+@property (nonatomic) BOOL showAround;
 
 // 显示的标记
 @property (nonatomic) NSMutableArray* annotationArray;
-// 地图模式
-@property (nonatomic) CPReadMapModel model;
+
+// 地图范围内人脉读取线程池
+@property (nonatomic) NSOperationQueue* queue;
 
 @property (nonatomic) BOOL goPoint;
 @end
@@ -36,7 +32,12 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
     [super viewDidLoad];
     self.goUserLocation = NO;
     self.goPoint = YES;
-    self.model = CPReadMapModelOnlySelfContacts;
+    self.showAround = NO;
+    
+    // 队列
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 1;
+    self.queue = queue;
     
     // 右侧view
     UIButton* allContactsButton = [[UIButton alloc] init];
@@ -70,43 +71,62 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.goPoint) {
-        [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
-        [self.mapView setCenterCoordinate:[self.cpAnnotation coordinate] animated:YES];
+        [self.mapView setRegion:MACoordinateRegionMake([self.cpAnnotation coordinate], MACoordinateSpanMake(0.01, 0.01)) animated:YES];
+        [self.mapView addAnnotation:self.cpAnnotation];
+        [self.mapView selectAnnotation:self.cpAnnotation animated:NO];
         self.goPoint = NO;
     }
-    [self loadModelAndUpdateUI];
+    [self updateUI];
 }
 
--(void) loadModelAndUpdateUI{
-    if (self.model == CPReadMapModelContactsInRegion) {
+#pragma mark - private
+-(void) updateUI{
+    [self doItInQueue:^{
         [self findAnnotationInMapViewRegion];
-        [self updateMapView];
-    }else{
-        self.annotationArray = [NSMutableArray array];
-        [self.annotationArray addObject:self.cpAnnotation];
-        [self updateMapView];
-        [self.mapView selectAnnotation:self.cpAnnotation animated:YES];
+        [self performSelectorOnMainThread:@selector(updateMapView) withObject:nil waitUntilDone:YES];
+    } cancelFrontBlock:YES];
+}
+-(void) doItInQueue:(void (^)(void))block cancelFrontBlock:(BOOL)cancelBlock{
+    if (cancelBlock) {
+        // 取消以前的操作
+        [self.queue cancelAllOperations];
     }
+    // 创建最新的操作
+    NSOperation* op = [NSBlockOperation blockOperationWithBlock:block];
+    [self.queue addOperation:op];
 }
 
+#pragma mark - private ui
 -(void) updateMapView{
-    // 清空大头针
+    // 计算需要清空的大头针
     NSMutableArray* annotationForRemove = [@[] mutableCopy];
     for (id <MAAnnotation> annotation in self.mapView.annotations) {
         if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
             [annotationForRemove addObject:annotation];
         }
     }
+    // 选中的点
     id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
+    // 清空大头针
     [self.mapView removeAnnotations:annotationForRemove];
-    [self.mapView addAnnotations:self.annotationArray];
+    // 添加，选中需要选中的点（如果有）
     if (selectAn) {
-        for (id<MAAnnotation> objAn in self.mapView.annotations) {
+        [self.mapView addAnnotation:selectAn];
+        [self.mapView selectAnnotation:selectAn animated:YES];
+    }
+    if (self.showAround) {
+        // 显示周边人脉
+        id<MAAnnotation> objDelete = nil;
+        for (id<MAAnnotation> objAn in self.annotationArray) {
             if ([[selectAn title] isEqualToString:[objAn title]] && selectAn.coordinate.latitude == objAn.coordinate.latitude && selectAn.coordinate.longitude == objAn.coordinate.longitude) {
-                [self.mapView selectAnnotation:objAn animated:YES];
+                objDelete = objAn;
                 break;
             }
         }
+        if (objDelete) {
+            [self.annotationArray removeObject:objDelete];
+        }
+        [self.mapView addAnnotations:self.annotationArray];
     }
 }
 
@@ -214,16 +234,8 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
 #pragma mark - Action
 
 -(void) allContactsButtonClick:(id)sender{
-    switch (self.model) {
-        case CPReadMapModelContactsInRegion:
-            self.model = CPReadMapModelOnlySelfContacts;
-            break;
-        case CPReadMapModelOnlySelfContacts:
-            self.model = CPReadMapModelContactsInRegion;
-        default:
-            break;
-    }
-    [self loadModelAndUpdateUI];
+    self.showAround = !self.showAround;
+    [self updateUI];
 }
 -(void) localButtonClick:(id)sender{
     if ([self.mapView.userLocation location]) {
@@ -258,8 +270,8 @@ typedef NS_ENUM(NSInteger, CPReadMapModel) {
     return nil;
 }
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    if (self.model == CPReadMapModelContactsInRegion) {
-        [self loadModelAndUpdateUI];
+    if (self.showAround) {
+        [self updateUI];
     }
 }
 @end

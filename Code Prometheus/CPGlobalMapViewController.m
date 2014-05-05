@@ -16,35 +16,24 @@
 #import "CommonUtility.h"
 #import "CPContactsInMapTableViewController.h"
 
-
-// 地图模式
-typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
-    CPGlobalMapModelContactsInRegion,
-    CPGlobalMapModelSearchedContacts
-};
-
 @interface CPGlobalMapViewController ()<MAMapViewDelegate, AMapSearchDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource>
 // 地图模式
-@property (nonatomic) CPGlobalMapModel model;
+@property (nonatomic) BOOL showAround;
 // 显示的标记
 @property (nonatomic) NSMutableArray* annotationArray;
 // 地图范围内人脉读取线程池
 @property (nonatomic) NSOperationQueue* queue;
-
 // 搜索table相关的model
 @property (nonatomic) NSMutableArray* contactsArray;
 @property (nonatomic) NSMutableDictionary* contactsForAlephSort;
 @property (nonatomic) NSArray* contactsForAlephSortKeys;
-
-// CPGlobalMapModelSearchedContacts 模式下对应的 人脉
-@property (nonatomic) CPContacts* contacts;
 @end
 
 @implementation CPGlobalMapViewController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.model = CPGlobalMapModelContactsInRegion;
+    self.showAround = YES;
     // 队列
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     queue.maxConcurrentOperationCount = 1;
@@ -81,19 +70,14 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (self.model == CPGlobalMapModelContactsInRegion) {
-        [self updateUIForModelContactsInRegion];
-    }
-    if (self.model == CPGlobalMapModelSearchedContacts) {
-        [self updateUIForModelSearchedContactsUpdateRegion:NO];
-    }
+    [self updateUI];
 }
 
 #pragma mark - Action
 
 -(void) allContactsButtonClick:(id)sender{
-    self.model = CPGlobalMapModelContactsInRegion;
-    [self updateUIForModelContactsInRegion];
+    self.showAround = !self.showAround;
+    [self updateUI];
 }
 -(void) localButtonClick:(id)sender{
     if ([self.mapView.userLocation location]) {
@@ -108,24 +92,10 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 
 #pragma mark - private
--(void) updateUIForModelContactsInRegion{
+-(void) updateUI{
     [self doItInQueue:^{
         [self findAnnotationInMapViewRegion];
         [self performSelectorOnMainThread:@selector(updateMapView) withObject:nil waitUntilDone:YES];
-    } cancelFrontBlock:YES];
-}
--(void) updateUIForModelSearchedContactsUpdateRegion:(BOOL)updateRegion{
-    [self doItInQueue:^{
-        CPPointAnnotation* selectAn = [self findAnnotationByContacts];
-        [self performSelectorOnMainThread:@selector(updateMapView) withObject:nil waitUntilDone:YES];
-        if (selectAn) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.mapView selectAnnotation:selectAn animated:NO];
-            });
-        }
-        if (updateRegion) {
-            [self performSelectorOnMainThread:@selector(updateRegion) withObject:nil waitUntilDone:YES];
-        }
     } cancelFrontBlock:YES];
 }
 -(void) doItInQueue:(void (^)(void))block cancelFrontBlock:(BOOL)cancelBlock{
@@ -239,10 +209,8 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     }];
 }
 
--(CPPointAnnotation*) findAnnotationByContacts{
-    CPPointAnnotation* returnAn = nil;
-    CPContacts* contacts = self.contacts;
-    self.annotationArray = [NSMutableArray array];
+-(NSArray*) findAnnotationByContacts:(CPContacts*) contacts{
+    NSMutableArray* annotationArray = [NSMutableArray array];
     CPFamily* family = [[CPDB getLKDBHelperByUser] searchSingle:[CPFamily class] where:[NSString stringWithFormat:@"cp_contact_uuid = '%@' AND cp_invain NOTNULL AND cp_invain == 1",contacts.cp_uuid] orderBy:nil];
     if (family) {
         CPPointAnnotation* annotation = [[CPPointAnnotation alloc] init];
@@ -251,8 +219,7 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         annotation.subtitle = family.cp_address_name;
         annotation.coordinate = CLLocationCoordinate2DMake(family.cp_latitude.doubleValue, family.cp_longitude.doubleValue);
         annotation.type = CPPointAnnotationTypeFamily;
-        [self.annotationArray addObject:annotation];
-        returnAn = annotation;
+        [annotationArray addObject:annotation];
     }
     CPCompany* company = [[CPDB getLKDBHelperByUser] searchSingle:[CPCompany class] where:[NSString stringWithFormat:@"cp_contact_uuid = '%@' AND cp_invain NOTNULL AND cp_invain == 1",contacts.cp_uuid] orderBy:nil];
     if (company) {
@@ -262,13 +229,9 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         annotation.subtitle = company.cp_address_name;
         annotation.coordinate = CLLocationCoordinate2DMake(company.cp_latitude.doubleValue, company.cp_longitude.doubleValue);
         annotation.type = CPPointAnnotationTypeCompany;
-        [self.annotationArray addObject:annotation];
-        if (!returnAn) {
-            returnAn = annotation;
-        }
+        [annotationArray addObject:annotation];
     }
-    
-    return returnAn;
+    return annotationArray;
 }
 -(void) loadContactsWithSearchString:(NSString*)searchString{
     [[CPDB getLKDBHelperByUser] executeDB:^(FMDatabase *db) {
@@ -276,7 +239,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
         self.contactsArray = [[CPDB getLKDBHelperByUser] executeResult:set Class:[CPContacts class]];
         [set close];
     }];
-    //    self.contactsArray = [[CPDB getLKDBHelperByUser] search:[CPContacts class] where:[NSString stringWithFormat:@"cp_name like '%%%@%%'",searchString] orderBy:nil offset:0 count:-1];
 }
 -(void) initContactsForSort{
     self.contactsForAlephSort = [NSMutableDictionary dictionary];
@@ -307,34 +269,44 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 }
 #pragma mark - private ui
 -(void) updateMapView{
-    // 清空大头针
+    // 计算需要清空的大头针
     NSMutableArray* annotationForRemove = [@[] mutableCopy];
     for (id <MAAnnotation> annotation in self.mapView.annotations) {
         if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
             [annotationForRemove addObject:annotation];
         }
     }
+    // 选中的点
     id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
+    // 清空大头针
     [self.mapView removeAnnotations:annotationForRemove];
-    [self.mapView addAnnotations:self.annotationArray];
+    // 添加，选中需要选中的点（如果有）
     if (selectAn) {
-        for (id<MAAnnotation> objAn in self.mapView.annotations) {
+        [self.mapView addAnnotation:selectAn];
+        [self.mapView selectAnnotation:selectAn animated:YES];
+    }
+    if (self.showAround) {
+        // 显示周边人脉
+        id<MAAnnotation> objDelete = nil;
+        for (id<MAAnnotation> objAn in self.annotationArray) {
             if ([[selectAn title] isEqualToString:[objAn title]] && selectAn.coordinate.latitude == objAn.coordinate.latitude && selectAn.coordinate.longitude == objAn.coordinate.longitude) {
-                [self.mapView selectAnnotation:objAn animated:YES];
+                objDelete = objAn;
                 break;
             }
         }
+        if (objDelete) {
+            [self.annotationArray removeObject:objDelete];
+        }
+        [self.mapView addAnnotations:self.annotationArray];
     }
 }
 
--(void) updateRegion{
+-(void) updateRegion:(NSArray*)annotationArray{
     // 调整地图可视范围
-    if (self.annotationArray.count == 1){
-        [self.mapView setRegion:MACoordinateRegionMake([self.annotationArray[0] coordinate], MACoordinateSpanMake(0.01, 0.01)) animated:YES];
-//        [self.mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
-//        [self.mapView setCenterCoordinate:[self.annotationArray[0] coordinate] animated:YES];
+    if (annotationArray.count == 1){
+        [self.mapView setRegion:MACoordinateRegionMake([annotationArray[0] coordinate], MACoordinateSpanMake(0.01, 0.01)) animated:YES];
     } else{
-        [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:self.annotationArray] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
+        [self.mapView setVisibleMapRect:[CommonUtility minMapRectForAnnotations:annotationArray] edgePadding:UIEdgeInsetsMake(160, 60, 60, 60) animated:YES];
     }
 }
 
@@ -342,22 +314,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
 }
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-//    NSLog(@"%s",__FUNCTION__);
-//}
-//- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar{
-//    NSLog(@"%s",__FUNCTION__);
-//}
-//- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar{
-//    NSLog(@"%s",__FUNCTION__);
-//}
-//- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar{
-//    NSLog(@"%s",__FUNCTION__);
-//}
-//
-//- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-//    NSLog(@"%s",__FUNCTION__);
-//}
 
 #pragma mark - UISearchDisplayDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -377,18 +333,6 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
     controller.searchBar.text = controller.searchBar.text;
 }
-//- (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
-//    if (self.searchDisplayController.searchBar.tag != 1) {
-//        self.model = CPGlobalMapModelContactsInRegion;
-//        [self updateUIForModelContactsInRegion];
-//    }
-//}
-//- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
-//    if (![controller.searchBar.text isEqual:@""]) {
-////        [controller.searchResultsTableView reloadData];
-////        [self.view addSubview:controller.searchResultsTableView];
-//    }
-//}
 
 #pragma mark - MAMapViewDelegate
 
@@ -413,8 +357,8 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
     return nil;
 }
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    if (self.model == CPGlobalMapModelContactsInRegion) {
-        [self updateUIForModelContactsInRegion];
+    if (self.showAround) {
+        [self updateUI];
     }
 }
 
@@ -449,12 +393,25 @@ typedef NS_ENUM(NSInteger, CPGlobalMapModel) {
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.model = CPGlobalMapModelSearchedContacts;
     NSString* aleph = self.contactsForAlephSortKeys[indexPath.section];
-    self.contacts = self.contactsForAlephSort[aleph][indexPath.row];
-    [self updateUIForModelSearchedContactsUpdateRegion:YES];
-//    self.searchDisplayController.searchBar.tag = 1;
+    CPContacts* contracts = self.contactsForAlephSort[aleph][indexPath.row];
+    
+    // 清空大头针
+    NSMutableArray* annotationForRemove = [@[] mutableCopy];
+    for (id <MAAnnotation> annotation in self.mapView.annotations) {
+        if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+            [annotationForRemove addObject:annotation];
+        }
+    }
+    [self.mapView removeAnnotations:annotationForRemove];
+    
+    NSArray* array = [self findAnnotationByContacts:contracts];
+    self.showAround = NO;
+    [self.mapView addAnnotations:array];
+    [self.mapView selectAnnotation:array.firstObject animated:NO];
+    [self updateRegion:array];
+    
     [self.searchDisplayController setActive:NO animated:YES];
-    self.searchDisplayController.searchBar.text = self.contacts.cp_name;
+    self.searchDisplayController.searchBar.text = contracts.cp_name;
 }
 @end
