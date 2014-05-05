@@ -335,6 +335,7 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
 -(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         CGRect statusBarFrame =  [[UIApplication sharedApplication] statusBarFrame];
+        statusBarFrame.size.height += 20;
         [UIView animateWithDuration:0.25 animations:^{
             for (UIView *subview in self.view.subviews)
                 subview.transform = CGAffineTransformMakeTranslation(0, statusBarFrame.size.height);
