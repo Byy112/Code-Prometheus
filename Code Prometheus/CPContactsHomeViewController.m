@@ -10,8 +10,6 @@
 #import "CPContacts.h"
 #import <MBProgressHUD.h>
 
-#warning 搜索结果的返回按钮字体为白色,与背景冲突
-
 @interface CPContactsHomeViewController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

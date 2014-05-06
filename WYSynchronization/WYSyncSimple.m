@@ -307,23 +307,23 @@ static WYSyncSimple* wy_syncSimple;
 
 // 同步失败
 -(void) synchronizationFailed:(WYSynchronization*)wySynchronization{
-    WYLogWarn(@"同步失败,类型:%@,原因:%@",nameFromSynchronizationType(wySynchronization.synchronizationType),nameFromSynchronizationFailedType(wySynchronization.synchronizationFailedType));
-    if (wySynchronization.synchronizationFailedType == SynchronizationFailedTypeDatabaseError) {
-        WYLogError(@"由于数据库原因，同步失败，还剩%d次机会",self.failedMaxCountForClean-self.failedCountForClean);
-        self.failedCountForClean = self.failedCountForClean + 1;
-    }
-    // 超过n次数据库错误，则fullcopy
-    if (self.failedCountForClean > self.failedMaxCountForClean) {
-        WYLogError(@"由于数据库原因，同步失败，没有机会了，进行数据库清除！");
-        [self.delegate dropDB];
-        [self.delegate creatDB];
-        WYLogError(@"数据库重置完成！重置机会次数");
-        self.failedCountForClean = 0;
-    }
+    WYLogError(@"同步失败,类型:%@,原因:%@",nameFromSynchronizationType(wySynchronization.synchronizationType),nameFromSynchronizationFailedType(wySynchronization.synchronizationFailedType));
+//    if (wySynchronization.synchronizationFailedType == SynchronizationFailedTypeDatabaseError) {
+//        WYLogError(@"由于数据库原因，同步失败，还剩%d次机会",self.failedMaxCountForClean-self.failedCountForClean);
+//        self.failedCountForClean = self.failedCountForClean + 1;
+//    }
+//    // 超过n次数据库错误，则fullcopy
+//    if (self.failedCountForClean > self.failedMaxCountForClean) {
+//        WYLogError(@"由于数据库原因，同步失败，没有机会了，进行数据库清除！");
+//        [self.delegate dropDB];
+//        [self.delegate creatDB];
+//        WYLogError(@"数据库重置完成！重置机会次数");
+//        self.failedCountForClean = 0;
+//    }
     self.syncInDoing = nil;
-    // 同步失败，循环再次同步
-    WYLogWarn(@"同步失败，开启循环同步定时器,间隔:%d",self.intervalForJsonRequest);
-    [self fireTimerWithType:TimerTypeJson interval:self.intervalForJsonRequest];
+//    // 同步失败，循环再次同步
+//    WYLogWarn(@"同步失败，开启循环同步定时器,间隔:%d",self.intervalForJsonRequest);
+//    [self fireTimerWithType:TimerTypeJson interval:self.intervalForJsonRequest];
 }
 
 // 同步成功

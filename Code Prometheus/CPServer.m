@@ -18,6 +18,7 @@
 #import <SDImageCache.h>
 #import <SDWebImageDownloader.h>
 #import "Reachability.h"
+#import <TWMessageBarManager.h>
 
 // 服务器地址
 static NSString*const URL_SERVER_ROOT = @"http://red.mirror-networks.com";
@@ -1268,6 +1269,12 @@ Reachability * reach;
         return YES;
     }else{
         [wySyncSimple notifyCancelSync];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:[responce objectForKey:Jk_errmsg]
+                                                                  type:TWMessageBarMessageTypeError];
+        });
         return NO;
     }
 }
