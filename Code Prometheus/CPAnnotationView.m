@@ -27,7 +27,7 @@
         self.image = [UIImage imageNamed:@"cp_map_3"];
         self.canShowCallout   = NO;
         self.draggable        = NO;
-        self.centerOffset = CGPointMake(0, -self.image.size.height/2);
+        self.centerOffset = CGPointMake(0, -self.image.size.height/4);
     }
     return self;
 }

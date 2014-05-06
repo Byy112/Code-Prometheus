@@ -71,17 +71,29 @@
 		034A106A190FB03A002D5871 /* cp_tab_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1069190FB03A002D5871 /* cp_tab_map.png */; };
 		0361437318432C8500B433DC /* CPTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 0361437218432C8500B433DC /* CPTrace.m */; };
 		0361437A184359A300B433DC /* NSString+CP_Aleph.m in Sources */ = {isa = PBXBuildFile; fileRef = 03614379184359A300B433DC /* NSString+CP_Aleph.m */; };
-		0364B4EB18EBEC9700690DBB /* cp_map_company.png in Resources */ = {isa = PBXBuildFile; fileRef = 0364B4E918EBEC9700690DBB /* cp_map_company.png */; };
-		0364B4EC18EBEC9700690DBB /* cp_map_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 0364B4EA18EBEC9700690DBB /* cp_map_family.png */; };
 		036513B518473073006389FA /* CPContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513B418473073006389FA /* CPContactsDetailViewController.m */; };
 		036513BE18473B41006389FA /* CPPersonalDetailsReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513BD18473B41006389FA /* CPPersonalDetailsReadViewController.m */; };
 		0365B63F191092E1009D55EE /* CPAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B63E191092E1009D55EE /* CPAnnotationView.m */; };
 		0365B643191094F0009D55EE /* CPCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B642191094F0009D55EE /* CPCustomCalloutView.m */; };
-		036C1E3118F4EA4F00D5EDB0 /* cp_map_all_contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E2E18F4EA4F00D5EDB0 /* cp_map_all_contacts.png */; };
-		036C1E3218F4EA4F00D5EDB0 /* cp_map_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E2F18F4EA4F00D5EDB0 /* cp_map_list.png */; };
-		036C1E3318F4EA4F00D5EDB0 /* cp_map_local.png in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E3018F4EA4F00D5EDB0 /* cp_map_local.png */; };
 		036C1E3718F51FF200D5EDB0 /* CPContactsInMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036C1E3518F51FF200D5EDB0 /* CPContactsInMapTableViewController.m */; };
 		036C1E3818F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E3618F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib */; };
+		0378C8881918E3CC00984CF3 /* cp_email_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8871918E3CC00984CF3 /* cp_email_0.png */; };
+		0378C88A1918E4BB00984CF3 /* cp_map_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8891918E4BB00984CF3 /* cp_map_list@2x.png */; };
+		0378C88C1918E52C00984CF3 /* cp_map_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C88B1918E52C00984CF3 /* cp_map_list.png */; };
+		0378C88F1918E54000984CF3 /* cp_map_all_contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C88D1918E54000984CF3 /* cp_map_all_contacts.png */; };
+		0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C88E1918E54000984CF3 /* cp_map_all_contacts@2x.png */; };
+		0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8911918E56A00984CF3 /* cp_map_local.png */; };
+		0378C8941918E56A00984CF3 /* cp_map_local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8921918E56A00984CF3 /* cp_map_local@2x.png */; };
+		0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8951918E61D00984CF3 /* cp_map_company.png */; };
+		0378C8981918E64300984CF3 /* cp_map_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8971918E64300984CF3 /* cp_map_family.png */; };
+		0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8991918E69A00984CF3 /* cp_map_0.png */; };
+		0378C89C1918E69A00984CF3 /* cp_map_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C89A1918E69A00984CF3 /* cp_map_0@2x.png */; };
+		0378C89F1918E7A400984CF3 /* cp_map_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C89D1918E7A400984CF3 /* cp_map_1.png */; };
+		0378C8A01918E7A400984CF3 /* cp_map_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C89E1918E7A400984CF3 /* cp_map_1@2x.png */; };
+		0378C8A31918E7C900984CF3 /* cp_map_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8A11918E7C900984CF3 /* cp_map_2.png */; };
+		0378C8A41918E7C900984CF3 /* cp_map_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8A21918E7C900984CF3 /* cp_map_2@2x.png */; };
+		0378C8A71918E7E700984CF3 /* cp_map_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8A51918E7E700984CF3 /* cp_map_3.png */; };
+		0378C8A81918E7E700984CF3 /* cp_map_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8A61918E7E700984CF3 /* cp_map_3@2x.png */; };
 		0379A26018EA942000331ADB /* AnimatedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A24818EA942000331ADB /* AnimatedAnnotation.m */; };
 		0379A26118EA942000331ADB /* AnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A24A18EA942000331ADB /* AnimatedAnnotationView.m */; };
 		0379A26218EA942000331ADB /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379A24C18EA942000331ADB /* BusStopAnnotation.m */; };
@@ -201,7 +213,6 @@
 		03F0CD1A182B89B200BD64DF /* CPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F0CD19182B89B200BD64DF /* CPServer.m */; };
 		03F11227186BE1FA0074F798 /* CPSyncSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F11225186BE1FA0074F798 /* CPSyncSettingViewController.m */; };
 		03F11228186BE1FA0074F798 /* CPSyncSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F11226186BE1FA0074F798 /* CPSyncSettingViewController.xib */; };
-		03F1C59C184F1F92006C3578 /* cp_map_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F1C59B184F1F92006C3578 /* cp_map_0.png */; };
 		03F1C59F184F3B8C006C3578 /* CPPolicyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F1C59E184F3B8C006C3578 /* CPPolicyEditViewController.m */; };
 		03F1C5A2184F3F39006C3578 /* CPPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F1C5A1184F3F39006C3578 /* CPPolicy.m */; };
 		03F200C11849AEDD00055B8D /* CPTraceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F200C01849AEDD00055B8D /* CPTraceListViewController.m */; };
@@ -214,15 +225,12 @@
 		03F22CF618681C8400C18DAD /* CPBindSafetyPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F22CF418681C8400C18DAD /* CPBindSafetyPhoneNumberViewController.xib */; };
 		03F22CFF1868446600C18DAD /* CPBindSafetyEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F22CFD1868446600C18DAD /* CPBindSafetyEmailViewController.m */; };
 		03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F22CFE1868446600C18DAD /* CPBindSafetyEmailViewController.xib */; };
-		03F22D021868452700C18DAD /* cp_email_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F22D011868452700C18DAD /* cp_email_0.png */; };
 		03F22F891863E7B40030359E /* CPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F22F871863E7B40030359E /* CPLoginViewController.m */; };
 		03F22F8A1863E7B40030359E /* CPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F22F881863E7B40030359E /* CPLoginViewController.xib */; };
 		03F22F92186437A20030359E /* CPFindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F22F90186437A20030359E /* CPFindPasswordViewController.m */; };
 		03F22F93186437A20030359E /* CPFindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F22F91186437A20030359E /* CPFindPasswordViewController.xib */; };
 		03F22F97186447260030359E /* CPFindPasswordByPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F22F95186447260030359E /* CPFindPasswordByPhoneNumberViewController.m */; };
 		03F22F98186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F22F96186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib */; };
-		03F2EE5D18555DC100E003F5 /* cp_map_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EE5B18555DC100E003F5 /* cp_map_2.png */; };
-		03F2EE5E18555DC100E003F5 /* cp_map_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EE5C18555DC100E003F5 /* cp_map_3.png */; };
 		03F2EE631855733300E003F5 /* main.sql in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EE621855733300E003F5 /* main.sql */; };
 		03F2EE661855749E00E003F5 /* CPFamilyReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EE651855749E00E003F5 /* CPFamilyReadViewController.m */; };
 		03F2EE6A1855A0F200E003F5 /* CPFamilyMemberReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EE681855A0F200E003F5 /* CPFamilyMemberReadViewController.m */; };
@@ -235,7 +243,6 @@
 		03F92678180BD07100F59B28 /* UITableView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F92677180BD07100F59B28 /* UITableView+IndexPath.m */; };
 		03FA61EA18488A5C00F1AECE /* CPPushNoAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FA61E918488A5C00F1AECE /* CPPushNoAnimation.m */; };
 		03FB40291851A9BC0036501B /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB40281851A9BC0036501B /* BaseMapViewController.m */; };
-		03FB402E1851AADC0036501B /* cp_map_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03FB402D1851AADC0036501B /* cp_map_1.png */; };
 		03FB40311851B0D30036501B /* CPMapUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB40301851B0D30036501B /* CPMapUtil.m */; };
 		03FB403F1851BCDD0036501B /* CPEditMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FB403D1851BCDD0036501B /* CPEditMapViewController.m */; };
 		03FB40401851BCDD0036501B /* CPEditMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FB403E1851BCDD0036501B /* CPEditMapViewController.xib */; };
@@ -346,8 +353,6 @@
 		0361437218432C8500B433DC /* CPTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPTrace.m; sourceTree = "<group>"; };
 		03614378184359A300B433DC /* NSString+CP_Aleph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CP_Aleph.h"; sourceTree = "<group>"; };
 		03614379184359A300B433DC /* NSString+CP_Aleph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CP_Aleph.m"; sourceTree = "<group>"; };
-		0364B4E918EBEC9700690DBB /* cp_map_company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_company.png; sourceTree = "<group>"; };
-		0364B4EA18EBEC9700690DBB /* cp_map_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_family.png; sourceTree = "<group>"; };
 		036513B318473073006389FA /* CPContactsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsDetailViewController.h; sourceTree = "<group>"; };
 		036513B418473073006389FA /* CPContactsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsDetailViewController.m; sourceTree = "<group>"; };
 		036513BC18473B41006389FA /* CPPersonalDetailsReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPersonalDetailsReadViewController.h; sourceTree = "<group>"; };
@@ -356,12 +361,26 @@
 		0365B63E191092E1009D55EE /* CPAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPAnnotationView.m; sourceTree = "<group>"; };
 		0365B641191094F0009D55EE /* CPCustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCustomCalloutView.h; sourceTree = "<group>"; };
 		0365B642191094F0009D55EE /* CPCustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCustomCalloutView.m; sourceTree = "<group>"; };
-		036C1E2E18F4EA4F00D5EDB0 /* cp_map_all_contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_all_contacts.png; sourceTree = "<group>"; };
-		036C1E2F18F4EA4F00D5EDB0 /* cp_map_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_list.png; sourceTree = "<group>"; };
-		036C1E3018F4EA4F00D5EDB0 /* cp_map_local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_local.png; sourceTree = "<group>"; };
 		036C1E3418F51FF200D5EDB0 /* CPContactsInMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsInMapTableViewController.h; sourceTree = "<group>"; };
 		036C1E3518F51FF200D5EDB0 /* CPContactsInMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsInMapTableViewController.m; sourceTree = "<group>"; };
 		036C1E3618F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPContactsInMapTableViewController.xib; sourceTree = "<group>"; };
+		0378C8871918E3CC00984CF3 /* cp_email_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_email_0.png; sourceTree = "<group>"; };
+		0378C8891918E4BB00984CF3 /* cp_map_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_list@2x.png"; sourceTree = "<group>"; };
+		0378C88B1918E52C00984CF3 /* cp_map_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_list.png; sourceTree = "<group>"; };
+		0378C88D1918E54000984CF3 /* cp_map_all_contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_all_contacts.png; sourceTree = "<group>"; };
+		0378C88E1918E54000984CF3 /* cp_map_all_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_all_contacts@2x.png"; sourceTree = "<group>"; };
+		0378C8911918E56A00984CF3 /* cp_map_local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_local.png; sourceTree = "<group>"; };
+		0378C8921918E56A00984CF3 /* cp_map_local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_local@2x.png"; sourceTree = "<group>"; };
+		0378C8951918E61D00984CF3 /* cp_map_company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_company.png; sourceTree = "<group>"; };
+		0378C8971918E64300984CF3 /* cp_map_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_family.png; sourceTree = "<group>"; };
+		0378C8991918E69A00984CF3 /* cp_map_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_0.png; sourceTree = "<group>"; };
+		0378C89A1918E69A00984CF3 /* cp_map_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_0@2x.png"; sourceTree = "<group>"; };
+		0378C89D1918E7A400984CF3 /* cp_map_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_1.png; sourceTree = "<group>"; };
+		0378C89E1918E7A400984CF3 /* cp_map_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_1@2x.png"; sourceTree = "<group>"; };
+		0378C8A11918E7C900984CF3 /* cp_map_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_2.png; sourceTree = "<group>"; };
+		0378C8A21918E7C900984CF3 /* cp_map_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_2@2x.png"; sourceTree = "<group>"; };
+		0378C8A51918E7E700984CF3 /* cp_map_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_3.png; sourceTree = "<group>"; };
+		0378C8A61918E7E700984CF3 /* cp_map_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_3@2x.png"; sourceTree = "<group>"; };
 		0379A24718EA942000331ADB /* AnimatedAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedAnnotation.h; sourceTree = "<group>"; };
 		0379A24818EA942000331ADB /* AnimatedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedAnnotation.m; sourceTree = "<group>"; };
 		0379A24918EA942000331ADB /* AnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedAnnotationView.h; sourceTree = "<group>"; };
@@ -550,7 +569,6 @@
 		03F11224186BE1FA0074F798 /* CPSyncSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSyncSettingViewController.h; sourceTree = "<group>"; };
 		03F11225186BE1FA0074F798 /* CPSyncSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSyncSettingViewController.m; sourceTree = "<group>"; };
 		03F11226186BE1FA0074F798 /* CPSyncSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSyncSettingViewController.xib; sourceTree = "<group>"; };
-		03F1C59B184F1F92006C3578 /* cp_map_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_0.png; sourceTree = "<group>"; };
 		03F1C59D184F3B8C006C3578 /* CPPolicyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPolicyEditViewController.h; sourceTree = "<group>"; };
 		03F1C59E184F3B8C006C3578 /* CPPolicyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPolicyEditViewController.m; sourceTree = "<group>"; };
 		03F1C5A0184F3F39006C3578 /* CPPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPolicy.h; sourceTree = "<group>"; };
@@ -570,7 +588,6 @@
 		03F22CFC1868446600C18DAD /* CPBindSafetyEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPBindSafetyEmailViewController.h; sourceTree = "<group>"; };
 		03F22CFD1868446600C18DAD /* CPBindSafetyEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPBindSafetyEmailViewController.m; sourceTree = "<group>"; };
 		03F22CFE1868446600C18DAD /* CPBindSafetyEmailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPBindSafetyEmailViewController.xib; sourceTree = "<group>"; };
-		03F22D011868452700C18DAD /* cp_email_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_email_0.png; sourceTree = "<group>"; };
 		03F22F861863E7B40030359E /* CPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLoginViewController.h; sourceTree = "<group>"; };
 		03F22F871863E7B40030359E /* CPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLoginViewController.m; sourceTree = "<group>"; };
 		03F22F881863E7B40030359E /* CPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPLoginViewController.xib; sourceTree = "<group>"; };
@@ -580,8 +597,6 @@
 		03F22F94186447260030359E /* CPFindPasswordByPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFindPasswordByPhoneNumberViewController.h; sourceTree = "<group>"; };
 		03F22F95186447260030359E /* CPFindPasswordByPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFindPasswordByPhoneNumberViewController.m; sourceTree = "<group>"; };
 		03F22F96186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPFindPasswordByPhoneNumberViewController.xib; sourceTree = "<group>"; };
-		03F2EE5B18555DC100E003F5 /* cp_map_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_2.png; sourceTree = "<group>"; };
-		03F2EE5C18555DC100E003F5 /* cp_map_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_3.png; sourceTree = "<group>"; };
 		03F2EE621855733300E003F5 /* main.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.sql; sourceTree = "<group>"; };
 		03F2EE641855749E00E003F5 /* CPFamilyReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPFamilyReadViewController.h; sourceTree = "<group>"; };
 		03F2EE651855749E00E003F5 /* CPFamilyReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPFamilyReadViewController.m; sourceTree = "<group>"; };
@@ -603,7 +618,6 @@
 		03FA61E918488A5C00F1AECE /* CPPushNoAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPushNoAnimation.m; sourceTree = "<group>"; };
 		03FB40271851A9BC0036501B /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
 		03FB40281851A9BC0036501B /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
-		03FB402D1851AADC0036501B /* cp_map_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_1.png; sourceTree = "<group>"; };
 		03FB402F1851B0D30036501B /* CPMapUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMapUtil.h; sourceTree = "<group>"; };
 		03FB40301851B0D30036501B /* CPMapUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMapUtil.m; sourceTree = "<group>"; };
 		03FB403C1851BCDD0036501B /* CPEditMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPEditMapViewController.h; sourceTree = "<group>"; };
@@ -983,15 +997,22 @@
 		0364B4E818EBEC1D00690DBB /* map */ = {
 			isa = PBXGroup;
 			children = (
-				036C1E2E18F4EA4F00D5EDB0 /* cp_map_all_contacts.png */,
-				036C1E2F18F4EA4F00D5EDB0 /* cp_map_list.png */,
-				036C1E3018F4EA4F00D5EDB0 /* cp_map_local.png */,
-				0364B4E918EBEC9700690DBB /* cp_map_company.png */,
-				0364B4EA18EBEC9700690DBB /* cp_map_family.png */,
-				03F1C59B184F1F92006C3578 /* cp_map_0.png */,
-				03FB402D1851AADC0036501B /* cp_map_1.png */,
-				03F2EE5B18555DC100E003F5 /* cp_map_2.png */,
-				03F2EE5C18555DC100E003F5 /* cp_map_3.png */,
+				0378C88D1918E54000984CF3 /* cp_map_all_contacts.png */,
+				0378C88E1918E54000984CF3 /* cp_map_all_contacts@2x.png */,
+				0378C8911918E56A00984CF3 /* cp_map_local.png */,
+				0378C8921918E56A00984CF3 /* cp_map_local@2x.png */,
+				0378C88B1918E52C00984CF3 /* cp_map_list.png */,
+				0378C8891918E4BB00984CF3 /* cp_map_list@2x.png */,
+				0378C8951918E61D00984CF3 /* cp_map_company.png */,
+				0378C8971918E64300984CF3 /* cp_map_family.png */,
+				0378C8991918E69A00984CF3 /* cp_map_0.png */,
+				0378C89A1918E69A00984CF3 /* cp_map_0@2x.png */,
+				0378C89D1918E7A400984CF3 /* cp_map_1.png */,
+				0378C89E1918E7A400984CF3 /* cp_map_1@2x.png */,
+				0378C8A11918E7C900984CF3 /* cp_map_2.png */,
+				0378C8A21918E7C900984CF3 /* cp_map_2@2x.png */,
+				0378C8A51918E7E700984CF3 /* cp_map_3.png */,
+				0378C8A61918E7E700984CF3 /* cp_map_3@2x.png */,
 			);
 			name = map;
 			sourceTree = "<group>";
@@ -1257,7 +1278,7 @@
 				034A103F190F48EB002D5871 /* cp_password_0.png */,
 				034A103D190F48CF002D5871 /* cp_username_0.png */,
 				034A103B190F4867002D5871 /* cp_add_1.png */,
-				03F22D011868452700C18DAD /* cp_email_0.png */,
+				0378C8871918E3CC00984CF3 /* cp_email_0.png */,
 				03C5B35A18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png */,
 				03C5B35B18DBF4FF004CBE3A /* cp_schedule_all@2x.png */,
 				03C5B35C18DBF4FF004CBE3A /* cp_schedule_red@2x.png */,
@@ -1407,17 +1428,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0378C8A81918E7E700984CF3 /* cp_map_3@2x.png in Resources */,
 				0311827518E96D0600979264 /* AMap.bundle in Resources */,
 				03C5B38718DC242C004CBE3A /* cp_home_light_01@2x.png in Resources */,
 				03EAA4571869392600EC911B /* CPFindPasswordByEmailViewController.xib in Resources */,
-				03F22D021868452700C18DAD /* cp_email_0.png in Resources */,
+				0378C8941918E56A00984CF3 /* cp_map_local@2x.png in Resources */,
 				034A1064190FB008002D5871 /* cp_tab_schedule_h.png in Resources */,
+				0378C8A71918E7E700984CF3 /* cp_map_3.png in Resources */,
 				034A104A190F4A0D002D5871 /* cp_schedule_cell_call.png in Resources */,
 				031E20A717B0851100125321 /* InfoPlist.strings in Resources */,
 				034A106A190FB03A002D5871 /* cp_tab_map.png in Resources */,
 				034A104C190F4A30002D5871 /* cp_null_photo@2x.png in Resources */,
-				03F2EE5D18555DC100E003F5 /* cp_map_2.png in Resources */,
-				03F2EE5E18555DC100E003F5 /* cp_map_3.png in Resources */,
+				0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */,
 				03EAA45C186943BC00EC911B /* CPResetPasswordViewController.xib in Resources */,
 				03C5B37118DC2336004CBE3A /* cp_home_03@2x.png in Resources */,
 				034A104E190F4AC8002D5871 /* cp_contacts_detail_call.png in Resources */,
@@ -1425,24 +1447,26 @@
 				03F22F98186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib in Resources */,
 				0331B52A18FCE534004A4BC2 /* Alixpay.bundle in Resources */,
 				031E20AF17B0851200125321 /* Default.png in Resources */,
+				0378C89F1918E7A400984CF3 /* cp_map_1.png in Resources */,
 				03C5B39218DC242C004CBE3A /* cp_home_light_12@2x.png in Resources */,
 				03C5B36F18DC2336004CBE3A /* cp_home_01@2x.png in Resources */,
 				031E20B117B0851200125321 /* Default@2x.png in Resources */,
 				03D9F45218507F8B00B95F93 /* CPFamilyMemberEdit.xib in Resources */,
 				034A1044190F4998002D5871 /* cp_delete_0.png in Resources */,
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
-				0364B4EB18EBEC9700690DBB /* cp_map_company.png in Resources */,
+				0378C88F1918E54000984CF3 /* cp_map_all_contacts.png in Resources */,
 				034A1052190F4AEE002D5871 /* cp_contacts_detail_email.png in Resources */,
 				03C5B37518DC2336004CBE3A /* cp_home_07@2x.png in Resources */,
 				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
+				0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */,
 				034A1066190FB01B002D5871 /* cp_tab_schedule.png in Resources */,
 				034A105E190FAF46002D5871 /* cp_tab_tools.png in Resources */,
 				034A1048190F49F7002D5871 /* cp_schedule_cell_sms.png in Resources */,
 				03C5B37018DC2336004CBE3A /* cp_home_02@2x.png in Resources */,
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,
 				03192E491904E8D200813646 /* Images.xcassets in Resources */,
-				036C1E3318F4EA4F00D5EDB0 /* cp_map_local.png in Resources */,
 				03C5B38E18DC242C004CBE3A /* cp_home_light_08@2x.png in Resources */,
+				0378C8A01918E7A400984CF3 /* cp_map_1@2x.png in Resources */,
 				033425CA1871108400518C7B /* CPConsumptionLogViewController.storyboard in Resources */,
 				03F22CF618681C8400C18DAD /* CPBindSafetyPhoneNumberViewController.xib in Resources */,
 				034A103E190F48CF002D5871 /* cp_username_0.png in Resources */,
@@ -1452,6 +1476,8 @@
 				034A1046190F49B3002D5871 /* cp_add_0.png in Resources */,
 				03F22F93186437A20030359E /* CPFindPasswordViewController.xib in Resources */,
 				03C5B38C18DC242C004CBE3A /* cp_home_light_06@2x.png in Resources */,
+				0378C88C1918E52C00984CF3 /* cp_map_list.png in Resources */,
+				0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */,
 				03C5B37818DC2336004CBE3A /* cp_home_10@2x.png in Resources */,
 				03C5B35F18DBF4FF004CBE3A /* cp_schedule_all@2x.png in Resources */,
 				034A1062190FAFD1002D5871 /* cp_tab_contacts.png in Resources */,
@@ -1466,15 +1492,17 @@
 				03C5B38818DC242C004CBE3A /* cp_home_light_02@2x.png in Resources */,
 				03C5B37318DC2336004CBE3A /* cp_home_05@2x.png in Resources */,
 				03F2EE701855A8FA00E003F5 /* CPReadMapViewController.xib in Resources */,
+				0378C88A1918E4BB00984CF3 /* cp_map_list@2x.png in Resources */,
 				03C5B37718DC2336004CBE3A /* cp_home_09@2x.png in Resources */,
 				03C5B39118DC242C004CBE3A /* cp_home_light_11@2x.png in Resources */,
 				03F11228186BE1FA0074F798 /* CPSyncSettingViewController.xib in Resources */,
 				03C5B37618DC2336004CBE3A /* cp_home_08@2x.png in Resources */,
+				0378C89C1918E69A00984CF3 /* cp_map_0@2x.png in Resources */,
 				034A1050190F4ADD002D5871 /* cp_contacts_detail_sms.png in Resources */,
 				034A105D190FAF46002D5871 /* cp_tab_tools_h.png in Resources */,
-				0364B4EC18EBEC9700690DBB /* cp_map_family.png in Resources */,
+				0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */,
 				03C5B37A18DC2336004CBE3A /* cp_home_12@2x.png in Resources */,
-				03F1C59C184F1F92006C3578 /* cp_map_0.png in Resources */,
+				0378C8981918E64300984CF3 /* cp_map_family.png in Resources */,
 				037D51301871440000B740A3 /* CPMyProductViewController.xib in Resources */,
 				03D90121186D5A3200925CE1 /* CPAccountRechargeViewController.storyboard in Resources */,
 				03DA5C13183F60160005E5AF /* MainStoryboard.storyboard in Resources */,
@@ -1482,12 +1510,11 @@
 				03F201191849D98E00055B8D /* CPDatePickerDate.xib in Resources */,
 				03C5B35E18DBF4FF004CBE3A /* cp_schedule_yellow@2x.png in Resources */,
 				03F22CE91867CFD600C18DAD /* CPRegisterViewController.xib in Resources */,
-				036C1E3118F4EA4F00D5EDB0 /* cp_map_all_contacts.png in Resources */,
-				03FB402E1851AADC0036501B /* cp_map_1.png in Resources */,
+				0378C8881918E3CC00984CF3 /* cp_email_0.png in Resources */,
 				03F2011B1849D9F600055B8D /* CPDatePickerTime.xib in Resources */,
 				03E91B191872572F0018CFC5 /* CPFeedbackViewController.xib in Resources */,
-				036C1E3218F4EA4F00D5EDB0 /* cp_map_list.png in Resources */,
 				03C5B36118DBF4FF004CBE3A /* cp_schedule_blue@2x.png in Resources */,
+				0378C8A31918E7C900984CF3 /* cp_map_2.png in Resources */,
 				03FB40401851BCDD0036501B /* CPEditMapViewController.xib in Resources */,
 				037D513918717AEB00B740A3 /* CPRechargeViewController.xib in Resources */,
 				03F2EE6B1855A0F200E003F5 /* CPFamilyMemberReadViewController.xib in Resources */,
@@ -1497,6 +1524,7 @@
 				03F22F8A1863E7B40030359E /* CPLoginViewController.xib in Resources */,
 				03E5A3DE1859ADD200FD23F0 /* cp_sort_0@2x.png in Resources */,
 				037D512B187129CD00B740A3 /* CPRechargeLogViewController.storyboard in Resources */,
+				0378C8A41918E7C900984CF3 /* cp_map_2@2x.png in Resources */,
 				03C5B37418DC2336004CBE3A /* cp_home_06@2x.png in Resources */,
 				034A1042190F4902002D5871 /* cp_phone_0.png in Resources */,
 				03C5B37918DC2336004CBE3A /* cp_home_11@2x.png in Resources */,
