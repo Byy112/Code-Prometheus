@@ -162,6 +162,20 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
         }else{
             block(NO,[json objectForKey:Jk_errmsg]);
         }
+        
+        // 检查License
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogError(@"check lisence 失败:%@",message);
+            }
+        }];
     }];
     [request startAsynchronous];
 }

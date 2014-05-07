@@ -96,6 +96,7 @@
                                                 <state key="normal" title="已成交" image="cp_home_02.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_02_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_02.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="bc8-kE-ZlR"/>
@@ -110,6 +111,7 @@
                                                 <state key="normal" title="未成交" image="cp_home_03.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_03_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_03.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="D18-gn-2wq"/>
@@ -124,6 +126,7 @@
                                                 <state key="normal" title="已跟进" image="cp_home_04.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_04_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_04.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="Rzm-Ic-tZx"/>
@@ -138,6 +141,7 @@
                                                 <state key="normal" title="男客户" image="cp_home_07.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_07_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_07.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="Icd-4Z-neT"/>
@@ -152,6 +156,7 @@
                                                 <state key="normal" title="车险" image="cp_home_10.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_10_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_10.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="DX9-Cm-mvz"/>
@@ -166,6 +171,7 @@
                                                 <state key="normal" title="团险" image="cp_home_11.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_11_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_11.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="b0d-fP-mbL"/>
@@ -180,6 +186,7 @@
                                                 <state key="normal" title="旅行险" image="cp_home_12.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_12_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_12.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="Wfm-x7-Y1X"/>
@@ -194,6 +201,7 @@
                                                 <state key="normal" title="生日客户" image="cp_home_06.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_06_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_06.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="e7Q-v5-6VF"/>
@@ -208,6 +216,7 @@
                                                 <state key="normal" title="女客户" image="cp_home_08.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_08_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_08.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="FDu-2G-s9a"/>
@@ -222,6 +231,7 @@
                                                 <state key="normal" title="儿童客户" image="cp_home_09.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_09_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_09.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="kQ5-4M-qoA"/>
@@ -236,6 +246,7 @@
                                                 <state key="normal" title="未跟进" image="cp_home_05.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="disabled" image="cp_home_05_disabled.png"/>
                                                 <state key="highlighted" image="cp_home_light_05.png"/>
                                                 <connections>
                                                     <action selector="contactsListButtonClick:" destination="5jU-IT-7AL" eventType="touchUpInside" id="7tc-FY-b10"/>
@@ -317,6 +328,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="KXx-T0-ZcZ"/>
                     <connections>
+                        <outlet property="scrollContentView" destination="AB2-0r-cnr" id="WyE-sK-AZB"/>
                         <outlet property="scrollView" destination="gcc-ce-bK4" id="XsC-3r-TQF"/>
                         <outlet property="searchDisplayController" destination="mS0-Wq-WNm" id="hpe-gQ-Dwy"/>
                         <segue destination="ZQH-hU-2bj" kind="push" identifier="cp_segue_home_2_detail" id="bzb-bm-7Jd"/>
@@ -6106,16 +6118,27 @@
         <image name="cp_contacts_detail_sms.png" width="60" height="60"/>
         <image name="cp_home_01.png" width="67" height="67"/>
         <image name="cp_home_02.png" width="67" height="67"/>
+        <image name="cp_home_02_disabled.png" width="67" height="67"/>
         <image name="cp_home_03.png" width="67" height="67"/>
+        <image name="cp_home_03_disabled.png" width="67" height="67"/>
         <image name="cp_home_04.png" width="67" height="67"/>
+        <image name="cp_home_04_disabled.png" width="67" height="67"/>
         <image name="cp_home_05.png" width="67" height="67"/>
+        <image name="cp_home_05_disabled.png" width="67" height="67"/>
         <image name="cp_home_06.png" width="67" height="67"/>
+        <image name="cp_home_06_disabled.png" width="67" height="67"/>
         <image name="cp_home_07.png" width="67" height="67"/>
+        <image name="cp_home_07_disabled.png" width="67" height="67"/>
         <image name="cp_home_08.png" width="67" height="67"/>
+        <image name="cp_home_08_disabled.png" width="67" height="67"/>
         <image name="cp_home_09.png" width="67" height="67"/>
+        <image name="cp_home_09_disabled.png" width="67" height="67"/>
         <image name="cp_home_10.png" width="67" height="67"/>
+        <image name="cp_home_10_disabled.png" width="67" height="67"/>
         <image name="cp_home_11.png" width="67" height="67"/>
+        <image name="cp_home_11_disabled.png" width="67" height="67"/>
         <image name="cp_home_12.png" width="67" height="67"/>
+        <image name="cp_home_12_disabled.png" width="67" height="67"/>
         <image name="cp_home_light_01.png" width="67" height="67"/>
         <image name="cp_home_light_02.png" width="67" height="67"/>
         <image name="cp_home_light_03.png" width="67" height="67"/>

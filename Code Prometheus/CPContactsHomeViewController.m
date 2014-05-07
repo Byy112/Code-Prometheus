@@ -12,6 +12,7 @@
 
 @interface CPContactsHomeViewController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *scrollContentView;
 
 @property (nonatomic) NSMutableArray* contactsArray;
 
@@ -32,6 +33,21 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    // 检查lisence
+    if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
+        for (UIView* view in self.scrollContentView.subviews) {
+            if ([view isKindOfClass:[UIButton class]] && view.tag != CP_CONTACTS_GROUP_TAG_ALL) {
+                [(UIButton*)view setEnabled:NO];
+            }
+        }
+    }else{
+        for (UIView* view in self.scrollContentView.subviews) {
+            if ([view isKindOfClass:[UIButton class]] && view.tag != CP_CONTACTS_GROUP_TAG_ALL) {
+                [(UIButton*)view setEnabled:YES];
+            }
+        }
+    }
+    
     if (self.dirty) {
         if (self.searchDisplayController.active) {
             CPLogInfo(@"需重新加载数据,%@",self);

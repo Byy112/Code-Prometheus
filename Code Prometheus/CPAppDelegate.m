@@ -27,18 +27,19 @@
     // 日志
     [[CPLog sharedLog] prepareLog];
     
-//    // 记录首次启动
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-//    }
-//    else{
-//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
-//    }
-//    
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
-//        CPLogInfo(@"第一次启动应用");
-//    }
+    // 记录首次启动
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        CPLogInfo(@"第一次启动应用");
+        CPLogInfo(@"初始化 License");
+        CPSetMemberLicense([[NSDate date] timeIntervalSince1970]+2592000);
+    }
     
     // 创建数据库
     [CPDB creatDBIfNotExist];
@@ -67,19 +68,6 @@
             // 同步
             [CPServer sync];
         }
-        // 检查License
-        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
-            if (success) {
-                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
-                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
-                    CPSetMemberLicense(expirationDate);
-                }else{
-                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
-                }
-            }else{
-                CPLogError(@"check lisence 失败:%@",message);
-            }
-        }];
     }];
 }
 
