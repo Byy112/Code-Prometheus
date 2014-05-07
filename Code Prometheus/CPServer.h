@@ -77,6 +77,8 @@ static NSString* const CPLogoutNotification = @"CPLogoutNotification";
 +(void) requestRechargeItem:(void (^)(BOOL success,NSString* message,NSMutableArray* results))block;
 // 充值
 +(void) requestRechargeCreateWithItemID:(NSString*)itemId block:(void (^)(BOOL success,NSString* message,NSNumber* rechargeId,NSString* signInfo,NSString* sign))block;
+// check license
++(void) checkLicenseBlock:(void (^)(BOOL success,NSString* message,NSTimeInterval expirationDate))block;
 
 
 

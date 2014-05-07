@@ -46,6 +46,7 @@ static NSString*const URL_UPDATE_PRODUCT = @"/order/create";
 static NSString*const URL_UPDATE_PRODUCT_CONFIRM = @"/order/update";
 static NSString*const URL_REQUEST_RECHARGE_ITEM = @"/recharge/item";
 static NSString*const URL_REQUEST_RECHARGE_CREATE = @"/recharge/create";
+static NSString*const URL_CHECK_LICENSE = @"/device/check/license";
 // JSON KEY
 static NSString* const JK_errno = @"errno";
 static NSString* const Jk_errmsg = @"errmsg";
@@ -859,6 +860,42 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     [request startAsynchronous];
 }
 
+// check license
++(void) checkLicenseBlock:(void (^)(BOOL success,NSString* message,NSTimeInterval expirationDate))block{
+    CPLogInfo(@"检查license");
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,URL_CHECK_LICENSE]]];
+    NSMutableDictionary* json = [NSMutableDictionary dictionary];
+    [json setObject:[OpenUDID value] forKey:Jk_deviceId];
+    NSString* jsonString = [json JSONString];
+    CPLogVerbose(@"检查license JSON:%@",jsonString);
+    [request setPostBody:[NSMutableData dataWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]]];
+    __weak ASIHTTPRequest* weakRequest = request;
+    // 同步请求
+    [request setFailedBlock:^{
+        CPLogWarn(@"请求失败:%@",weakRequest.responseString);
+        block(NO,@"请检查网络",0);
+    }];
+    [request setCompletionBlock:^{
+        NSMutableDictionary* json = [[weakRequest responseString] objectFromJSONStringWithParseOptions:JKParseOptionStrict];
+        // 更新时间差
+        [self updateDelta_t:[json objectForKey:Jk_serverTime]];
+        
+        if ([self checkErrnoAndDeal:json completeBlock:^(BOOL success) {
+            if (success) {
+                [self checkLicenseBlock:^(BOOL success, NSString *message, NSTimeInterval expirationDate) {
+                    block(success,message,expirationDate);
+                }];
+            }else{
+                CPLogVerbose(@"检查license失败:%@",weakRequest.responseString);
+                block(NO,[json objectForKey:Jk_errmsg],0);
+            }
+        }]) {
+            CPLogVerbose(@"检查license成功:%@",weakRequest.responseString);
+            block(YES,nil,[[json objectForKey:@"expirationDate"] doubleValue]);
+        }
+    }];
+    [request startAsynchronous];
+}
 
 
 static WYSyncSimple* wySyncSimple;

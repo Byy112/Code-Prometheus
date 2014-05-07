@@ -65,6 +65,10 @@ static NSString* const CPMemberBalanceKey = @"member_balance";
 #define CPMemberBalance [[NSUserDefaults standardUserDefaults] stringForKey:CPMemberBalanceKey]
 #define CPSetMemberBalance(member_balance) [[NSUserDefaults standardUserDefaults] setObject:member_balance forKey:CPMemberBalanceKey]
 
+static NSString* const CPMemberLicenseKey = @"member_license";
+#define CPMemberLicense [[NSUserDefaults standardUserDefaults] doubleForKey:CPMemberLicenseKey]
+#define CPSetMemberLicense(member_license) [[NSUserDefaults standardUserDefaults] setDouble:member_license forKey:CPMemberLicenseKey]
+
 #pragma mark - 用户设置
 static NSString* const CPSyncOnlyWifiKey = @"sync_only_wifi_key";
 #define CPSyncOnlyWifi [[NSUserDefaults standardUserDefaults] boolForKey:CPSyncOnlyWifiKey]
