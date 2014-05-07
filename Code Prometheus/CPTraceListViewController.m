@@ -38,7 +38,6 @@ static char CPAssociatedKeyTrace;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         // 启动进度条
         MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         hud.removeFromSuperViewOnHide = YES;

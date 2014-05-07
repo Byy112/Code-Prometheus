@@ -51,7 +51,6 @@ static char CPAssociatedKeyRechargeItem;
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         [self requestRechargeItem];
         self.dirty = NO;
     }

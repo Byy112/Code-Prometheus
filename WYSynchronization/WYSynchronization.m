@@ -331,7 +331,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
     }
     BOOL result = NO;
     NSString* sql = [self sqlWithDatabaseOperation:databaseOperation];
-    WYLogInfo(@"执行sql:%@",sql);
+//    WYLogInfo(@"执行sql:%@",sql);
     if(sql){
 #warning 连续执行1000条操作,会异常,可能是这里出现问题!\
 不能连续创建LKDBHelper对象,应该判断此操作队列是否属于这个用户,是,用以前做得单例去操作,否,则不应该出现此种情况,打LOG,丢弃此操作队列
@@ -403,7 +403,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
 #pragma mark ASIHTTPRequestDelegate
 -(void)requestFinished:(ASIHTTPRequest*)request{
     // 解析封装json
-    WYLogVerbose(@"响应json:%@",[request responseString]);
+//    WYLogVerbose(@"响应json:%@",[request responseString]);
     _responseJson = [[request responseString] objectFromJSONStringWithParseOptions:JKParseOptionStrict];
     switch (request.tag) {
         case SynchronizationTypeS2CForDatabase:{

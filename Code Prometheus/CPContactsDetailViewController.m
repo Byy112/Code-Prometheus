@@ -39,7 +39,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         [self loadContacts];
         [self updateUI];
         self.dirty = NO;

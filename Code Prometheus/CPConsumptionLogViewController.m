@@ -34,7 +34,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         [self requestConsumptionLog];
         self.dirty = NO;
     }

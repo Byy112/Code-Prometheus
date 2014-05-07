@@ -62,7 +62,6 @@ static NSString* const CP_COMPANY_WORKER_AMOUNT_TITLE_5 = @"2000人以上";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         [self loadDB];
         [self updateUI];
         self.dirty = NO;

@@ -80,7 +80,6 @@ static char CPAssociatedKeyPolicy;
 #warning 如果当前模式是保单查看,那么新增人脉后,无法看到新增的人脉\
 解决方案是新增完人脉返回此页面时,直接到名称排序页面,中央显示新增人脉
     if (self.dirty) {
-        CPLogInfo(@"需重新加载数据,%@",self);
         // 启动进度条
         MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         hud.removeFromSuperViewOnHide = YES;
