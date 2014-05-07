@@ -10,6 +10,7 @@
 #import <Masonry.h>
 #import "CPContactsDetailViewController.h"
 #import "CPContactsInMapTableViewController.h"
+#import <TWMessageBarManager.h>
 
 @interface CPReadMapViewController ()
 
@@ -76,7 +77,6 @@
         [self.mapView selectAnnotation:self.cpAnnotation animated:NO];
         self.goPoint = NO;
     }
-    [self updateUI];
 }
 
 #pragma mark - private
@@ -114,7 +114,7 @@
         [self.mapView addAnnotation:selectAn];
         [self.mapView selectAnnotation:selectAn animated:YES];
     }
-    if (self.showAround) {
+    if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970])) {
         // 显示周边人脉
         id<MAAnnotation> objDelete = nil;
         for (id<MAAnnotation> objAn in self.annotationArray) {
@@ -139,7 +139,7 @@
     coordinate = [mapView convertPoint:CGPointMake(mapView.frame.size.width+60, mapView.frame.size.height+80) toCoordinateFromView:mapView];
     double right = coordinate.longitude;
     double bottom = coordinate.latitude;
-    CPLogVerbose(@"加载地图区域数据 left,right,top,bottom (%f,%f,%f,%f)",left,right,top,bottom);
+//    CPLogVerbose(@"加载地图区域数据 left,right,top,bottom (%f,%f,%f,%f)",left,right,top,bottom);
     
     self.annotationArray = [NSMutableArray array];
     
@@ -234,6 +234,14 @@
 #pragma mark - Action
 
 -(void) allContactsButtonClick:(id)sender{
+    if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请登陆并充值"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
+    
     self.showAround = !self.showAround;
     [self updateUI];
 }
@@ -244,7 +252,13 @@
 }
 -(void) listButtonClick:(id)sender{
     CPContactsInMapTableViewController* controller = [[CPContactsInMapTableViewController alloc] initWithNibName:nil bundle:nil];
-    controller.annotationArray = self.annotationArray;
+    NSMutableArray* array = [@[] mutableCopy];
+    for (id<MAAnnotation> an in self.mapView.annotations) {
+        if ([an isKindOfClass:[MAPointAnnotation class]]) {
+            [array addObject:an];
+        }
+    }
+    controller.annotationArray = array;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -270,7 +284,7 @@
     return nil;
 }
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    if (self.showAround) {
+    if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970])) {
         [self updateUI];
     }
 }
