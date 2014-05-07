@@ -229,6 +229,19 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     // 通知
     CPLogInfo(@"注销成功,发出通知:CPLogoutNotification");
     [[NSNotificationCenter defaultCenter] postNotificationName:CPLogoutNotification object:nil];
+    // 检查License
+    [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+        if (success) {
+            if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                CPSetMemberLicense(expirationDate);
+            }else{
+                CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+            }
+        }else{
+            CPLogError(@"check lisence 失败:%@",message);
+        }
+    }];
 }
 // 注销 & 删除用户数据
 +(void) logoutAndCleanData{
