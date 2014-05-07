@@ -9,6 +9,12 @@
 #import "BaseMapViewController.h"
 #import <TWMessageBarManager.h>
 
+@interface BaseMapViewController ()
+@property (nonatomic) NSArray* annotations;
+@property (nonatomic) MACoordinateRegion region;
+@property (nonatomic) NSArray *selectedAnnotations;
+@end
+
 @implementation BaseMapViewController
 
 @synthesize mapView = _mapView;
@@ -21,14 +27,30 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    // 初始化
     self.mapView = [CPMapUtil sharedMapView];
     self.search  = [CPMapUtil sharedMapSearchAPI];
     
     [self initMapView];
     [self initSearch];
+    // 恢复状态
+    if (self.annotations) {
+        [self.mapView addAnnotations:self.annotations];
+    }
+    if (self.region.center.latitude != 0 && self.region.center.longitude != 0) {
+        [self.mapView setRegion:self.region animated:NO];
+    }
+    if (self.selectedAnnotations && self.selectedAnnotations.count) {
+        [self.mapView selectAnnotation:self.selectedAnnotations[0] animated:NO];
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    // 保存状态
+    self.annotations = [self.mapView.annotations copy];
+    self.region = self.mapView.region;
+    self.selectedAnnotations = [self.mapView.selectedAnnotations copy];
+    // 清除数据
     [self clearMapView];
     [self clearSearch];
 }
