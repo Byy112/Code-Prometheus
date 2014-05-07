@@ -9,6 +9,8 @@
 #import "CPContactsHomeViewController.h"
 #import "CPContacts.h"
 #import <MBProgressHUD.h>
+#import <BlocksKit+UIKit.h>
+#import <TWMessageBarManager.h>
 
 @interface CPContactsHomeViewController ()<UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -21,6 +23,8 @@
 
 // 脏数据,是否需要刷新
 @property (nonatomic) BOOL dirty;
+
+@property (nonatomic) UITapGestureRecognizer* tap;
 @end
 
 @implementation CPContactsHomeViewController
@@ -33,24 +37,16 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+//    CPLogVerbose(@"license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
     // 检查lisence
     if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
-        for (UIView* view in self.scrollContentView.subviews) {
-            if ([view isKindOfClass:[UIButton class]] && view.tag != CP_CONTACTS_GROUP_TAG_ALL) {
-                [(UIButton*)view setEnabled:NO];
-            }
-        }
+        [self setAdvancedFunctionEnable:NO];
     }else{
-        for (UIView* view in self.scrollContentView.subviews) {
-            if ([view isKindOfClass:[UIButton class]] && view.tag != CP_CONTACTS_GROUP_TAG_ALL) {
-                [(UIButton*)view setEnabled:YES];
-            }
-        }
+        [self setAdvancedFunctionEnable:YES];
     }
     
     if (self.dirty) {
         if (self.searchDisplayController.active) {
-            CPLogInfo(@"需重新加载数据,%@",self);
             NSString* searchString = self.searchDisplayController.searchBar.text;
             if (!searchString || [searchString isEqualToString:@""]) {
                 return;
@@ -72,6 +68,28 @@
             }];
         }
         self.dirty = NO;
+    }
+}
+
+-(void) setAdvancedFunctionEnable:(BOOL)enable{
+    if (!self.tap) {
+        self.tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"请登陆并充值"
+                                                                  type:TWMessageBarMessageTypeInfo];
+        }];
+        [self.scrollContentView addGestureRecognizer:self.tap];
+    }
+    if (enable) {
+        [self.tap setEnabled:NO];
+    }else{
+        [self.tap setEnabled:YES];
+    }
+    for (UIView* view in self.scrollContentView.subviews) {
+        if ([view isKindOfClass:[UIButton class]] && view.tag != CP_CONTACTS_GROUP_TAG_ALL) {
+            [(UIButton*)view setEnabled:enable];
+        }
     }
 }
 
