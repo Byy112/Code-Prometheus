@@ -94,7 +94,7 @@
 #warning 如果电话号码里有非法符号，能否拨号,短信,email？
 -(IBAction)telAction:(UIButton*)sender{
     NSString *number = self.contacts.cp_phone_number;
-    if (number) {
+    if (number && ![number isEqualToString:@""]) {
         NSArray* numbers = [number componentsSeparatedByString:@" "];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];
@@ -116,7 +116,7 @@
 #warning 可以做成程序内发短信,邮件
 -(IBAction)smsAction:(UIButton*)sender{
     NSString *number = self.contacts.cp_phone_number;
-    if (number) {
+    if (number && ![number isEqualToString:@""]) {
         NSArray* numbers = [number componentsSeparatedByString:@" "];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];

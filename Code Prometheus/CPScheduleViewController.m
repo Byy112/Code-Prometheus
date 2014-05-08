@@ -321,7 +321,7 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
     CPContacts* contacts = self.contactsForTable[indexPath.row];
     NSString *number = contacts.cp_phone_number;
-    if (number) {
+    if (number && ![number isEqualToString:@""]) {
         NSArray* numbers = [number componentsSeparatedByString:@" "];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];
@@ -346,7 +346,7 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
     CPContacts* contacts = self.contactsForTable[indexPath.row];
     NSString *number = contacts.cp_phone_number;
-    if (number) {
+    if (number && ![number isEqualToString:@""]) {
         NSArray* numbers = [number componentsSeparatedByString:@" "];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];
