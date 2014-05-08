@@ -25,6 +25,7 @@
 +(instancetype)newAdaptDBWith:(NSString*)contactsUUID{
     CPOrganization* organization = [self newAdaptDB];
     organization.cp_contact_uuid = contactsUUID;
+    organization.cp_uuid = contactsUUID;
     return organization;
 }
 @end

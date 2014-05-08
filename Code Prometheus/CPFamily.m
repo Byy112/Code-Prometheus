@@ -17,6 +17,7 @@
 +(instancetype)newAdaptDBWith:(NSString*)contactsUUID{
     CPFamily* family = [self newAdaptDB];
     family.cp_contact_uuid = contactsUUID;
+    family.cp_uuid = contactsUUID;
     return family;
 }
 @end
