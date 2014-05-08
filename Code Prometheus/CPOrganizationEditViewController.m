@@ -12,6 +12,7 @@
 #import "CPOrganization.h"
 #import "CPMeeting.h"
 #import "CPMettingEditViewController.h"
+#import <TWMessageBarManager.h>
 
 static char CPAssociatedKeyTag;
 
@@ -315,6 +316,16 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
     [self presentSemiModalViewController:self.datePickerView];
 }
 - (void)meetingAddButtonClick:(UIButton *)sender {
+    [self.view endEditing:YES];
+    for (CPMeeting* meeting in self.meetingArray) {
+        if (!meeting.cp_description || [meeting.cp_description isEqualToString:@""]) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"请完整填写会议内容"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+    }
     CPMeeting* meeting = [CPMeeting newAdaptDBWith:self.organization.cp_contact_uuid];
     [self.meetingArray addObject:meeting];
     [self updateMeetingUI];

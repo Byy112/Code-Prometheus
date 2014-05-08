@@ -11,6 +11,7 @@
 #import "CPCar.h"
 #import <TDDatePickerController.h>
 #import <Masonry.h>
+#import <TWMessageBarManager.h>
 
 static char CPAssociatedKeyTag;
 
@@ -304,6 +305,16 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     car.cp_plate_number = sender.text;
 }
 - (void) carAddButtonClick:(UIButton*)sender{
+    [self.view endEditing:YES];
+    for (CPCar* car in self.carArray) {
+        if (!car.cp_name || [car.cp_name isEqualToString:@""]) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"请完整填写车辆名称"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+    }
     CPCar* car = [CPCar newAdaptDBWith:self.other.cp_contact_uuid];
     [self.carArray addObject:car];
     [self updateCarUI];

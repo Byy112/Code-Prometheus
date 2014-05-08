@@ -13,6 +13,7 @@
 #import "CPFamilyMember.h"
 #import "CPFamilyMemberEditViewController.h"
 #import "CPEditMapViewController.h"
+#import <TWMessageBarManager.h>
 
 static char CPAssociatedKeyTag;
 
@@ -356,6 +357,16 @@ typedef NS_ENUM(NSInteger, CP_FAMILY_POPOVER_TAG) {
     fm.cp_name = sender.text;
 }
 - (void)familyMemberAddButtonClick:(UIButton *)sender {
+    [self.view endEditing:YES];
+    for (CPFamilyMember* fm in self.familyMemberArray) {
+        if (!fm.cp_name || [fm.cp_name isEqualToString:@""]) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"请完整填写家庭成员姓名"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+    }
     CPFamilyMember* fm = [CPFamilyMember newAdaptDBWith:self.family.cp_contact_uuid];
     [self.familyMemberArray addObject:fm];
     [self updateFamilyMemberUI];

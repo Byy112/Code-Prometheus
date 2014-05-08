@@ -10,6 +10,7 @@
 #import "CPContacts.h"
 #import <TDDatePickerController.h>
 #import <PopoverView.h>
+#import <TWMessageBarManager.h>
 
 static char CPAssociatedKeyIndexPath;
 
@@ -138,6 +139,15 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 }
 -(void) addContactsPhoneNumber:(UIButton*)sender{
     [self.view endEditing:YES];
+    for (NSString* str in self.phoneNumbers) {
+        if ([str isEqualToString:@""]) {
+            [[TWMessageBarManager sharedInstance] hideAll];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:@"请完整填写手机"
+                                                                  type:TWMessageBarMessageTypeInfo];
+            return;
+        }
+    }
     [self.phoneNumbers addObject:@""];
     NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
     NSInteger index = indexPath.row+self.phoneNumbers.count-1;
@@ -241,6 +251,13 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 #pragma mark - IBAction
 - (IBAction)saveContacts:(UIBarButtonItem *)sender {
     [self.view endEditing:YES];
+    if (!self.contacts.cp_name || [self.contacts.cp_name isEqualToString:@""]) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请填写姓名"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
     self.contacts.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.contactsUUID) {
         // 新增
