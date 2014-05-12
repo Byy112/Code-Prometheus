@@ -331,6 +331,7 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
     [self updateMeetingUI];
 }
 - (void)meetingDeleteButtonClick:(UIButton *)sender {
+    [self.view endEditing:YES];
     [self.meetingArray removeObjectAtIndex:sender.tag];
     [self updateMeetingUI];
 }

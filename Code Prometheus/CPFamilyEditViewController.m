@@ -372,6 +372,7 @@ typedef NS_ENUM(NSInteger, CP_FAMILY_POPOVER_TAG) {
     [self updateFamilyMemberUI];
 }
 - (void)familyMemberDeleteButtonClick:(UIButton *)sender {
+    [self.view endEditing:YES];
     [self.familyMemberArray removeObjectAtIndex:sender.tag];
     [self updateFamilyMemberUI];
 }

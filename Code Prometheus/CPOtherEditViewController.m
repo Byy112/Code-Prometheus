@@ -320,6 +320,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     [self updateCarUI];
 }
 - (void) carDeleteButtonClick:(UIButton*)sender{
+    [self.view endEditing:YES];
     [self.carArray removeObjectAtIndex:sender.tag];
     [self updateCarUI];
 }
