@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.tabBar setTintColor:[UIColor whiteColor]];
     [self.tabBar.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UITabBarItem* item = obj;
         [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
@@ -50,7 +49,7 @@
     if (CP_IS_IOS7_AND_UP) {
         
     }else{
-        
+        [self.tabBar setTintColor:[UIColor whiteColor]];
     }
 }
 
