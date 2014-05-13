@@ -29,7 +29,7 @@
         @synchronized(self){
             if (!_image) {
                 if (self.cp_url) {
-                    _image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.cp_url];
+                    _image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,self.cp_url]];
                 }
                 if (!_image) {
                     _image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:self.cp_uuid];
@@ -53,7 +53,7 @@
     // 若此图片在数据库中无引用,则从硬盘删除
     [[SDImageCache sharedImageCache] removeImageForKey:cpimage.cp_uuid];
     if (cpimage.cp_url && [[CPDB getLKDBHelperByUser] rowCount:self where:@{@"cp_url":cpimage.cp_url}] == 0) {
-        [[SDImageCache sharedImageCache] removeImageForKey:cpimage.cp_url];
+        [[SDImageCache sharedImageCache] removeImageForKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpimage.cp_url]];
     }
 }
 +(void)dbDidInserted:(NSObject *)entity result:(BOOL)result{
@@ -61,7 +61,7 @@
     CPImage* cpimage = (CPImage*)entity;
     if (cpimage.image) {
         if (cpimage.cp_url) {
-            [[SDImageCache sharedImageCache] storeImage:cpimage.image forKey:cpimage.cp_url];
+            [[SDImageCache sharedImageCache] storeImage:cpimage.image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpimage.cp_url]];
         }else{
             [[SDImageCache sharedImageCache] storeImage:cpimage.image forKey:cpimage.cp_uuid];
         }
@@ -73,7 +73,6 @@
 @end
 
 
-
 @implementation UIImageView (CPImage)
 
 -(void)setImageWithCPImage:(CPImage*)image{
@@ -82,7 +81,8 @@
         self.image = ima;
     }else{
         if (image.cp_url) {
-            [self setImageWithURL:[NSURL URLWithString:image.cp_url] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
+            CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
+            [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
             CPLogError(@"图片未同步,并且本地找不到! uuid:%@",image.cp_uuid);
             self.image = [UIImage imageNamed:@"cp_null_photo"];
@@ -99,7 +99,8 @@
         [self setImage:ima forState:UIControlStateNormal];
     }else{
         if (image.cp_url) {
-            [self setImageWithURL:[NSURL URLWithString:image.cp_url] forState:UIControlStateNormal placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
+            CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
+            [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] forState:UIControlStateNormal placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
             CPLogError(@"图片未同步,并且本地找不到! uuid:%@",image.cp_uuid);
             [self setImage:[UIImage imageNamed:@"cp_null_photo"] forState:UIControlStateNormal];

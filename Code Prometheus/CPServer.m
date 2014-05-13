@@ -21,7 +21,6 @@
 #import <TWMessageBarManager.h>
 
 // 服务器地址
-static NSString*const URL_SERVER_ROOT = @"http://red.mirror-networks.com";
 static NSString*const URL_Register = @"/user/create";
 static NSString*const URL_Login = @"/user/login";
 static NSString*const URL_Upload = @"/sync/upload";
@@ -1026,7 +1025,7 @@ Reachability * reach;
                 return NO;
             }
             // 清除本地uuid为key的图片缓存,生成url为key的图片缓存
-            [[SDImageCache sharedImageCache] storeImage:image forKey:file.cp_url];
+            [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,file.cp_url]];
             [[SDImageCache sharedImageCache] removeImageForKey:file.cp_uuid];
             
             CPLogInfo(@"上传文件成功 uuid:%@  url:%@",file.cp_uuid,file.cp_url);
@@ -1059,7 +1058,7 @@ Reachability * reach;
      {
          if (image && finished){
              CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
-             [[SDImageCache sharedImageCache] storeImage:image forKey:url];
+             [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
          }else{
              CPLogError(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
          }

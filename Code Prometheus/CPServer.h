@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString*const URL_SERVER_ROOT = @"http://red.mirror-networks.com";
+
 static const double CP_SendSMSTimeInterval = 120;
 // 通知
 static NSString* const CPSyncDoneNotification = @"CPSyncDoneNotification";
