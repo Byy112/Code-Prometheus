@@ -39,14 +39,16 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchDisplayController.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    if (CP_IS_IOS7_AND_UP) {
+        self.searchDisplayController.searchBar.searchBarStyle = UISearchBarStyleDefault;
+    }
     // UI
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonClick:)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClick:)];
     self.navigationItem.leftBarButtonItem = leftButton;
-    self.searchDisplayController.searchBar.text = self.name;
+//    self.searchDisplayController.searchBar.text = self.name;
     
     // 长按手势
     UILongPressGestureRecognizer *btnLongTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
