@@ -65,10 +65,10 @@
 ////        frame.origin.y += height;
 //        frame.size.height -= height;
 //    }
-    if (self.tabBarController && !self.tabBarController.tabBar.hidden) {
-        CGFloat height = self.tabBarController.tabBar.frame.size.height;
-        frame.size.height -= height;
-    }
+//    if (self.tabBarController && !self.tabBarController.tabBar.hidden) {
+//        CGFloat height = self.tabBarController.tabBar.frame.size.height;
+//        frame.size.height -= height;
+//    }
     self.mapView.frame = frame;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
