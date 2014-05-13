@@ -67,6 +67,7 @@ HTAutocompleteTextField 自动完成（用于邮箱）
 YLGIFImage              gif动画
 MHTextField             表单，数据校验功能（非法显示红色），datePicker，keyboard功能等
 CMPopTipView            弹框 地图页
+UI7Kit                  改变IOS6为IOS7 UI 风格
 
 ----- ------------- ----------------  记录 ----- ------------- ----------------
 
