@@ -37,7 +37,7 @@
     if (CP_IS_IOS7_AND_UP) {
         self.searchBarStyle = UISearchBarStyleMinimal;
     }else{
-        self.tintColor = [UIColor whiteColor];
+//        self.tintColor = [UIColor whiteColor];
     }
 //    //定义取消按钮
 //    for (UIView *searchbuttons in self.subviews)
