@@ -40,7 +40,8 @@ uitableview 无数据  显示问题  http://stackoverflow.com/questions/484059
 
 6. 详细资料页的头像，  目前是 一个 灰色的图片。 是否做一个头像选取的模块，如果是，需要美工出图。  或者加两个默认的头像。 男女各一个。
 
-
+如果定位失败，并且地图需要，则定位到中国。 
+每次定位准确，记录下来，如果下次定位失败，则用本地的坐标。 （用于 第一次定位成功，第二次定位失败 的情况）
 
 
 
@@ -79,3 +80,6 @@ http://wuchong.mirror-networks.com/apc.php
 apc / mirror2010
 
 http://red.mirror-networks.com/test
+
+
+三元东桥 幸福大厦    酒竟男  b301
