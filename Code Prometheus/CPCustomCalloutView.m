@@ -55,6 +55,7 @@
     }];
     self.imgV = imgV;
     UILabel* sLabel = [[UILabel alloc] init];
+    sLabel.backgroundColor = [UIColor clearColor];
     sLabel.textColor = [UIColor whiteColor];
     [self addSubview:sLabel];
     [sLabel mas_updateConstraints:^(MASConstraintMaker *make) {
