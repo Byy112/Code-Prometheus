@@ -321,6 +321,7 @@ static WYSyncSimple* wy_syncSimple;
 //        self.failedCountForClean = 0;
 //    }
     self.syncInDoing = nil;
+    self.lock = NO;
 //    // 同步失败，循环再次同步
 //    WYLogWarn(@"同步失败，开启循环同步定时器,间隔:%d",self.intervalForJsonRequest);
 //    [self fireTimerWithType:TimerTypeJson interval:self.intervalForJsonRequest];
