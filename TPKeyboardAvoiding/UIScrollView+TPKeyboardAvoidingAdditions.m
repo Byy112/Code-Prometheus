@@ -42,9 +42,10 @@ static const int kStateKey;
 - (void)TPKeyboardAvoiding_keyboardWillShow:(NSNotification*)notification {
     TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
     
-    if ( state.keyboardVisible ) {
-        return;
-    }
+    // 2014.05.14 王氩
+//    if ( state.keyboardVisible ) {
+//        return;
+//    }
     
     UIView *firstResponder = [self TPKeyboardAvoiding_findFirstResponderBeneathView:self];
     
@@ -224,10 +225,17 @@ static const int kStateKey;
 
 
 - (UIEdgeInsets)TPKeyboardAvoiding_contentInsetForKeyboard {
+    // 2014.05.14 王氩
     TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
     UIEdgeInsets newInset = self.contentInset;
     CGRect keyboardRect = state.keyboardRect;
-    newInset.bottom = keyboardRect.size.height + 80.f;
+    
+    CGPoint p = CGPointMake(0, CGRectGetMaxY(self.frame));
+    CGPoint pointInWindow = [self.superview convertPoint:p toView:nil];
+    CGPoint pointInScreen = [self.window convertPoint:pointInWindow toWindow:nil];
+    
+    newInset.bottom = keyboardRect.size.height - ([UIScreen mainScreen].bounds.size.height - pointInScreen.y) + 30.f;
+    
     return newInset;
 }
 
