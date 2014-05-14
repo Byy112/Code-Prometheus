@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CPRegisterViewController">
@@ -19,15 +20,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDs-Y1-wiN" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="383"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8S-wa-B1K">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="383"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-Ee-ZOO">
-                                    <rect key="frame" x="40" y="134" width="240" height="300"/>
+                                    <rect key="frame" x="40" y="83" width="240" height="300"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ca2-nO-pHv">
@@ -180,9 +181,9 @@
                                 </view>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="hXG-Ee-ZOO" secondAttribute="bottom" id="Dn8-jW-pty"/>
                                 <constraint firstItem="hXG-Ee-ZOO" firstAttribute="leading" secondItem="n8S-wa-B1K" secondAttribute="leading" constant="40" id="OeZ-2x-7ps"/>
                                 <constraint firstAttribute="trailing" secondItem="hXG-Ee-ZOO" secondAttribute="trailing" constant="40" id="fjx-02-sx8"/>
-                                <constraint firstAttribute="centerY" secondItem="hXG-Ee-ZOO" secondAttribute="centerY" id="iBd-t3-8XY"/>
                             </constraints>
                             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -202,7 +203,7 @@
             <constraints>
                 <constraint firstItem="SDs-Y1-wiN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="6p7-r7-wO1"/>
                 <constraint firstAttribute="trailing" secondItem="SDs-Y1-wiN" secondAttribute="trailing" id="BwA-7m-VS3"/>
-                <constraint firstAttribute="bottom" secondItem="SDs-Y1-wiN" secondAttribute="bottom" id="C1q-F2-6wS"/>
+                <constraint firstAttribute="bottom" secondItem="SDs-Y1-wiN" secondAttribute="bottom" multiplier="40:27" id="C1q-F2-6wS"/>
                 <constraint firstItem="SDs-Y1-wiN" firstAttribute="top" secondItem="1" secondAttribute="top" id="mRH-Kw-ucf"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CPBindSafetyPhoneNumberViewController">
@@ -19,15 +20,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw8-bY-ICm" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="383"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNM-ra-npf">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="383"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cP8-du-RNa">
-                                    <rect key="frame" x="40" y="146" width="240" height="276"/>
+                                    <rect key="frame" x="40" y="107" width="240" height="276"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiz-TY-hFQ">
@@ -131,7 +132,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="cP8-du-RNa" secondAttribute="trailing" constant="40" id="Erl-Vt-Ywg"/>
-                                <constraint firstAttribute="centerY" secondItem="cP8-du-RNa" secondAttribute="centerY" id="QKR-tK-Oyd"/>
+                                <constraint firstAttribute="bottom" secondItem="cP8-du-RNa" secondAttribute="bottom" id="JYf-RE-YWR"/>
                                 <constraint firstItem="cP8-du-RNa" firstAttribute="leading" secondItem="xNM-ra-npf" secondAttribute="leading" constant="40" id="Sdl-7e-J4V"/>
                             </constraints>
                         </view>
@@ -148,7 +149,7 @@
             </subviews>
             <color key="backgroundColor" red="0.2494376743" green="0.71740238059999994" blue="0.72036431759999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="uw8-bY-ICm" secondAttribute="bottom" id="KzS-Hy-7n8"/>
+                <constraint firstAttribute="bottom" secondItem="uw8-bY-ICm" secondAttribute="bottom" multiplier="40:27" id="KzS-Hy-7n8"/>
                 <constraint firstItem="uw8-bY-ICm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="MJk-3K-mZP"/>
                 <constraint firstItem="uw8-bY-ICm" firstAttribute="top" secondItem="1" secondAttribute="top" id="Mii-qh-fCc"/>
                 <constraint firstAttribute="trailing" secondItem="uw8-bY-ICm" secondAttribute="trailing" id="nxU-75-Oyl"/>
