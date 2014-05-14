@@ -8,6 +8,8 @@
 
 #import "CPFeedbackViewController.h"
 #import <HPTextViewInternal.h>
+#import <TWMessageBarManager.h>
+#import <MBProgressHUD.h>
 
 @interface CPFeedbackViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet HPTextViewInternal *myTextView;
@@ -30,6 +32,29 @@
 }
 - (IBAction)submit:(id)sender {
     
+    [[TWMessageBarManager sharedInstance] hideAll];
+    if (!self.myTextView.text || [self.myTextView.text isEqualToString:@""]) {
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请输入您的宝贵意见!"
+                                                              type:TWMessageBarMessageTypeError];
+        return;
+    }
+    // 启动进度条
+    MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
+    hud.removeFromSuperViewOnHide = YES;
+	[self.view addSubview:hud];
+    [hud show:YES];
+    [CPServer feedBackByContact:self.myTextView.text feedback:@"" block:^(BOOL success, NSString *message) {
+        if (success) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"OK" description:@"感谢您的反馈" type:TWMessageBarMessageTypeSuccess];
+        }else{
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:message
+                                                                  type:TWMessageBarMessageTypeError];
+            [hud hide:YES];
+        }
+    }];
 }
 #pragma mark - UITextViewDelegate
 

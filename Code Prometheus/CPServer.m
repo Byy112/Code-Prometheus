@@ -46,6 +46,7 @@ static NSString*const URL_UPDATE_PRODUCT_CONFIRM = @"/order/update";
 static NSString*const URL_REQUEST_RECHARGE_ITEM = @"/recharge/item";
 static NSString*const URL_REQUEST_RECHARGE_CREATE = @"/recharge/create";
 static NSString*const URL_CHECK_LICENSE = @"/device/check/license";
+static NSString*const URL_FEED_BACK = @"/system/feed/back";
 // JSON KEY
 static NSString* const JK_errno = @"errno";
 static NSString* const Jk_errmsg = @"errmsg";
@@ -925,7 +926,46 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     }];
     [request startAsynchronous];
 }
-
++(void) feedBackByContact:(NSString*)contact feedback:(NSString*)feedback block:(void (^)(BOOL success,NSString* message))block{
+    CPLogInfo(@"意见反馈 contact:%@ , feedback：%@",contact,feedback);
+    ASIHTTPRequest* request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,URL_FEED_BACK]]];
+    NSMutableDictionary* json = [NSMutableDictionary dictionary];
+    [json setObject:contact?contact:@"" forKey:@"contact"];
+    [json setObject:feedback?feedback:@"" forKey:@"feedback"];
+    NSString* jsonString = [json JSONString];
+    CPLogVerbose(@"意见反馈,JSON:%@",jsonString);
+    [request setPostBody:[NSMutableData dataWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]]];
+    __weak ASIHTTPRequest* weakRequest = request;
+    // 同步请求
+    [request setFailedBlock:^{
+        CPLogWarn(@"请求失败:%@",weakRequest.responseString);
+        block(NO,@"请检查网络");
+    }];
+    [request setCompletionBlock:^{
+        NSMutableDictionary* json = [[weakRequest responseString] objectFromJSONStringWithParseOptions:JKParseOptionStrict];
+        // 更新时间差
+        [self updateDelta_t:[json objectForKey:Jk_serverTime]];
+        
+        if ([self checkErrnoAndDeal:json completeBlock:^(BOOL success) {
+            if (success) {
+                [self feedBackByContact:contact feedback:feedback block:^(BOOL success, NSString *message) {
+                    if (success) {
+                        CPLogVerbose(@"意见反馈成功:%@",weakRequest.responseString);
+                        block(YES,nil);
+                    }else{
+                        block(NO,message);
+                    }
+                }];
+            }else{
+                block(NO,[json objectForKey:Jk_errmsg]);
+            }
+        }]) {
+            CPLogVerbose(@"意见反馈成功:%@",weakRequest.responseString);
+            block(YES,nil);
+        }
+    }];
+    [request startAsynchronous];
+}
 
 static WYSyncSimple* wySyncSimple;
 // 同步
