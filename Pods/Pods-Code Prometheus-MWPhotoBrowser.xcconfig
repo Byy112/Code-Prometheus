@@ -1,1 +1,1 @@
-PODS_CODE_PROMETHEUS_MWPHOTOBROWSER_OTHER_LDFLAGS = -framework AssetsLibrary -framework ImageIO -framework MessageUI -framework QuartzCore
+PODS_CODE_PROMETHEUS_MWPHOTOBROWSER_OTHER_LDFLAGS = -framework AssetsLibrary -framework ImageIO -framework MapKit -framework MessageUI -framework QuartzCore

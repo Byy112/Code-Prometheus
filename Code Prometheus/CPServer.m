@@ -1091,18 +1091,16 @@ Reachability * reach;
     }
     
     CPLogInfo(@"准备下载文件,url:%@,cp_uuid:%@",url,cp_uuid);
-    [SDWebImageDownloader.sharedDownloader downloadImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]] options:0 progress:^(NSUInteger receivedSize, long long expectedSize)
-     {
-         
-     }completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
-     {
-         if (image && finished){
-             CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
-             [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
-         }else{
-             CPLogError(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
-         }
-     }];
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]] options:SDWebImageDownloaderContinueInBackground progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        if (image && finished){
+            CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
+            [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
+        }else{
+            CPLogError(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
+        }
+    }];
 }
 // 更新客户端,服务器时间差 客户端时间-服务器时间
 #warning 若操作队列处理时间很长,此处会有比较大的误差\

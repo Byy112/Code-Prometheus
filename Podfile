@@ -25,8 +25,8 @@ pod 'JSONKit-NoWarning', '1.1'
 pod 'OpenUDID', '1.0.0'
 
 
-pod 'SDWebImage', '3.5.1'
-pod 'MWPhotoBrowser', '1.1.4'
+#pod 'SDWebImage', '3.5.1'
+pod 'MWPhotoBrowser', '1.4.0'
 
 
 #pod 'TPKeyboardAvoiding', '1.2.3'
