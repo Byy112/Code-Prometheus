@@ -14,6 +14,12 @@
 		0311827318E96C6600979264 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827118E96C6600979264 /* MAMapKit.framework */; };
 		0311827518E96D0600979264 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0311827418E96D0600979264 /* AMap.bundle */; };
 		03192E491904E8D200813646 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03192E481904E8D200813646 /* Images.xcassets */; };
+		031AB559192328E6001F78CF /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 031AB54E192328E6001F78CF /* License.txt */; };
+		031AB55A192328E6001F78CF /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AB54F192328E6001F78CF /* Readme.md */; };
+		031AB55B192328E6001F78CF /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031AB552192328E6001F78CF /* TDDatePickerController.m */; };
+		031AB55C192328E6001F78CF /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 031AB553192328E6001F78CF /* TDDatePickerController.xib */; };
+		031AB55D192328E6001F78CF /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031AB556192328E6001F78CF /* TDSemiModalViewController.m */; };
+		031AB55E192328E6001F78CF /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 031AB558192328E6001F78CF /* UIViewController+TDSemiModalExtension.m */; };
 		031E209D17B0851100125321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E209C17B0851100125321 /* UIKit.framework */; };
 		031E209F17B0851100125321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E209E17B0851100125321 /* Foundation.framework */; };
 		031E20A117B0851100125321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E20A017B0851100125321 /* CoreGraphics.framework */; };
@@ -284,6 +290,16 @@
 		0311827118E96C6600979264 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = map/MAMapKit.framework; sourceTree = "<group>"; };
 		0311827418E96D0600979264 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = ../map/MAMapKit.framework/Versions/2.2.0.1498.60159/Resources/AMap.bundle; sourceTree = "<group>"; };
 		03192E481904E8D200813646 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		031AB54E192328E6001F78CF /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		031AB54F192328E6001F78CF /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		031AB551192328E6001F78CF /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
+		031AB552192328E6001F78CF /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDatePickerController.m; sourceTree = "<group>"; };
+		031AB553192328E6001F78CF /* TDDatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDDatePickerController.xib; sourceTree = "<group>"; };
+		031AB554192328E6001F78CF /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModal.h; sourceTree = "<group>"; };
+		031AB555192328E6001F78CF /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModalViewController.h; sourceTree = "<group>"; };
+		031AB556192328E6001F78CF /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSemiModalViewController.m; sourceTree = "<group>"; };
+		031AB557192328E6001F78CF /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
+		031AB558192328E6001F78CF /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
 		031E209917B0851100125321 /* Code Prometheus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Code Prometheus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		031E209C17B0851100125321 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		031E209E17B0851100125321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -822,6 +838,31 @@
 			name = Member;
 			sourceTree = "<group>";
 		};
+		031AB54D192328E6001F78CF /* TDSemiModal */ = {
+			isa = PBXGroup;
+			children = (
+				031AB54E192328E6001F78CF /* License.txt */,
+				031AB54F192328E6001F78CF /* Readme.md */,
+				031AB550192328E6001F78CF /* Source */,
+			);
+			path = TDSemiModal;
+			sourceTree = "<group>";
+		};
+		031AB550192328E6001F78CF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				031AB551192328E6001F78CF /* TDDatePickerController.h */,
+				031AB552192328E6001F78CF /* TDDatePickerController.m */,
+				031AB553192328E6001F78CF /* TDDatePickerController.xib */,
+				031AB554192328E6001F78CF /* TDSemiModal.h */,
+				031AB555192328E6001F78CF /* TDSemiModalViewController.h */,
+				031AB556192328E6001F78CF /* TDSemiModalViewController.m */,
+				031AB557192328E6001F78CF /* UIViewController+TDSemiModalExtension.h */,
+				031AB558192328E6001F78CF /* UIViewController+TDSemiModalExtension.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		031E209017B0851100125321 = {
 			isa = PBXGroup;
 			children = (
@@ -1101,6 +1142,7 @@
 		03778FF717D9C1E000377FAF /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				031AB54D192328E6001F78CF /* TDSemiModal */,
 				0331B50C18FCE534004A4BC2 /* alipay */,
 				038F759318F7EF5F00BDD35C /* TPKeyboardAvoiding */,
 				03FF00BD17DEAF0B000CE349 /* LKDBHelper-SQLite-ORM-master */,
@@ -1487,6 +1529,7 @@
 				03C5B37518DC2336004CBE3A /* cp_home_07@2x.png in Resources */,
 				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
 				0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */,
+				031AB55A192328E6001F78CF /* Readme.md in Resources */,
 				034A1066190FB01B002D5871 /* cp_tab_schedule.png in Resources */,
 				034A105E190FAF46002D5871 /* cp_tab_tools.png in Resources */,
 				034A1048190F49F7002D5871 /* cp_schedule_cell_sms.png in Resources */,
@@ -1514,6 +1557,7 @@
 				034A1062190FAFD1002D5871 /* cp_tab_contacts.png in Resources */,
 				03C5B38B18DC242C004CBE3A /* cp_home_light_05@2x.png in Resources */,
 				034A1068190FB02C002D5871 /* cp_tab_map_h.png in Resources */,
+				031AB559192328E6001F78CF /* License.txt in Resources */,
 				03EAA4611869940900EC911B /* CPResetPasswordByPhoneNumberViewController.xib in Resources */,
 				03F2EE631855733300E003F5 /* main.sql in Resources */,
 				038B8C791856B4C300DD0BAC /* CPMettingEditViewController.xib in Resources */,
@@ -1564,6 +1608,7 @@
 				03C5B37418DC2336004CBE3A /* cp_home_06@2x.png in Resources */,
 				034A1042190F4902002D5871 /* cp_phone_0.png in Resources */,
 				03C5B37918DC2336004CBE3A /* cp_home_11@2x.png in Resources */,
+				031AB55C192328E6001F78CF /* TDDatePickerController.xib in Resources */,
 				03C5B38F18DC242C004CBE3A /* cp_home_light_09@2x.png in Resources */,
 				03C5B38D18DC242C004CBE3A /* cp_home_light_07@2x.png in Resources */,
 				034A1054190F4B47002D5871 /* cp_radio_no.png in Resources */,
@@ -1636,6 +1681,7 @@
 				03D9F458185085AA00B95F93 /* CPFamilyMemberEditViewController.m in Sources */,
 				03F1C5A2184F3F39006C3578 /* CPPolicy.m in Sources */,
 				038B8C711856AE5700DD0BAC /* CPOrganization.m in Sources */,
+				031AB55E192328E6001F78CF /* UIViewController+TDSemiModalExtension.m in Sources */,
 				036513BE18473B41006389FA /* CPPersonalDetailsReadViewController.m in Sources */,
 				03CE3BFA183DE0B000A964AA /* CPNavigationController.m in Sources */,
 				0361437A184359A300B433DC /* NSString+CP_Aleph.m in Sources */,
@@ -1644,6 +1690,7 @@
 				030552E5185AEE3E00C2534C /* CPScheduleViewController.m in Sources */,
 				03EBD178184D8F2C00BD35A2 /* CPImage.m in Sources */,
 				03D9F44D185066C000B95F93 /* CPFamily.m in Sources */,
+				031AB55D192328E6001F78CF /* TDSemiModalViewController.m in Sources */,
 				03CE3C12183E05DF00A964AA /* CPContactsHomeViewController.m in Sources */,
 				03FF00DA17DEAF0B000CE349 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				037D512F1871440000B740A3 /* CPMyProductViewController.m in Sources */,
@@ -1671,6 +1718,7 @@
 				038F759C18F7EF5F00BDD35C /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				03D9F3FE185024A000B95F93 /* CPPolicyListViewController.m in Sources */,
 				03F22F97186447260030359E /* CPFindPasswordByPhoneNumberViewController.m in Sources */,
+				031AB55B192328E6001F78CF /* TDDatePickerController.m in Sources */,
 				033A28331862DE1900B0AD79 /* CPAccountViewController.m in Sources */,
 				0361437318432C8500B433DC /* CPTrace.m in Sources */,
 				0379A26318EA942000331ADB /* CusAnnotationView.m in Sources */,

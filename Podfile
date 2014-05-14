@@ -5,7 +5,7 @@ target "Code Prometheus" do
     
 platform :ios, '6.0'
 
-pod 'TDSemiModal', :git => 'git://github.com/623637646/TDSemiModal'
+#pod 'TDSemiModal', :git => 'git://github.com/623637646/TDSemiModal'
 pod 'PinYin4Objc', '1.1.1'
 pod 'MBProgressHUD', '0.8'
 pod 'PopoverView', '0.0.1'

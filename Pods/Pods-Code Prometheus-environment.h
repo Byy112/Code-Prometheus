@@ -291,12 +291,6 @@
 #define COCOAPODS_VERSION_MINOR_TDBadgedCell 4
 #define COCOAPODS_VERSION_PATCH_TDBadgedCell 1
 
-// TDSemiModal
-#define COCOAPODS_POD_AVAILABLE_TDSemiModal
-#define COCOAPODS_VERSION_MAJOR_TDSemiModal 1
-#define COCOAPODS_VERSION_MINOR_TDSemiModal 0
-#define COCOAPODS_VERSION_PATCH_TDSemiModal 0
-
 // TWMessageBarManager
 #define COCOAPODS_POD_AVAILABLE_TWMessageBarManager
 #define COCOAPODS_VERSION_MAJOR_TWMessageBarManager 1

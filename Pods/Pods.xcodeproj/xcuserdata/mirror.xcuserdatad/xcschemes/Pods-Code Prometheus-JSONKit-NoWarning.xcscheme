@@ -7,17 +7,17 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForProfiling = "YES"
+            buildForRunning = "YES"
             buildForAnalyzing = "YES"
             buildForTesting = "YES"
-            buildForArchiving = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES">
+            buildForArchiving = "YES">
             <BuildableReference
+               ReferencedContainer = "container:Pods.xcodeproj"
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA2B4E9537CB44A6828B33AF"
-               BlueprintName = "Pods-Code Prometheus-JSONKit-NoWarning"
                BuildableName = "libPods-Code Prometheus-JSONKit-NoWarning.a"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "67D93A3FBD4540E689BE4A83"
+               BlueprintName = "Pods-Code Prometheus-JSONKit-NoWarning">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,22 +31,22 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
-      launchStyle = "0"
-      allowLocationSimulation = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      allowLocationSimulation = "YES"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      ignoresPersistentStateOnLaunch = "NO"
+      useCustomWorkingDirectory = "NO"
+      launchStyle = "0"
       buildConfiguration = "Debug">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      useCustomWorkingDirectory = "NO"
-      shouldUseLaunchSchemeArgsEnv = "YES"
       debugDocumentVersioning = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release">
    </ProfileAction>
    <AnalyzeAction

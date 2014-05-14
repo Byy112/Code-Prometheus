@@ -7,17 +7,17 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForProfiling = "YES"
+            buildForRunning = "YES"
             buildForAnalyzing = "YES"
             buildForTesting = "YES"
-            buildForArchiving = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES">
+            buildForArchiving = "YES">
             <BuildableReference
+               ReferencedContainer = "container:Pods.xcodeproj"
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A866EEA38FF4FE2A15DEECC"
-               BlueprintName = "Pods-Code Prometheus-CocoaLumberjack"
                BuildableName = "libPods-Code Prometheus-CocoaLumberjack.a"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "1C572FB91E4044548BA4A277"
+               BlueprintName = "Pods-Code Prometheus-CocoaLumberjack">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,22 +31,22 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
-      launchStyle = "0"
-      allowLocationSimulation = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      allowLocationSimulation = "YES"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      ignoresPersistentStateOnLaunch = "NO"
+      useCustomWorkingDirectory = "NO"
+      launchStyle = "0"
       buildConfiguration = "Debug">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      useCustomWorkingDirectory = "NO"
-      shouldUseLaunchSchemeArgsEnv = "YES"
       debugDocumentVersioning = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release">
    </ProfileAction>
    <AnalyzeAction

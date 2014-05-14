@@ -7,17 +7,17 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForProfiling = "YES"
+            buildForRunning = "YES"
             buildForAnalyzing = "YES"
             buildForTesting = "YES"
-            buildForArchiving = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES">
+            buildForArchiving = "YES">
             <BuildableReference
+               ReferencedContainer = "container:Pods.xcodeproj"
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "049EE1B594AF4AA3BE54833A"
-               BlueprintName = "Pods-Code Prometheus-FDTake"
                BuildableName = "libPods-Code Prometheus-FDTake.a"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "03EEA0F7F9524163A6F767BF"
+               BlueprintName = "Pods-Code Prometheus-FDTake">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,22 +31,22 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
-      launchStyle = "0"
-      allowLocationSimulation = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      allowLocationSimulation = "YES"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      ignoresPersistentStateOnLaunch = "NO"
+      useCustomWorkingDirectory = "NO"
+      launchStyle = "0"
       buildConfiguration = "Debug">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      useCustomWorkingDirectory = "NO"
-      shouldUseLaunchSchemeArgsEnv = "YES"
       debugDocumentVersioning = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release">
    </ProfileAction>
    <AnalyzeAction
