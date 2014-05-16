@@ -17,6 +17,7 @@
 #import <PopoverView.h>
 #import <TWMessageBarManager.h>
 #import <Masonry.h>
+#import <NSDate-Utilities.h>
 
 static char CPAssociatedKeyTag;
 
@@ -42,7 +43,8 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
 @property (weak, nonatomic) IBOutlet UIButton *payTypeButton;
 @property (weak, nonatomic) IBOutlet UITextField *payAmountTextField;
 @property (weak, nonatomic) IBOutlet UIButton *payWayButton;
-@property (weak, nonatomic) IBOutlet UIButton *remindDateButton;
+@property (weak, nonatomic) IBOutlet UILabel *remindDateLabel;
+
 @property (weak, nonatomic) IBOutlet UIView *photoLayoutView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *descriptionLayoutViewHeight;
@@ -107,6 +109,8 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
     if (!self.policyUUID) {
         self.policy = [CPPolicy newAdaptDB];
         self.policy.cp_contact_uuid = self.contactsUUID;
+        self.policy.cp_date_begin = @([[NSDate date] timeIntervalSince1970]);
+        self.policy.cp_date_end = @([[NSDate date] timeIntervalSince1970] + D_YEAR);
     }else {
         self.policy = [[CPDB getLKDBHelperByUser] searchSingle:[CPPolicy class] where:@{@"cp_uuid":self.policyUUID} orderBy:nil];
     }
@@ -157,11 +161,12 @@ static NSString* const CP_POLICY_PAY_WAY_TITLE_CASH = @"现金";
         [self.payWayButton setTitle:CP_POLICY_PAY_WAY_TITLE_ITEM[self.policy.cp_pay_way.integerValue] forState:UIControlStateNormal];
     }
     // 缴费提醒
-    if (self.policy.cp_remind_date) {
-        [self.remindDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]] forState:UIControlStateNormal];
-    }else{
-        [self.remindDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
-    }
+#warning ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+//    if (self.policy.cp_remind_date) {
+//        [self.remindDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]] forState:UIControlStateNormal];
+//    }else{
+//        [self.remindDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
+//    }
     // 照片
     [self updatePhotoViews];
 }
@@ -223,6 +228,13 @@ static const CGFloat kImageSpacing = 5;
 }
 - (IBAction)save:(id)sender {
     [self.view endEditing:YES];
+    if (!self.policy.cp_name || [self.policy.cp_name isEqualToString:@""]) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请填写名称"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
     self.policy.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.policyUUID) {
         // 新增
@@ -300,16 +312,6 @@ static const CGFloat kImageSpacing = 5;
     self.popoverView = [PopoverView showPopoverAtPoint:button.titleLabel.center inView:button.titleLabel withStringArray:CP_POLICY_PAY_WAY_TITLE_ITEM delegate:self];
     self.popoverView.tag = 1;
 }
-- (IBAction)remindDateButtonClick:(id)sender {
-    [self.view endEditing:YES];
-    self.datePickerView = [[TDDatePickerController alloc]initWithNibName:CP_RESOURCE_XIB_DATE_PICKER_DATE bundle:nil];
-    self.datePickerView.delegate = self;
-    if (self.policy.cp_remind_date) {
-        self.datePickerView.date = [NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue];
-    }
-    objc_setAssociatedObject(self.datePickerView, &CPAssociatedKeyTag, @(2), OBJC_ASSOCIATION_RETAIN);
-    [self presentSemiModalViewController:self.datePickerView];
-}
 #pragma mark - Action
 #define CP_MAX_PICTURE 9
 - (void)addPictureButtonClick:(id)sender {
@@ -377,11 +379,6 @@ static const CGFloat kImageSpacing = 5;
             [self.endDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_date_end.doubleValue]] forState:UIControlStateNormal];
             break;
         }
-        case 2:{
-            self.policy.cp_remind_date = @([date timeIntervalSince1970]);
-            [self.remindDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]] forState:UIControlStateNormal];
-            break;
-        }
         default:
             break;
     }
@@ -392,18 +389,13 @@ static const CGFloat kImageSpacing = 5;
     NSNumber* tag = objc_getAssociatedObject(viewController, &CPAssociatedKeyTag);
     switch (tag.integerValue) {
         case 0:{
-            self.policy.cp_date_begin = nil;
-            [self.beginDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
+            self.policy.cp_date_begin = @([[NSDate date] timeIntervalSince1970]);
+            [self.beginDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_date_begin.doubleValue]] forState:UIControlStateNormal];
             break;
         }
         case 1:{
-            self.policy.cp_date_end = nil;
-            [self.endDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
-            break;
-        }
-        case 2:{
-            self.policy.cp_remind_date = nil;
-            [self.remindDateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
+            self.policy.cp_date_end = @([[NSDate date] timeIntervalSince1970] + D_YEAR);
+            [self.endDateButton setTitle:[self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_date_end.doubleValue]] forState:UIControlStateNormal];
             break;
         }
         default:

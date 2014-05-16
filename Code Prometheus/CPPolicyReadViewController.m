@@ -166,11 +166,12 @@ static const CGFloat kImageSpacing = 5;
         self.payWayLabel.text = CP_POLICY_PAY_WAY_TITLE_ITEM[self.policy.cp_pay_way.integerValue];
     }
     // 缴费提醒
-    if (self.policy.cp_remind_date) {
-        self.remindDateLabel.text = [self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]];
-    }else{
-        self.remindDateLabel.text = CP_DATE_TITLE_NULL;
-    }
+#warning ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+//    if (self.policy.cp_remind_date) {
+//        self.remindDateLabel.text = [self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]];
+//    }else{
+//        self.remindDateLabel.text = CP_DATE_TITLE_NULL;
+//    }
     // 照片
     // 删除uiimageview
     for(UIView *subv in [self.photoLayoutView subviews])

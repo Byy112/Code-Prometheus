@@ -158,9 +158,6 @@ static LKDBHelper* cpLKDBHelper;
                 for (int j=0; j<policyCount; j++) {
                     CPPolicy* policy = [CPPolicy newAdaptDB];
                     policy.cp_contact_uuid = c.cp_uuid;
-                    // 提醒日期
-                    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-                    policy.cp_remind_date = randomNumber(0,4)==0?[NSNumber numberWithDouble:now+randomNumber(-D_YEAR,D_YEAR)]:nil;
                     // 名称
                     NSMutableString* name = [NSMutableString string];
                     int nameSize = randomNumber(1,10);

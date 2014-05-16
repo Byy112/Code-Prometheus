@@ -21,7 +21,6 @@
 @property (nonatomic)NSNumber* cp_pay_type;
 @property (nonatomic)NSNumber* cp_pay_amount;
 @property (nonatomic)NSNumber* cp_pay_way;
-@property (nonatomic)NSNumber* cp_remind_date;
 @property (nonatomic)NSString* cp_contact_uuid;
 
 @end
