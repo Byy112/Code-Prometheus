@@ -127,6 +127,7 @@ static const CGFloat kImageSpacing = 5;
     if (!self.traceUUID) {
         self.trace = [CPTrace newAdaptDB];
         self.trace.cp_contact_uuid = self.contactsUUID;
+        self.trace.cp_date = @([[NSDate date] timeIntervalSince1970]);
     }else {
         self.trace = [[CPDB getLKDBHelperByUser] searchSingle:[CPTrace class] where:@{@"cp_uuid":self.traceUUID} orderBy:nil];
     }
@@ -205,6 +206,13 @@ static const CGFloat kImageSpacing = 5;
 }
 - (IBAction)save:(id)sender {
     [self.view endEditing:YES];
+    if (!self.trace.cp_description || [self.trace.cp_description isEqualToString:@""]) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请填写内容"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
     self.trace.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.traceUUID) {
         // 新增
@@ -372,22 +380,19 @@ static const CGFloat kImageSpacing = 5;
 
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
 	[self dismissSemiModalViewController:viewController];
-    NSNumber* tag = objc_getAssociatedObject(viewController, &CPAssociatedKeyTag);
-    switch (tag.integerValue) {
-        case 0:{
-            [self.dateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
-            [self.timeButton setTitle:CP_TIME_TITLE_NULL forState:UIControlStateNormal];
-            break;
-        }
-        case 1:{
-            [self.dateButton setTitle:CP_DATE_TITLE_NULL forState:UIControlStateNormal];
-            [self.timeButton setTitle:CP_TIME_TITLE_NULL forState:UIControlStateNormal];
-            break;
-        }
-        default:
-            break;
+    self.trace.cp_date = @([[NSDate date] timeIntervalSince1970]);
+    static NSDateFormatter* CP_DF_DATE = nil;
+    if (!CP_DF_DATE) {
+        CP_DF_DATE = [[NSDateFormatter alloc] init];
+        [CP_DF_DATE setDateFormat:@"yy-MM-dd"];
     }
-    self.trace.cp_date = nil;
+    static NSDateFormatter* CP_DF_TIME = nil;
+    if (!CP_DF_TIME) {
+        CP_DF_TIME = [[NSDateFormatter alloc] init];
+        [CP_DF_TIME setDateFormat:@"HH:mm"];
+    }
+    [self.dateButton setTitle:[CP_DF_DATE stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.trace.cp_date.doubleValue]] forState:UIControlStateNormal];
+    [self.timeButton setTitle:[CP_DF_TIME stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.trace.cp_date.doubleValue]] forState:UIControlStateNormal];
 }
 
 -(void)datePickerCancel:(TDDatePickerController*)viewController {
