@@ -37,4 +37,5 @@ pod 'BlocksKit', '2.2.2'
 
 pod 'iVersion', '1.10.6'
 pod 'iRate', '1.10.2'
+pod 'DateTools', '1.2.0'
 end

@@ -35,6 +35,7 @@ PODS:
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
   - DACircularProgress (2.2.0)
+  - DateTools (1.2.0)
   - FDTake (0.1)
   - HPGrowingTextView (1.0.1)
   - iRate (1.10.2)
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - ASIHTTPRequest (= 1.8.2)
   - BlocksKit (= 2.2.2)
   - CocoaLumberjack (= 1.6.5.1)
+  - DateTools (= 1.2.0)
   - FDTake (= 0.1)
   - HPGrowingTextView (= 1.0.1)
   - iRate (= 1.10.2)
@@ -143,6 +145,7 @@ SPEC CHECKSUMS:
   BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
   CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
   DACircularProgress: 659d6fd11b5fc099c13ba9350239d9dca324916a
+  DateTools: 6989dcb0df9dad3ae499f5e9efbd988116586f67
   FDTake: 1b8a6647bf132df32868b00b423f5ab8b938e00d
   HPGrowingTextView: fd77b93b9096dd1493a312c8856810b652b04dcc
   iRate: eb8ca35519dd57a586e4c72bb5135ccb6abee908
