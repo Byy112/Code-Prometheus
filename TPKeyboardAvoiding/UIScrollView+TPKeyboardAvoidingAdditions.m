@@ -14,6 +14,8 @@ static const CGFloat kCalculatedContentPadding = 10;
 static const CGFloat kMinimumScrollOffsetPadding = 20;
 
 static const int kStateKey;
+// 2014.05.21 王氩
+static const int kStateOriginalKey;
 
 #define _UIKeyboardFrameEndUserInfoKey (&UIKeyboardFrameEndUserInfoKey != NULL ? UIKeyboardFrameEndUserInfoKey : @"UIKeyboardBoundsUserInfoKey")
 
@@ -46,6 +48,18 @@ static const int kStateKey;
 //    if ( state.keyboardVisible ) {
 //        return;
 //    }
+    if (!state.keyboardVisible) {
+        TPKeyboardAvoidingState* oState = [[TPKeyboardAvoidingState alloc] init];
+        objc_setAssociatedObject(self, &kStateOriginalKey, oState, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        oState.keyboardRect = [self convertRect:[[[notification userInfo] objectForKey:_UIKeyboardFrameEndUserInfoKey] CGRectValue] fromView:nil];
+        oState.keyboardVisible = YES;
+        oState.priorInset = self.contentInset;
+        oState.priorScrollIndicatorInsets = self.scrollIndicatorInsets;
+        if ( [self isKindOfClass:[TPKeyboardAvoidingScrollView class]] ) {
+            oState.priorContentSize = self.contentSize;
+        }
+    }
+    
     
     UIView *firstResponder = [self TPKeyboardAvoiding_findFirstResponderBeneathView:self];
     
@@ -93,6 +107,9 @@ static const int kStateKey;
     
     state.keyboardRect = CGRectZero;
     state.keyboardVisible = NO;
+    
+    // 2014.05.21 王氩
+    state = objc_getAssociatedObject(self, &kStateOriginalKey);;
     
     // Restore dimensions to prior size
     [UIView beginAnimations:nil context:NULL];
