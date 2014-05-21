@@ -298,7 +298,12 @@ typedef NS_ENUM(NSInteger, CP_FAMILY_POPOVER_TAG) {
     self.family.cp_latitude = nil;
     self.family.cp_zoom = nil;
     self.family.cp_invain = @(0);
-    [self updateAddressUI];
+    
+    if (self.family.cp_invain && self.family.cp_invain.boolValue) {
+        [self.addressButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_MAP_0] forState:UIControlStateNormal];
+    }else{
+        [self.addressButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_MAP_1] forState:UIControlStateNormal];
+    }
 }
 - (IBAction)addressButtonClick:(id)sender {
     CPEditMapViewController* map = [[CPEditMapViewController alloc] initWithNibName:CP_RESOURCE_XIB_MAP_EDIT bundle:nil];

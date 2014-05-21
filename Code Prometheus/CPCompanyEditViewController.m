@@ -194,7 +194,12 @@ typedef NS_ENUM(NSInteger, CP_COMPANY_POPOVER_TAG) {
     self.company.cp_latitude = nil;
     self.company.cp_zoom = nil;
     self.company.cp_invain = @(0);
-    [self updateAddressUI];
+    
+    if (self.company.cp_invain && self.company.cp_invain.boolValue) {
+        [self.addressButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_MAP_0] forState:UIControlStateNormal];
+    }else{
+        [self.addressButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_MAP_1] forState:UIControlStateNormal];
+    }
 }
 - (IBAction)zipTextFieldChange:(UITextField*)sender {
     self.company.cp_zip = sender.text;
