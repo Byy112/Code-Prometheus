@@ -274,6 +274,13 @@ static const CGFloat kImageSpacing = 5;
                                                               type:TWMessageBarMessageTypeInfo];
         return;
     }
+    if (self.policy.cp_date_begin.doubleValue>=self.policy.cp_date_end.doubleValue) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"缴费周期的结束日期不能小于开始日期"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
     self.policy.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.policyUUID) {
         // 新增
