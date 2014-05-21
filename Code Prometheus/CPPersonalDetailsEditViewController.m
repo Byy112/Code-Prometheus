@@ -174,7 +174,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     if (!self.datePickerView) {
         // 初始化生日选择器
         self.datePickerView = [[TDDatePickerController alloc]initWithNibName:CP_RESOURCE_XIB_DATE_PICKER_DATE bundle:nil];
-        if (self.contacts.cp_birthday) {
+        if (self.contacts.cp_birthday && ![self.contacts.cp_birthday isEqualToString:@""]) {
             static NSDateFormatter* df = nil;
             if (!df) {
                 df = [[NSDateFormatter alloc] init];
@@ -425,7 +425,11 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
             [CP_DF_BIRTHDAY_2 setDateFormat:@"yyyy 年 MM 月 dd 日"];
         }
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
-        [button setTitle:self.contacts?self.contacts.cp_birthday?[CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]]:CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL:CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL forState:UIControlStateNormal];
+        NSString* labS = CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL;
+        if (self.contacts && self.contacts.cp_birthday && ![self.contacts.cp_birthday isEqualToString:@""]) {
+            labS = [CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]];
+        }
+        [button setTitle:labS forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(editContactsBirthday:) forControlEvents:UIControlEventTouchUpInside];
         return cell;

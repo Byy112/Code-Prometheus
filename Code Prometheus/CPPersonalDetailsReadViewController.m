@@ -173,7 +173,11 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
             CP_DF_BIRTHDAY_2 = [[NSDateFormatter alloc] init];
             [CP_DF_BIRTHDAY_2 setDateFormat:@"yyyy 年 MM 月 dd 日"];
         }
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts?self.contacts.cp_birthday?[CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]]:CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL:CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL];
+        NSString* labS = CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL;
+        if (self.contacts && self.contacts.cp_birthday && ![self.contacts.cp_birthday isEqualToString:@""]) {
+            labS = [CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]];
+        }
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:labS];
         return cell;
     }
     if (indexPath.row==4) {
