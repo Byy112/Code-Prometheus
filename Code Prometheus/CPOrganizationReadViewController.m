@@ -69,7 +69,13 @@ static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_4 = @"无工作"
     [super viewWillAppear:animated];
     if (self.dirty) {
         [self loadDB];
-        [self updateUI];
+        if (CP_IS_IOS7_AND_UP) {
+            [self updateUI];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateUI];
+            });
+        }
         self.dirty = NO;
     }
 }

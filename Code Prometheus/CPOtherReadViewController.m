@@ -46,7 +46,13 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     [super viewWillAppear:animated];
     if (self.dirty) {
         [self loadDB];
-        [self updateUI];
+        if (CP_IS_IOS7_AND_UP) {
+            [self updateUI];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateUI];
+            });
+        }
         self.dirty = NO;
     }
 }
