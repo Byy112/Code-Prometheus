@@ -17,6 +17,7 @@
 #import "CPCalendarPickerStyleProvider.h"
 #import <PopoverView_Configuration.h>
 #import <BlocksKit+UIKit.h>
+#import <DateTools.h>
 
 static char CPAssociatedKeyCellTag;
 static char CPAssociatedKeyTrace;
@@ -51,6 +52,9 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
 
 // table显示的数据
 @property (nonatomic) NSMutableArray* contactsForTable;
+
+@property (nonatomic) NSDate* loadPolicysDate;
+@property (nonatomic) NSMutableDictionary* policyDateDic;
 @end
 
 @implementation CPScheduleViewController
@@ -81,11 +85,72 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (self.dirty) {
-        [self.calendarPicker updateStateAnimated:YES];
-        self.dirty = NO;
+    NSDate* now = [NSDate date];
+    if (self.dirty || !self.loadPolicysDate || ![self.loadPolicysDate isEqualToDateIgnoringTime:now]) {
+        CPLogInfo(@"刷新日历");
+        // 加载保单信息！
+        NSString* where = [NSString stringWithFormat:@"cp_date_end > %f",[[[now dateByAddingDays:1] dateAtStartOfDay] timeIntervalSince1970]-1];
+        [[CPDB getLKDBHelperByUser] search:[CPPolicy class] where:where orderBy:nil offset:0 count:-1 callback:^(NSMutableArray *array) {
+            self.policyDateDic = [NSMutableDictionary dictionary];
+            for (CPPolicy* policy in array) {
+                NSDate* remindDate = [self remindDateWithPolicy:policy now:now];
+                if (!remindDate) {
+                    continue;
+                }
+                if (!self.policyDateDic[remindDate]) {
+                    self.policyDateDic[remindDate] = [NSMutableArray array];
+                }
+                [(NSMutableArray*)self.policyDateDic[remindDate] addObject:policy];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.calendarPicker updateStateAnimated:YES];
+                self.loadPolicysDate = now;
+                self.dirty = NO;
+            });
+        }];
     }
 }
+
+-(NSDate*) remindDateWithPolicy:(CPPolicy*)policy now:(NSDate*)now{
+    if (!policy.cp_date_begin || !policy.cp_date_end || !policy.cp_pay_type) {
+        return nil;
+    }
+
+    NSDate* beginDate = [[NSDate alloc] initWithTimeIntervalSince1970:policy.cp_date_begin.doubleValue];
+    NSDate* endDate = [[NSDate alloc] initWithTimeIntervalSince1970:policy.cp_date_end.doubleValue];
+    
+    if ([now isEqualToDateIgnoringTime:endDate] || [now isLaterThan:endDate]) {
+        CPLogWarn(@"保单没有提醒日期！beginDate:%@,endDate:%@,now:%@",beginDate,endDate,now);
+        return nil;
+    }
+    
+    NSDate* remindDate = nil;
+    NSInteger n = 1;
+    while (YES) {
+        switch (policy.cp_pay_type.integerValue) {
+            case 0:
+                remindDate = [beginDate dateByAddingMonths:n];
+                break;
+            case 1:
+                remindDate = [beginDate dateByAddingMonths:3*n];
+                break;
+            case 2:
+                remindDate = [beginDate dateByAddingYears:n];
+                break;
+            default:
+                break;
+        }
+        if ([remindDate isEqualToDateIgnoringTime:endDate] || [remindDate isLaterThan:endDate]) {
+            break;
+        }
+        if ([remindDate isEqualToDateIgnoringTime:now] || [remindDate isLaterThan:now]) {
+            return [remindDate dateAtStartOfDay];
+        }
+        n++;
+    }
+    return nil;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"cp_segue_schedule_2_trace"])
     {
@@ -149,28 +214,7 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     return result;
 }
 -(BOOL) hasPolicyInDBCorrectToDayWithDate:(NSDate*)date{
-    __block BOOL result = NO;
-    NSTimeInterval min = [[date dateAtStartOfDay] timeIntervalSince1970];
-    NSTimeInterval max = min+D_DAY;
-    [[CPDB getLKDBHelperByUser] executeDB:^(FMDatabase *db) {
-        FMResultSet* set = [db executeQuery:@"SELECT count(*) FROM cp_insurance_policy WHERE cp_remind_date>=? AND cp_remind_date<?" withArgumentsInArray:@[@(min),@(max)]];
-        int columeCount = [set columnCount];
-        while ([set next]) {
-            for (int i=0; i<columeCount; i++) {
-                NSString* sqlValue = [set stringForColumnIndex:i];
-                switch (i) {
-                    case 0:{
-                        result = sqlValue.integerValue>0;
-                        break;
-                    }
-                    default:
-                        break;
-                }
-            }
-        }
-        [set close];
-    }];
-    return result;
+    return self.policyDateDic[[date dateAtStartOfDay]] != nil;
 }
 -(BOOL) hasBirthdayInDBCorrectToDayWithDate:(NSDate*)date{
     __block BOOL result = NO;
@@ -254,44 +298,16 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     return contactsArray;
 }
 -(NSMutableArray*) contactsWithPolicyArryInDBCorrectToDayWithDate:(NSDate*)date{
-    NSTimeInterval min = [[date dateAtStartOfDay] timeIntervalSince1970];
-    NSTimeInterval max = min+D_DAY;
     NSMutableArray* contactsArray = [NSMutableArray array];
-    [[CPDB getLKDBHelperByUser] executeDB:^(FMDatabase *db) {
-        FMResultSet* set = [db executeQuery:@"SELECT c.cp_uuid,c.cp_name,i.cp_uuid,i.cp_name FROM cp_contacts c INNER JOIN cp_insurance_policy i ON c.cp_uuid=i.cp_contact_uuid WHERE i.cp_remind_date>=? AND i.cp_remind_date<?" withArgumentsInArray:@[@(min),@(max)]];
-        int columeCount = [set columnCount];
-        while ([set next]) {
-            CPContacts* contacts = CPContacts.new;
-            CPPolicy* policy = CPPolicy.new;
+    NSMutableArray* array = self.policyDateDic[[date dateAtStartOfDay]];
+    if (array) {
+        for (CPPolicy* policy in array) {
+            CPContacts* contacts = [[CPDB getLKDBHelperByUser] searchSingle:[CPContacts class] where:@{@"cp_uuid":policy.cp_contact_uuid} orderBy:nil];
             objc_setAssociatedObject(contacts, &CPAssociatedKeyPolicy, policy, OBJC_ASSOCIATION_RETAIN);
             objc_setAssociatedObject(contacts, &CPAssociatedKeyCellTag, @(CP_CELL_TAG_PAY_REMIND), OBJC_ASSOCIATION_RETAIN);
-            for (int i=0; i<columeCount; i++) {
-                NSString* sqlValue = [set stringForColumnIndex:i];
-                switch (i) {
-                    case 0:{
-                        contacts.cp_uuid = sqlValue;
-                        break;
-                    }
-                    case 1:{
-                        contacts.cp_name = sqlValue;
-                        break;
-                    }
-                    case 2:{
-                        policy.cp_uuid = sqlValue;
-                        break;
-                    }
-                    case 3:{
-                        policy.cp_name = sqlValue;
-                        break;
-                    }
-                    default:
-                        break;
-                }
-            }
             [contactsArray addObject:contacts];
         }
-        [set close];
-    }];
+    }
     return contactsArray;
 }
 -(NSMutableArray*) contactsCaredBirthdayArryInDBWithDate:(NSDate*)date{
