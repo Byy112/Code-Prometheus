@@ -11,9 +11,12 @@
 #import "CPImage.h"
 #import <NYXImagesKit.h>
 #import <MWPhotoBrowser.h>
+#import <DateTools.h>
+#import <NSDate-Utilities.h>
 
 
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
+static NSString* const CP_REMIND_DATE_NULL = @"–– 无 ––";
 
 // 缴费方式
 static NSString* const CP_POLICY_PAY_TYPE_TITLE_MONTH = @"月缴";
@@ -166,12 +169,7 @@ static const CGFloat kImageSpacing = 5;
         self.payWayLabel.text = CP_POLICY_PAY_WAY_TITLE_ITEM[self.policy.cp_pay_way.integerValue];
     }
     // 缴费提醒
-#warning ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-//    if (self.policy.cp_remind_date) {
-//        self.remindDateLabel.text = [self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.policy.cp_remind_date.doubleValue]];
-//    }else{
-//        self.remindDateLabel.text = CP_DATE_TITLE_NULL;
-//    }
+    [self updateRemindDateUI];
     // 照片
     // 删除uiimageview
     for(UIView *subv in [self.photoLayoutView subviews])
@@ -193,6 +191,47 @@ static const CGFloat kImageSpacing = 5;
     }
     // 布局
     [self layoutPhotoViews];
+}
+-(void)updateRemindDateUI{
+    if (self.policy.cp_date_begin && self.policy.cp_pay_type) {
+        NSDate* beginDate = [[NSDate alloc] initWithTimeIntervalSince1970:self.policy.cp_date_begin.doubleValue];
+        NSDate* endDate = [[NSDate alloc] initWithTimeIntervalSince1970:self.policy.cp_date_end.doubleValue];
+        NSDate* now = [NSDate date];
+        
+        if ([now isEqualToDateIgnoringTime:beginDate] || [now isEarlierThan:beginDate] || [now isEqualToDateIgnoringTime:endDate] || [now isLaterThan:endDate]) {
+            self.remindDateLabel.text = CP_REMIND_DATE_NULL;
+            return;
+        }
+        
+        NSDate* remindDate = nil;
+        NSInteger n = 1;
+        while (YES) {
+            switch (self.policy.cp_pay_type.integerValue) {
+                case 0:
+                    remindDate = [beginDate dateByAddingMonths:n];
+                    break;
+                case 1:
+                    remindDate = [beginDate dateByAddingMonths:3*n];
+                    break;
+                case 2:
+                    remindDate = [beginDate dateByAddingYears:n];
+                    break;
+                default:
+                    break;
+            }
+            if ([remindDate isEqualToDateIgnoringTime:endDate] || [remindDate isLaterThan:endDate]) {
+                self.remindDateLabel.text = CP_REMIND_DATE_NULL;
+                break;
+            }
+            if ([remindDate isEqualToDateIgnoringTime:now] || [remindDate isLaterThan:now]) {
+                self.remindDateLabel.text = [self.df stringFromDate:remindDate];
+                break;
+            }
+            n++;
+        }
+    }else{
+        self.remindDateLabel.text = CP_REMIND_DATE_NULL;
+    }
 }
 #pragma mark - Action
 -(void)photoButtonClick:(id)sender{
