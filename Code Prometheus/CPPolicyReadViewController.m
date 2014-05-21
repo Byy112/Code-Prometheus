@@ -193,12 +193,12 @@ static const CGFloat kImageSpacing = 5;
     [self layoutPhotoViews];
 }
 -(void)updateRemindDateUI{
-    if (self.policy.cp_date_begin && self.policy.cp_pay_type) {
+    if (self.policy.cp_date_begin && self.policy.cp_date_end && self.policy.cp_pay_type) {
         NSDate* beginDate = [[NSDate alloc] initWithTimeIntervalSince1970:self.policy.cp_date_begin.doubleValue];
         NSDate* endDate = [[NSDate alloc] initWithTimeIntervalSince1970:self.policy.cp_date_end.doubleValue];
         NSDate* now = [NSDate date];
         
-        if ([now isEqualToDateIgnoringTime:beginDate] || [now isEarlierThan:beginDate] || [now isEqualToDateIgnoringTime:endDate] || [now isLaterThan:endDate]) {
+        if ([now isEqualToDateIgnoringTime:endDate] || [now isLaterThan:endDate]) {
             self.remindDateLabel.text = CP_REMIND_DATE_NULL;
             return;
         }
