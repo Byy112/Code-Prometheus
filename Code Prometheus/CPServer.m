@@ -1366,6 +1366,8 @@ Reachability * reach;
     return [json0 JSONString];
 }
 
+#define CP_WARNING_ERRNO @[@(22405)]
+
 +(BOOL) uploadIsSuccessWithJson:(NSDictionary*)responce{
     if ([self checkErrnoAndDeal:responce completeBlock:^(BOOL success) {
         if (success) {
@@ -1375,12 +1377,14 @@ Reachability * reach;
         return YES;
     }else{
         [wySyncSimple notifyCancelSync];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[TWMessageBarManager sharedInstance] hideAll];
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                           description:[responce objectForKey:Jk_errmsg]
-                                                                  type:TWMessageBarMessageTypeError];
-        });
+        if ([CP_WARNING_ERRNO containsObject:[responce objectForKey:JK_errno]]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:[responce objectForKey:Jk_errmsg]
+                                                                      type:TWMessageBarMessageTypeError];
+            });
+        }
         return NO;
     }
 }
