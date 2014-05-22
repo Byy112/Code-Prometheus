@@ -303,6 +303,10 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     if (array) {
         for (CPPolicy* policy in array) {
             CPContacts* contacts = [[CPDB getLKDBHelperByUser] searchSingle:[CPContacts class] where:@{@"cp_uuid":policy.cp_contact_uuid} orderBy:nil];
+            if (!contacts) {
+                CPLogWarn(@"日历模块，存在保单提醒，但是找不到人脉！ policy.uuid:%@",policy.cp_contact_uuid);
+                continue;
+            }
             objc_setAssociatedObject(contacts, &CPAssociatedKeyPolicy, policy, OBJC_ASSOCIATION_RETAIN);
             objc_setAssociatedObject(contacts, &CPAssociatedKeyCellTag, @(CP_CELL_TAG_PAY_REMIND), OBJC_ASSOCIATION_RETAIN);
             [contactsArray addObject:contacts];
