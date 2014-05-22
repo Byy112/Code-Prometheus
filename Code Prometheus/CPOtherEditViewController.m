@@ -115,12 +115,13 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     }];
     // 按钮
     UIButton* carButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    carButton.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
     carButton.tag = index;
     if (self.carArray.firstObject==car) {
-        [carButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [carButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
         [carButton addTarget:self action:@selector(carAddButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [carButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
+        [carButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
         [carButton addTarget:self action:@selector(carDeleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     [rootView addSubview:carButton];

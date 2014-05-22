@@ -194,10 +194,10 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
     mc.mettingDateButton.tag = index;
     // 按钮
     if (self.meetingArray.firstObject==metting) {
-        [mc.mettingButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [mc.mettingButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
         [mc.mettingButton addTarget:self action:@selector(meetingAddButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [mc.mettingButton setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
+        [mc.mettingButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
         [mc.mettingButton addTarget:self action:@selector(meetingDeleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     mc.mettingButton.tag = index;

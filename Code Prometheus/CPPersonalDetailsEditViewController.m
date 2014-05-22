@@ -258,6 +258,17 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
                                                               type:TWMessageBarMessageTypeInfo];
         return;
     }
+    if (self.phoneNumbers && self.phoneNumbers.count!=0) {
+        for (NSString * num in self.phoneNumbers) {
+            if (!num || [num isEqualToString:@""]) {
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请完善电话号码"
+                                                                      type:TWMessageBarMessageTypeInfo];
+                return;
+            }
+        }
+    }
     self.contacts.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.contactsUUID) {
         // 新增
@@ -383,7 +394,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsPhoneNumber:) forControlEvents:UIControlEventEditingDidEnd];
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3];
-        [button setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(addContactsPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
@@ -400,7 +411,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsPhoneNumber:) forControlEvents:UIControlEventEditingDidEnd];
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3];
-        [button setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_CELL_DELETE] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_CELL_DELETE] forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(deleteContactsPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
