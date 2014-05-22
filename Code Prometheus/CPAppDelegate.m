@@ -60,11 +60,6 @@
         [self application:application didReceiveRemoteNotification:payload];
     }
     
-    // 色调
-    if (CP_IS_IOS7_AND_UP) {
-        self.window.tintColor = [UIColor whiteColor];
-    }
-    
     return YES;
 }
 - (void)applicationWillTerminate:(UIApplication *)application
