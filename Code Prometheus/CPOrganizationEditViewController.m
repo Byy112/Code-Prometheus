@@ -212,6 +212,17 @@ typedef NS_ENUM(NSInteger, CP_ORGANIZATION_POPOVER_TAG) {
 #pragma mark - IBAction
 - (IBAction)saveOrganization:(UIBarButtonItem *)sender {
     [self.view endEditing:YES];
+    if (self.organization.cp_meeting && self.organization.cp_meeting.boolValue) {
+        for (CPMeeting* metting in self.meetingArray) {
+            if (!metting.cp_description || [metting.cp_description isEqualToString:@""]) {
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请完善会议内容"
+                                                                      type:TWMessageBarMessageTypeInfo];
+                return;
+            }
+        }
+    }
     self.organization.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.organizationUUID) {
         // 新增会议

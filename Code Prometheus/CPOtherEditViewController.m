@@ -232,6 +232,17 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
 #pragma mark - IBAction
 - (IBAction)saveButtonClick:(UIBarButtonItem *)sender {
     [self.view endEditing:YES];
+    if (self.other.cp_car_insurance && self.other.cp_car_insurance.boolValue) {
+        for (CPCar* car in self.carArray) {
+            if (!car.cp_name || [car.cp_name isEqualToString:@""]) {
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请完善车辆名称"
+                                                                      type:TWMessageBarMessageTypeInfo];
+                return;
+            }
+        }
+    }
     self.other.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.otherUUID) {
         // 新增车辆

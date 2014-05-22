@@ -236,6 +236,17 @@ typedef NS_ENUM(NSInteger, CP_FAMILY_POPOVER_TAG) {
 #pragma mark - IBAction
 - (IBAction)saveFamily:(UIBarButtonItem *)sender {
     [self.view endEditing:YES];
+    if (self.family.cp_member_status && self.family.cp_member_status.boolValue) {
+        for (CPFamilyMember* fm in self.familyMemberArray) {
+            if (!fm.cp_name || [fm.cp_name isEqualToString:@""]) {
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请完善子女姓名"
+                                                                      type:TWMessageBarMessageTypeInfo];
+                return;
+            }
+        }
+    }
     self.family.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.familyUUID) {
         // 新增子女
