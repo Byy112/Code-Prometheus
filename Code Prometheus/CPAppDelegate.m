@@ -11,6 +11,7 @@
 #import "CPDB.h"
 #import <MAMapKit/MAMapKit.h>
 #import "CPServer.h"
+#import "CPLocalNotificationManager.h"
 
 
 #warning 如果切到后台,继续同步！
@@ -20,12 +21,14 @@
 
 @implementation CPAppDelegate
 
+#pragma mark - 生命周期
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CPLogInfo(@"应用启动,didFinishLaunching");
-    
     // 日志
     [[CPLog sharedLog] prepareLog];
+    
+    CPLogInfo(@"%s",__FUNCTION__);
     
     // 记录首次启动
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
@@ -59,7 +62,14 @@
     
     return YES;
 }
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    CPLogInfo(@"%s",__FUNCTION__);
+}
 - (void)applicationDidBecomeActive:(UIApplication *)application{
+    CPLogInfo(@"%s",__FUNCTION__);
+
+    [[CPLocalNotificationManager shared] down];
     // 自动登录
     [CPServer loginAutoWithBlock:^(BOOL success,NSString* message) {
         if (success) {
@@ -70,9 +80,18 @@
         }
     }];
 }
+- (void)applicationWillResignActive:(UIApplication *)application{
+    CPLogInfo(@"%s",__FUNCTION__);
+    [[CPLocalNotificationManager shared] fire];
+}
 
-//- (void)applicationDidEnterBackground:(UIApplication *)application
-//{
+-(void)applicationWillEnterForeground:(UIApplication *)application{
+    CPLogInfo(@"%s",__FUNCTION__);
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    CPLogInfo(@"%s",__FUNCTION__);
 //    // 后台运行
 //    UIApplication* app = [UIApplication sharedApplication];
 //    CPLogWarn(@"进入后台运行模式,剩余时间:%f",[app backgroundTimeRemaining]);
@@ -81,12 +100,13 @@
 //        [app endBackgroundTask:task];
 //        task = UIBackgroundTaskInvalid;
 //    }];
-//}
+}
 
 
-#pragma mark - 推送
+#pragma mark - 远程推送
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    CPLogInfo(@"%s",__FUNCTION__);
     const unsigned *tokenBytes = [deviceToken bytes];
     NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
                           ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
@@ -100,10 +120,12 @@
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
+    CPLogInfo(@"%s",__FUNCTION__);
     CPLogError(@"获取推送 token 失败, error: %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    CPLogInfo(@"%s",__FUNCTION__);
     CPLogInfo(@"获取到远程推送消息:%@",userInfo);
 //    if ([[userInfo objectForKey:@"aps"] objectForKey:@"alert"]!=NULL) {
 //        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"推送通知"
@@ -114,7 +136,10 @@
 //        [alert show];
 //    }
 }
-//- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-//    CPLogInfo(@"获取到本地推送消息:%@",notification);
-//}
+
+#pragma mark - 本地推送
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    CPLogInfo(@"%s",__FUNCTION__);
+    CPLogInfo(@"获取到本地推送消息:%@",notification);
+}
 @end

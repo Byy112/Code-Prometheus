@@ -14,6 +14,7 @@
 		0311827318E96C6600979264 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827118E96C6600979264 /* MAMapKit.framework */; };
 		0311827518E96D0600979264 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0311827418E96D0600979264 /* AMap.bundle */; };
 		03192E491904E8D200813646 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03192E481904E8D200813646 /* Images.xcassets */; };
+		031A4AE2192C9CF1005DAA67 /* CPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 031A4AE1192C9CF1005DAA67 /* CPLocalNotificationManager.m */; };
 		031AB559192328E6001F78CF /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 031AB54E192328E6001F78CF /* License.txt */; };
 		031AB55A192328E6001F78CF /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 031AB54F192328E6001F78CF /* Readme.md */; };
 		031AB55B192328E6001F78CF /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031AB552192328E6001F78CF /* TDDatePickerController.m */; };
@@ -290,6 +291,8 @@
 		0311827118E96C6600979264 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = map/MAMapKit.framework; sourceTree = "<group>"; };
 		0311827418E96D0600979264 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = ../map/MAMapKit.framework/Versions/2.2.0.1498.60159/Resources/AMap.bundle; sourceTree = "<group>"; };
 		03192E481904E8D200813646 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		031A4AE0192C9CF1005DAA67 /* CPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLocalNotificationManager.h; sourceTree = "<group>"; };
+		031A4AE1192C9CF1005DAA67 /* CPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLocalNotificationManager.m; sourceTree = "<group>"; };
 		031AB54E192328E6001F78CF /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		031AB54F192328E6001F78CF /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
 		031AB551192328E6001F78CF /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
@@ -1135,6 +1138,8 @@
 				03D9F3FA1850186B00B95F93 /* CPUI.m */,
 				03FB402F1851B0D30036501B /* CPMapUtil.h */,
 				03FB40301851B0D30036501B /* CPMapUtil.m */,
+				031A4AE0192C9CF1005DAA67 /* CPLocalNotificationManager.h */,
+				031A4AE1192C9CF1005DAA67 /* CPLocalNotificationManager.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1652,6 +1657,7 @@
 			files = (
 				0379A26918EA942000331ADB /* POIAnnotation.m in Sources */,
 				031E20A917B0851100125321 /* main.m in Sources */,
+				031A4AE2192C9CF1005DAA67 /* CPLocalNotificationManager.m in Sources */,
 				03EAA4561869392600EC911B /* CPFindPasswordByEmailViewController.m in Sources */,
 				031E20AD17B0851100125321 /* CPAppDelegate.m in Sources */,
 				038B8C6E1856AD0400DD0BAC /* CPOrganizationEditViewController.m in Sources */,
