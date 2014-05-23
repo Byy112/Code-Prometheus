@@ -259,7 +259,6 @@ LKDBHelper* wySyncLKDBHelper = nil;
             // 从服务器向客户端同步数据
             _requestJson = [self.synchronizationDelegate s2cRequestJsonWithSynchronization:self];
             if(_requestJson){
-                WYLogVerbose(@"请求json:%@",_requestJson);
                 [request setPostBody:[NSMutableData dataWithData:[_requestJson dataUsingEncoding:NSUTF8StringEncoding]]];
             }
             break;
@@ -289,7 +288,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
             }
             _requestJson = [self.synchronizationDelegate c2sRequestJsonWithSynchronization:self operations:self.databaseOperationsForC2S];
             if(_requestJson){
-                WYLogVerbose(@"请求json:%@",_requestJson);
+                WYLogVerbose(@"上行请求json:%@",_requestJson);
                 [request setPostBody:[NSMutableData dataWithData:[_requestJson dataUsingEncoding:NSUTF8StringEncoding]]];
             }
             break;
@@ -403,10 +402,10 @@ LKDBHelper* wySyncLKDBHelper = nil;
 #pragma mark ASIHTTPRequestDelegate
 -(void)requestFinished:(ASIHTTPRequest*)request{
     // 解析封装json
-//    WYLogVerbose(@"响应json:%@",[request responseString]);
     _responseJson = [[request responseString] objectFromJSONStringWithParseOptions:JKParseOptionStrict];
     switch (request.tag) {
         case SynchronizationTypeS2CForDatabase:{
+            WYLogVerbose(@"下行响应json:%@",[request responseString]);
             BOOL ok = [self.synchronizationDelegate s2cIsSuccessWhenRequestFinishWithSynchronization:self Json:_responseJson];
             if(!ok){
                 // 失败
