@@ -1221,7 +1221,7 @@ Reachability * reach;
 +(BOOL) downloadIsSuccessWithJson:(NSDictionary*)responce{
     if ([self checkErrnoAndDeal:responce completeBlock:^(BOOL success) {
         if (success) {
-            [wySyncSimple notifyNeedSync];
+            [self sync];
         }
     }]) {
         return YES;
@@ -1377,7 +1377,7 @@ Reachability * reach;
 +(BOOL) uploadIsSuccessWithJson:(NSDictionary*)responce{
     if ([self checkErrnoAndDeal:responce completeBlock:^(BOOL success) {
         if (success) {
-            [wySyncSimple notifyNeedSync];
+            [self sync];
         }
     }]) {
         return YES;
