@@ -108,6 +108,7 @@ static NSString* const Jk_member_balance = @"balance";
 #warning 同步数据应该限制每次最多N条,防止其他BUG,100-200条/次, simpleSync 应添加响应回调
 
 static const NSInteger Tag_NeedLogin = 20401;
+static const NSInteger Tag_Session_lose = 20402;
 static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
 
 @interface CPServer ()
@@ -1049,7 +1050,12 @@ Reachability * reach;
         // 更新时间差
         [self updateDelta_t:[jsonDictionary objectForKey:Jk_serverTime]];
         
-        if ([self checkErrnoAndDeal:jsonDictionary completeBlock:nil]) {
+        if ([self checkErrnoAndDeal:jsonDictionary completeBlock:^(BOOL success) {
+            if (success) {
+                CPLogWarn(@"文件上传失败问题解决,重新开始同步");
+                [self sync];
+            }
+        }]) {
             NSString* url = [jsonDictionary objectForKey:Jk_url];
             NSString* md5 = [jsonDictionary objectForKey:Jk_md5];
             if (!url) {
@@ -1166,7 +1172,7 @@ Reachability * reach;
         CPLogWarn(@"服务器返回标志错误:%@",responce);
         id state = [responce objectForKey:JK_errno];
         // 重新登录
-        if (state && [state intValue] == Tag_NeedLogin) {
+        if (state && ([state intValue] == Tag_NeedLogin || [state intValue] == Tag_Session_lose)) {
             CPLogWarn(@"需要重新登录");
             [self loginAutoWithBlock:^(BOOL success,NSString* message) {
                 if (completeBlock) {
