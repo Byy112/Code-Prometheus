@@ -11,6 +11,7 @@
 #import "JSONKit.h"
 #import "WYConfig.h"
 #import "ASIHTTPRequest.h"
+#import "CPDB.h"
 
 
 NSString* nameFromSynchronizationFailedType(SynchronizationFailedType type){
@@ -325,16 +326,29 @@ LKDBHelper* wySyncLKDBHelper = nil;
 }
 
 -(BOOL) updateWithDatabaseOperation:(WYDatabaseOperation*)databaseOperation{
+    // 校验
+    if (!databaseOperation.wy_dbName) {
+        WYLogWarn(@"操作队列的 dbName 找不到");
+        return NO;
+    }
+    NSString* userName = CPUserName;
+    if (!userName) {
+        WYLogWarn(@"执行操作队列时 userName 找不到");
+        return NO;
+    }
+    if (![databaseOperation.wy_dbName isEqualToString:userName]) {
+        WYLogWarn(@"操作队列的 dbName 与 userName 不相符 , dbName:%@,userName:%@",databaseOperation.wy_dbName,userName);
+        return NO;
+    }
+    
     if ([self.synchronizationDelegate respondsToSelector:@selector(s2cWillUpdateDBWithSynchronization:operation:)]) {
         [self.synchronizationDelegate s2cWillUpdateDBWithSynchronization:self operation:databaseOperation];
     }
     BOOL result = NO;
     NSString* sql = [self sqlWithDatabaseOperation:databaseOperation];
-//    WYLogInfo(@"执行sql:%@",sql);
+    WYLogVerbose(@"执行sql:%@",sql);
     if(sql){
-#warning 连续执行1000条操作,会异常,可能是这里出现问题!\
-不能连续创建LKDBHelper对象,应该判断此操作队列是否属于这个用户,是,用以前做得单例去操作,否,则不应该出现此种情况,打LOG,丢弃此操作队列
-        LKDBHelper* helper = [[LKDBHelper alloc] initWithDBName:databaseOperation.wy_dbName];
+        LKDBHelper* helper = [CPDB getLKDBHelperByUser];
         @try {
             result = [helper executeSQL:sql arguments:nil];
         }
