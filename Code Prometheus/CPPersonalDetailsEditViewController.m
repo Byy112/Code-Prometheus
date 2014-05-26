@@ -260,6 +260,9 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     }
     if (self.phoneNumbers && self.phoneNumbers.count!=0) {
         for (NSString * num in self.phoneNumbers) {
+            if ([self.phoneNumbers indexOfObject:num] == 0) {
+                continue;
+            }
             if (!num || [num isEqualToString:@""]) {
                 [[TWMessageBarManager sharedInstance] hideAll];
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
