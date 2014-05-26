@@ -1116,7 +1116,7 @@ Reachability * reach;
         return;
     }
     double delta_t = [[NSDate date] timeIntervalSince1970] - [time doubleValue];
-    CPLogInfo(@"更新时间差 %f->%f",CPDelta_T,delta_t);
+    CPLogVerbose(@"更新时间差 %f->%f",CPDelta_T,delta_t);
     CPSetDelta_T(delta_t);
 }
 // 根据时间差，获取服务器时间
