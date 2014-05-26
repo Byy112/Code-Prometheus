@@ -70,15 +70,8 @@
     CPLogInfo(@"%s",__FUNCTION__);
 
     [[CPLocalNotificationManager shared] down];
-    // 自动登录
-    [CPServer loginAutoWithBlock:^(BOOL success,NSString* message) {
-        if (success) {
-            // 数据库操作
-            [CPDB creatDBFromOFFLineDB];
-            // 同步
-            [CPServer sync];
-        }
-    }];
+    
+    [CPServer sync];
 }
 - (void)applicationWillResignActive:(UIApplication *)application{
     CPLogInfo(@"%s",__FUNCTION__);
