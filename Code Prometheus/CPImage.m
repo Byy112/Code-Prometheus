@@ -80,7 +80,7 @@
     if (ima) {
         self.image = ima;
     }else{
-        if (image.cp_url) {
+        if (image.cp_url && ![image.cp_url isEqualToString:@""]) {
             CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
             [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
@@ -98,7 +98,7 @@
     if (ima) {
         [self setImage:ima forState:UIControlStateNormal];
     }else{
-        if (image.cp_url) {
+        if (image.cp_url && ![image.cp_url isEqualToString:@""]) {
             CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
             [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] forState:UIControlStateNormal placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
