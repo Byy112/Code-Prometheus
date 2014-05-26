@@ -84,7 +84,7 @@
             CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
             [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
-            CPLogError(@"图片未同步,并且本地找不到! uuid:%@",image.cp_uuid);
+            CPLogError(@"图片无url,并且本地找不到文件! uuid:%@",image.cp_uuid);
             self.image = [UIImage imageNamed:@"cp_null_photo"];
         }
     }
@@ -102,7 +102,7 @@
             CPLogWarn(@"图片本地不存在,需要网上下载。url:%@",image.cp_url);
             [self setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,image.cp_url]] forState:UIControlStateNormal placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload|SDWebImageRefreshCached|SDWebImageContinueInBackground];
         }else{
-            CPLogError(@"图片未同步,并且本地找不到! uuid:%@",image.cp_uuid);
+            CPLogError(@"图片无url,并且本地找不到文件! uuid:%@",image.cp_uuid);
             [self setImage:[UIImage imageNamed:@"cp_null_photo"] forState:UIControlStateNormal];
         }
     }
