@@ -1226,7 +1226,6 @@ Reachability * reach;
     }]) {
         return YES;
     }else{
-        [wySyncSimple notifyCancelSync];
         return NO;
     }
 }
@@ -1340,14 +1339,15 @@ Reachability * reach;
             // 上传文件
             if (dbOperation.wy_operation == SynchronizationOperationAddOrUpdate) {
                 BOOL success = [self uploadFileWithOP:dbOperation];
-                if (!success) {
-                    [wySyncSimple notifyCancelSync];
-                    return nil;
+                if (success) {
+                    // 如果是上传文件,则添加 cp_url cp_md5 信息
+                    NSMutableDictionary* file = [dbOperation.wy_data objectFromJSONStringWithParseOptions:JKParseOptionStrict];
+                    [json2 setObject:[file objectForKey:@"cp_url"] forKey:Jk_url];
+                    [json2 setObject:[file objectForKey:@"cp_md5"] forKey:Jk_md5];
+                }else{
+                    [json2 setObject:@"" forKey:Jk_url];
+                    [json2 setObject:@"" forKey:Jk_md5];
                 }
-                // 如果是上传文件,则添加 cp_url cp_md5 信息
-                NSMutableDictionary* file = [dbOperation.wy_data objectFromJSONStringWithParseOptions:JKParseOptionStrict];
-                [json2 setObject:[file objectForKey:@"cp_url"] forKey:Jk_url];
-                [json2 setObject:[file objectForKey:@"cp_md5"] forKey:Jk_md5];
             }
         }else{
             [json2 setObject:Jk_resourceType_DATA forKey:Jk_resourceType];
@@ -1382,13 +1382,12 @@ Reachability * reach;
     }]) {
         return YES;
     }else{
-        [wySyncSimple notifyCancelSync];
         if ([CP_WARNING_ERRNO containsObject:[responce objectForKey:JK_errno]]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[TWMessageBarManager sharedInstance] hideAll];
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                                description:[responce objectForKey:Jk_errmsg]
-                                                                      type:TWMessageBarMessageTypeError];
+                                                                      type:TWMessageBarMessageTypeInfo];
             });
         }
         return NO;
