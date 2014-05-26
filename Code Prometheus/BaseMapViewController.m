@@ -113,12 +113,12 @@
 }
 - (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
     _goUserLocation = NO;
-    CPLogError(@"定位失败! error:%@",error);
+    CPLogWarn(@"定位失败! error:%@",error);
 }
 
 #pragma mark - AMapSearchDelegate
 - (void)search:(id)searchRequest error:(NSString *)errInfo
 {
-    CPLogError(@"%s: searchRequest = %@, errInfo= %@", __func__, [searchRequest class], errInfo);
+    CPLogWarn(@"%s: searchRequest = %@, errInfo= %@", __func__, [searchRequest class], errInfo);
 }
 @end

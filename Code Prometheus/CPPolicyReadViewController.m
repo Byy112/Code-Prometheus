@@ -260,7 +260,7 @@ static const CGFloat kImageSpacing = 5;
         CPLogWarn(@"MWPhotoBrowser 警告：本地找不到图片(uuid=%@)。现从网上下载(url=%@)",cpImage.cp_uuid,cpImage.cp_url);
         return [MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpImage.cp_url]]];
     }
-    CPLogError(@"找不到图片! uuid:%@",cpImage.cp_uuid);
+    CPLogWarn(@"找不到图片! uuid:%@",cpImage.cp_uuid);
     return [MWPhoto photoWithImage:[UIImage imageNamed:@"cp_null_photo"]];
 }
 @end

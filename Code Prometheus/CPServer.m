@@ -122,12 +122,12 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     NSString* userName = CPUserName;
     NSString* password = CPPassword;
     if (userName) {
-        CPLogInfo(@"有用户信息,自动登录");
+        CPLogInfo(@"有用户信息,自动登录,userName:%@,password:%@",userName,password);
         [CPServer loginWithUserName:userName password:password block:^(BOOL success,NSString* message) {
             block(success,message);
         }];
     }else{
-        CPLogInfo(@"无用户信息,无法自动登录");
+        CPLogWarn(@"无用户信息,无法自动登录");
         block(NO,@"无用户信息,无法自动登录");
     }
 }
@@ -174,7 +174,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
                 }
             }else{
-                CPLogError(@"check lisence 失败:%@",message);
+                CPLogWarn(@"check lisence 失败:%@",message);
             }
         }];
     }];
@@ -238,7 +238,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                 CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
             }
         }else{
-            CPLogError(@"check lisence 失败:%@",message);
+            CPLogWarn(@"check lisence 失败:%@",message);
         }
     }];
 }
@@ -268,7 +268,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
     __weak ASIHTTPRequest* weakRequest = request;
     // 同步请求
     [request setFailedBlock:^{
-        CPLogError(@"请求失败:%@",weakRequest.responseString);
+        CPLogWarn(@"请求失败:%@",weakRequest.responseString);
         block(NO);
     }];
     [request setCompletionBlock:^{
@@ -578,7 +578,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
             CPLogVerbose(@"获取系统消息成功:%@",weakRequest.responseString);
             block(YES,[json objectForKey:Jk_results],nil);
         }else{
-            CPLogVerbose(@"获取系统消息失败:%@",weakRequest.responseString);
+            CPLogWarn(@"获取系统消息失败:%@",weakRequest.responseString);
             block(NO,nil,@"获取系统消息失败,请稍后再试");
         }
     }];
@@ -648,7 +648,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,name,productId,price,room,memberTime,usage,usePercent,leftRoom,balance);
                 }];
             }else{
-                CPLogVerbose(@"获取会员信息失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取会员信息失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil,nil,nil,nil,nil,nil,nil,nil,nil);
             }
         }]) {
@@ -681,7 +681,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,results);
                 }];
             }else{
-                CPLogVerbose(@"获取消费记录信息失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取消费记录信息失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil);
             }
         }]) {
@@ -713,7 +713,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,results);
                 }];
             }else{
-                CPLogVerbose(@"获取充值记录信息失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取充值记录信息失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil);
             }
         }]) {
@@ -744,7 +744,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,results);
                 }];
             }else{
-                CPLogVerbose(@"获取产品列表失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取产品列表失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil);
             }
         }]) {
@@ -780,7 +780,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message);
                 }];
             }else{
-                CPLogVerbose(@"请求更改产品(套餐)失败:%@",weakRequest.responseString);
+                CPLogWarn(@"请求更改产品(套餐)失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg]);
             }
         }]) {
@@ -810,7 +810,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                             block(success,message);
                         }];
                     }else{
-                        CPLogVerbose(@"确认更改产品(套餐)失败:%@",weakRequest.responseString);
+                        CPLogWarn(@"确认更改产品(套餐)失败:%@",weakRequest.responseString);
                         block(NO,[json objectForKey:Jk_errmsg]);
                     }
                 }]) {
@@ -844,7 +844,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,results);
                 }];
             }else{
-                CPLogVerbose(@"获取充值方案失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取充值方案失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil);
             }
         }]) {
@@ -880,7 +880,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,rechargeId,signInfo,sign);
                 }];
             }else{
-                CPLogVerbose(@"获取充值签名失败:%@",weakRequest.responseString);
+                CPLogWarn(@"获取充值签名失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],nil,nil,nil);
             }
         }]) {
@@ -917,7 +917,7 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
                     block(success,message,expirationDate);
                 }];
             }else{
-                CPLogVerbose(@"检查license失败:%@",weakRequest.responseString);
+                CPLogWarn(@"检查license失败:%@",weakRequest.responseString);
                 block(NO,[json objectForKey:Jk_errmsg],0);
             }
         }]) {
@@ -1041,7 +1041,7 @@ Reachability * reach;
         UIImage* image = file.image;
         if (!image) {
             // 找不到文件 , 用默认图片代替
-            CPLogError(@"找不到文件,file:%@",file.cp_uuid);
+            CPLogWarn(@"找不到文件,file:%@",file.cp_uuid);
             image = [UIImage imageNamed:@"cp_null_photo"];
         }
         NSData* data = UIImageJPEGRepresentation(image, 1);
@@ -1067,7 +1067,7 @@ Reachability * reach;
             file.cp_md5 = md5;
             BOOL update = [[CPDB getLKDBHelperByUser] executeSQL:[NSString stringWithFormat:@"UPDATE %@ SET cp_url=?,cp_md5=? WHERE cp_uuid=?",[CPImage getTableName]] arguments:@[file.cp_url,file.cp_md5,file.cp_uuid]];
             if (!update) {
-                CPLogError(@"文件获取到url,更新数据库失败,file:%@",file);
+                CPLogWarn(@"文件获取到url,更新数据库失败,file:%@",file);
                 return NO;
             }
             // 清除本地uuid为key的图片缓存,生成url为key的图片缓存
@@ -1082,7 +1082,7 @@ Reachability * reach;
             return NO;
         }
     }else{
-        CPLogError(@"找不到 CPImage 对象 uuid:%@",wydo.wy_uuid);
+        CPLogWarn(@"找不到 CPImage 对象 uuid:%@",wydo.wy_uuid);
     }
     return NO;
 }
@@ -1104,7 +1104,7 @@ Reachability * reach;
             CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
             [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
         }else{
-            CPLogError(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
+            CPLogWarn(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
         }
     }];
 }
