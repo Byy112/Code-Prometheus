@@ -225,12 +225,12 @@
 		03EDC02419387B8A001D1885 /* ABViewPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC01119387B8A001D1885 /* ABViewPool.m */; };
 		03EDC02519387B8A001D1885 /* GradientBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01219387B8A001D1885 /* GradientBar.png */; };
 		03EDC02619387B8A001D1885 /* TileDisabledSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01319387B8A001D1885 /* TileDisabledSelected.png */; };
-		03EDC02719387B8A001D1885 /* TileNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01419387B8A001D1885 /* TileNormal.png */; };
 		03EDC02819387B8A001D1885 /* TilePattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01519387B8A001D1885 /* TilePattern.png */; };
 		03EDC02919387B8A001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01619387B8A001D1885 /* TileSelected.png */; };
 		03EDC02A19387B8A001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01719387B8A001D1885 /* TileToday.png */; };
 		03EDC02B19387B8A001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01819387B8A001D1885 /* TileTodaySelected.png */; };
 		03EDC02C19387B8A001D1885 /* UIMyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC01A19387B8A001D1885 /* UIMyButton.m */; };
+		03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02D19387BC1001D1885 /* TileNormal.png */; };
 		03EFA15A17F9247200BEFB52 /* WYDatabaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */; };
 		03EFA15C17F9247200BEFB52 /* WYSynchronization.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14117F9247200BEFB52 /* WYSynchronization.m */; };
 		03EFA15D17F9247200BEFB52 /* WYSyncSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14317F9247200BEFB52 /* WYSyncSimple.m */; };
@@ -629,13 +629,13 @@
 		03EDC01119387B8A001D1885 /* ABViewPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABViewPool.m; sourceTree = "<group>"; };
 		03EDC01219387B8A001D1885 /* GradientBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientBar.png; sourceTree = "<group>"; };
 		03EDC01319387B8A001D1885 /* TileDisabledSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileDisabledSelected.png; sourceTree = "<group>"; };
-		03EDC01419387B8A001D1885 /* TileNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileNormal.png; sourceTree = "<group>"; };
 		03EDC01519387B8A001D1885 /* TilePattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TilePattern.png; sourceTree = "<group>"; };
 		03EDC01619387B8A001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
 		03EDC01719387B8A001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
 		03EDC01819387B8A001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
 		03EDC01919387B8A001D1885 /* UIMyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMyButton.h; sourceTree = "<group>"; };
 		03EDC01A19387B8A001D1885 /* UIMyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMyButton.m; sourceTree = "<group>"; };
+		03EDC02D19387BC1001D1885 /* TileNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileNormal.png; sourceTree = "<group>"; };
 		03EFA13B17F9247200BEFB52 /* WYConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYConfig.h; sourceTree = "<group>"; };
 		03EFA13C17F9247200BEFB52 /* WYDatabaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYDatabaseOperation.h; sourceTree = "<group>"; };
 		03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYDatabaseOperation.m; sourceTree = "<group>"; };
@@ -1394,8 +1394,8 @@
 				03EDC01019387B8A001D1885 /* ABViewPool.h */,
 				03EDC01119387B8A001D1885 /* ABViewPool.m */,
 				03EDC01219387B8A001D1885 /* GradientBar.png */,
+				03EDC02D19387BC1001D1885 /* TileNormal.png */,
 				03EDC01319387B8A001D1885 /* TileDisabledSelected.png */,
-				03EDC01419387B8A001D1885 /* TileNormal.png */,
 				03EDC01519387B8A001D1885 /* TilePattern.png */,
 				03EDC01619387B8A001D1885 /* TileSelected.png */,
 				03EDC01719387B8A001D1885 /* TileToday.png */,
@@ -1661,7 +1661,6 @@
 				03C5B37218DC2336004CBE3A /* cp_home_04@2x.png in Resources */,
 				03C5B38818DC242C004CBE3A /* cp_home_light_02@2x.png in Resources */,
 				03C5B37318DC2336004CBE3A /* cp_home_05@2x.png in Resources */,
-				03EDC02719387B8A001D1885 /* TileNormal.png in Resources */,
 				03F8602D1921D56F006EA42E /* cp_home_03_disabled@2x.png in Resources */,
 				03F860331921D56F006EA42E /* cp_home_09_disabled@2x.png in Resources */,
 				03F2EE701855A8FA00E003F5 /* CPReadMapViewController.xib in Resources */,
@@ -1676,6 +1675,7 @@
 				034A1050190F4ADD002D5871 /* cp_contacts_detail_sms.png in Resources */,
 				034A105D190FAF46002D5871 /* cp_tab_tools_h.png in Resources */,
 				0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */,
+				03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */,
 				03C5B37A18DC2336004CBE3A /* cp_home_12@2x.png in Resources */,
 				0378C8981918E64300984CF3 /* cp_map_family.png in Resources */,
 				037D51301871440000B740A3 /* CPMyProductViewController.xib in Resources */,

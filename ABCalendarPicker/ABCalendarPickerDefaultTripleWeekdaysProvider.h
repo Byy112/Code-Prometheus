@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Anton Bukov. All rights reserved.
 //
 
-#import <ABCalendarPicker/ABCalendarPicker.h>
+#import "ABCalendarPicker.h"
 
 @interface ABCalendarPickerDefaultTripleWeekdaysProvider : ABCalendarPickerDefaultWeekdaysProvider
 
