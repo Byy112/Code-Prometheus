@@ -60,6 +60,11 @@
         [self application:application didReceiveRemoteNotification:payload];
     }
     
+    // 状态栏颜色
+    if (CP_IS_IOS7_AND_UP) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
+    
     return YES;
 }
 - (void)applicationWillTerminate:(UIApplication *)application
