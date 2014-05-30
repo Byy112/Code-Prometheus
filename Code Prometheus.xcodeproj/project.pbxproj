@@ -223,14 +223,14 @@
 		03EDC02219387B8A001D1885 /* ABCalendarPickerDefaultWeekdaysProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC00B19387B8A001D1885 /* ABCalendarPickerDefaultWeekdaysProvider.m */; };
 		03EDC02319387B8A001D1885 /* ABCalendarPickerDefaultYearsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC00D19387B8A001D1885 /* ABCalendarPickerDefaultYearsProvider.m */; };
 		03EDC02419387B8A001D1885 /* ABViewPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC01119387B8A001D1885 /* ABViewPool.m */; };
-		03EDC02519387B8A001D1885 /* GradientBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01219387B8A001D1885 /* GradientBar.png */; };
-		03EDC02619387B8A001D1885 /* TileDisabledSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01319387B8A001D1885 /* TileDisabledSelected.png */; };
 		03EDC02819387B8A001D1885 /* TilePattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01519387B8A001D1885 /* TilePattern.png */; };
-		03EDC02919387B8A001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01619387B8A001D1885 /* TileSelected.png */; };
-		03EDC02A19387B8A001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01719387B8A001D1885 /* TileToday.png */; };
-		03EDC02B19387B8A001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC01819387B8A001D1885 /* TileTodaySelected.png */; };
 		03EDC02C19387B8A001D1885 /* UIMyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EDC01A19387B8A001D1885 /* UIMyButton.m */; };
 		03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02D19387BC1001D1885 /* TileNormal.png */; };
+		03EDC03019387DC0001D1885 /* GradientBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02F19387DC0001D1885 /* GradientBar.png */; };
+		03EDC03219387DE8001D1885 /* TileDisabledSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03119387DE8001D1885 /* TileDisabledSelected.png */; };
+		03EDC03419387F08001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03319387F08001D1885 /* TileSelected.png */; };
+		03EDC03619388021001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03519388021001D1885 /* TileToday.png */; };
+		03EDC03819388055001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03719388055001D1885 /* TileTodaySelected.png */; };
 		03EFA15A17F9247200BEFB52 /* WYDatabaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */; };
 		03EFA15C17F9247200BEFB52 /* WYSynchronization.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14117F9247200BEFB52 /* WYSynchronization.m */; };
 		03EFA15D17F9247200BEFB52 /* WYSyncSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14317F9247200BEFB52 /* WYSyncSimple.m */; };
@@ -627,15 +627,15 @@
 		03EDC00F19387B8A001D1885 /* ABCalendarPickerStyleProviderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCalendarPickerStyleProviderProtocol.h; sourceTree = "<group>"; };
 		03EDC01019387B8A001D1885 /* ABViewPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABViewPool.h; sourceTree = "<group>"; };
 		03EDC01119387B8A001D1885 /* ABViewPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABViewPool.m; sourceTree = "<group>"; };
-		03EDC01219387B8A001D1885 /* GradientBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientBar.png; sourceTree = "<group>"; };
-		03EDC01319387B8A001D1885 /* TileDisabledSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileDisabledSelected.png; sourceTree = "<group>"; };
 		03EDC01519387B8A001D1885 /* TilePattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TilePattern.png; sourceTree = "<group>"; };
-		03EDC01619387B8A001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
-		03EDC01719387B8A001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
-		03EDC01819387B8A001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
 		03EDC01919387B8A001D1885 /* UIMyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMyButton.h; sourceTree = "<group>"; };
 		03EDC01A19387B8A001D1885 /* UIMyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMyButton.m; sourceTree = "<group>"; };
 		03EDC02D19387BC1001D1885 /* TileNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileNormal.png; sourceTree = "<group>"; };
+		03EDC02F19387DC0001D1885 /* GradientBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientBar.png; sourceTree = "<group>"; };
+		03EDC03119387DE8001D1885 /* TileDisabledSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileDisabledSelected.png; sourceTree = "<group>"; };
+		03EDC03319387F08001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
+		03EDC03519388021001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
+		03EDC03719388055001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
 		03EFA13B17F9247200BEFB52 /* WYConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYConfig.h; sourceTree = "<group>"; };
 		03EFA13C17F9247200BEFB52 /* WYDatabaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYDatabaseOperation.h; sourceTree = "<group>"; };
 		03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYDatabaseOperation.m; sourceTree = "<group>"; };
@@ -1393,13 +1393,13 @@
 				03EDC00F19387B8A001D1885 /* ABCalendarPickerStyleProviderProtocol.h */,
 				03EDC01019387B8A001D1885 /* ABViewPool.h */,
 				03EDC01119387B8A001D1885 /* ABViewPool.m */,
-				03EDC01219387B8A001D1885 /* GradientBar.png */,
+				03EDC02F19387DC0001D1885 /* GradientBar.png */,
+				03EDC03119387DE8001D1885 /* TileDisabledSelected.png */,
 				03EDC02D19387BC1001D1885 /* TileNormal.png */,
-				03EDC01319387B8A001D1885 /* TileDisabledSelected.png */,
 				03EDC01519387B8A001D1885 /* TilePattern.png */,
-				03EDC01619387B8A001D1885 /* TileSelected.png */,
-				03EDC01719387B8A001D1885 /* TileToday.png */,
-				03EDC01819387B8A001D1885 /* TileTodaySelected.png */,
+				03EDC03319387F08001D1885 /* TileSelected.png */,
+				03EDC03519388021001D1885 /* TileToday.png */,
+				03EDC03719388055001D1885 /* TileTodaySelected.png */,
 				03EDC01919387B8A001D1885 /* UIMyButton.h */,
 				03EDC01A19387B8A001D1885 /* UIMyButton.m */,
 			);
@@ -1592,6 +1592,7 @@
 				03C5B38718DC242C004CBE3A /* cp_home_light_01@2x.png in Resources */,
 				03EAA4571869392600EC911B /* CPFindPasswordByEmailViewController.xib in Resources */,
 				0378C8941918E56A00984CF3 /* cp_map_local@2x.png in Resources */,
+				03EDC03019387DC0001D1885 /* GradientBar.png in Resources */,
 				034A1064190FB008002D5871 /* cp_tab_schedule_h.png in Resources */,
 				0378C8A71918E7E700984CF3 /* cp_map_3.png in Resources */,
 				034A104A190F4A0D002D5871 /* cp_schedule_cell_call.png in Resources */,
@@ -1602,8 +1603,8 @@
 				0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */,
 				03EAA45C186943BC00EC911B /* CPResetPasswordViewController.xib in Resources */,
 				03C5B37118DC2336004CBE3A /* cp_home_03@2x.png in Resources */,
+				03EDC03819388055001D1885 /* TileTodaySelected.png in Resources */,
 				03F8602E1921D56F006EA42E /* cp_home_04_disabled@2x.png in Resources */,
-				03EDC02B19387B8A001D1885 /* TileTodaySelected.png in Resources */,
 				034A104E190F4AC8002D5871 /* cp_contacts_detail_call.png in Resources */,
 				03E91B14187255160018CFC5 /* CPAboutUsViewController.storyboard in Resources */,
 				03F22F98186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib in Resources */,
@@ -1615,7 +1616,6 @@
 				031E20B117B0851200125321 /* Default@2x.png in Resources */,
 				03D9F45218507F8B00B95F93 /* CPFamilyMemberEdit.xib in Resources */,
 				03F860301921D56F006EA42E /* cp_home_06_disabled@2x.png in Resources */,
-				03EDC02A19387B8A001D1885 /* TileToday.png in Resources */,
 				034A1044190F4998002D5871 /* cp_delete_0.png in Resources */,
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
 				0378C88F1918E54000984CF3 /* cp_map_all_contacts.png in Resources */,
@@ -1624,8 +1624,8 @@
 				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
 				0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */,
 				031AB55A192328E6001F78CF /* Readme.md in Resources */,
+				03EDC03419387F08001D1885 /* TileSelected.png in Resources */,
 				034A1066190FB01B002D5871 /* cp_tab_schedule.png in Resources */,
-				03EDC02619387B8A001D1885 /* TileDisabledSelected.png in Resources */,
 				034A105E190FAF46002D5871 /* cp_tab_tools.png in Resources */,
 				034A1048190F49F7002D5871 /* cp_schedule_cell_sms.png in Resources */,
 				03C5B37018DC2336004CBE3A /* cp_home_02@2x.png in Resources */,
@@ -1646,6 +1646,7 @@
 				0378C88C1918E52C00984CF3 /* cp_map_list.png in Resources */,
 				0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */,
 				03F8602C1921D56F006EA42E /* cp_home_02_disabled@2x.png in Resources */,
+				03EDC03619388021001D1885 /* TileToday.png in Resources */,
 				03C5B37818DC2336004CBE3A /* cp_home_10@2x.png in Resources */,
 				03C5B35F18DBF4FF004CBE3A /* cp_schedule_all@2x.png in Resources */,
 				03F860341921D56F006EA42E /* cp_home_10_disabled@2x.png in Resources */,
@@ -1653,6 +1654,7 @@
 				03C5B38B18DC242C004CBE3A /* cp_home_light_05@2x.png in Resources */,
 				034A1068190FB02C002D5871 /* cp_tab_map_h.png in Resources */,
 				031AB559192328E6001F78CF /* License.txt in Resources */,
+				03EDC03219387DE8001D1885 /* TileDisabledSelected.png in Resources */,
 				03EAA4611869940900EC911B /* CPResetPasswordByPhoneNumberViewController.xib in Resources */,
 				03F2EE631855733300E003F5 /* main.sql in Resources */,
 				038B8C791856B4C300DD0BAC /* CPMettingEditViewController.xib in Resources */,
@@ -1692,10 +1694,8 @@
 				0378C8A31918E7C900984CF3 /* cp_map_2.png in Resources */,
 				03FB40401851BCDD0036501B /* CPEditMapViewController.xib in Resources */,
 				037D513918717AEB00B740A3 /* CPRechargeViewController.xib in Resources */,
-				03EDC02519387B8A001D1885 /* GradientBar.png in Resources */,
 				03F2EE6B1855A0F200E003F5 /* CPFamilyMemberReadViewController.xib in Resources */,
 				034A1056190F4B58002D5871 /* cp_radio_yes.png in Resources */,
-				03EDC02919387B8A001D1885 /* TileSelected.png in Resources */,
 				03F860351921D56F006EA42E /* cp_home_11_disabled@2x.png in Resources */,
 				03C5B39018DC242C004CBE3A /* cp_home_light_10@2x.png in Resources */,
 				03C5B38A18DC242C004CBE3A /* cp_home_light_04@2x.png in Resources */,

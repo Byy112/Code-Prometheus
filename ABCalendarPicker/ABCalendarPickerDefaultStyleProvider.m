@@ -151,7 +151,7 @@
 - (UIImage *)selectedImage
 {
     if (_selectedImage == nil)
-        _selectedImage = [[self imageNamed:@"TileToday"] resizableImageWithCapInsets:UIEdgeInsetsMake(13,10,13,10)];
+        _selectedImage = [[self imageNamed:@"TileToday"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
     return _selectedImage;
 }
 
@@ -165,7 +165,7 @@
 - (UIImage*)highlightedImage
 {
     if (_highlightedImage == nil)
-        _highlightedImage = [[self imageNamed:@"TileSelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,2,1)];
+        _highlightedImage = [[self imageNamed:@"TileSelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
     return _highlightedImage;
 }
 
@@ -179,7 +179,7 @@
 - (UIImage*)selectedHighlightedImage
 {
     if (_selectedHighlightedImage == nil)
-        _selectedHighlightedImage = [[self imageNamed:@"TileTodaySelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(11,9,11,9)];
+        _selectedHighlightedImage = [[self imageNamed:@"TileTodaySelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
     return _selectedHighlightedImage;
 }
 
@@ -350,8 +350,15 @@
         [button setTitleShadowOffset:self.selectedTextShadowPosition forState:UIControlStateSelected];
         [button setTitleShadowOffset:self.selectedTextShadowPosition forState:UIControlStateSelected | UIControlStateHighlighted];
         
+        static UIImage* disableImage = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            disableImage = [[self imageNamed:@"TileDisabledSelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,2,2,2)];
+        });
+        
+        
         [button setBackgroundImage:self.normalImage forState:UIControlStateNormal];
-        [button setBackgroundImage:self.normalImage forState:UIControlStateDisabled];
+        [button setBackgroundImage:disableImage forState:UIControlStateDisabled];
         [button setBackgroundImage:self.selectedImage forState:UIControlStateDisabled | UIControlStateSelected];
         [button setBackgroundImage:self.highlightedImage forState:UIControlStateHighlighted];
         [button setBackgroundImage:self.selectedImage forState:UIControlStateSelected];
