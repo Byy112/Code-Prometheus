@@ -6,12 +6,6 @@
 // project.
 
 
-// ABCalendarPicker
-#define COCOAPODS_POD_AVAILABLE_ABCalendarPicker
-#define COCOAPODS_VERSION_MAJOR_ABCalendarPicker 1
-#define COCOAPODS_VERSION_MINOR_ABCalendarPicker 1
-#define COCOAPODS_VERSION_PATCH_ABCalendarPicker 2
-
 // ASIHTTPRequest
 #define COCOAPODS_POD_AVAILABLE_ASIHTTPRequest
 #define COCOAPODS_VERSION_MAJOR_ASIHTTPRequest 1

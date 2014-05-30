@@ -41,13 +41,6 @@ install_resource()
       ;;
   esac
 }
-install_resource "ABCalendarPicker/ABCalendarPicker/GradientBar.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TileDisabledSelected.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TileNormal.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TilePattern.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TileSelected.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TileToday.png"
-install_resource "ABCalendarPicker/ABCalendarPicker/TileTodaySelected.png"
 install_resource "DateTools/DateTools/DateTools.bundle"
 install_resource "FDTake/FDTakeExample/ar.lproj"
 install_resource "FDTake/FDTakeExample/de.lproj"

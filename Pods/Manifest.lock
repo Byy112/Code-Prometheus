@@ -1,5 +1,4 @@
 PODS:
-  - ABCalendarPicker (1.1.2)
   - ASIHTTPRequest (1.8.2):
     - ASIHTTPRequest/ASIWebPageRequest
     - ASIHTTPRequest/CloudFiles
@@ -115,7 +114,6 @@ PODS:
   - TWMessageBarManager (1.3.0)
 
 DEPENDENCIES:
-  - ABCalendarPicker (= 1.1.2)
   - ASIHTTPRequest (= 1.8.2)
   - BlocksKit (= 2.2.2)
   - CocoaLumberjack (= 1.6.5.1)
@@ -140,31 +138,30 @@ DEPENDENCIES:
   - TWMessageBarManager (= 1.3.0)
 
 SPEC CHECKSUMS:
-  ABCalendarPicker: a7057f2007592ea4688a9c259ab223460852b8a0
-  ASIHTTPRequest: 0b05282cf3c422c3474eff98c5bb8c1192b91b86
-  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
-  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
-  DACircularProgress: 659d6fd11b5fc099c13ba9350239d9dca324916a
-  DateTools: 6989dcb0df9dad3ae499f5e9efbd988116586f67
-  FDTake: 1b8a6647bf132df32868b00b423f5ab8b938e00d
-  HPGrowingTextView: fd77b93b9096dd1493a312c8856810b652b04dcc
-  iRate: eb8ca35519dd57a586e4c72bb5135ccb6abee908
-  iVersion: 260d17038c6e2c256b17d77c4ca2f74cddd5128a
-  JSONKit-NoWarning: 85857d86cd61cfddd691c7eb4855496e2ec9b2a9
-  KSCrash: ff0ff6cd9646b7127a39aa128fbc412af6d72b8f
-  Masonry: 9d43e954fbe6e903002acd063e11aa648800a310
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  MWPhotoBrowser: b85e89fcf0575062f32c472d389265dce1f068e1
-  NSDate-Extensions: 4a3be5bdfff735573aae834c93eec99f571dcc20
-  NYXImagesKit: bdcd82ed61e55ad95a2e95675c2f6b84f039c423
-  OpenUDID: 04a7c560c47869bc5194820e3b529d4504cc0296
-  PinYin4Objc: c1fbf5805994e0b3f9aac99464403b01db28ece4
-  PopoverView: 0ae5543a4b8540d89df8bd7155961df62bee3e3e
-  PSTCollectionView: fb2ad2790c6efa306b2caf10315b2c1464d1f5c6
-  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
-  RHAddressBook: e777e45ad04b204381a57cc7f2b57623de7bc5a9
-  SDWebImage: 1a62010700adbba823b621fc217906739dbf6aa5
-  TDBadgedCell: ad8af50eab8577a4345ac7fd25bef7eaa65658d8
-  TWMessageBarManager: 82343e43813dba4e66e75bc73d265a361a661eed
+  ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
+  BlocksKit: 49fda17cbd628f3d6683f62de57edeaa315b386c
+  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
+  DateTools: 1765514cd526b2c2ab491b7747df67e0a82e97c1
+  FDTake: 0076c62ff3271d51ea1f2121b06c40e8650cb5cb
+  HPGrowingTextView: 58b5caa61ff7f3d53b197d9da0361b1c7e09b110
+  iRate: 7d204971bab2f727195b868e32e05216fe257681
+  iVersion: bd6b244d3e381fd7838a9b1a94b9bcaa2c018e70
+  JSONKit-NoWarning: 67ade08a73fb4f51403f7e467d804a8e7def9aaa
+  KSCrash: c0a693b2d83ced5c15a40d4e916833c655475e6a
+  Masonry: d16d2241ad45743919af55327f55727fcd43b412
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
+  NSDate-Extensions: dcbef8675a9aed6d9dabfdcd4689300e177277d0
+  NYXImagesKit: 1c9f228ae78fab475d267b3b3a1308e0fba11731
+  OpenUDID: 5a23b7477755efc2d7871b57aa79ba3089c40b74
+  PinYin4Objc: b095ffd2a20e8e591abe7af262dfc8892549e09e
+  PopoverView: e1757e537fbc4aa7218a867b7bcd777dce4981d5
+  PSTCollectionView: e82c1a71ec6469f88490b674c0f66f0bbf1de001
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  RHAddressBook: 819c76f8e5649b81afd581e04a8c659e756ad1d1
+  SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
+  TDBadgedCell: 2d624567826a51e06f4096a81d536425391c34ab
+  TWMessageBarManager: 3ca2d2af80a89ff9a4dc479ae4a26eaf4427101b
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1
