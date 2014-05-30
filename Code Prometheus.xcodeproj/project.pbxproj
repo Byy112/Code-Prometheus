@@ -220,9 +220,6 @@
 		03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02D19387BC1001D1885 /* TileNormal.png */; };
 		03EDC03019387DC0001D1885 /* GradientBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02F19387DC0001D1885 /* GradientBar.png */; };
 		03EDC03219387DE8001D1885 /* TileDisabledSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03119387DE8001D1885 /* TileDisabledSelected.png */; };
-		03EDC03419387F08001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03319387F08001D1885 /* TileSelected.png */; };
-		03EDC03619388021001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03519388021001D1885 /* TileToday.png */; };
-		03EDC03819388055001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03719388055001D1885 /* TileTodaySelected.png */; };
 		03EDC03B19388178001D1885 /* cp_tab_contacts_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03919388178001D1885 /* cp_tab_contacts_h@2x.png */; };
 		03EDC03C19388178001D1885 /* cp_tab_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03A19388178001D1885 /* cp_tab_contacts@2x.png */; };
 		03EDC03F1938822B001D1885 /* cp_tab_schedule_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03D1938822B001D1885 /* cp_tab_schedule_h@2x.png */; };
@@ -231,6 +228,9 @@
 		03EDC0441938824B001D1885 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0421938824B001D1885 /* cp_tab_map@2x.png */; };
 		03EDC0471938826A001D1885 /* cp_tab_tools_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0451938826A001D1885 /* cp_tab_tools_h@2x.png */; };
 		03EDC0481938826A001D1885 /* cp_tab_tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0461938826A001D1885 /* cp_tab_tools@2x.png */; };
+		03EDC04C19388C7B001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04919388C7B001D1885 /* TileSelected.png */; };
+		03EDC04D19388C7B001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04A19388C7B001D1885 /* TileToday.png */; };
+		03EDC04E19388C7B001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04B19388C7B001D1885 /* TileTodaySelected.png */; };
 		03EFA15A17F9247200BEFB52 /* WYDatabaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */; };
 		03EFA15C17F9247200BEFB52 /* WYSynchronization.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14117F9247200BEFB52 /* WYSynchronization.m */; };
 		03EFA15D17F9247200BEFB52 /* WYSyncSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA14317F9247200BEFB52 /* WYSyncSimple.m */; };
@@ -625,9 +625,6 @@
 		03EDC02D19387BC1001D1885 /* TileNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileNormal.png; sourceTree = "<group>"; };
 		03EDC02F19387DC0001D1885 /* GradientBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientBar.png; sourceTree = "<group>"; };
 		03EDC03119387DE8001D1885 /* TileDisabledSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileDisabledSelected.png; sourceTree = "<group>"; };
-		03EDC03319387F08001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
-		03EDC03519388021001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
-		03EDC03719388055001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
 		03EDC03919388178001D1885 /* cp_tab_contacts_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts_h@2x.png"; sourceTree = "<group>"; };
 		03EDC03A19388178001D1885 /* cp_tab_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts@2x.png"; sourceTree = "<group>"; };
 		03EDC03D1938822B001D1885 /* cp_tab_schedule_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_schedule_h@2x.png"; sourceTree = "<group>"; };
@@ -636,6 +633,9 @@
 		03EDC0421938824B001D1885 /* cp_tab_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_map@2x.png"; sourceTree = "<group>"; };
 		03EDC0451938826A001D1885 /* cp_tab_tools_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools_h@2x.png"; sourceTree = "<group>"; };
 		03EDC0461938826A001D1885 /* cp_tab_tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools@2x.png"; sourceTree = "<group>"; };
+		03EDC04919388C7B001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
+		03EDC04A19388C7B001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
+		03EDC04B19388C7B001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
 		03EFA13B17F9247200BEFB52 /* WYConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYConfig.h; sourceTree = "<group>"; };
 		03EFA13C17F9247200BEFB52 /* WYDatabaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYDatabaseOperation.h; sourceTree = "<group>"; };
 		03EFA13D17F9247200BEFB52 /* WYDatabaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYDatabaseOperation.m; sourceTree = "<group>"; };
@@ -1396,10 +1396,10 @@
 				03EDC02F19387DC0001D1885 /* GradientBar.png */,
 				03EDC03119387DE8001D1885 /* TileDisabledSelected.png */,
 				03EDC02D19387BC1001D1885 /* TileNormal.png */,
+				03EDC04919388C7B001D1885 /* TileSelected.png */,
+				03EDC04A19388C7B001D1885 /* TileToday.png */,
+				03EDC04B19388C7B001D1885 /* TileTodaySelected.png */,
 				03EDC01519387B8A001D1885 /* TilePattern.png */,
-				03EDC03319387F08001D1885 /* TileSelected.png */,
-				03EDC03519388021001D1885 /* TileToday.png */,
-				03EDC03719388055001D1885 /* TileTodaySelected.png */,
 				03EDC01919387B8A001D1885 /* UIMyButton.h */,
 				03EDC01A19387B8A001D1885 /* UIMyButton.m */,
 			);
@@ -1601,9 +1601,9 @@
 				0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */,
 				03EAA45C186943BC00EC911B /* CPResetPasswordViewController.xib in Resources */,
 				03C5B37118DC2336004CBE3A /* cp_home_03@2x.png in Resources */,
-				03EDC03819388055001D1885 /* TileTodaySelected.png in Resources */,
 				03F8602E1921D56F006EA42E /* cp_home_04_disabled@2x.png in Resources */,
 				03EDC0471938826A001D1885 /* cp_tab_tools_h@2x.png in Resources */,
+				03EDC04E19388C7B001D1885 /* TileTodaySelected.png in Resources */,
 				034A104E190F4AC8002D5871 /* cp_contacts_detail_call.png in Resources */,
 				03E91B14187255160018CFC5 /* CPAboutUsViewController.storyboard in Resources */,
 				03F22F98186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib in Resources */,
@@ -1615,6 +1615,7 @@
 				031E20B117B0851200125321 /* Default@2x.png in Resources */,
 				03D9F45218507F8B00B95F93 /* CPFamilyMemberEdit.xib in Resources */,
 				03F860301921D56F006EA42E /* cp_home_06_disabled@2x.png in Resources */,
+				03EDC04D19388C7B001D1885 /* TileToday.png in Resources */,
 				034A1044190F4998002D5871 /* cp_delete_0.png in Resources */,
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
 				0378C88F1918E54000984CF3 /* cp_map_all_contacts.png in Resources */,
@@ -1623,7 +1624,6 @@
 				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
 				0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */,
 				031AB55A192328E6001F78CF /* Readme.md in Resources */,
-				03EDC03419387F08001D1885 /* TileSelected.png in Resources */,
 				034A1048190F49F7002D5871 /* cp_schedule_cell_sms.png in Resources */,
 				03C5B37018DC2336004CBE3A /* cp_home_02@2x.png in Resources */,
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,
@@ -1644,7 +1644,6 @@
 				0378C88C1918E52C00984CF3 /* cp_map_list.png in Resources */,
 				0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */,
 				03F8602C1921D56F006EA42E /* cp_home_02_disabled@2x.png in Resources */,
-				03EDC03619388021001D1885 /* TileToday.png in Resources */,
 				03C5B37818DC2336004CBE3A /* cp_home_10@2x.png in Resources */,
 				03C5B35F18DBF4FF004CBE3A /* cp_schedule_all@2x.png in Resources */,
 				03F860341921D56F006EA42E /* cp_home_10_disabled@2x.png in Resources */,
@@ -1696,6 +1695,7 @@
 				034A1056190F4B58002D5871 /* cp_radio_yes.png in Resources */,
 				03F860351921D56F006EA42E /* cp_home_11_disabled@2x.png in Resources */,
 				03C5B39018DC242C004CBE3A /* cp_home_light_10@2x.png in Resources */,
+				03EDC04C19388C7B001D1885 /* TileSelected.png in Resources */,
 				03C5B38A18DC242C004CBE3A /* cp_home_light_04@2x.png in Resources */,
 				03F22F8A1863E7B40030359E /* CPLoginViewController.xib in Resources */,
 				03EDC0401938822B001D1885 /* cp_tab_schedule@2x.png in Resources */,
@@ -1946,11 +1946,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv64 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -1979,7 +1979,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv64 armv7s";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};

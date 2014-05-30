@@ -151,7 +151,7 @@
 - (UIImage *)selectedImage
 {
     if (_selectedImage == nil)
-        _selectedImage = [[self imageNamed:@"TileToday"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
+        _selectedImage = [[self imageNamed:@"TileToday"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,2,2,2)];
     return _selectedImage;
 }
 
@@ -165,7 +165,7 @@
 - (UIImage*)highlightedImage
 {
     if (_highlightedImage == nil)
-        _highlightedImage = [[self imageNamed:@"TileSelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
+        _highlightedImage = [[self imageNamed:@"TileSelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,2,2,2)];
     return _highlightedImage;
 }
 
@@ -179,7 +179,7 @@
 - (UIImage*)selectedHighlightedImage
 {
     if (_selectedHighlightedImage == nil)
-        _selectedHighlightedImage = [[self imageNamed:@"TileTodaySelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,1,1,2)];
+        _selectedHighlightedImage = [[self imageNamed:@"TileTodaySelected"] resizableImageWithCapInsets:UIEdgeInsetsMake(2,2,2,2)];
     return _selectedHighlightedImage;
 }
 
