@@ -116,7 +116,7 @@
 - (UIFont *)tileTitleFont
 {
     if (_tileTitleFont == nil)
-        _tileTitleFont = [UIFont boldSystemFontOfSize:24.0];
+        _tileTitleFont = [UIFont systemFontOfSize:14.0];
     return _tileTitleFont;
 }
 
@@ -221,7 +221,7 @@
 - (UIColor *)selectedTextColor
 {
     if (_selectedTextColor == nil)
-        _selectedTextColor = [UIColor whiteColor];
+        _selectedTextColor = [UIColor darkGrayColor];
     return _selectedTextColor;
 }
 
