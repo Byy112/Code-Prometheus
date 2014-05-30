@@ -76,7 +76,6 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
     self.calendarPicker.dataSource = self;
     // 自定义日历插件
     ABCalendarPickerDefaultStyleProvider* style = [[CPCalendarPickerStyleProvider alloc] init];
-//    [style set]
     self.calendarPicker.styleProvider = style;
     // 导航栏标题更新
     [self updateNavigationTitle];
