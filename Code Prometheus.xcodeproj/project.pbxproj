@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		030552E5185AEE3E00C2534C /* CPScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030552E4185AEE3E00C2534C /* CPScheduleViewController.m */; };
 		030772251803EA8900048A53 /* CPDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 030772241803EA8900048A53 /* CPDB.m */; };
+		030DACC5193D703900FC7254 /* cp_tab_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */; };
+		030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */; };
+		030DACC9193D709200FC7254 /* cp_tab_schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC8193D709200FC7254 /* cp_tab_schedule@2x.png */; };
+		030DACCB193D70A400FC7254 /* cp_tab_tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACCA193D70A400FC7254 /* cp_tab_tools@2x.png */; };
 		0311826D18E96B1A00979264 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311826C18E96B1A00979264 /* libz.dylib */; };
 		0311827218E96C6600979264 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827018E96C6600979264 /* AMapSearchKit.framework */; };
 		0311827318E96C6600979264 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827118E96C6600979264 /* MAMapKit.framework */; };
@@ -221,13 +225,9 @@
 		03EDC03019387DC0001D1885 /* GradientBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC02F19387DC0001D1885 /* GradientBar.png */; };
 		03EDC03219387DE8001D1885 /* TileDisabledSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03119387DE8001D1885 /* TileDisabledSelected.png */; };
 		03EDC03B19388178001D1885 /* cp_tab_contacts_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03919388178001D1885 /* cp_tab_contacts_h@2x.png */; };
-		03EDC03C19388178001D1885 /* cp_tab_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03A19388178001D1885 /* cp_tab_contacts@2x.png */; };
 		03EDC03F1938822B001D1885 /* cp_tab_schedule_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03D1938822B001D1885 /* cp_tab_schedule_h@2x.png */; };
-		03EDC0401938822B001D1885 /* cp_tab_schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC03E1938822B001D1885 /* cp_tab_schedule@2x.png */; };
 		03EDC0431938824B001D1885 /* cp_tab_map_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0411938824B001D1885 /* cp_tab_map_h@2x.png */; };
-		03EDC0441938824B001D1885 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0421938824B001D1885 /* cp_tab_map@2x.png */; };
 		03EDC0471938826A001D1885 /* cp_tab_tools_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0451938826A001D1885 /* cp_tab_tools_h@2x.png */; };
-		03EDC0481938826A001D1885 /* cp_tab_tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC0461938826A001D1885 /* cp_tab_tools@2x.png */; };
 		03EDC04C19388C7B001D1885 /* TileSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04919388C7B001D1885 /* TileSelected.png */; };
 		03EDC04D19388C7B001D1885 /* TileToday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04A19388C7B001D1885 /* TileToday.png */; };
 		03EDC04E19388C7B001D1885 /* TileTodaySelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC04B19388C7B001D1885 /* TileTodaySelected.png */; };
@@ -304,6 +304,10 @@
 		030552E4185AEE3E00C2534C /* CPScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPScheduleViewController.m; sourceTree = "<group>"; };
 		030772231803EA8800048A53 /* CPDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDB.h; sourceTree = "<group>"; };
 		030772241803EA8900048A53 /* CPDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDB.m; sourceTree = "<group>"; };
+		030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts@2x.png"; sourceTree = "<group>"; };
+		030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_map@2x.png"; sourceTree = "<group>"; };
+		030DACC8193D709200FC7254 /* cp_tab_schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_schedule@2x.png"; sourceTree = "<group>"; };
+		030DACCA193D70A400FC7254 /* cp_tab_tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools@2x.png"; sourceTree = "<group>"; };
 		0311826C18E96B1A00979264 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0311827018E96C6600979264 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = map/AMapSearchKit.framework; sourceTree = "<group>"; };
 		0311827118E96C6600979264 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = map/MAMapKit.framework; sourceTree = "<group>"; };
@@ -626,13 +630,9 @@
 		03EDC02F19387DC0001D1885 /* GradientBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GradientBar.png; sourceTree = "<group>"; };
 		03EDC03119387DE8001D1885 /* TileDisabledSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileDisabledSelected.png; sourceTree = "<group>"; };
 		03EDC03919388178001D1885 /* cp_tab_contacts_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts_h@2x.png"; sourceTree = "<group>"; };
-		03EDC03A19388178001D1885 /* cp_tab_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts@2x.png"; sourceTree = "<group>"; };
 		03EDC03D1938822B001D1885 /* cp_tab_schedule_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_schedule_h@2x.png"; sourceTree = "<group>"; };
-		03EDC03E1938822B001D1885 /* cp_tab_schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_schedule@2x.png"; sourceTree = "<group>"; };
 		03EDC0411938824B001D1885 /* cp_tab_map_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_map_h@2x.png"; sourceTree = "<group>"; };
-		03EDC0421938824B001D1885 /* cp_tab_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_map@2x.png"; sourceTree = "<group>"; };
 		03EDC0451938826A001D1885 /* cp_tab_tools_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools_h@2x.png"; sourceTree = "<group>"; };
-		03EDC0461938826A001D1885 /* cp_tab_tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools@2x.png"; sourceTree = "<group>"; };
 		03EDC04919388C7B001D1885 /* TileSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileSelected.png; sourceTree = "<group>"; };
 		03EDC04A19388C7B001D1885 /* TileToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileToday.png; sourceTree = "<group>"; };
 		03EDC04B19388C7B001D1885 /* TileTodaySelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileTodaySelected.png; sourceTree = "<group>"; };
@@ -1448,13 +1448,13 @@
 				03C5B35C18DBF4FF004CBE3A /* cp_schedule_red@2x.png */,
 				03C5B35D18DBF4FF004CBE3A /* cp_schedule_blue@2x.png */,
 				03EDC03919388178001D1885 /* cp_tab_contacts_h@2x.png */,
-				03EDC03A19388178001D1885 /* cp_tab_contacts@2x.png */,
+				030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */,
 				03EDC03D1938822B001D1885 /* cp_tab_schedule_h@2x.png */,
-				03EDC03E1938822B001D1885 /* cp_tab_schedule@2x.png */,
+				030DACC8193D709200FC7254 /* cp_tab_schedule@2x.png */,
 				03EDC0411938824B001D1885 /* cp_tab_map_h@2x.png */,
-				03EDC0421938824B001D1885 /* cp_tab_map@2x.png */,
+				030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */,
 				03EDC0451938826A001D1885 /* cp_tab_tools_h@2x.png */,
-				03EDC0461938826A001D1885 /* cp_tab_tools@2x.png */,
+				030DACCA193D70A400FC7254 /* cp_tab_tools@2x.png */,
 				03E5A3DD1859ADD200FD23F0 /* cp_sort_0@2x.png */,
 			);
 			name = image;
@@ -1664,7 +1664,6 @@
 				03C5B37718DC2336004CBE3A /* cp_home_09@2x.png in Resources */,
 				03EDC0431938824B001D1885 /* cp_tab_map_h@2x.png in Resources */,
 				03C5B39118DC242C004CBE3A /* cp_home_light_11@2x.png in Resources */,
-				03EDC03C19388178001D1885 /* cp_tab_contacts@2x.png in Resources */,
 				03F860361921D56F006EA42E /* cp_home_12_disabled@2x.png in Resources */,
 				03F11228186BE1FA0074F798 /* CPSyncSettingViewController.xib in Resources */,
 				03C5B37618DC2336004CBE3A /* cp_home_08@2x.png in Resources */,
@@ -1673,11 +1672,12 @@
 				034A1050190F4ADD002D5871 /* cp_contacts_detail_sms.png in Resources */,
 				0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */,
 				03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */,
-				03EDC0441938824B001D1885 /* cp_tab_map@2x.png in Resources */,
 				03C5B37A18DC2336004CBE3A /* cp_home_12@2x.png in Resources */,
 				0378C8981918E64300984CF3 /* cp_map_family.png in Resources */,
 				037D51301871440000B740A3 /* CPMyProductViewController.xib in Resources */,
+				030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */,
 				03D90121186D5A3200925CE1 /* CPAccountRechargeViewController.storyboard in Resources */,
+				030DACC5193D703900FC7254 /* cp_tab_contacts@2x.png in Resources */,
 				03DA5C13183F60160005E5AF /* MainStoryboard.storyboard in Resources */,
 				034A103C190F4867002D5871 /* cp_add_1.png in Resources */,
 				03F201191849D98E00055B8D /* CPDatePickerDate.xib in Resources */,
@@ -1698,13 +1698,13 @@
 				03EDC04C19388C7B001D1885 /* TileSelected.png in Resources */,
 				03C5B38A18DC242C004CBE3A /* cp_home_light_04@2x.png in Resources */,
 				03F22F8A1863E7B40030359E /* CPLoginViewController.xib in Resources */,
-				03EDC0401938822B001D1885 /* cp_tab_schedule@2x.png in Resources */,
 				03E5A3DE1859ADD200FD23F0 /* cp_sort_0@2x.png in Resources */,
+				030DACC9193D709200FC7254 /* cp_tab_schedule@2x.png in Resources */,
 				03EDC02819387B8A001D1885 /* TilePattern.png in Resources */,
 				037D512B187129CD00B740A3 /* CPRechargeLogViewController.storyboard in Resources */,
 				0378C8A41918E7C900984CF3 /* cp_map_2@2x.png in Resources */,
 				03C5B37418DC2336004CBE3A /* cp_home_06@2x.png in Resources */,
-				03EDC0481938826A001D1885 /* cp_tab_tools@2x.png in Resources */,
+				030DACCB193D70A400FC7254 /* cp_tab_tools@2x.png in Resources */,
 				034A1042190F4902002D5871 /* cp_phone_0.png in Resources */,
 				03C5B37918DC2336004CBE3A /* cp_home_11@2x.png in Resources */,
 				031AB55C192328E6001F78CF /* TDDatePickerController.xib in Resources */,
