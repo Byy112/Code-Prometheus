@@ -17,21 +17,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSDictionary *dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationBar.titleTextAttributes = dict;
+    
+    self.navigationBar.translucent = NO;
+    
 	if(CP_IS_IOS7_AND_UP)
     {
-        // iOS7
-        // 颜色
-        self.navigationBar.translucent=NO;
-        self.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
-
-//        [self.navigationItem.backBarButtonItem setBackgroundImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_NAVIGATION_BACK] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+        [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
     }
     else
     {
-        // older
-        // 颜色
         self.navigationBar.tintColor = [UIColor colorWithRed:0.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
     }
 }
