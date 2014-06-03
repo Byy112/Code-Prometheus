@@ -336,12 +336,12 @@
         [button setTitleColor:self.selectedTextColor forState:UIControlStateSelected];
         [button setTitleColor:self.selectedTextColor forState:UIControlStateSelected | UIControlStateHighlighted];
         
-        [button setTitleShadowColor:self.normalTextShadowColor forState:UIControlStateNormal];
-        [button setTitleShadowColor:self.disabledTextShadowColor forState:UIControlStateDisabled];
-        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateDisabled | UIControlStateSelected];
-        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateHighlighted];
-        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateSelected];
-        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateSelected | UIControlStateHighlighted];
+//        [button setTitleShadowColor:self.normalTextShadowColor forState:UIControlStateNormal];
+//        [button setTitleShadowColor:self.disabledTextShadowColor forState:UIControlStateDisabled];
+//        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateDisabled | UIControlStateSelected];
+//        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateHighlighted];
+//        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateSelected];
+//        [button setTitleShadowColor:self.selectedTextShadowColor forState:UIControlStateSelected | UIControlStateHighlighted];
         
         [button setTitleShadowOffset:self.normalTextShadowPosition forState:UIControlStateNormal];
         [button setTitleShadowOffset:self.disabledTextShadowPosition forState:UIControlStateDisabled];
