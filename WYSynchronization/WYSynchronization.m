@@ -346,7 +346,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
     }
     BOOL result = NO;
     NSString* sql = [self sqlWithDatabaseOperation:databaseOperation];
-    WYLogVerbose(@"执行sql:%@",sql);
+//    WYLogVerbose(@"执行sql:%@",sql);
     if(sql){
         LKDBHelper* helper = [CPDB getLKDBHelperByUser];
         @try {
@@ -396,6 +396,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
             for (NSString* e_key in entity.allKeys) {
                 NSString* e_value = [entity objectForKey:e_key];
                 [keys appendFormat:@"%@,",e_key];
+                e_value = [e_value stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
                 [values appendFormat:@"'%@',",e_value];
             }
             if (keys.length !=0 && values.length != 0) {
