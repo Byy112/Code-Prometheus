@@ -433,11 +433,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-4P-ywI">
-                                                    <rect key="frame" x="170" y="8" width="46" height="59"/>
+                                                    <rect key="frame" x="152" y="12" width="52" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
-                                                    <state key="normal" title="Number" image="cp_contacts_detail_call.png">
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="cp_contacts_detail_call.png">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -449,11 +448,10 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8Z-Gg-aDC">
-                                                    <rect key="frame" x="220" y="8" width="46" height="59"/>
+                                                    <rect key="frame" x="208" y="12" width="52" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
-                                                    <state key="normal" title="Message" image="cp_contacts_detail_sms.png">
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="cp_contacts_detail_sms.png">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -465,14 +463,13 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zD-24-xrv">
-                                                    <rect key="frame" x="270" y="8" width="46" height="59"/>
+                                                    <rect key="frame" x="264" y="12" width="52" height="51"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="KhP-Ge-lXM"/>
+                                                        <constraint firstAttribute="width" constant="52" id="KhP-Ge-lXM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                    <inset key="titleEdgeInsets" minX="-56" minY="48" maxX="0.0" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="12"/>
-                                                    <state key="normal" title="Mail" image="cp_contacts_detail_email.png">
+                                                    <inset key="titleEdgeInsets" minX="-56" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="cp_contacts_detail_email.png">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -496,8 +493,8 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="88" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-C6-b2t">
-                                                    <rect key="frame" x="74" y="4" width="88" height="67"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-C6-b2t">
+                                                    <rect key="frame" x="74" y="4" width="70" height="67"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -507,7 +504,7 @@
                                             <constraints>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="height" secondItem="9zD-24-xrv" secondAttribute="height" id="0Ox-Br-gzf"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="centerY" secondItem="7Y0-4P-ywI" secondAttribute="centerY" id="1el-2c-yfK"/>
-                                                <constraint firstAttribute="bottom" secondItem="9zD-24-xrv" secondAttribute="bottom" constant="8" id="M2L-fm-DUg"/>
+                                                <constraint firstAttribute="bottom" secondItem="9zD-24-xrv" secondAttribute="bottom" constant="12" id="M2L-fm-DUg"/>
                                                 <constraint firstItem="7Y0-4P-ywI" firstAttribute="leading" secondItem="Wpf-C6-b2t" secondAttribute="trailing" constant="8" id="M8Z-Bl-kjf"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="centerY" secondItem="9zD-24-xrv" secondAttribute="centerY" id="O2U-eB-jrP"/>
                                                 <constraint firstAttribute="trailing" secondItem="9zD-24-xrv" secondAttribute="trailing" constant="4" id="O41-fV-i7k"/>
@@ -515,7 +512,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Wpf-C6-b2t" secondAttribute="bottom" constant="4" id="PPz-Om-fb0"/>
                                                 <constraint firstAttribute="bottom" secondItem="WBg-z9-Y0F" secondAttribute="bottom" constant="8" id="WY7-X5-itI"/>
                                                 <constraint firstItem="Wpf-C6-b2t" firstAttribute="leading" secondItem="WBg-z9-Y0F" secondAttribute="trailing" constant="10" id="YDF-88-jVn"/>
-                                                <constraint firstItem="9zD-24-xrv" firstAttribute="top" secondItem="hSh-cc-3uW" secondAttribute="top" constant="8" id="bZB-8d-psr"/>
+                                                <constraint firstItem="9zD-24-xrv" firstAttribute="top" secondItem="hSh-cc-3uW" secondAttribute="top" constant="12" id="bZB-8d-psr"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="leading" secondItem="7Y0-4P-ywI" secondAttribute="trailing" constant="4" id="hha-KX-fVh"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="height" secondItem="7Y0-4P-ywI" secondAttribute="height" id="lw7-K6-vc2"/>
                                                 <constraint firstItem="x8Z-Gg-aDC" firstAttribute="width" secondItem="9zD-24-xrv" secondAttribute="width" id="mGn-x5-jaY"/>
@@ -537,7 +534,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="跟进信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EuE-wT-Uyj">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -556,7 +553,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="个人信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xGl-o7-9xi">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -575,7 +572,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="家庭信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6YN-dI-3gi">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -594,7 +591,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="公司信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4S5-G4-8dh">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -613,7 +610,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="保单信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NWp-eU-cNM">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -632,7 +629,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="组织发展" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mXJ-Y1-gY2">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -651,7 +648,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="其他" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HWh-yd-6LS">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -6148,7 +6145,7 @@
         <image name="cp_schedule_cell_sms.png" width="42" height="42"/>
         <image name="cp_schedule_red.png" width="11" height="11"/>
         <image name="cp_schedule_yellow.png" width="11" height="11"/>
-        <image name="cp_tab_contacts_h.png" width="37" height="37"/>
+        <image name="cp_tab_contacts_h.png" width="27" height="27"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -6156,7 +6153,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bzb-bm-7Jd"/>
+        <segue reference="6E2-kA-WPj"/>
         <segue reference="VFQ-1i-fdr"/>
         <segue reference="Fd3-pp-7IU"/>
         <segue reference="mcw-QB-anL"/>
