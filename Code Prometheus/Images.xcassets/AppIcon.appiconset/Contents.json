@@ -9,13 +9,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "未标60-1.png",
+      "filename" : "icon58.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "未标60-2.png",
+      "filename" : "icon80.png",
       "scale" : "2x"
     },
     {
@@ -27,13 +27,13 @@
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "未标60-3.png",
+      "filename" : "icon114.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "未标60.png",
+      "filename" : "icon120.png",
       "scale" : "2x"
     }
   ],
