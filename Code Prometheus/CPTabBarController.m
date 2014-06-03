@@ -7,10 +7,13 @@
 //
 
 #import "CPTabBarController.h"
+#import <NYXImagesKit.h>
 
 @interface CPTabBarController ()
 
 @end
+
+#define CP_TAB_IMAGE_SIZE CGSizeMake(30,30)
 
 @implementation CPTabBarController
 
@@ -24,22 +27,22 @@
         switch (idx) {
             case 0:
                 // 人脉
-                [item setFinishedSelectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_CONTACTS_H] withFinishedUnselectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_CONTACTS]];
+                [item setFinishedSelectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_CONTACTS_H] scaleToSize:CP_TAB_IMAGE_SIZE] withFinishedUnselectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_CONTACTS] scaleToSize:CP_TAB_IMAGE_SIZE]];
                 item.title = @"首页";
                 break;
             case 1:
                 // 日程
-                [item setFinishedSelectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_SCHEDULE_H] withFinishedUnselectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_SCHEDULE]];
+                [item setFinishedSelectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_SCHEDULE_H] scaleToSize:CP_TAB_IMAGE_SIZE] withFinishedUnselectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_SCHEDULE] scaleToSize:CP_TAB_IMAGE_SIZE]];
                 item.title = @"日程";
                 break;
             case 2:
                 // 地图
-                [item setFinishedSelectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_MAP_H] withFinishedUnselectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_MAP]];
+                [item setFinishedSelectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_MAP_H] scaleToSize:CP_TAB_IMAGE_SIZE] withFinishedUnselectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_MAP] scaleToSize:CP_TAB_IMAGE_SIZE]];
                 item.title = @"地图";
                 break;
             case 3:
                 // 工具
-                [item setFinishedSelectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_TOOLS_H] withFinishedUnselectedImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_TOOLS]];
+                [item setFinishedSelectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_TOOLS_H] scaleToSize:CP_TAB_IMAGE_SIZE] withFinishedUnselectedImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_TAB_TOOLS] scaleToSize:CP_TAB_IMAGE_SIZE]];
                 item.title = @"更多";
                 break;
             default:
