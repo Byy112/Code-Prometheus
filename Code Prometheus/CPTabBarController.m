@@ -20,9 +20,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12],UITextAttributeTextColor:[UIColor colorWithRed:177.0/255 green:177.0/255 blue:177.0/255 alpha:1]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor blackColor]} forState:UIControlStateSelected];
+    
     [self.tabBar.items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UITabBarItem* item = obj;
-        [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
 //        item.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
         switch (idx) {
             case 0:
