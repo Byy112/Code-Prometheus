@@ -1096,12 +1096,12 @@ Reachability * reach;
         return;
     }
     
-    CPLogInfo(@"准备下载文件,url:%@,cp_uuid:%@",url,cp_uuid);
+    CPLogVerbose(@"准备下载文件,url:%@,cp_uuid:%@",url,cp_uuid);
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]] options:SDWebImageDownloaderContinueInBackground progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         if (image && finished){
-            CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
+            CPLogVerbose(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
             [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
         }else{
             CPLogWarn(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
