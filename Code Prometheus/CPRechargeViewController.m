@@ -247,6 +247,19 @@ static char CPAssociatedKeyRechargeItem;
 #pragma mark - Notification
 - (void) receiveNotification:(NSNotification*) notification{
     CPLogInfo(@"充值返回");
+    // 检查License
+    [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+        if (success) {
+            if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                CPSetMemberLicense(expirationDate);
+            }else{
+                CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+            }
+        }else{
+            CPLogWarn(@"check lisence 失败:%@",message);
+        }
+    }];
     [self.navigationController popViewControllerAnimated:NO];
 }
 //wap回调函数
