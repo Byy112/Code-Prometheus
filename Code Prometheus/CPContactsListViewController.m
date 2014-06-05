@@ -284,7 +284,7 @@ static char CPAssociatedKeyPolicy;
             break;
         }
         case CP_CONTACTS_GROUP_TAG_BIRTHDAY:{
-            self.contactsArray = [[CPDB getLKDBHelperByUser] search:[CPContacts class] where:nil orderBy:nil offset:0 count:-1];
+            self.contactsArray = [[CPDB getLKDBHelperByUser] search:[CPContacts class] where:@"cp_birthday NOT NULL AND cp_birthday != ''" orderBy:nil offset:0 count:-1];
             break;
         }
         case CP_CONTACTS_GROUP_TAG_ORGANIZATION:{
