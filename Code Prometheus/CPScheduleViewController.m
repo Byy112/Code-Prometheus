@@ -176,7 +176,8 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
         [button setImage:sortImage forState:UIControlStateNormal];
-        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -sortImage.size.width, 0, sortImage.size.width)];
+        [button setImage:[UIImage imageNamed:@"cp_sort_1"] forState:UIControlStateHighlighted];
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -sortImage.size.width-4, 0, sortImage.size.width+4)];
         [button addTarget:self action:@selector(changeType:) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.titleView = button;
     }
