@@ -820,6 +820,20 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
             }];
             [request startAsynchronous];
         }
+        
+        // 检查License
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogWarn(@"check lisence 失败:%@",message);
+            }
+        }];
     }];
     [request startAsynchronous];
 }
@@ -887,6 +901,20 @@ static const NSInteger Tag_ErrorUsernameOrPassword = 20404;
             CPLogVerbose(@"获取充值签名成功:%@",weakRequest.responseString);
             block(YES,nil,[json objectForKey:Jk_rechargeId],[json objectForKey:Jk_signInfo],[json objectForKey:Jk_sign]);
         }
+        
+        // 检查License
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogWarn(@"check lisence 失败:%@",message);
+            }
+        }];
     }];
     [request startAsynchronous];
 }
