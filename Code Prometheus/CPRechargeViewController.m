@@ -55,6 +55,8 @@ static char CPAssociatedKeyRechargeItem;
         [self requestRechargeItem];
         self.dirty = NO;
     }
+    // 解决 支付宝 内付 bug： 显示了隐藏的tabbar
+    self.tabBarController.tabBar.hidden = YES;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
