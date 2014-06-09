@@ -40,6 +40,22 @@
     [super viewWillAppear:animated];
     [self requestMemberInfoAndUpdate];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.needDisplayMessage) {
+        if (self.paySuccess) {
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"YES"
+                                                           description:self.payMessage
+                                                                  type:TWMessageBarMessageTypeSuccess];
+        }else{
+            //失败
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                           description:self.payMessage
+                                                                  type:TWMessageBarMessageTypeError];
+        }
+        self.needDisplayMessage = NO;
+    }
+}
 
 #pragma mark - private
 
@@ -179,6 +195,7 @@ static NSString* const TITLE_NIL = @"-";
 }
 - (IBAction)recharge:(id)sender {
     CPRechargeViewController* controller = [[CPRechargeViewController alloc] initWithNibName:nil bundle:nil];
+    controller.cpAccountRechargeViewController = self;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

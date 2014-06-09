@@ -140,4 +140,12 @@
     CPLogInfo(@"%s",__FUNCTION__);
     CPLogInfo(@"获取到本地推送消息:%@",notification);
 }
+
+#pragma mark - Open URL
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    CPLogInfo(@"%s",__FUNCTION__);
+    CPLogVerbose(@"Handle Open URL:%@",url);
+    [[NSNotificationCenter defaultCenter] postNotificationName:CP_HANDLE_OPEN_URL_Notification object:url userInfo:nil];
+	return YES;
+}
 @end

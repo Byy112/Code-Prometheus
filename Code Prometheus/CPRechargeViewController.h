@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPAccountRechargeViewController.h"
 
 @interface CPRechargeViewController : UIViewController
-
+@property(nonatomic,weak) CPAccountRechargeViewController* cpAccountRechargeViewController;
 @end

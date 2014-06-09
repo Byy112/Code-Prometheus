@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CPAccountRechargeViewController : UITableViewController
-
+@property (nonatomic) BOOL needDisplayMessage;
+@property (nonatomic) BOOL paySuccess;
+@property (nonatomic) NSString* payMessage;
 @end

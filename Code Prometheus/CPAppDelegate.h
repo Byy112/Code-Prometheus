@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define CP_HANDLE_OPEN_URL_Notification @"CP_HANDLE_OPEN_URL_Notification"
+
 @interface CPAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @end

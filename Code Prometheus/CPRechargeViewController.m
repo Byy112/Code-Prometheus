@@ -12,6 +12,7 @@
 #import <Masonry.h>
 #import "AlixLibService.h"
 #import "AlixPayResult.h"
+#import "CPAppDelegate.h"
 
 static char CPAssociatedKeyRechargeItem;
 
@@ -34,10 +35,9 @@ static char CPAssociatedKeyRechargeItem;
 @property (nonatomic) BOOL dirty;
 @property (nonatomic) NSString* selectRechargeItemId;
 
-//@property (weak,nonatomic) MBProgressHUD* hud;
-
 @property (nonatomic) BOOL needDisplayMessage;
 @property (nonatomic) BOOL paySuccess;
+@property (nonatomic) NSString* payMessage;
 @end
 
 @implementation CPRechargeViewController
@@ -47,6 +47,7 @@ static char CPAssociatedKeyRechargeItem;
     [super viewDidLoad];
     self.dirty = YES;
     self.navigationItem.title = @"充值";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:CP_HANDLE_OPEN_URL_Notification object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -60,12 +61,12 @@ static char CPAssociatedKeyRechargeItem;
     if (self.needDisplayMessage) {
         if (self.paySuccess) {
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"YES"
-                                                           description:@"交易成功"
+                                                           description:self.payMessage
                                                                   type:TWMessageBarMessageTypeSuccess];
         }else{
             //失败
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                           description:@"交易失败"
+                                                           description:self.payMessage
                                                                   type:TWMessageBarMessageTypeError];
         }
         self.needDisplayMessage = NO;
@@ -221,92 +222,111 @@ static char CPAssociatedKeyRechargeItem;
         return;
     }
     MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
-//    self.hud = hud;
     hud.removeFromSuperViewOnHide = YES;
 	[self.view addSubview:hud];
     [hud show:YES];
     [CPServer requestRechargeCreateWithItemID:self.selectRechargeItemId block:^(BOOL success, NSString *message, NSNumber *rechargeId, NSString *signInfo, NSString *sign) {
         if (success) {
-            NSString *appScheme = @"保险家";
+            NSString *appScheme = @"com.mirror.Code-Prometheus";
             NSString* orderInfo = signInfo;
             NSString* signedStr = sign;
             NSString *orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
                                      orderInfo, signedStr, @"RSA"];
             CPLogInfo(@"请求支付宝 orderString:%@",orderString);
             [AlixLibService payOrder:orderString AndScheme:appScheme seletor:@selector(paymentResult:) target:self];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
         }else{
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
                                                            description:message
                                                                   type:TWMessageBarMessageTypeError];
-//            [hud hide:YES];
         }
         [hud hide:YES];
     }];
 }
-#pragma mark - Notification
+
+#pragma mark - 支付宝 外付 回调
+
 - (void) receiveNotification:(NSNotification*) notification{
-    CPLogInfo(@"充值返回");
-    // 检查License
-    [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
-        if (success) {
-            if (!CPMemberLicense || CPMemberLicense != expirationDate) {
-                CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
-                CPSetMemberLicense(expirationDate);
-            }else{
-                CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
-            }
-        }else{
-            CPLogWarn(@"check lisence 失败:%@",message);
-        }
-    }];
-    [self.navigationController popViewControllerAnimated:NO];
+    CPLogInfo(@"解析 Open URL");
+    NSURL* url = notification.object;
+    AlixPayResult* result = [self handleOpenURL:url];
+    CPLogWarn(@"支付宝外付回调结果:%@ statusCode:%d",result.statusMessage,result.statusCode);
+    [self doWithPayResult:result];
 }
-//wap回调函数
+
+- (AlixPayResult *)handleOpenURL:(NSURL *)url {
+	AlixPayResult * result = nil;
+	
+	if (url != nil && [[url host] compare:@"safepay"] == 0) {
+		result = [self resultFromURL:url];
+	}
+    
+	return result;
+}
+- (AlixPayResult *)resultFromURL:(NSURL *)url {
+	NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#if ! __has_feature(objc_arc)
+    return [[[AlixPayResult alloc] initWithString:query] autorelease];
+#else
+	return [[AlixPayResult alloc] initWithString:query];
+#endif
+}
+
+-(void)doWithPayResult:(AlixPayResult *)result{
+    if (result && result.statusCode == 9000) {
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"YES"
+                                                       description:result.statusMessage
+                                                              type:TWMessageBarMessageTypeSuccess];
+        // 检查License
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogWarn(@"check lisence 失败:%@",message);
+            }
+        }];
+        [self.navigationController popViewControllerAnimated:NO];
+    }else{
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:result?result.statusMessage:@"交易失败"
+                                                              type:TWMessageBarMessageTypeError];
+    }
+}
+
+#pragma mark - 支付宝 内付 回调
 -(void)paymentResult:(NSString *)resultd
 {
-    CPLogWarn(@"支付宝支付回调结果:%@",resultd);
     //结果处理
     AlixPayResult* result = [[AlixPayResult alloc] initWithString:resultd];
-	if (result)
-    {
-		if (result.statusCode == 9000)
-        {
-			/*
-			 *用公钥验证签名 严格验证请使用result.resultString与result.signString验签
-			 */
-            //交易成功
-//            NSString* key = AlipayPubKey;//签约帐户后获取到的支付宝公钥
-//			id<DataVerifier> verifier;
-//            verifier = CreateRSADataVerifier(key);
-//            
-//			if ([verifier verifyString:result.resultString withSign:result.signString])
-//            {
-//                //验证签名成功，交易结果无篡改
-//                
-//			}
-            self.needDisplayMessage = YES;
-            self.paySuccess = YES;
-            
+    CPLogWarn(@"支付宝内付回调结果:%@ statusCode:%d",result.statusMessage,result.statusCode);
+	if (result && result.statusCode == 9000) {
+        // 检查License
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogWarn(@"check lisence 失败:%@",message);
+            }
+        }];
+        if (self.cpAccountRechargeViewController) {
+            self.cpAccountRechargeViewController.needDisplayMessage = YES;
+            self.cpAccountRechargeViewController.paySuccess = YES;
+            self.cpAccountRechargeViewController.payMessage = result.statusMessage;
         }
-        else
-        {
-            //交易失败
-            self.needDisplayMessage = YES;
-            self.paySuccess = NO;
-            
-        }
-    }
-    else
-    {
-        //交易失败
+        [self.navigationController popViewControllerAnimated:NO];
+    }else{
         self.needDisplayMessage = YES;
         self.paySuccess = NO;
-        
+        self.payMessage = result?result.statusMessage:@"交易失败";
     }
-//    if (self.hud) {
-//        [self.hud hide:YES];
-//        self.hud = nil;
-//    }
 }
 @end
