@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		030552E5185AEE3E00C2534C /* CPScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030552E4185AEE3E00C2534C /* CPScheduleViewController.m */; };
+		030562821948404500D2623D /* CPSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 030562811948404500D2623D /* CPSeparatorView.m */; };
 		030772251803EA8900048A53 /* CPDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 030772241803EA8900048A53 /* CPDB.m */; };
 		030DACC5193D703900FC7254 /* cp_tab_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */; };
 		030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */; };
@@ -308,6 +309,8 @@
 /* Begin PBXFileReference section */
 		030552E3185AEE3E00C2534C /* CPScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPScheduleViewController.h; sourceTree = "<group>"; };
 		030552E4185AEE3E00C2534C /* CPScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPScheduleViewController.m; sourceTree = "<group>"; };
+		030562801948404500D2623D /* CPSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSeparatorView.h; sourceTree = "<group>"; };
+		030562811948404500D2623D /* CPSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSeparatorView.m; sourceTree = "<group>"; };
 		030772231803EA8800048A53 /* CPDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDB.h; sourceTree = "<group>"; };
 		030772241803EA8900048A53 /* CPDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDB.m; sourceTree = "<group>"; };
 		030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts@2x.png"; sourceTree = "<group>"; };
@@ -1379,6 +1382,8 @@
 				038B8C751856B4C300DD0BAC /* CPMettingEditViewController.h */,
 				038B8C761856B4C300DD0BAC /* CPMettingEditViewController.m */,
 				038B8C771856B4C300DD0BAC /* CPMettingEditViewController.xib */,
+				030562801948404500D2623D /* CPSeparatorView.h */,
+				030562811948404500D2623D /* CPSeparatorView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1831,6 +1836,7 @@
 				03FF00DD17DEAF0B000CE349 /* FMDatabasePool.m in Sources */,
 				03FF00DE17DEAF0B000CE349 /* FMDatabaseQueue.m in Sources */,
 				0379A26418EA942000331ADB /* CustomCalloutView.m in Sources */,
+				030562821948404500D2623D /* CPSeparatorView.m in Sources */,
 				0379A26818EA942000331ADB /* LineDashPolyline.m in Sources */,
 				03F2EE6F1855A8FA00E003F5 /* CPReadMapViewController.m in Sources */,
 				03F2EE661855749E00E003F5 /* CPFamilyReadViewController.m in Sources */,
