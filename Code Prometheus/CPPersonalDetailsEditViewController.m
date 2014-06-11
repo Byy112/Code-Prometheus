@@ -11,6 +11,7 @@
 #import "TDDatePickerController.h"
 #import <PopoverView.h>
 #import <TWMessageBarManager.h>
+#import <NYXImagesKit.h>
 
 static char CPAssociatedKeyIndexPath;
 
@@ -397,7 +398,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsPhoneNumber:) forControlEvents:UIControlEventEditingDidEnd];
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3];
-        [button setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [button setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(addContactsPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
@@ -414,7 +415,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [tf addTarget:self action:@selector(editContactsPhoneNumber:) forControlEvents:UIControlEventEditingDidEnd];
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3];
-        [button setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_CELL_DELETE] forState:UIControlStateNormal];
+        [button setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(deleteContactsPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
         return cell;

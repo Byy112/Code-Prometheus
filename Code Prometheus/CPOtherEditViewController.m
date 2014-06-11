@@ -12,6 +12,7 @@
 #import "TDDatePickerController.h"
 #import <Masonry.h>
 #import <TWMessageBarManager.h>
+#import <NYXImagesKit.h>
 
 static char CPAssociatedKeyTag;
 
@@ -118,10 +119,10 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     carButton.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
     carButton.tag = index;
     if (self.carArray.firstObject==car) {
-        [carButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [carButton setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [carButton addTarget:self action:@selector(carAddButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [carButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
+        [carButton setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [carButton addTarget:self action:@selector(carDeleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     [rootView addSubview:carButton];

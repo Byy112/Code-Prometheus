@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		030552E5185AEE3E00C2534C /* CPScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030552E4185AEE3E00C2534C /* CPScheduleViewController.m */; };
 		030562821948404500D2623D /* CPSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 030562811948404500D2623D /* CPSeparatorView.m */; };
+		03056289194859E600D2623D /* cp_add_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03056287194859E600D2623D /* cp_add_0@2x.png */; };
+		0305628A194859E600D2623D /* cp_delete_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03056288194859E600D2623D /* cp_delete_0@2x.png */; };
 		030772251803EA8900048A53 /* CPDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 030772241803EA8900048A53 /* CPDB.m */; };
 		030DACC5193D703900FC7254 /* cp_tab_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */; };
 		030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */; };
@@ -69,8 +71,6 @@
 		034A103E190F48CF002D5871 /* cp_username_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A103D190F48CF002D5871 /* cp_username_0.png */; };
 		034A1040190F48EB002D5871 /* cp_password_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A103F190F48EB002D5871 /* cp_password_0.png */; };
 		034A1042190F4902002D5871 /* cp_phone_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1041190F4902002D5871 /* cp_phone_0.png */; };
-		034A1044190F4998002D5871 /* cp_delete_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1043190F4998002D5871 /* cp_delete_0.png */; };
-		034A1046190F49B3002D5871 /* cp_add_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1045190F49B3002D5871 /* cp_add_0.png */; };
 		034A1048190F49F7002D5871 /* cp_schedule_cell_sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1047190F49F7002D5871 /* cp_schedule_cell_sms.png */; };
 		034A104A190F4A0D002D5871 /* cp_schedule_cell_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A1049190F4A0D002D5871 /* cp_schedule_cell_call.png */; };
 		034A104C190F4A30002D5871 /* cp_null_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A104B190F4A30002D5871 /* cp_null_photo@2x.png */; };
@@ -311,6 +311,8 @@
 		030552E4185AEE3E00C2534C /* CPScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPScheduleViewController.m; sourceTree = "<group>"; };
 		030562801948404500D2623D /* CPSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSeparatorView.h; sourceTree = "<group>"; };
 		030562811948404500D2623D /* CPSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSeparatorView.m; sourceTree = "<group>"; };
+		03056287194859E600D2623D /* cp_add_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_add_0@2x.png"; sourceTree = "<group>"; };
+		03056288194859E600D2623D /* cp_delete_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_delete_0@2x.png"; sourceTree = "<group>"; };
 		030772231803EA8800048A53 /* CPDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDB.h; sourceTree = "<group>"; };
 		030772241803EA8900048A53 /* CPDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDB.m; sourceTree = "<group>"; };
 		030DACC4193D703900FC7254 /* cp_tab_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_contacts@2x.png"; sourceTree = "<group>"; };
@@ -398,8 +400,6 @@
 		034A103D190F48CF002D5871 /* cp_username_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_username_0.png; sourceTree = "<group>"; };
 		034A103F190F48EB002D5871 /* cp_password_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_password_0.png; sourceTree = "<group>"; };
 		034A1041190F4902002D5871 /* cp_phone_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_phone_0.png; sourceTree = "<group>"; };
-		034A1043190F4998002D5871 /* cp_delete_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_delete_0.png; sourceTree = "<group>"; };
-		034A1045190F49B3002D5871 /* cp_add_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_add_0.png; sourceTree = "<group>"; };
 		034A1047190F49F7002D5871 /* cp_schedule_cell_sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_schedule_cell_sms.png; sourceTree = "<group>"; };
 		034A1049190F4A0D002D5871 /* cp_schedule_cell_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_schedule_cell_call.png; sourceTree = "<group>"; };
 		034A104B190F4A30002D5871 /* cp_null_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_null_photo@2x.png"; sourceTree = "<group>"; };
@@ -1458,8 +1458,8 @@
 				034A104D190F4AC8002D5871 /* cp_contacts_detail_call.png */,
 				034A1049190F4A0D002D5871 /* cp_schedule_cell_call.png */,
 				034A1047190F49F7002D5871 /* cp_schedule_cell_sms.png */,
-				034A1045190F49B3002D5871 /* cp_add_0.png */,
-				034A1043190F4998002D5871 /* cp_delete_0.png */,
+				03056287194859E600D2623D /* cp_add_0@2x.png */,
+				03056288194859E600D2623D /* cp_delete_0@2x.png */,
 				034A1041190F4902002D5871 /* cp_phone_0.png */,
 				034A103F190F48EB002D5871 /* cp_password_0.png */,
 				034A103D190F48CF002D5871 /* cp_username_0.png */,
@@ -1642,7 +1642,6 @@
 				030F590E193EBFED00BB070B /* cp_add_normal@2x.png in Resources */,
 				03F860301921D56F006EA42E /* cp_home_06_disabled@2x.png in Resources */,
 				03EDC04D19388C7B001D1885 /* TileToday.png in Resources */,
-				034A1044190F4998002D5871 /* cp_delete_0.png in Resources */,
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
 				0378C88F1918E54000984CF3 /* cp_map_all_contacts.png in Resources */,
 				034A1052190F4AEE002D5871 /* cp_contacts_detail_email.png in Resources */,
@@ -1656,6 +1655,7 @@
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,
 				03192E491904E8D200813646 /* Images.xcassets in Resources */,
 				03C5B38E18DC242C004CBE3A /* cp_home_light_08@2x.png in Resources */,
+				0305628A194859E600D2623D /* cp_delete_0@2x.png in Resources */,
 				03EDC03B19388178001D1885 /* cp_tab_contacts_h@2x.png in Resources */,
 				0378C8A01918E7A400984CF3 /* cp_map_1@2x.png in Resources */,
 				033425CA1871108400518C7B /* CPConsumptionLogViewController.storyboard in Resources */,
@@ -1664,7 +1664,6 @@
 				036C1E3818F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib in Resources */,
 				03C5B36018DBF4FF004CBE3A /* cp_schedule_red@2x.png in Resources */,
 				031E20B317B0851200125321 /* Default-568h@2x.png in Resources */,
-				034A1046190F49B3002D5871 /* cp_add_0.png in Resources */,
 				03F22F93186437A20030359E /* CPFindPasswordViewController.xib in Resources */,
 				03F860311921D56F006EA42E /* cp_home_07_disabled@2x.png in Resources */,
 				03C5B38C18DC242C004CBE3A /* cp_home_light_06@2x.png in Resources */,
@@ -1701,6 +1700,7 @@
 				034A1050190F4ADD002D5871 /* cp_contacts_detail_sms.png in Resources */,
 				0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */,
 				03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */,
+				03056289194859E600D2623D /* cp_add_0@2x.png in Resources */,
 				03C5B37A18DC2336004CBE3A /* cp_home_12@2x.png in Resources */,
 				0378C8981918E64300984CF3 /* cp_map_family.png in Resources */,
 				037D51301871440000B740A3 /* CPMyProductViewController.xib in Resources */,

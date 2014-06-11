@@ -19,8 +19,6 @@ static NSString* const CP_RESOURCE_IMAGE_TAB_MAP = @"cp_tab_map";
 static NSString* const CP_RESOURCE_IMAGE_TAB_TOOLS_H = @"cp_tab_tools_h";
 static NSString* const CP_RESOURCE_IMAGE_TAB_TOOLS = @"cp_tab_tools";
 
-static NSString* const CP_RESOURCE_IMAGE_CELL_DELETE = @"cp_delete_0";
-
 static NSString* const CP_RESOURCE_IMAGE_CONTACTS_DETAIL_CALL = @"cp_contacts_detail_call";
 static NSString* const CP_RESOURCE_IMAGE_CONTACTS_DETAIL_EMAIL = @"cp_contacts_detail_email";
 static NSString* const CP_RESOURCE_IMAGE_CONTACTS_DETAIL_SMS = @"cp_contacts_detail_sms";

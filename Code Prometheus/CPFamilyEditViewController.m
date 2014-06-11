@@ -14,6 +14,7 @@
 #import "CPFamilyMemberEditViewController.h"
 #import "CPEditMapViewController.h"
 #import <TWMessageBarManager.h>
+#import <NYXImagesKit.h>
 
 static char CPAssociatedKeyTag;
 
@@ -206,10 +207,10 @@ typedef NS_ENUM(NSInteger, CP_FAMILY_POPOVER_TAG) {
     fmec.familyMemberNameTextField.tag = index;
     // 按钮
     if (self.familyMemberArray.firstObject==fm) {
-        [fmec.familyButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] forState:UIControlStateNormal];
+        [fmec.familyButton setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_ADD_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [fmec.familyButton addTarget:self action:@selector(familyMemberAddButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [fmec.familyButton setImage:[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] forState:UIControlStateNormal];
+        [fmec.familyButton setImage:[[UIImage imageNamed:CP_RESOURCE_IMAGE_DELETE_0] scaleToSize:CGSizeMake(24,24)] forState:UIControlStateNormal];
         [fmec.familyButton addTarget:self action:@selector(familyMemberDeleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     fmec.familyButton.tag = index;
