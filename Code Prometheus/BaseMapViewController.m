@@ -7,7 +7,6 @@
 //
 
 #import "BaseMapViewController.h"
-#import <TWMessageBarManager.h>
 
 @interface BaseMapViewController ()
 @property (nonatomic) NSArray* annotations;
@@ -111,9 +110,17 @@
     }
     [CPMapUtil updateCityAndLocation:userLocation];
 }
+static BOOL CP_SHOW_LOCATE_ERROR = YES;
 - (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
     _goUserLocation = NO;
     CPLogWarn(@"定位失败! error:%@",error);
+    if (error.code == 1 && CP_SHOW_LOCATE_ERROR) {
+        CPLogWarn(@"定位失败原因：用户关闭定位权限");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"请在设置-隐私中打开\"定位服务\"来允许\"保险家\"确定您的位置" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alert show];
+        [mapView setVisibleMapRect:MAMapRectMake(220880104, 101476980, 272496, 466656) animated:NO];
+        CP_SHOW_LOCATE_ERROR = NO;
+    }
 }
 
 #pragma mark - AMapSearchDelegate

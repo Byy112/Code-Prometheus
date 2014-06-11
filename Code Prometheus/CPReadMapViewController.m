@@ -248,6 +248,9 @@
 -(void) localButtonClick:(id)sender{
     if ([self.mapView.userLocation location]) {
         [self.mapView setRegion:MACoordinateRegionMake(self.mapView.userLocation.coordinate, MACoordinateSpanMake(0.01, 0.01)) animated:YES];
+    }else{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"请在设置-隐私中打开\"定位服务\"来允许\"保险家\"确定您的位置" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alert show];
     }
 }
 -(void) listButtonClick:(id)sender{
