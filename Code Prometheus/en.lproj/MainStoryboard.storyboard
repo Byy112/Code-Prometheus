@@ -4442,7 +4442,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="o1h-6f-QaW"/>
                                                 <constraint firstAttribute="width" constant="68" id="z9Y-pb-q8t"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -4452,7 +4452,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="BTM-79-3Ht"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -6176,7 +6176,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cp_add_0.png" width="44" height="44"/>
+        <image name="cp_add_0.png" width="24" height="24"/>
         <image name="cp_contacts_detail_call.png" width="60" height="60"/>
         <image name="cp_contacts_detail_email.png" width="60" height="60"/>
         <image name="cp_contacts_detail_sms.png" width="60" height="60"/>
