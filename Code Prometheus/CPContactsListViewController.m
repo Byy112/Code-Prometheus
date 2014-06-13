@@ -372,7 +372,7 @@ static char CPAssociatedKeyPolicy;
             break;
         }
         case CP_CONTACTS_GROUP_TAG_MAN:{
-            self.contactsArray = [[CPDB getLKDBHelperByUser] search:[CPContacts class] where:@"cp_sex != 1 OR cp_sex ISNULL" orderBy:nil offset:0 count:-1];
+            self.contactsArray = [[CPDB getLKDBHelperByUser] search:[CPContacts class] where:@"cp_sex = 0" orderBy:nil offset:0 count:-1];
             break;
         }
         case CP_CONTACTS_GROUP_TAG_WOMEN:{
