@@ -71,7 +71,16 @@ NSString *const CP_ENTITY_OPERATION_KEY = @"CP_ENTITY_OPERATION_KEY";
         LKDBProperty* property = [infos objectWithIndex:i];
         id value = [self modelValueWithProperty:property model:entity];
         if (!value || value==[NSNull null]) {
-            value = @"";
+            if ([property.propertyType isEqualToString:@"NSNumber"]) {
+                value = @(0);
+            }else if([property.propertyType isEqualToString:@"int"]){
+                value = @(0);
+            }else if ([property.propertyType isEqualToString:@"NSString"]){
+                value = @"";
+            }else{
+                value = @"";
+                CPLogWarn(@"同步模块，生成操作队列警告，无法解析 %@",property.propertyType);
+            }
         }
         [kv setObject:value forKey:property.sqlColumeName];
     }
@@ -86,13 +95,85 @@ NSString *const CP_ENTITY_OPERATION_KEY = @"CP_ENTITY_OPERATION_KEY";
     }
     else
     {
-        value = [model modelGetValue:property];
+        value = [self modelGetValue:property WithObj:model];
     }
     if(value == nil)
     {
         value = @"";
     }
     return value;
+}
+
+-(id)modelGetValue:(LKDBProperty *)property WithObj:(NSObject*)obj
+{
+    id value = [obj valueForKey:property.propertyName];
+    id returnValue = nil;
+    if(value == nil)
+    {
+        //        returnValue = @"";
+#warning OK BUG (已修复)
+        returnValue = [NSNull null];
+    }
+    else if([value isKindOfClass:[NSString class]])
+    {
+        returnValue = value;
+    }
+    else if([value isKindOfClass:[NSNumber class]])
+    {
+        returnValue = value;
+    }
+    else if([value isKindOfClass:[NSDate class]])
+    {
+        returnValue = [LKDBUtils stringWithDate:value];
+    }
+    else if([value isKindOfClass:[UIColor class]])
+    {
+        UIColor* color = value;
+        float r,g,b,a;
+        [color getRed:&r green:&g blue:&b alpha:&a];
+        returnValue = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f",r,g,b,a];
+    }
+    else if([value isKindOfClass:[NSValue class]])
+    {
+        NSString* columeType = property.propertyType;
+        if([columeType isEqualToString:@"CGRect"])
+        {
+            returnValue = NSStringFromCGRect([value CGRectValue]);
+        }
+        else if([columeType isEqualToString:@"CGPoint"])
+        {
+            returnValue = NSStringFromCGPoint([value CGPointValue]);
+        }
+        else if([columeType isEqualToString:@"CGSize"])
+        {
+            returnValue = NSStringFromCGSize([value CGSizeValue]);
+        }
+    }
+    else if([value isKindOfClass:[UIImage class]])
+    {
+        long random = arc4random();
+        long date = [[NSDate date] timeIntervalSince1970];
+        NSString* filename = [NSString stringWithFormat:@"img%ld%ld",date&0xFFFFF,random&0xFFF];
+        
+        NSData* datas = UIImageJPEGRepresentation(value, 1);
+        [datas writeToFile:[obj.class getDBImagePathWithName:filename] atomically:YES];
+        
+        returnValue = filename;
+    }
+    else if([value isKindOfClass:[NSData class]])
+    {
+        long random = arc4random();
+        long date = [[NSDate date] timeIntervalSince1970];
+        NSString* filename = [NSString stringWithFormat:@"data%ld%ld",date&0xFFFFF,random&0xFFF];
+        
+        [value writeToFile:[obj.class getDBDataPathWithName:filename] atomically:YES];
+        
+        returnValue = filename;
+    }
+    if(returnValue == nil)
+        returnValue = @"";
+    
+    return returnValue;
 }
 
 #pragma mark - LKDBHelper
