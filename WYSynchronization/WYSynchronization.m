@@ -394,9 +394,11 @@ LKDBHelper* wySyncLKDBHelper = nil;
             NSMutableString* values = [NSMutableString stringWithCapacity:20];
             NSMutableDictionary* entity = [databaseOperation.wy_data objectFromJSONStringWithParseOptions:JKParseOptionStrict];
             for (NSString* e_key in entity.allKeys) {
-                NSString* e_value = [entity objectForKey:e_key];
                 [keys appendFormat:@"%@,",e_key];
-                e_value = [e_value stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+                id e_value = [entity objectForKey:e_key];
+                if ([e_value isKindOfClass:[NSString class]]) {
+                    e_value = [e_value stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+                }
                 [values appendFormat:@"'%@',",e_value];
             }
             if (keys.length !=0 && values.length != 0) {
