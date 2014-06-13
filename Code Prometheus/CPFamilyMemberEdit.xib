@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zK-uj-PBv">
-                    <rect key="frame" x="20" y="11" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zK-uj-PBv" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="11" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="GR4-fS-PCI"/>
@@ -43,8 +43,8 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6lB-nG-4DX">
-                    <rect key="frame" x="110" y="6" width="148" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6lB-nG-4DX" customClass="CPContactsValueTextField">
+                    <rect key="frame" x="100" y="6" width="158" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="mC0-cW-EuP"/>
@@ -52,14 +52,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-tn-MoI">
-                    <rect key="frame" x="20" y="55" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-tn-MoI" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="55" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-tC-SKk" customClass="CPSexSegmentedControl">
-                    <rect key="frame" x="110" y="52" width="70" height="29"/>
+                    <rect key="frame" x="100" y="52" width="70" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="Yiy-jD-TXX"/>
@@ -69,14 +69,14 @@
                         <segment title="女"/>
                     </segments>
                 </segmentedControl>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-Fa-fKE">
-                    <rect key="frame" x="20" y="99" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-Fa-fKE" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="99" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk8-us-bEs">
-                    <rect key="frame" x="110" y="95" width="190" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk8-us-bEs" customClass="CPContactsValueButton">
+                    <rect key="frame" x="100" y="95" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="CGW-xA-KDO"/>
@@ -97,17 +97,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="RhZ-Fa-fKE" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="2mY-YX-yeL"/>
                 <constraint firstItem="M7w-tn-MoI" firstAttribute="top" secondItem="9zK-uj-PBv" secondAttribute="bottom" constant="23" id="4Ip-PU-mvt"/>
                 <constraint firstItem="RhZ-Fa-fKE" firstAttribute="height" secondItem="9zK-uj-PBv" secondAttribute="height" id="71l-OV-YZ8"/>
                 <constraint firstItem="RhZ-Fa-fKE" firstAttribute="top" secondItem="M7w-tn-MoI" secondAttribute="bottom" constant="23" id="9Gh-KA-kDC"/>
                 <constraint firstAttribute="trailing" secondItem="zk8-us-bEs" secondAttribute="trailing" constant="20" symbolic="YES" id="9pJ-ix-4wa"/>
                 <constraint firstItem="zk8-us-bEs" firstAttribute="centerY" secondItem="RhZ-Fa-fKE" secondAttribute="centerY" id="AaK-Gx-8f8"/>
                 <constraint firstItem="RhZ-Fa-fKE" firstAttribute="width" secondItem="9zK-uj-PBv" secondAttribute="width" id="HuZ-L2-dcz"/>
-                <constraint firstItem="M7w-tn-MoI" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="N0n-GA-2Ix"/>
                 <constraint firstItem="9zK-uj-PBv" firstAttribute="top" secondItem="1" secondAttribute="top" constant="11" id="TVm-2J-MHX"/>
                 <constraint firstItem="7ih-5M-T7r" firstAttribute="centerY" secondItem="9zK-uj-PBv" secondAttribute="centerY" id="Txf-2r-5Dh"/>
-                <constraint firstItem="9zK-uj-PBv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="VGF-UD-VcV"/>
+                <constraint firstItem="9zK-uj-PBv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="VGF-UD-VcV"/>
                 <constraint firstItem="M7w-tn-MoI" firstAttribute="width" secondItem="9zK-uj-PBv" secondAttribute="width" id="VOG-F7-hC1"/>
                 <constraint firstItem="6lB-nG-4DX" firstAttribute="centerY" secondItem="9zK-uj-PBv" secondAttribute="centerY" id="X3e-qZ-F4p"/>
                 <constraint firstItem="LhN-tC-SKk" firstAttribute="leading" secondItem="M7w-tn-MoI" secondAttribute="trailing" constant="20" id="XP8-KD-JIy"/>
@@ -115,9 +113,11 @@
                 <constraint firstAttribute="trailing" secondItem="7ih-5M-T7r" secondAttribute="trailing" constant="10" id="akM-Vj-ByF"/>
                 <constraint firstItem="M7w-tn-MoI" firstAttribute="centerY" secondItem="LhN-tC-SKk" secondAttribute="centerY" id="aut-Ua-22I"/>
                 <constraint firstItem="MZa-VB-s3H" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="clf-q4-hpu"/>
+                <constraint firstItem="RhZ-Fa-fKE" firstAttribute="leading" secondItem="M7w-tn-MoI" secondAttribute="leading" id="cmS-uk-tvD"/>
                 <constraint firstItem="7ih-5M-T7r" firstAttribute="leading" secondItem="6lB-nG-4DX" secondAttribute="trailing" constant="8" symbolic="YES" id="g4P-yN-FrJ"/>
                 <constraint firstItem="MZa-VB-s3H" firstAttribute="top" secondItem="RhZ-Fa-fKE" secondAttribute="bottom" constant="12" id="mY5-Ec-h8g"/>
                 <constraint firstItem="6lB-nG-4DX" firstAttribute="leading" secondItem="9zK-uj-PBv" secondAttribute="trailing" constant="20" id="qux-7t-wnd"/>
+                <constraint firstItem="RhZ-Fa-fKE" firstAttribute="leading" secondItem="9zK-uj-PBv" secondAttribute="leading" id="w7f-uF-hNr"/>
                 <constraint firstAttribute="trailing" secondItem="MZa-VB-s3H" secondAttribute="trailing" id="wxZ-0U-gbr"/>
                 <constraint firstItem="M7w-tn-MoI" firstAttribute="height" secondItem="9zK-uj-PBv" secondAttribute="height" id="x7V-eR-JZ4"/>
             </constraints>

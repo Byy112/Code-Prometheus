@@ -18,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fg-tZ-9ci">
-                    <rect key="frame" x="20" y="11" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fg-tZ-9ci" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="11" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="3us-eY-RXS"/>
@@ -29,14 +29,14 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msd-AF-Rsb">
-                    <rect key="frame" x="20" y="55" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msd-AF-Rsb" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="55" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0w-As-gju">
-                    <rect key="frame" x="20" y="99" width="70" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子女生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0w-As-gju" customClass="CPContactsKeyTextLabel">
+                    <rect key="frame" x="10" y="99" width="70" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -49,20 +49,20 @@
                         <constraint firstAttribute="height" constant="1" id="sdF-VM-oQZ"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-Ad-dmZ">
-                    <rect key="frame" x="110" y="11" width="190" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-Ad-dmZ" customClass="CPContactsValueTextLabel">
+                    <rect key="frame" x="100" y="11" width="200" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-cS-7yo">
-                    <rect key="frame" x="110" y="55" width="190" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-cS-7yo" customClass="CPContactsValueTextLabel">
+                    <rect key="frame" x="100" y="55" width="200" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-H4-IeT">
-                    <rect key="frame" x="110" y="99" width="190" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-H4-IeT" customClass="CPContactsValueTextLabel">
+                    <rect key="frame" x="100" y="99" width="200" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
@@ -73,19 +73,19 @@
                 <constraint firstAttribute="trailing" secondItem="B8A-Ad-dmZ" secondAttribute="trailing" constant="20" symbolic="YES" id="1GX-bO-yj0"/>
                 <constraint firstItem="sfJ-cS-7yo" firstAttribute="leading" secondItem="msd-AF-Rsb" secondAttribute="trailing" constant="20" id="2Qg-xu-hrn"/>
                 <constraint firstItem="nwD-dr-HQ6" firstAttribute="top" secondItem="e0w-As-gju" secondAttribute="bottom" constant="12" id="54f-lH-pko"/>
-                <constraint firstItem="e0w-As-gju" firstAttribute="leading" secondItem="Tvp-7k-9G7" secondAttribute="leading" constant="20" symbolic="YES" id="67q-wG-x4Q"/>
                 <constraint firstItem="msd-AF-Rsb" firstAttribute="width" secondItem="3fg-tZ-9ci" secondAttribute="width" id="Cii-wT-35N"/>
                 <constraint firstItem="msd-AF-Rsb" firstAttribute="top" secondItem="3fg-tZ-9ci" secondAttribute="bottom" constant="23" id="CtE-3J-Je3"/>
-                <constraint firstItem="msd-AF-Rsb" firstAttribute="leading" secondItem="Tvp-7k-9G7" secondAttribute="leading" constant="20" symbolic="YES" id="Eoa-oF-T3q"/>
-                <constraint firstItem="3fg-tZ-9ci" firstAttribute="leading" secondItem="Tvp-7k-9G7" secondAttribute="leading" constant="20" symbolic="YES" id="Epz-0y-5K7"/>
+                <constraint firstItem="3fg-tZ-9ci" firstAttribute="leading" secondItem="Tvp-7k-9G7" secondAttribute="leading" constant="10" id="Epz-0y-5K7"/>
                 <constraint firstItem="e0w-As-gju" firstAttribute="top" secondItem="msd-AF-Rsb" secondAttribute="bottom" constant="23" id="FkT-Hm-lqk"/>
                 <constraint firstItem="3fg-tZ-9ci" firstAttribute="top" secondItem="Tvp-7k-9G7" secondAttribute="top" constant="11" id="QYg-5G-Bx6"/>
                 <constraint firstItem="e0w-As-gju" firstAttribute="height" secondItem="3fg-tZ-9ci" secondAttribute="height" id="Vwr-Wq-MVe"/>
                 <constraint firstItem="sfJ-cS-7yo" firstAttribute="centerY" secondItem="msd-AF-Rsb" secondAttribute="centerY" id="YDv-Fw-vjN"/>
                 <constraint firstItem="sfJ-cS-7yo" firstAttribute="height" secondItem="msd-AF-Rsb" secondAttribute="height" id="YVO-M3-DUx"/>
+                <constraint firstItem="msd-AF-Rsb" firstAttribute="leading" secondItem="3fg-tZ-9ci" secondAttribute="leading" id="ZBQ-CY-Jd1"/>
                 <constraint firstItem="B8A-Ad-dmZ" firstAttribute="leading" secondItem="3fg-tZ-9ci" secondAttribute="trailing" constant="20" id="axN-aY-2ii"/>
                 <constraint firstAttribute="trailing" secondItem="sfJ-cS-7yo" secondAttribute="trailing" constant="20" symbolic="YES" id="b3F-rt-PtF"/>
                 <constraint firstAttribute="trailing" secondItem="DCA-H4-IeT" secondAttribute="trailing" constant="20" symbolic="YES" id="d4Q-Uw-IWp"/>
+                <constraint firstItem="msd-AF-Rsb" firstAttribute="leading" secondItem="e0w-As-gju" secondAttribute="leading" id="evy-s9-pNV"/>
                 <constraint firstItem="3fg-tZ-9ci" firstAttribute="centerY" secondItem="B8A-Ad-dmZ" secondAttribute="centerY" id="fgB-31-GCC"/>
                 <constraint firstItem="DCA-H4-IeT" firstAttribute="leading" secondItem="e0w-As-gju" secondAttribute="trailing" constant="20" id="i63-qP-aY5"/>
                 <constraint firstItem="3fg-tZ-9ci" firstAttribute="height" secondItem="B8A-Ad-dmZ" secondAttribute="height" id="iu8-we-8qt"/>

@@ -21,8 +21,8 @@
     self.growingTextView.isScrollable = NO;
     self.growingTextView.minHeight = 37;
     self.growingTextView.maxHeight = NSIntegerMax;
-	self.growingTextView.font = [UIFont systemFontOfSize:17.0f];
-    self.growingTextView.textColor = [UIColor blueColor];
+	self.growingTextView.font = [UIFont systemFontOfSize:16];
+    self.growingTextView.textColor = [UIColor blackColor];
 	self.growingTextView.delegate = self;
 	self.growingTextView.animateHeightChange = NO;
     [self.meetingContentLayoutView addSubview:self.growingTextView];

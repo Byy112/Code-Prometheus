@@ -10,6 +10,8 @@
 #import "CPOrganization.h"
 #import "CPMeeting.h"
 #import <Masonry.h>
+#import "CPContactsKeyTextLabel.h"
+#import "CPContactsValueTextLabel.h"
 
 // 日期
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
@@ -186,11 +188,11 @@ static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_4 = @"无工作"
     // 根View
     UIView* rootView = UIView.new;
     // 日期标题
-    UILabel* meetingDateLabelTitle = [UILabel new];
+    UILabel* meetingDateLabelTitle = [CPContactsKeyTextLabel new];
     meetingDateLabelTitle.text = @"日期";
     [rootView addSubview:meetingDateLabelTitle];
     // 日期
-    UILabel* meetingDateLabel = [UILabel new];
+    UILabel* meetingDateLabel = [CPContactsValueTextLabel new];
     if (metting.cp_date) {
         meetingDateLabel.text = [self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:metting.cp_date.doubleValue]];
     }else{
@@ -198,11 +200,11 @@ static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_4 = @"无工作"
     }
     [rootView addSubview:meetingDateLabel];
     // 内容标题
-    UILabel* meetingContentLabelTitle = [UILabel new];
+    UILabel* meetingContentLabelTitle = [CPContactsKeyTextLabel new];
     meetingContentLabelTitle.text = @"内容";
     [rootView addSubview:meetingContentLabelTitle];
     // 内容
-    UILabel* meetingContentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    UILabel* meetingContentLabel = [[CPContactsValueTextLabel alloc] initWithFrame:CGRectZero];
     if (metting.cp_description) {
         meetingContentLabel.text = metting.cp_description;
     }else{
@@ -217,7 +219,7 @@ static NSString* const CP_ORGANIZATION_WORKING_CONDITIONS_TITLE_4 = @"无工作"
     // 约束
     [meetingDateLabelTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@11);
-        make.left.equalTo(@20);
+        make.left.equalTo(@10);
         make.width.equalTo(@108);
         make.height.equalTo(@21);
     }];

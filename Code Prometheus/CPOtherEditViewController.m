@@ -13,6 +13,9 @@
 #import <Masonry.h>
 #import <TWMessageBarManager.h>
 #import <NYXImagesKit.h>
+#import "CPContactsKeyTextLabel.h"
+#import "CPContactsValueButton.h"
+#import "CPContactsValueTextField.h"
 
 static char CPAssociatedKeyTag;
 
@@ -105,12 +108,12 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     // 根View
     UIView* rootView = UIView.new;
     // 车辆标题
-    UILabel* carTitleLabel = [UILabel new];
+    UILabel* carTitleLabel = [CPContactsKeyTextLabel new];
     carTitleLabel.text = @"车辆";
     [rootView addSubview:carTitleLabel];
     [carTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@11);
-        make.left.equalTo(@20);
+        make.left.equalTo(@10);
         make.width.equalTo(@120);
         make.height.equalTo(@21);
     }];
@@ -133,7 +136,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.centerY.equalTo(carTitleLabel.mas_centerY);
     }];
     // 车辆
-    UITextField* carTextField = UITextField.new;
+    UITextField* carTextField = CPContactsValueTextField.new;
     carTextField.tag = index;
     [carTextField addTarget:self action:@selector(carNameTextFieldEndEdit:) forControlEvents:UIControlEventEditingDidEnd];
     if (car.cp_name) {
@@ -147,7 +150,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.centerY.equalTo(carTitleLabel.mas_centerY);
     }];
     // 车牌号标题
-    UILabel* carPlateNumberTitleLabel = [UILabel new];
+    UILabel* carPlateNumberTitleLabel = [CPContactsKeyTextLabel new];
     carPlateNumberTitleLabel.text = @"车牌号";
     [rootView addSubview:carPlateNumberTitleLabel];
     [carPlateNumberTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -157,7 +160,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.height.equalTo(carTitleLabel.mas_height);
     }];
     // 车牌号
-    UITextField* carPlateNumberTextField = UITextField.new;
+    UITextField* carPlateNumberTextField = CPContactsValueTextField.new;
     carPlateNumberTextField.tag = index;
     [carPlateNumberTextField addTarget:self action:@selector(carPlateNumberTextFieldEndEdit:) forControlEvents:UIControlEventEditingDidEnd];
     if (car.cp_plate_number) {
@@ -171,7 +174,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.centerY.equalTo(carPlateNumberTitleLabel.mas_centerY);
     }];
     // 车险到期标题
-    UILabel* carMaturityDateTitleLabel = [UILabel new];
+    UILabel* carMaturityDateTitleLabel = [CPContactsKeyTextLabel new];
     carMaturityDateTitleLabel.text = @"车险到期日";
     [rootView addSubview:carMaturityDateTitleLabel];
     [carMaturityDateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,7 +184,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.height.equalTo(carTitleLabel.mas_height);
     }];
     // 车险到期
-    UIButton* carMaturityDateButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    UIButton* carMaturityDateButton = [[CPContactsValueButton alloc] initWithFrame:CGRectZero];
     [carMaturityDateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     carMaturityDateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     carMaturityDateButton.titleLabel.font = [UIFont systemFontOfSize:17];

@@ -10,6 +10,9 @@
 #import "CPOther.h"
 #import "CPCar.h"
 #import <Masonry.h>
+#import "CPContactsKeyTextLabel.h"
+#import "CPContactsValueTextLabel.h"
+
 
 // 日期
 static NSString* const CP_DATE_TITLE_NULL = @"未定义";
@@ -116,17 +119,17 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     // 根View
     UIView* rootView = UIView.new;
     // 车辆标题
-    UILabel* carTitleLabel = [UILabel new];
+    UILabel* carTitleLabel = [CPContactsKeyTextLabel new];
     carTitleLabel.text = @"车辆";
     [rootView addSubview:carTitleLabel];
     [carTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@11);
-        make.left.equalTo(@20);
+        make.left.equalTo(@10);
         make.width.equalTo(@120);
         make.height.equalTo(@21);
     }];
     // 车辆
-    UILabel* carTextField = UILabel.new;
+    UILabel* carTextField = CPContactsValueTextLabel.new;
     if (car.cp_name) {
         carTextField.text = car.cp_name;
     }
@@ -138,7 +141,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.centerY.equalTo(carTitleLabel.mas_centerY);
     }];
     // 车牌号标题
-    UILabel* carPlateNumberTitleLabel = [UILabel new];
+    UILabel* carPlateNumberTitleLabel = [CPContactsKeyTextLabel new];
     carPlateNumberTitleLabel.text = @"车牌号";
     [rootView addSubview:carPlateNumberTitleLabel];
     [carPlateNumberTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -148,7 +151,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.height.equalTo(carTitleLabel.mas_height);
     }];
     // 车牌号
-    UILabel* carPlateNumberTextField = UILabel.new;
+    UILabel* carPlateNumberTextField = CPContactsValueTextLabel.new;
     if (car.cp_plate_number) {
         carPlateNumberTextField.text = car.cp_plate_number;
     }
@@ -160,7 +163,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.centerY.equalTo(carPlateNumberTitleLabel.mas_centerY);
     }];
     // 车险到期标题
-    UILabel* carMaturityDateTitleLabel = [UILabel new];
+    UILabel* carMaturityDateTitleLabel = [CPContactsKeyTextLabel new];
     carMaturityDateTitleLabel.text = @"车险到期日";
     [rootView addSubview:carMaturityDateTitleLabel];
     [carMaturityDateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -170,7 +173,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
         make.height.equalTo(carTitleLabel.mas_height);
     }];
     // 车险到期
-    UILabel* carMaturityDateButton = UILabel.new;
+    UILabel* carMaturityDateButton = CPContactsValueTextLabel.new;
     if (car.cp_maturity_date) {
         carMaturityDateButton.text = [self.df stringFromDate:[NSDate dateWithTimeIntervalSince1970:car.cp_maturity_date.doubleValue]];
     }else{
