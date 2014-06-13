@@ -273,6 +273,10 @@
 		03F2EE731855BABA00E003F5 /* CPCompanyReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EE721855BABA00E003F5 /* CPCompanyReadViewController.m */; };
 		03F2EE761855BCDE00E003F5 /* CPCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EE751855BCDE00E003F5 /* CPCompany.m */; };
 		03F2EE791855C39300E003F5 /* CPCompanyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EE781855C39300E003F5 /* CPCompanyEditViewController.m */; };
+		03F7BC8B194ACDEA00ABFF0C /* CPContactsKeyTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7BC8A194ACDEA00ABFF0C /* CPContactsKeyTextLabel.m */; };
+		03F7BC8E194ACEBA00ABFF0C /* CPContactsValueTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7BC8D194ACEBA00ABFF0C /* CPContactsValueTextLabel.m */; };
+		03F7BC91194ACF2600ABFF0C /* CPContactsValueButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7BC90194ACF2600ABFF0C /* CPContactsValueButton.m */; };
+		03F7BC94194AD03F00ABFF0C /* CPContactsValueTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7BC93194AD03F00ABFF0C /* CPContactsValueTextField.m */; };
 		03F8602C1921D56F006EA42E /* cp_home_02_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F860211921D56F006EA42E /* cp_home_02_disabled@2x.png */; };
 		03F8602D1921D56F006EA42E /* cp_home_03_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F860221921D56F006EA42E /* cp_home_03_disabled@2x.png */; };
 		03F8602E1921D56F006EA42E /* cp_home_04_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F860231921D56F006EA42E /* cp_home_04_disabled@2x.png */; };
@@ -711,6 +715,14 @@
 		03F2EE751855BCDE00E003F5 /* CPCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCompany.m; sourceTree = "<group>"; };
 		03F2EE771855C39300E003F5 /* CPCompanyEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCompanyEditViewController.h; sourceTree = "<group>"; };
 		03F2EE781855C39300E003F5 /* CPCompanyEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CPCompanyEditViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		03F7BC89194ACDEA00ABFF0C /* CPContactsKeyTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsKeyTextLabel.h; sourceTree = "<group>"; };
+		03F7BC8A194ACDEA00ABFF0C /* CPContactsKeyTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsKeyTextLabel.m; sourceTree = "<group>"; };
+		03F7BC8C194ACEBA00ABFF0C /* CPContactsValueTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsValueTextLabel.h; sourceTree = "<group>"; };
+		03F7BC8D194ACEBA00ABFF0C /* CPContactsValueTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsValueTextLabel.m; sourceTree = "<group>"; };
+		03F7BC8F194ACF2600ABFF0C /* CPContactsValueButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsValueButton.h; sourceTree = "<group>"; };
+		03F7BC90194ACF2600ABFF0C /* CPContactsValueButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsValueButton.m; sourceTree = "<group>"; };
+		03F7BC92194AD03F00ABFF0C /* CPContactsValueTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsValueTextField.h; sourceTree = "<group>"; };
+		03F7BC93194AD03F00ABFF0C /* CPContactsValueTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsValueTextField.m; sourceTree = "<group>"; };
 		03F860211921D56F006EA42E /* cp_home_02_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_home_02_disabled@2x.png"; sourceTree = "<group>"; };
 		03F860221921D56F006EA42E /* cp_home_03_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_home_03_disabled@2x.png"; sourceTree = "<group>"; };
 		03F860231921D56F006EA42E /* cp_home_04_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_home_04_disabled@2x.png"; sourceTree = "<group>"; };
@@ -1389,6 +1401,14 @@
 				030562811948404500D2623D /* CPSeparatorView.m */,
 				033E29221949AA9200232B82 /* CPSexSegmentedControl.h */,
 				033E29231949AA9200232B82 /* CPSexSegmentedControl.m */,
+				03F7BC89194ACDEA00ABFF0C /* CPContactsKeyTextLabel.h */,
+				03F7BC8A194ACDEA00ABFF0C /* CPContactsKeyTextLabel.m */,
+				03F7BC8C194ACEBA00ABFF0C /* CPContactsValueTextLabel.h */,
+				03F7BC8D194ACEBA00ABFF0C /* CPContactsValueTextLabel.m */,
+				03F7BC8F194ACF2600ABFF0C /* CPContactsValueButton.h */,
+				03F7BC90194ACF2600ABFF0C /* CPContactsValueButton.m */,
+				03F7BC92194AD03F00ABFF0C /* CPContactsValueTextField.h */,
+				03F7BC93194AD03F00ABFF0C /* CPContactsValueTextField.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1797,6 +1817,7 @@
 				038B8C6E1856AD0400DD0BAC /* CPOrganizationEditViewController.m in Sources */,
 				0379A26A18EA942000331ADB /* ReGeocodeAnnotation.m in Sources */,
 				03F22F891863E7B40030359E /* CPLoginViewController.m in Sources */,
+				03F7BC8E194ACEBA00ABFF0C /* CPContactsValueTextLabel.m in Sources */,
 				03D403AF1840596800F7A63E /* CPContacts.m in Sources */,
 				03D9F45018507A3900B95F93 /* CPFamilyMember.m in Sources */,
 				0379A26118EA942000331ADB /* AnimatedAnnotationView.m in Sources */,
@@ -1820,6 +1841,7 @@
 				031AB55E192328E6001F78CF /* UIViewController+TDSemiModalExtension.m in Sources */,
 				036513BE18473B41006389FA /* CPPersonalDetailsReadViewController.m in Sources */,
 				03CE3BFA183DE0B000A964AA /* CPNavigationController.m in Sources */,
+				03F7BC94194AD03F00ABFF0C /* CPContactsValueTextField.m in Sources */,
 				0361437A184359A300B433DC /* NSString+CP_Aleph.m in Sources */,
 				03D9466218601ECE00FA4626 /* CPContactsListForReferViewController.m in Sources */,
 				036513B518473073006389FA /* CPContactsDetailViewController.m in Sources */,
@@ -1831,6 +1853,7 @@
 				03FF00DA17DEAF0B000CE349 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				037D512F1871440000B740A3 /* CPMyProductViewController.m in Sources */,
 				038F759D18F7EF5F00BDD35C /* TPKeyboardAvoidingScrollView.m in Sources */,
+				03F7BC91194ACF2600ABFF0C /* CPContactsValueButton.m in Sources */,
 				037D5129187129B500B740A3 /* CPRechargeLogViewController.m in Sources */,
 				03FF00DB17DEAF0B000CE349 /* FMDatabase.m in Sources */,
 				038CD92418580D0200DCB8F5 /* CPOtherReadViewController.m in Sources */,
@@ -1889,6 +1912,7 @@
 				033425C718710DF900518C7B /* CPConsumptionLogViewController.m in Sources */,
 				038F759F18F7EF5F00BDD35C /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				03FA61EA18488A5C00F1AECE /* CPPushNoAnimation.m in Sources */,
+				03F7BC8B194ACDEA00ABFF0C /* CPContactsKeyTextLabel.m in Sources */,
 				0331B53418FCE534004A4BC2 /* SBJsonWriter.m in Sources */,
 				032057BD18DAA35700CF62EF /* UIImage+fixOrientation.m in Sources */,
 				038CD92D18580F8C00DCB8F5 /* CPCar.m in Sources */,

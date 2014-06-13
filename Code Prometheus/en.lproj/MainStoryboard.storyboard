@@ -4435,8 +4435,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBY-jO-c6p">
-                                            <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBY-jO-c6p" customClass="CPContactsKeyTextLabel">
+                                            <rect key="frame" x="10" y="11" width="68" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="o1h-6f-QaW"/>
@@ -4446,8 +4446,8 @@
                                             <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-11-5q9">
-                                            <rect key="frame" x="108" y="11" width="192" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSM-11-5q9" customClass="CPContactsValueTextLabel">
+                                            <rect key="frame" x="98" y="11" width="202" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="BTM-79-3Ht"/>
@@ -4457,7 +4457,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="FBY-jO-c6p" firstAttribute="leading" secondItem="oEV-my-spi" secondAttribute="leading" constant="20" symbolic="YES" id="8GO-du-dhC"/>
+                                        <constraint firstItem="FBY-jO-c6p" firstAttribute="leading" secondItem="oEV-my-spi" secondAttribute="leading" constant="10" id="8GO-du-dhC"/>
                                         <constraint firstItem="hSM-11-5q9" firstAttribute="leading" secondItem="FBY-jO-c6p" secondAttribute="trailing" constant="20" id="DPJ-H3-gmW"/>
                                         <constraint firstAttribute="trailing" secondItem="hSM-11-5q9" secondAttribute="trailing" constant="20" symbolic="YES" id="UjP-83-jPt"/>
                                         <constraint firstItem="hSM-11-5q9" firstAttribute="centerY" secondItem="FBY-jO-c6p" secondAttribute="centerY" id="aVN-yu-LFl"/>
@@ -4466,15 +4466,53 @@
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cp_cell_0" id="8hP-Lw-gV5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cp_cell_1" id="VhS-8L-XLE">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VhS-8L-XLE" id="rW5-tW-1v2">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-mV-Oty" customClass="CPContactsKeyTextLabel">
+                                            <rect key="frame" x="10" y="11" width="68" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="68" id="8dN-60-730"/>
+                                                <constraint firstAttribute="height" constant="21" id="s62-1P-IDJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhC-CK-uM0" customClass="CPContactsValueTextLabel">
+                                            <rect key="frame" x="98" y="11" width="202" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="JeS-3y-5Gr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FNE-mV-Oty" firstAttribute="leading" secondItem="rW5-tW-1v2" secondAttribute="leading" constant="10" id="7Np-dk-hQ3"/>
+                                        <constraint firstAttribute="trailing" secondItem="lhC-CK-uM0" secondAttribute="trailing" constant="20" symbolic="YES" id="8dc-3y-dZB"/>
+                                        <constraint firstItem="lhC-CK-uM0" firstAttribute="leading" secondItem="FNE-mV-Oty" secondAttribute="trailing" constant="20" id="Fz5-9Q-cyA"/>
+                                        <constraint firstAttribute="centerY" secondItem="FNE-mV-Oty" secondAttribute="centerY" id="T2d-ig-Rsq"/>
+                                        <constraint firstItem="lhC-CK-uM0" firstAttribute="centerY" secondItem="FNE-mV-Oty" secondAttribute="centerY" id="zou-MA-w3P"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="98" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cp_cell_0" id="8hP-Lw-gV5">
+                                <rect key="frame" x="0.0" y="174" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hP-Lw-gV5" id="3Du-Ba-hf5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSb-wu-hlZ">
-                                            <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSb-wu-hlZ" customClass="CPContactsKeyTextLabel">
+                                            <rect key="frame" x="10" y="11" width="68" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="tlH-tB-4bI"/>
@@ -4484,15 +4522,22 @@
                                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-Cj-eUT">
-                                            <rect key="frame" x="108" y="22" width="0.0" height="0.0"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-Cj-eUT" customClass="CPContactsValueTextLabel">
+                                            <rect key="frame" x="98" y="11" width="118" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="G9y-yg-dab"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-SR-RhL">
-                                            <rect key="frame" x="240" y="22" width="0.0" height="0.0"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-SR-RhL" customClass="CPContactsKeyTextLabel">
+                                            <rect key="frame" x="216" y="11" width="24" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="02e-FV-Cg6"/>
+                                                <constraint firstAttribute="width" constant="24" id="ofb-Jb-nx8"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -4500,8 +4545,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="KkP-Cj-eUT" firstAttribute="leading" secondItem="OSb-wu-hlZ" secondAttribute="trailing" constant="20" id="0SD-pd-f8f"/>
+                                        <constraint firstItem="DBM-SR-RhL" firstAttribute="leading" secondItem="KkP-Cj-eUT" secondAttribute="trailing" id="6bH-fl-Mmw"/>
                                         <constraint firstItem="OSb-wu-hlZ" firstAttribute="centerY" secondItem="DBM-SR-RhL" secondAttribute="centerY" id="Llt-Hj-JeK"/>
-                                        <constraint firstItem="OSb-wu-hlZ" firstAttribute="leading" secondItem="3Du-Ba-hf5" secondAttribute="leading" constant="20" symbolic="YES" id="cvj-kf-RHS"/>
+                                        <constraint firstItem="OSb-wu-hlZ" firstAttribute="leading" secondItem="3Du-Ba-hf5" secondAttribute="leading" constant="10" id="cvj-kf-RHS"/>
                                         <constraint firstItem="KkP-Cj-eUT" firstAttribute="centerY" secondItem="OSb-wu-hlZ" secondAttribute="centerY" id="x1L-zm-SE9"/>
                                         <constraint firstAttribute="centerY" secondItem="OSb-wu-hlZ" secondAttribute="centerY" id="xA1-hi-A9s"/>
                                         <constraint firstAttribute="trailing" secondItem="DBM-SR-RhL" secondAttribute="trailing" constant="80" id="xCj-4V-WDK"/>
@@ -4813,8 +4859,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-pI-hSf">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-pI-hSf" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aWj-HS-C8X"/>
@@ -4824,11 +4870,10 @@
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9AD-nk-nd1">
-                                                    <rect key="frame" x="108" y="7" width="150" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9AD-nk-nd1" customClass="CPContactsValueTextField">
+                                                    <rect key="frame" x="98" y="7" width="202" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="Unj-LO-rsZ"/>
                                                         <constraint firstAttribute="height" constant="30" id="Y0p-M9-Erg"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -4837,7 +4882,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fzT-pI-hSf" firstAttribute="centerY" secondItem="9AD-nk-nd1" secondAttribute="centerY" id="3JS-Pk-2f6"/>
-                                                <constraint firstItem="fzT-pI-hSf" firstAttribute="leading" secondItem="KRO-Go-nj0" secondAttribute="leading" constant="20" id="bcb-Z0-y7q"/>
+                                                <constraint firstAttribute="trailing" secondItem="9AD-nk-nd1" secondAttribute="trailing" constant="20" symbolic="YES" id="5UC-iu-Q3s"/>
+                                                <constraint firstItem="fzT-pI-hSf" firstAttribute="leading" secondItem="KRO-Go-nj0" secondAttribute="leading" constant="10" id="bcb-Z0-y7q"/>
                                                 <constraint firstAttribute="centerY" secondItem="fzT-pI-hSf" secondAttribute="centerY" id="m9l-yO-NnE"/>
                                                 <constraint firstItem="9AD-nk-nd1" firstAttribute="leading" secondItem="fzT-pI-hSf" secondAttribute="trailing" constant="20" id="mZ3-zA-XQH"/>
                                             </constraints>
@@ -4851,8 +4897,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-bb-TrT">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-bb-TrT" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="68" id="zbn-Sr-EeX"/>
@@ -4862,7 +4908,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fse-GF-wbz" customClass="CPSexSegmentedControl">
-                                                    <rect key="frame" x="108" y="8" width="70" height="29"/>
+                                                    <rect key="frame" x="98" y="8" width="70" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="ZQn-EP-2hd"/>
@@ -4875,7 +4921,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="mcI-bb-TrT" firstAttribute="top" secondItem="7c5-pX-DBG" secondAttribute="top" constant="11" id="0tZ-Az-tY8"/>
-                                                <constraint firstItem="mcI-bb-TrT" firstAttribute="leading" secondItem="7c5-pX-DBG" secondAttribute="leading" constant="20" id="NEH-10-dTA"/>
+                                                <constraint firstItem="mcI-bb-TrT" firstAttribute="leading" secondItem="7c5-pX-DBG" secondAttribute="leading" constant="10" id="NEH-10-dTA"/>
                                                 <constraint firstItem="fse-GF-wbz" firstAttribute="leading" secondItem="mcI-bb-TrT" secondAttribute="trailing" constant="20" id="Oyl-GM-eez"/>
                                                 <constraint firstAttribute="bottom" secondItem="mcI-bb-TrT" secondAttribute="bottom" constant="11" id="V4h-fF-iZO"/>
                                                 <constraint firstAttribute="centerY" secondItem="fse-GF-wbz" secondAttribute="centerY" id="qJg-as-U2h"/>
@@ -4890,8 +4936,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-Du-eF8">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-Du-eF8" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3WE-ys-iqk"/>
@@ -4901,8 +4947,8 @@
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kre-S3-yyw">
-                                                    <rect key="frame" x="108" y="7" width="150" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kre-S3-yyw" customClass="CPContactsValueTextField">
+                                                    <rect key="frame" x="98" y="7" width="150" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="q8X-DC-uUy"/>
@@ -4930,21 +4976,74 @@
                                                 <constraint firstItem="3ec-Du-eF8" firstAttribute="centerY" secondItem="kre-S3-yyw" secondAttribute="centerY" id="YgJ-JD-EbO"/>
                                                 <constraint firstItem="kre-S3-yyw" firstAttribute="leading" secondItem="3ec-Du-eF8" secondAttribute="trailing" constant="20" id="bkG-mY-BO4"/>
                                                 <constraint firstAttribute="trailing" secondItem="yR7-kj-dn0" secondAttribute="trailing" constant="20" symbolic="YES" id="n4N-gF-Bjn"/>
-                                                <constraint firstItem="3ec-Du-eF8" firstAttribute="leading" secondItem="ogO-zc-TLK" secondAttribute="leading" constant="20" id="nHN-2w-V4q"/>
+                                                <constraint firstItem="3ec-Du-eF8" firstAttribute="leading" secondItem="ogO-zc-TLK" secondAttribute="leading" constant="10" id="nHN-2w-V4q"/>
                                                 <constraint firstAttribute="centerY" secondItem="3ec-Du-eF8" secondAttribute="centerY" id="nL8-zt-7cO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_4" id="Dee-CM-8KH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_3_0" id="mwu-qJ-h69">
                                         <rect key="frame" x="0.0" y="218" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mwu-qJ-h69" id="6kc-Ys-1MM">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAd-Ry-lsf" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="68" id="HJh-yu-Czz"/>
+                                                        <constraint firstAttribute="height" constant="21" id="c9y-8C-who"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akm-XH-Omk" customClass="CPContactsValueTextField">
+                                                    <rect key="frame" x="98" y="7" width="150" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Lzl-B3-fyc"/>
+                                                        <constraint firstAttribute="width" constant="150" id="p0h-u3-h9G"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                                <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt7-8V-f64">
+                                                    <rect key="frame" x="258" y="1" width="42" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="JT0-ey-HLE"/>
+                                                        <constraint firstAttribute="height" constant="42" id="dxD-TX-yhn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="RAd-Ry-lsf" secondAttribute="centerY" id="9WS-4U-vuH"/>
+                                                <constraint firstItem="Akm-XH-Omk" firstAttribute="leading" secondItem="RAd-Ry-lsf" secondAttribute="trailing" constant="20" id="F0q-9Q-Gvy"/>
+                                                <constraint firstItem="RAd-Ry-lsf" firstAttribute="leading" secondItem="6kc-Ys-1MM" secondAttribute="leading" constant="10" id="HEV-pP-hoS"/>
+                                                <constraint firstAttribute="trailing" secondItem="mt7-8V-f64" secondAttribute="trailing" constant="20" symbolic="YES" id="jap-HS-W8i"/>
+                                                <constraint firstItem="mt7-8V-f64" firstAttribute="centerY" secondItem="RAd-Ry-lsf" secondAttribute="centerY" id="mXF-jJ-qI9"/>
+                                                <constraint firstItem="RAd-Ry-lsf" firstAttribute="centerY" secondItem="Akm-XH-Omk" secondAttribute="centerY" id="tig-b7-sSi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="98" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_4" id="Dee-CM-8KH">
+                                        <rect key="frame" x="0.0" y="262" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dee-CM-8KH" id="Vks-mV-Gl5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JT3-j3-1Et">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JT3-j3-1Et" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="XhR-of-PBk"/>
@@ -4954,8 +5053,8 @@
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tn-tV-sFh">
-                                                    <rect key="frame" x="108" y="7" width="152" height="30"/>
+                                                <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tn-tV-sFh" customClass="CPContactsValueButton">
+                                                    <rect key="frame" x="98" y="7" width="152" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="rqy-m6-RzN"/>
@@ -4969,7 +5068,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JT3-j3-1Et" firstAttribute="centerY" secondItem="9Tn-tV-sFh" secondAttribute="centerY" id="9UY-me-aOA"/>
-                                                <constraint firstItem="JT3-j3-1Et" firstAttribute="leading" secondItem="Vks-mV-Gl5" secondAttribute="leading" constant="20" id="CNK-Ug-HMA"/>
+                                                <constraint firstItem="JT3-j3-1Et" firstAttribute="leading" secondItem="Vks-mV-Gl5" secondAttribute="leading" constant="10" id="CNK-Ug-HMA"/>
                                                 <constraint firstAttribute="centerY" secondItem="JT3-j3-1Et" secondAttribute="centerY" id="EVr-t7-5Si"/>
                                                 <constraint firstItem="9Tn-tV-sFh" firstAttribute="leading" secondItem="JT3-j3-1Et" secondAttribute="trailing" constant="20" id="nbM-Ak-8sS"/>
                                             </constraints>
@@ -4977,14 +5076,14 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_5" id="ctV-KN-JEl">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="306" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ctV-KN-JEl" id="zH6-CR-Ypc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线索来源" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-0z-QR4">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线索来源" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIt-0z-QR4" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="e4Y-Jr-48Y"/>
@@ -4994,8 +5093,8 @@
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MC1-SV-7SA">
-                                                    <rect key="frame" x="108" y="7" width="150" height="30"/>
+                                                <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MC1-SV-7SA" customClass="CPContactsValueButton">
+                                                    <rect key="frame" x="98" y="7" width="150" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="Zsb-RJ-64K"/>
@@ -5010,7 +5109,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="ZIt-0z-QR4" secondAttribute="centerY" id="8FR-MJ-WFi"/>
-                                                <constraint firstItem="ZIt-0z-QR4" firstAttribute="leading" secondItem="zH6-CR-Ypc" secondAttribute="leading" constant="20" id="Ats-LX-8XB"/>
+                                                <constraint firstItem="ZIt-0z-QR4" firstAttribute="leading" secondItem="zH6-CR-Ypc" secondAttribute="leading" constant="10" id="Ats-LX-8XB"/>
                                                 <constraint firstItem="MC1-SV-7SA" firstAttribute="leading" secondItem="ZIt-0z-QR4" secondAttribute="trailing" constant="20" id="Ufa-IB-7OC"/>
                                                 <constraint firstItem="ZIt-0z-QR4" firstAttribute="centerY" secondItem="MC1-SV-7SA" secondAttribute="centerY" id="wGe-tt-4Cs"/>
                                             </constraints>
@@ -5018,14 +5117,14 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_7" id="nD1-pp-rwZ">
-                                        <rect key="frame" x="0.0" y="306" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="350" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nD1-pp-rwZ" id="7vA-wU-6Vk">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="被转介绍" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-SQ-E2e">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="被转介绍" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-SQ-E2e" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="4SK-FQ-6QX"/>
@@ -5051,8 +5150,8 @@
                                                         <segue destination="di7-i2-ypH" kind="push" identifier="cp_segue_info_edit_2_refer" id="vVb-N8-0VT"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-P8-ICf">
-                                                    <rect key="frame" x="108" y="11" width="150" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-P8-ICf" customClass="CPContactsValueTextLabel">
+                                                    <rect key="frame" x="98" y="11" width="150" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="8Vg-IX-Dh4"/>
@@ -5067,7 +5166,7 @@
                                                 <constraint firstItem="Wv0-AQ-6iK" firstAttribute="centerY" secondItem="CgF-SQ-E2e" secondAttribute="centerY" id="4FQ-s4-KvJ"/>
                                                 <constraint firstItem="3hp-P8-ICf" firstAttribute="leading" secondItem="CgF-SQ-E2e" secondAttribute="trailing" constant="20" id="4mq-OE-ngH"/>
                                                 <constraint firstItem="CgF-SQ-E2e" firstAttribute="centerY" secondItem="3hp-P8-ICf" secondAttribute="centerY" id="Gsc-kY-JHO"/>
-                                                <constraint firstItem="CgF-SQ-E2e" firstAttribute="leading" secondItem="7vA-wU-6Vk" secondAttribute="leading" constant="20" id="GxG-qv-IZm"/>
+                                                <constraint firstItem="CgF-SQ-E2e" firstAttribute="leading" secondItem="7vA-wU-6Vk" secondAttribute="leading" constant="10" id="GxG-qv-IZm"/>
                                                 <constraint firstAttribute="trailing" secondItem="Wv0-AQ-6iK" secondAttribute="trailing" constant="20" symbolic="YES" id="HQX-xB-wUa"/>
                                                 <constraint firstAttribute="centerY" secondItem="CgF-SQ-E2e" secondAttribute="centerY" id="q7v-8N-0PD"/>
                                             </constraints>
@@ -5075,14 +5174,14 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cp_cell_type_8" id="CYT-cv-CYD">
-                                        <rect key="frame" x="0.0" y="350" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="394" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYT-cv-CYD" id="N7X-zU-13l">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGm-YL-0vG">
-                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGm-YL-0vG" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="10" y="11" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="PSB-0K-kHN"/>
@@ -5092,8 +5191,8 @@
                                                     <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6op-YN-rnR">
-                                                    <rect key="frame" x="108" y="7" width="132" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6op-YN-rnR" customClass="CPContactsValueTextField">
+                                                    <rect key="frame" x="98" y="7" width="118" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="DjK-Xk-4YQ"/>
@@ -5101,9 +5200,13 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-z4-ssM">
-                                                    <rect key="frame" x="240" y="22" width="0.0" height="0.0"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-z4-ssM" customClass="CPContactsKeyTextLabel">
+                                                    <rect key="frame" x="216" y="11" width="24" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="QrS-Ph-Jze"/>
+                                                        <constraint firstAttribute="height" constant="21" id="zgf-nx-oaj"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -5115,7 +5218,7 @@
                                                 <constraint firstItem="8jg-z4-ssM" firstAttribute="leading" secondItem="6op-YN-rnR" secondAttribute="trailing" id="aUT-gD-GOv"/>
                                                 <constraint firstItem="aGm-YL-0vG" firstAttribute="centerY" secondItem="6op-YN-rnR" secondAttribute="centerY" id="vm0-ya-Mss"/>
                                                 <constraint firstItem="6op-YN-rnR" firstAttribute="leading" secondItem="aGm-YL-0vG" secondAttribute="trailing" constant="20" id="yWO-td-s3p"/>
-                                                <constraint firstItem="aGm-YL-0vG" firstAttribute="leading" secondItem="N7X-zU-13l" secondAttribute="leading" constant="20" id="zOL-kj-SCh"/>
+                                                <constraint firstItem="aGm-YL-0vG" firstAttribute="leading" secondItem="N7X-zU-13l" secondAttribute="leading" constant="10" id="zOL-kj-SCh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

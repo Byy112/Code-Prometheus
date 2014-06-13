@@ -151,7 +151,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
     NSInteger index = indexPath.row+self.phoneNumbers.count-1;
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationFade];
-    
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index-1 inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationFade];
     NSString* phoneNumber = [self phoneNumbersStringWithArray:self.phoneNumbers];
     CPLogVerbose(@"电话 from:%@ to:%@",self.contacts.cp_phone_number,phoneNumber);
     self.contacts.cp_phone_number = phoneNumber;
@@ -162,6 +162,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     NSInteger index = indexPath.row-2;
     [self.phoneNumbers removeObjectAtIndex:index];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationFade];
     
     NSString* phoneNumber = [self phoneNumbersStringWithArray:self.phoneNumbers];
     CPLogVerbose(@"电话 from:%@ to:%@",self.contacts.cp_phone_number,phoneNumber);
@@ -347,6 +348,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     static NSString *CellIdentifier5 = @"cp_cell_type_5";
     static NSString *CellIdentifier7 = @"cp_cell_type_7";
     static NSString *CellIdentifier8 = @"cp_cell_type_8";
+    static NSString *CellIdentifier9 = @"cp_cell_type_3_0";
     
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_1 = 10001;
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_2 = 10002;
@@ -378,7 +380,12 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     }
     if (indexPath.row==2) {
         // 第一个手机号
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = nil;
+        if (self.phoneNumbers.count > 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier9 forIndexPath:indexPathNormal];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        }
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_PHONE_NUMBER];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
         tf.placeholder = @"输入客户手机号";
@@ -395,7 +402,12 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     if (indexPath.row>=3 && indexPath.row<=self.phoneNumbers.count+1) {
         // 其余手机号
         NSInteger phoneNumberIndex = indexPath.row-2;
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = nil;
+        if (indexPath.row == self.phoneNumbers.count+1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier9 forIndexPath:indexPathNormal];
+        }
         // 分割线
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:@""];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];

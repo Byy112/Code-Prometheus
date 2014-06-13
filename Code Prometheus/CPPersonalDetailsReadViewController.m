@@ -121,6 +121,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 {
     static NSString *CellIdentifier1 = @"cp_cell";
     static NSString *CellIdentifier2 = @"cp_cell_0";
+    static NSString *CellIdentifier3 = @"cp_cell_1";
     
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_1 = 10001;
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_2 = 10002;
@@ -147,7 +148,12 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     }
     if (indexPath.row==2) {
         // 第一个手机号
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = nil;
+        if (self.phoneNumbers.count > 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        }
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_PHONE_NUMBER];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.phoneNumbers?self.phoneNumbers.count==0?@"":self.phoneNumbers[0]:@""];
         return cell;
@@ -155,7 +161,12 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     if (indexPath.row>=3 && indexPath.row<=self.phoneNumbers.count+1) {
         // 其余手机号
         NSInteger phoneNumberIndex = indexPath.row-2;
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = nil;
+        if (indexPath.row == self.phoneNumbers.count+1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
+        }
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:@""];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.phoneNumbers[phoneNumberIndex]];
         return cell;
