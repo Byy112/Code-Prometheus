@@ -114,7 +114,7 @@
         [self.mapView addAnnotation:selectAn];
         [self.mapView selectAnnotation:selectAn animated:YES];
     }
-    if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970])) {
+    if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) && !(fabs(CPDelta_T) > 86400)) {
         // 显示周边人脉
         id<MAAnnotation> objDelete = nil;
         for (id<MAAnnotation> objAn in self.annotationArray) {
@@ -234,6 +234,13 @@
 #pragma mark - Action
 
 -(void) allContactsButtonClick:(id)sender{
+    if (fabs(CPDelta_T) > 86400) {
+        [[TWMessageBarManager sharedInstance] hideAll];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                       description:@"请校正系统时间"
+                                                              type:TWMessageBarMessageTypeInfo];
+        return;
+    }
     if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
         [[TWMessageBarManager sharedInstance] hideAll];
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
@@ -241,7 +248,6 @@
                                                               type:TWMessageBarMessageTypeInfo];
         return;
     }
-    
     self.showAround = !self.showAround;
     [self updateUI];
 }
@@ -288,7 +294,9 @@
 }
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
     if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970])) {
-        [self updateUI];
+        if (!(fabs(CPDelta_T) > 86400)) {
+            [self updateUI];
+        }
     }
 }
 @end

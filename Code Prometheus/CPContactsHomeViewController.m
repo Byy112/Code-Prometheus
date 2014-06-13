@@ -39,10 +39,14 @@
     [super viewWillAppear:animated];
 //    CPLogVerbose(@"license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
     // 检查lisence
-    if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
-        [self setAdvancedFunctionEnable:NO];
+    if (fabs(CPDelta_T) > 86400) {
+        [self setAdvancedFunctionEnable:NO deltaIsWrong:YES];
     }else{
-        [self setAdvancedFunctionEnable:YES];
+        if (!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) {
+            [self setAdvancedFunctionEnable:NO deltaIsWrong:NO];
+        }else{
+            [self setAdvancedFunctionEnable:YES deltaIsWrong:NO];
+        }
     }
     
     if (self.dirty) {
@@ -71,13 +75,23 @@
     }
 }
 
--(void) setAdvancedFunctionEnable:(BOOL)enable{
+
+static BOOL cp_deltaIsWrong = NO;
+-(void) setAdvancedFunctionEnable:(BOOL)enable deltaIsWrong: (BOOL)deltaIsWrong{
+    cp_deltaIsWrong = deltaIsWrong;
     if (!self.tap) {
         self.tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-            [[TWMessageBarManager sharedInstance] hideAll];
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
-                                                           description:@"请登陆并充值"
-                                                                  type:TWMessageBarMessageTypeInfo];
+            if (cp_deltaIsWrong) {
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请校正系统时间"
+                                                                      type:TWMessageBarMessageTypeInfo];
+            }else{
+                [[TWMessageBarManager sharedInstance] hideAll];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"NO"
+                                                               description:@"请登陆并充值"
+                                                                      type:TWMessageBarMessageTypeInfo];
+            }
         }];
         [self.scrollContentView addGestureRecognizer:self.tap];
     }
