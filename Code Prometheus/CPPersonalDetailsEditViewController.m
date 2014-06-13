@@ -43,14 +43,14 @@ static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_NETWORK = @"网络来源";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_TALENT = @"人才市场";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_PEER = @"保险同业";
 #define CP_CONTACTS_CELL_TITLE_SOURCE_ITEM @[CP_CONTACTS_CELL_TITLE_SOURCE_NULL,CP_CONTACTS_CELL_TITLE_SOURCE_QUESTIONNAIRE,CP_CONTACTS_CELL_TITLE_SOURCE_LOT,CP_CONTACTS_CELL_TITLE_SOURCE_PHONE,CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_LOT,CP_CONTACTS_CELL_TITLE_SOURCE_INTRODUCTION,CP_CONTACTS_CELL_TITLE_SOURCE_NETWORK,CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_TALENT,CP_CONTACTS_CELL_TITLE_SOURCE_PEER]
-// 生日
-static NSString* const CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL = @"未定义";
+
+static NSString* const CP_CONTACTS_CELL_TITLE_NULL = @"未定义";
 // 血型
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A = @"A型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B = @"B型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB = @"AB型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
-#define CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM @[CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O]
+#define CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM @[CP_CONTACTS_CELL_TITLE_NULL,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O]
 
 @interface CPPersonalDetailsEditViewController ()<PopoverViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -125,10 +125,8 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 -(void) editContactsName:(UITextField*)sender{
     self.contacts.cp_name = sender.text;
 }
--(void) editContactsSex:(UISwitch*)sender{
-    self.contacts.cp_sex = sender.on?@(0):@(1);
-    NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+-(void) editContactsSex:(UISegmentedControl*)sender{
+    self.contacts.cp_sex = sender.selectedSegmentIndex?@(1):@(0);
 }
 -(void) editContactsPhoneNumber:(UITextField*)sender{
     NSIndexPath* indexPath = [self.tableView indexPathForSender:sender];
@@ -221,27 +219,11 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     self.popoverView.tag = 10001;
     objc_setAssociatedObject(self.popoverView, &CPAssociatedKeyIndexPath, indexPath, OBJC_ASSOCIATION_RETAIN);
 }
--(void) editContactsHeightBefore:(UITextField*)sender{
-    if (sender.text && ![sender.text isEqualToString:@""]) {
-        sender.text = [sender.text substringToIndex:sender.text.length-2];
-    }else{
-        sender.text = @"";
-    }
-}
 -(void) editContactsHeight:(UITextField*)sender{
     self.contacts.cp_height = sender.text;
-    sender.text = [NSString stringWithFormat:@"%@cm",sender.text];
-}
--(void) editContactsWeightBefore:(UITextField*)sender{
-    if (sender.text && ![sender.text isEqualToString:@""]) {
-        sender.text = [sender.text substringToIndex:sender.text.length-2];
-    }else{
-        sender.text = @"";
-    }
 }
 -(void) editContactsWeight:(UITextField*)sender{
     self.contacts.cp_weight = sender.text;
-    sender.text = [NSString stringWithFormat:@"%@kg",sender.text];
 }
 -(void) editContactsHobby:(UITextField*)sender{
     self.contacts.cp_hobby = sender.text;
@@ -274,6 +256,10 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         }
     }
     self.contacts.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
+    // 如果没有性别，默认男性
+    if (!self.contacts.cp_sex) {
+        self.contacts.cp_sex = @(0);
+    }
     if (!self.contactsUUID) {
         // 新增
         [[CPDB getLKDBHelperByUser] insertToDB:self.contacts];
@@ -360,6 +346,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
     static NSString *CellIdentifier4 = @"cp_cell_type_4";
     static NSString *CellIdentifier5 = @"cp_cell_type_5";
     static NSString *CellIdentifier7 = @"cp_cell_type_7";
+    static NSString *CellIdentifier8 = @"cp_cell_type_8";
     
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_1 = 10001;
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_2 = 10002;
@@ -370,6 +357,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_NAME];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"请输入客户姓名";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_name:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -380,12 +368,12 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         // 性别
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_SEX];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts?self.contacts.cp_sex.integerValue==0?CP_CONTACTS_CELL_TITLE_SEX_MAN:CP_CONTACTS_CELL_TITLE_SEX_WOMAN:CP_CONTACTS_CELL_TITLE_SEX_MAN];
-#warning 换成 男女分割器视图
-        UISwitch* sexSwitch = (UISwitch*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3];
-        [sexSwitch setOn:self.contacts?self.contacts.cp_sex.integerValue==0?YES:NO:YES];
-        [sexSwitch removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-        [sexSwitch addTarget:self action:@selector(editContactsSex:) forControlEvents:UIControlEventValueChanged];
+        
+        UISegmentedControl* sc = (UISegmentedControl*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        NSInteger new = self.contacts.cp_sex.integerValue == 1 ? 1 : 0;
+        sc.selectedSegmentIndex = new;
+        [sc removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+        [sc addTarget:self action:@selector(editContactsSex:) forControlEvents:UIControlEventValueChanged];
         return cell;
     }
     if (indexPath.row==2) {
@@ -393,6 +381,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_PHONE_NUMBER];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户手机号";
         tf.keyboardType = UIKeyboardTypeNumberPad;
         [tf setText:self.phoneNumbers?self.phoneNumbers.count==0?@"":self.phoneNumbers[0]:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -410,6 +399,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         // 分割线
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:@""];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户手机号";
         tf.keyboardType = UIKeyboardTypeNumberPad;
         [tf setText:self.phoneNumbers[phoneNumberIndex]];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -440,7 +430,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
             [CP_DF_BIRTHDAY_2 setDateFormat:@"yyyy 年 MM 月 dd 日"];
         }
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
-        NSString* labS = CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL;
+        NSString* labS = CP_CONTACTS_CELL_TITLE_NULL;
         if (self.contacts && self.contacts.cp_birthday && ![self.contacts.cp_birthday isEqualToString:@""]) {
             labS = [CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]];
         }
@@ -490,6 +480,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_WECHAT];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户微信号码";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_weixin:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -501,6 +492,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_QQ];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户QQ号码";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_im:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -512,6 +504,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_EMAIL];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户邮箱";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_email:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -523,33 +516,39 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier5 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE];
         UIButton* button = (UIButton*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
-        [button setTitle:self.contacts?self.contacts.cp_blood_type?CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM[self.contacts.cp_blood_type.integerValue]:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A :CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A forState:UIControlStateNormal];
+        NSString* bloodStr = CP_CONTACTS_CELL_TITLE_NULL;
+        if (self.contacts && self.contacts.cp_blood_type) {
+            bloodStr = CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM[self.contacts.cp_blood_type.integerValue];
+        }
+        [button setTitle:bloodStr forState:UIControlStateNormal];
         [button removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
         [button addTarget:self action:@selector(editContactsBloodType:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     if (indexPath.row==9) {
         // 身高
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier8 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_HEIGHT];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户身高";
         tf.keyboardType = UIKeyboardTypeNumberPad;
-        [tf setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@""];
+        [tf setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?self.contacts.cp_height:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-        [tf addTarget:self action:@selector(editContactsHeightBefore:) forControlEvents:UIControlEventEditingDidBegin];
         [tf addTarget:self action:@selector(editContactsHeight:) forControlEvents:UIControlEventEditingDidEnd];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3] setText:@"cm"];
         return cell;
     }
     if (indexPath.row==10) {
         // 体重
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier8 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_WEIGHT];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户体重";
         tf.keyboardType = UIKeyboardTypeNumberPad;
-        [tf setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@""];
+        [tf setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?self.contacts.cp_weight:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
-        [tf addTarget:self action:@selector(editContactsWeightBefore:) forControlEvents:UIControlEventEditingDidBegin];
         [tf addTarget:self action:@selector(editContactsWeight:) forControlEvents:UIControlEventEditingDidEnd];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3] setText:@"kg"];
         return cell;
     }
     if (indexPath.row==11) {
@@ -557,6 +556,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_HOBBY];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户爱好";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_hobby:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
@@ -568,6 +568,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_NATIVE_PLACE];
         UITextField* tf = (UITextField*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2];
+        tf.placeholder = @"输入客户籍贯";
         tf.keyboardType = UIKeyboardTypeDefault;
         [tf setText:self.contacts?self.contacts.cp_hometown:@""];
         [tf removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];

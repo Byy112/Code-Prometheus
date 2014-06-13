@@ -127,7 +127,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     }
     [rootView addSubview:carButton];
     [carButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(rootView.mas_right).offset(-20);
+        make.right.equalTo(rootView.mas_right).offset(-10);
         make.width.equalTo(@(44));
         make.height.equalTo(@(44));
         make.centerY.equalTo(carTitleLabel.mas_centerY);
@@ -206,7 +206,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     [fenge mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
-        make.height.equalTo(@(1));
+        make.height.equalTo(@(0.5));
         make.top.equalTo(carMaturityDateTitleLabel.mas_bottom).offset(11);
         make.bottom.equalTo(@(0));
     }];

@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gro-Ar-9el">
-                    <rect key="frame" x="148" y="7" width="100" height="30"/>
+                    <rect key="frame" x="148" y="7" width="110" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="uSx-Au-zFO"/>
@@ -42,7 +42,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-sx-YUF">
-                    <rect key="frame" x="256" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="266" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="2yY-sw-HnF"/>
@@ -89,7 +89,7 @@
                 <constraint firstItem="1bL-cq-IbS" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="ODm-8w-1Ps"/>
                 <constraint firstAttribute="trailing" secondItem="Ysp-Cg-g22" secondAttribute="trailing" constant="20" symbolic="YES" id="OZM-Kh-wH2"/>
                 <constraint firstAttribute="trailing" secondItem="Izd-TR-3FH" secondAttribute="trailing" id="ScE-xp-cgM"/>
-                <constraint firstAttribute="trailing" secondItem="XRf-sx-YUF" secondAttribute="trailing" constant="20" symbolic="YES" id="TJR-1Z-ux0"/>
+                <constraint firstAttribute="trailing" secondItem="XRf-sx-YUF" secondAttribute="trailing" constant="10" id="TJR-1Z-ux0"/>
                 <constraint firstItem="XRf-sx-YUF" firstAttribute="centerY" secondItem="WjP-WK-oCh" secondAttribute="centerY" id="aB9-yw-nrJ"/>
                 <constraint firstItem="Gro-Ar-9el" firstAttribute="leading" secondItem="WjP-WK-oCh" secondAttribute="trailing" constant="20" id="jW2-6H-68f"/>
                 <constraint firstItem="WjP-WK-oCh" firstAttribute="top" secondItem="1" secondAttribute="top" constant="11" id="jXW-oB-lM9"/>

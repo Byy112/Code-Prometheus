@@ -190,7 +190,7 @@ static NSString* const CP_DATE_TITLE_NULL = @"未定义";
     [fenge mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
-        make.height.equalTo(@(1));
+        make.height.equalTo(@(0.5));
         make.top.equalTo(carMaturityDateTitleLabel.mas_bottom).offset(11);
         make.bottom.equalTo(@(0));
     }];

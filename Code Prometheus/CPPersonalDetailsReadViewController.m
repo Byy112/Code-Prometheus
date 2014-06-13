@@ -37,14 +37,14 @@ static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_NETWORK = @"网络来源";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_TALENT = @"人才市场";
 static NSString* const CP_CONTACTS_CELL_TITLE_SOURCE_PEER = @"保险同业";
 #define CP_CONTACTS_CELL_TITLE_SOURCE_ITEM @[CP_CONTACTS_CELL_TITLE_SOURCE_NULL,CP_CONTACTS_CELL_TITLE_SOURCE_QUESTIONNAIRE,CP_CONTACTS_CELL_TITLE_SOURCE_LOT,CP_CONTACTS_CELL_TITLE_SOURCE_PHONE,CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_LOT,CP_CONTACTS_CELL_TITLE_SOURCE_INTRODUCTION,CP_CONTACTS_CELL_TITLE_SOURCE_NETWORK,CP_CONTACTS_CELL_TITLE_SOURCE_BAZAAR_TALENT,CP_CONTACTS_CELL_TITLE_SOURCE_PEER]
-// 生日
-static NSString* const CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL = @"未定义";
+
+static NSString* const CP_CONTACTS_CELL_TITLE_NULL = @"未定义";
 // 血型
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A = @"A型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B = @"B型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB = @"AB型";
 static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
-#define CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM @[CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O]
+#define CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM @[CP_CONTACTS_CELL_TITLE_NULL,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_B,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_AB,CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O]
 
 @interface CPPersonalDetailsReadViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -120,9 +120,11 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier1 = @"cp_cell";
+    static NSString *CellIdentifier2 = @"cp_cell_0";
     
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_1 = 10001;
     static NSInteger const CP_CONTACTS_CELL_SUB_TAG_2 = 10002;
+    static NSInteger const CP_CONTACTS_CELL_SUB_TAG_3 = 10003;
     
     NSIndexPath* indexPathNormal = indexPath;
     if (indexPath.row==0) {
@@ -136,7 +138,11 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         // 性别
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_SEX];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts?self.contacts.cp_sex.integerValue==0?CP_CONTACTS_CELL_TITLE_SEX_MAN:CP_CONTACTS_CELL_TITLE_SEX_WOMAN:CP_CONTACTS_CELL_TITLE_SEX_MAN];
+        NSString* sexStr = CP_CONTACTS_CELL_TITLE_NULL;
+        if (self.contacts && self.contacts.cp_sex) {
+            sexStr = self.contacts.cp_sex.integerValue==0?CP_CONTACTS_CELL_TITLE_SEX_MAN:CP_CONTACTS_CELL_TITLE_SEX_WOMAN;
+        }
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:sexStr];
         return cell;
     }
     if (indexPath.row==2) {
@@ -173,7 +179,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
             CP_DF_BIRTHDAY_2 = [[NSDateFormatter alloc] init];
             [CP_DF_BIRTHDAY_2 setDateFormat:@"yyyy 年 MM 月 dd 日"];
         }
-        NSString* labS = CP_CONTACTS_CELL_TITLE_BIRTHDAY_NULL;
+        NSString* labS = CP_CONTACTS_CELL_TITLE_NULL;
         if (self.contacts && self.contacts.cp_birthday && ![self.contacts.cp_birthday isEqualToString:@""]) {
             labS = [CP_DF_BIRTHDAY_2 stringFromDate:[CP_DF_BIRTHDAY_1 dateFromString:self.contacts.cp_birthday]];
         }
@@ -235,21 +241,27 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
         // 血型
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts?self.contacts.cp_blood_type?CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM[self.contacts.cp_blood_type.integerValue]:CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A :CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_A];
+        NSString* bloodStr = CP_CONTACTS_CELL_TITLE_NULL;
+        if (self.contacts && self.contacts.cp_blood_type) {
+            bloodStr = CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_ITEM[self.contacts.cp_blood_type.integerValue];
+        }
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:bloodStr];
         return cell;
     }
     if (indexPath.row==9) {
         // 身高
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_HEIGHT];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?[NSString stringWithFormat:@"%@cm",self.contacts.cp_height]:@""];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?self.contacts.cp_height:@""];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3] setText:self.contacts&&self.contacts.cp_height&&![self.contacts.cp_height isEqualToString:@""]?@"cm":@""];
         return cell;
     }
     if (indexPath.row==10) {
         // 体重
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPathNormal];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPathNormal];
         [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_1] setText:CP_CONTACTS_CELL_TITLE_WEIGHT];
-        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?[NSString stringWithFormat:@"%@kg",self.contacts.cp_weight]:@""];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_2] setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?self.contacts.cp_weight:@""];
+        [(UILabel*)[cell viewWithTag:CP_CONTACTS_CELL_SUB_TAG_3] setText:self.contacts&&self.contacts.cp_weight&&![self.contacts.cp_weight isEqualToString:@""]?@"kg":@""];
         return cell;
     }
     if (indexPath.row==11) {

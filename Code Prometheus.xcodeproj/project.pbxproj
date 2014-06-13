@@ -66,6 +66,7 @@
 		03391D1D18220505009197D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039F30E6180E67E30040E2CC /* Security.framework */; };
 		03391D211822078A009197D4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E2B586181F89A8000A3345 /* MessageUI.framework */; };
 		033A28331862DE1900B0AD79 /* CPAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A28321862DE1900B0AD79 /* CPAccountViewController.m */; };
+		033E29241949AA9200232B82 /* CPSexSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 033E29231949AA9200232B82 /* CPSexSegmentedControl.m */; };
 		03476940187D4FED00FE77D1 /* CPGlobalMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0347693E187D4FED00FE77D1 /* CPGlobalMapViewController.m */; };
 		034A103C190F4867002D5871 /* cp_add_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A103B190F4867002D5871 /* cp_add_1.png */; };
 		034A103E190F48CF002D5871 /* cp_username_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 034A103D190F48CF002D5871 /* cp_username_0.png */; };
@@ -394,6 +395,8 @@
 		03391D1B182204FD009197D4 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		033A28311862DE1900B0AD79 /* CPAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPAccountViewController.h; sourceTree = "<group>"; };
 		033A28321862DE1900B0AD79 /* CPAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPAccountViewController.m; sourceTree = "<group>"; };
+		033E29221949AA9200232B82 /* CPSexSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSexSegmentedControl.h; sourceTree = "<group>"; };
+		033E29231949AA9200232B82 /* CPSexSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSexSegmentedControl.m; sourceTree = "<group>"; };
 		0347693D187D4FEC00FE77D1 /* CPGlobalMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPGlobalMapViewController.h; sourceTree = "<group>"; };
 		0347693E187D4FED00FE77D1 /* CPGlobalMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPGlobalMapViewController.m; sourceTree = "<group>"; };
 		034A103B190F4867002D5871 /* cp_add_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_add_1.png; sourceTree = "<group>"; };
@@ -1384,6 +1387,8 @@
 				038B8C771856B4C300DD0BAC /* CPMettingEditViewController.xib */,
 				030562801948404500D2623D /* CPSeparatorView.h */,
 				030562811948404500D2623D /* CPSeparatorView.m */,
+				033E29221949AA9200232B82 /* CPSexSegmentedControl.h */,
+				033E29231949AA9200232B82 /* CPSexSegmentedControl.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1921,6 +1926,7 @@
 				03EDC02119387B8A001D1885 /* ABCalendarPickerDefaultTripleWeekdaysProvider.m in Sources */,
 				03EAA4601869940900EC911B /* CPResetPasswordByPhoneNumberViewController.m in Sources */,
 				03FB40311851B0D30036501B /* CPMapUtil.m in Sources */,
+				033E29241949AA9200232B82 /* CPSexSegmentedControl.m in Sources */,
 				0325B848185C0D0D00FFF42B /* CPCalendarPickerStyleProvider.m in Sources */,
 				03CE3C1E183E0C0200A964AA /* CPFile.m in Sources */,
 				03F1C59F184F3B8C006C3578 /* CPPolicyEditViewController.m in Sources */,
