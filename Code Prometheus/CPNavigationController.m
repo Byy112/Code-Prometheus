@@ -21,8 +21,7 @@
 {
     [super viewDidLoad];
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
-    self.navigationBar.titleTextAttributes = dict;
+    self.navigationBar.titleTextAttributes = @{UITextAttributeFont:CP_Navigation_Title_Font,UITextAttributeTextColor:CP_Navigation_Title_Color};
     
     self.navigationBar.translucent = NO;
     

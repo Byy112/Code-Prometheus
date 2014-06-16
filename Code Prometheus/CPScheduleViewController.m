@@ -18,6 +18,7 @@
 #import <PopoverView_Configuration.h>
 #import <BlocksKit+UIKit.h>
 #import <DateTools.h>
+#import "CPNavigationController.h"
 
 static char CPAssociatedKeyCellTag;
 static char CPAssociatedKeyTrace;
@@ -174,6 +175,8 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
 - (void) updateNavigationTitle{
     if (!self.navigationItem.titleView) {
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+        [button.titleLabel setFont:CP_Navigation_Title_Font];
         UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
         [button setImage:sortImage forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"cp_sort_1"] forState:UIControlStateHighlighted];

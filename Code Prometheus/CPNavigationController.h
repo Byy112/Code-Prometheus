@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define CP_Navigation_Title_Color [UIColor whiteColor]
+#define CP_Navigation_Title_Font [UIFont boldSystemFontOfSize:17]
+
 @interface CPNavigationController : UINavigationController
 
 @end

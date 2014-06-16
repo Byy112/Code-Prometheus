@@ -16,6 +16,7 @@
 #import "CPOther.h"
 #import "CPFamily.h"
 #import <PopoverView_Configuration.h>
+#import "CPNavigationController.h"
 
 #define CP_ALL_CONTACTS_SORT @[@"按首字母排序",@"按跟进时间排序"]
 
@@ -774,6 +775,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_ALL:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"总人脉" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -811,6 +814,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_ORGANIZATION:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"团险" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -826,6 +831,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_TRAVEL:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"旅行险" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -841,6 +848,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_CAR:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"车险" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -856,6 +865,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_MAN:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"男性客户" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -871,6 +882,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_WOMEN:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"女性客户" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
@@ -886,6 +899,8 @@ static char CPAssociatedKeyPolicy;
         case CP_CONTACTS_GROUP_TAG_CHILD:{
             // 分类按钮
             UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button.titleLabel setTextColor:CP_Navigation_Title_Color];
+            [button.titleLabel setFont:CP_Navigation_Title_Font];
             [button setTitle:@"儿童客户" forState:UIControlStateNormal];
             UIImage* sortImage = [UIImage imageNamed:CP_RESOURCE_IMAGE_SORT_0];
             [button setImage:sortImage forState:UIControlStateNormal];
