@@ -29,14 +29,15 @@
     {
         [UINavigationBar appearance].tintColor = [UIColor whiteColor];
         [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+        
+        [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"cp_back_normal"];
+        [UINavigationBar appearance].backIndicatorTransitionMaskImage = [UIImage imageNamed:@"cp_back_normal"];
+        
+//        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"cp_back_normal"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     else
     {
         self.navigationBar.tintColor = [UIColor colorWithRed:0.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
-    }
-    
-    if (CP_IS_IOS7_AND_UP) {
-        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[[UIImage imageNamed:@"cp_back_normal"] scaleToSize:CP_NAV_IMAGE_SIZE] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     
     self.delegate = self;
@@ -44,11 +45,17 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController.navigationItem.backBarButtonItem.tag == 10000) {
+        return;
+    }
+    
     if (CP_IS_IOS7_AND_UP) {
         viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }else{
-        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"cp_back_normal"] scaleToSize:CP_NAV_IMAGE_SIZE] style:UIBarButtonItemStylePlain target:nil action:nil];
+        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cp_back_normal"] style:UIBarButtonItemStylePlain target:nil action:nil];
     }
+    
+    viewController.navigationItem.backBarButtonItem.tag = 10000;
 
     if (viewController.navigationItem.leftBarButtonItem) {
         [self changeStyleWithLeft:YES navig:viewController.navigationItem];
