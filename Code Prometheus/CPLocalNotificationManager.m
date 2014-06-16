@@ -83,9 +83,12 @@
         [components setHour:12];
         [components setMinute:0];
         [components setSecond:0];
-        NSDate* date = [calendar dateFromComponents:components];
+        NSDate* date = [[calendar dateFromComponents:components] dateBySubtractingDaysMy:CP_ADVANCE_DAYS];
+        if ([date isEarlierThan:[NSDate date]]) {
+            continue;
+        }
         // 提醒的时间
-        notification.fireDate = [date dateBySubtractingDaysMy:CP_ADVANCE_DAYS];
+        notification.fireDate = date;
         notification.repeatInterval = 0;//循环次数，kCFCalendarUnitWeekday一周一次
         notification.timeZone = [NSTimeZone defaultTimeZone];
         notification.applicationIconBadgeNumber = policyList.count; //应用的红色数字
