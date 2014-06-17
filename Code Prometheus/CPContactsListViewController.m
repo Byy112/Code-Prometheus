@@ -1216,7 +1216,7 @@ static char CPAssociatedKeyPolicy;
         textButton.titleLabel.textColor = kTextColor;
         [textButton setTitle:string forState:UIControlStateNormal];
         if ([typeArray indexOfObject:string] == self.sortType) {
-            textButton.backgroundColor = [UIColor colorWithRed:0 green:205/255.0 blue:255/255.0 alpha:1];
+            textButton.backgroundColor = [UIColor colorWithRed:111/255.0 green:233/255.0 blue:226/255.0 alpha:1];
         }
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
@@ -1298,13 +1298,18 @@ static char CPAssociatedKeyPolicy;
     }
     return 0;
 }
+#define CP_ContactsListViewController_COLOR_1 [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:1]
+
+#define CP_ContactsListViewController_COLOR_2 [UIColor colorWithRed:93/255.0 green:171/255.0 blue:242/255.0 alpha:1]
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"cell_contacts";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     // 当此table为过滤table时,cell可能为nil
     if ( cell == nil ) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
-        [cell.detailTextLabel setFont:[UIFont systemFontOfSize:13]];
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
     }
     CPContacts* contacts = [self contactsWithtTable:tableView IndexPath:indexPath];
     if (self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_ALL || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_ORGANIZATION || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_TRAVEL || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_CAR || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_MAN || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_WOMEN || self.groupType.integerValue == CP_CONTACTS_GROUP_TAG_CHILD) {
@@ -1321,15 +1326,15 @@ static char CPAssociatedKeyPolicy;
             cell.textLabel.text = contacts.cp_name;
             if (trace.cp_date == nil) {
                 cell.detailTextLabel.text = nil;
-                cell.detailTextLabel.textColor = [UIColor blackColor];
+                cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
             }else{
                 NSDate* traceDate = [NSDate dateWithTimeIntervalSince1970:trace.cp_date.doubleValue];
                 NSDate* now = [NSDate date];
                 NSComparisonResult compareResult = [traceDate compare:now];
                 if (compareResult == NSOrderedDescending || compareResult == NSOrderedSame) {
-                    cell.detailTextLabel.textColor = [UIColor blueColor];
+                    cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_2;
                 }else{
-                    cell.detailTextLabel.textColor = [UIColor blackColor];
+                    cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
                 }
                 cell.detailTextLabel.text = [CP_DF_Trace stringFromDate:traceDate];
             }
@@ -1344,15 +1349,15 @@ static char CPAssociatedKeyPolicy;
         cell.textLabel.text = contacts.cp_name;
         if (policy.cp_date_begin == nil) {
             cell.detailTextLabel.text = nil;
-            cell.detailTextLabel.textColor = [UIColor blackColor];
+            cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
         }else{
             NSDate* policyBeginDate = [NSDate dateWithTimeIntervalSince1970:policy.cp_date_begin.doubleValue];
             NSDate* now = [NSDate date];
             NSComparisonResult compareResult = [policyBeginDate compare:now];
             if (compareResult == NSOrderedDescending || compareResult == NSOrderedSame) {
-                cell.detailTextLabel.textColor = [UIColor blueColor];
+                cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_2;
             }else{
-                cell.detailTextLabel.textColor = [UIColor blackColor];
+                cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
             }
             cell.detailTextLabel.text = [CP_DF_Trace stringFromDate:policyBeginDate];
         }
@@ -1369,15 +1374,15 @@ static char CPAssociatedKeyPolicy;
         cell.textLabel.text = contacts.cp_name;
         if (trace.cp_date == nil) {
             cell.detailTextLabel.text = nil;
-            cell.detailTextLabel.textColor = [UIColor blackColor];
+            cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
         }else{
             NSDate* traceDate = [NSDate dateWithTimeIntervalSince1970:trace.cp_date.doubleValue];
             NSDate* now = [NSDate date];
             NSComparisonResult compareResult = [traceDate compare:now];
             if (compareResult == NSOrderedDescending || compareResult == NSOrderedSame) {
-                cell.detailTextLabel.textColor = [UIColor blueColor];
+                cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_2;
             }else{
-                cell.detailTextLabel.textColor = [UIColor blackColor];
+                cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
             }
             cell.detailTextLabel.text = [CP_DF_Trace stringFromDate:traceDate];
         }
@@ -1385,10 +1390,10 @@ static char CPAssociatedKeyPolicy;
         cell.textLabel.text = contacts.cp_name;
         if (contacts.cp_birthday == nil) {
             cell.detailTextLabel.text = nil;
-            cell.detailTextLabel.textColor = [UIColor blackColor];
+            cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
         }else{
             cell.detailTextLabel.text = contacts.cp_birthday;
-            cell.detailTextLabel.textColor = [UIColor blackColor];
+            cell.detailTextLabel.textColor = CP_ContactsListViewController_COLOR_1;
         }
     }
     return cell;

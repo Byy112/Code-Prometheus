@@ -406,7 +406,7 @@ typedef NS_ENUM(NSInteger, CP_CELL_TAG) {
         [textButton setImage:[UIImage imageNamed:CP_SCHEDULE_TYPE_IMAGE[[typeArray indexOfObject:string]]] forState:UIControlStateNormal];
         [textButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
         if ([typeArray indexOfObject:string] == self.type) {
-            textButton.backgroundColor = [UIColor colorWithRed:0 green:205/255.0 blue:255/255.0 alpha:1];
+            textButton.backgroundColor = [UIColor colorWithRed:111/255.0 green:233/255.0 blue:226/255.0 alpha:1];
         }
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:kTextColor forState:UIControlStateNormal];
