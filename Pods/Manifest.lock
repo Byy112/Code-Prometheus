@@ -35,6 +35,7 @@ PODS:
     - CocoaLumberjack/Core
   - DACircularProgress (2.2.0)
   - DateTools (1.2.0)
+  - EAIntroView (2.5.0)
   - FDTake (0.1)
   - HPGrowingTextView (1.0.1)
   - iRate (1.10.2)
@@ -104,7 +105,7 @@ PODS:
   - OpenUDID (1.0.0)
   - PinYin4Objc (1.1.1)
   - PopoverView (0.0.1)
-  - PSTCollectionView (1.2.0)
+  - PSTCollectionView (1.2.1)
   - Reachability (3.1.1)
   - RHAddressBook (1.0.4)
   - SDWebImage (3.5.4):
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - BlocksKit (= 2.2.2)
   - CocoaLumberjack (= 1.6.5.1)
   - DateTools (= 1.2.0)
+  - EAIntroView (= 2.5.0)
   - FDTake (= 0.1)
   - HPGrowingTextView (= 1.0.1)
   - iRate (= 1.10.2)
@@ -143,6 +145,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   DateTools: 1765514cd526b2c2ab491b7747df67e0a82e97c1
+  EAIntroView: fba12055cc4b8998a0f982b25003fbaec07d29cc
   FDTake: 0076c62ff3271d51ea1f2121b06c40e8650cb5cb
   HPGrowingTextView: 58b5caa61ff7f3d53b197d9da0361b1c7e09b110
   iRate: 7d204971bab2f727195b868e32e05216fe257681
@@ -157,7 +160,7 @@ SPEC CHECKSUMS:
   OpenUDID: 5a23b7477755efc2d7871b57aa79ba3089c40b74
   PinYin4Objc: b095ffd2a20e8e591abe7af262dfc8892549e09e
   PopoverView: e1757e537fbc4aa7218a867b7bcd777dce4981d5
-  PSTCollectionView: e82c1a71ec6469f88490b674c0f66f0bbf1de001
+  PSTCollectionView: a63299550ad566b579479d07cb5e2bf61148686b
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   RHAddressBook: 819c76f8e5649b81afd581e04a8c659e756ad1d1
   SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
