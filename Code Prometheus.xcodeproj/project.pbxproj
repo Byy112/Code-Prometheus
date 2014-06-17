@@ -16,8 +16,6 @@
 		030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */; };
 		030DACC9193D709200FC7254 /* cp_tab_schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACC8193D709200FC7254 /* cp_tab_schedule@2x.png */; };
 		030DACCB193D70A400FC7254 /* cp_tab_tools@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACCA193D70A400FC7254 /* cp_tab_tools@2x.png */; };
-		030DACCE193DB16400FC7254 /* cp_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030DACCC193DB16400FC7254 /* cp_back_normal@2x.png */; };
-		030F590E193EBFED00BB070B /* cp_add_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F590D193EBFED00BB070B /* cp_add_normal@2x.png */; };
 		030F5910193EC00500BB070B /* cp_edit_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F590F193EC00500BB070B /* cp_edit_normal@2x.png */; };
 		030F5912193EC01500BB070B /* cp_save_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F5911193EC01500BB070B /* cp_save_normal@2x.png */; };
 		030F5914193ED09300BB070B /* cp_cancel_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F5913193ED09300BB070B /* cp_cancel_normal@2x.png */; };
@@ -46,6 +44,8 @@
 		0322EEE51940036900E47AD1 /* cp_sort_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322EEE41940036900E47AD1 /* cp_sort_1@2x.png */; };
 		0325B848185C0D0D00FFF42B /* CPCalendarPickerStyleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0325B847185C0D0C00FFF42B /* CPCalendarPickerStyleProvider.m */; };
 		03263C741861878C00F82002 /* CPPushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03263C731861878C00F82002 /* CPPushMessage.m */; };
+		032C3D98194FD40300607CC1 /* cp_add_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032C3D96194FD40300607CC1 /* cp_add_normal@2x.png */; };
+		032C3D99194FD40300607CC1 /* cp_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 032C3D97194FD40300607CC1 /* cp_back_normal@2x.png */; };
 		0331B52918FCE534004A4BC2 /* AlipayRsaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0331B50D18FCE534004A4BC2 /* AlipayRsaLib.a */; };
 		0331B52A18FCE534004A4BC2 /* Alixpay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0331B50F18FCE534004A4BC2 /* Alixpay.bundle */; };
 		0331B52C18FCE534004A4BC2 /* AlixPaylib_arc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0331B51118FCE534004A4BC2 /* AlixPaylib_arc.a */; };
@@ -323,8 +323,6 @@
 		030DACC6193D707C00FC7254 /* cp_tab_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_map@2x.png"; sourceTree = "<group>"; };
 		030DACC8193D709200FC7254 /* cp_tab_schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_schedule@2x.png"; sourceTree = "<group>"; };
 		030DACCA193D70A400FC7254 /* cp_tab_tools@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_tab_tools@2x.png"; sourceTree = "<group>"; };
-		030DACCC193DB16400FC7254 /* cp_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_back_normal@2x.png"; sourceTree = "<group>"; };
-		030F590D193EBFED00BB070B /* cp_add_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_add_normal@2x.png"; sourceTree = "<group>"; };
 		030F590F193EC00500BB070B /* cp_edit_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_edit_normal@2x.png"; sourceTree = "<group>"; };
 		030F5911193EC01500BB070B /* cp_save_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_save_normal@2x.png"; sourceTree = "<group>"; };
 		030F5913193ED09300BB070B /* cp_cancel_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_cancel_normal@2x.png"; sourceTree = "<group>"; };
@@ -365,6 +363,8 @@
 		0325B847185C0D0C00FFF42B /* CPCalendarPickerStyleProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCalendarPickerStyleProvider.m; sourceTree = "<group>"; };
 		03263C721861878C00F82002 /* CPPushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPushMessage.h; sourceTree = "<group>"; };
 		03263C731861878C00F82002 /* CPPushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPushMessage.m; sourceTree = "<group>"; };
+		032C3D96194FD40300607CC1 /* cp_add_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_add_normal@2x.png"; sourceTree = "<group>"; };
+		032C3D97194FD40300607CC1 /* cp_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_back_normal@2x.png"; sourceTree = "<group>"; };
 		0331B50D18FCE534004A4BC2 /* AlipayRsaLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AlipayRsaLib.a; sourceTree = "<group>"; };
 		0331B50E18FCE534004A4BC2 /* AlixLibService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlixLibService.h; sourceTree = "<group>"; };
 		0331B50F18FCE534004A4BC2 /* Alixpay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Alixpay.bundle; sourceTree = "<group>"; };
@@ -1110,8 +1110,8 @@
 			isa = PBXGroup;
 			children = (
 				034A104B190F4A30002D5871 /* cp_null_photo@2x.png */,
-				030DACCC193DB16400FC7254 /* cp_back_normal@2x.png */,
-				030F590D193EBFED00BB070B /* cp_add_normal@2x.png */,
+				032C3D96194FD40300607CC1 /* cp_add_normal@2x.png */,
+				032C3D97194FD40300607CC1 /* cp_back_normal@2x.png */,
 				030F590F193EC00500BB070B /* cp_edit_normal@2x.png */,
 				030F5911193EC01500BB070B /* cp_save_normal@2x.png */,
 				030F5913193ED09300BB070B /* cp_cancel_normal@2x.png */,
@@ -1641,6 +1641,7 @@
 				0378C8A71918E7E700984CF3 /* cp_map_3.png in Resources */,
 				031E20A717B0851100125321 /* InfoPlist.strings in Resources */,
 				034A104C190F4A30002D5871 /* cp_null_photo@2x.png in Resources */,
+				032C3D99194FD40300607CC1 /* cp_back_normal@2x.png in Resources */,
 				03F8602F1921D56F006EA42E /* cp_home_05_disabled@2x.png in Resources */,
 				0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */,
 				0322EEE51940036900E47AD1 /* cp_sort_1@2x.png in Resources */,
@@ -1650,7 +1651,6 @@
 				03EDC0471938826A001D1885 /* cp_tab_tools_h@2x.png in Resources */,
 				03EDC04E19388C7B001D1885 /* TileTodaySelected.png in Resources */,
 				03E91B14187255160018CFC5 /* CPAboutUsViewController.storyboard in Resources */,
-				030DACCE193DB16400FC7254 /* cp_back_normal@2x.png in Resources */,
 				03F22F98186447260030359E /* CPFindPasswordByPhoneNumberViewController.xib in Resources */,
 				0331B52A18FCE534004A4BC2 /* Alixpay.bundle in Resources */,
 				031E20AF17B0851200125321 /* Default.png in Resources */,
@@ -1660,7 +1660,6 @@
 				03C5B36F18DC2336004CBE3A /* cp_home_01@2x.png in Resources */,
 				031E20B117B0851200125321 /* Default@2x.png in Resources */,
 				03D9F45218507F8B00B95F93 /* CPFamilyMemberEdit.xib in Resources */,
-				030F590E193EBFED00BB070B /* cp_add_normal@2x.png in Resources */,
 				03F860301921D56F006EA42E /* cp_home_06_disabled@2x.png in Resources */,
 				03EDC04D19388C7B001D1885 /* TileToday.png in Resources */,
 				03C5B38918DC242C004CBE3A /* cp_home_light_03@2x.png in Resources */,
@@ -1686,6 +1685,7 @@
 				03F22F93186437A20030359E /* CPFindPasswordViewController.xib in Resources */,
 				03F860311921D56F006EA42E /* cp_home_07_disabled@2x.png in Resources */,
 				03C5B38C18DC242C004CBE3A /* cp_home_light_06@2x.png in Resources */,
+				032C3D98194FD40300607CC1 /* cp_add_normal@2x.png in Resources */,
 				0378C88C1918E52C00984CF3 /* cp_map_list.png in Resources */,
 				0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */,
 				03F8602C1921D56F006EA42E /* cp_home_02_disabled@2x.png in Resources */,
