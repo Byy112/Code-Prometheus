@@ -12,10 +12,11 @@
 #import <MAMapKit/MAMapKit.h>
 #import "CPServer.h"
 #import "CPLocalNotificationManager.h"
+#import <EAIntroView.h>
 
 
 #warning 如果切到后台,继续同步！
-@interface CPAppDelegate()
+@interface CPAppDelegate()<EAIntroDelegate>
 
 @end
 
@@ -77,6 +78,29 @@
     [[CPLocalNotificationManager shared] down];
     
     [CPServer sync];
+    
+    // 引导页
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasIntroduction"]) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasIntroduction"];
+        
+        EAIntroPage *page1 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_01"]]];
+        
+        EAIntroPage *page2 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_02"]]];
+        
+        EAIntroPage *page3 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_03"]]];
+        
+        EAIntroPage *page4 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_04"]]];
+        
+        EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.bounds andPages:@[page1,page2,page3,page4]];
+        intro.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+        intro.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:95/255.0 green:206/255.0 blue:200/255.0 alpha:1];
+        intro.pageControlY = 20;
+        
+        intro.skipButton = nil;
+        [intro setDelegate:self];
+        [intro showInView:self.window animateDuration:0.0];
+    }
 }
 - (void)applicationWillResignActive:(UIApplication *)application{
     CPLogInfo(@"%s",__FUNCTION__);
@@ -148,4 +172,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:CP_HANDLE_OPEN_URL_Notification object:url userInfo:nil];
 	return YES;
 }
+
+//#pragma mark - EAIntroDelegate
+//- (void)introDidFinish:(EAIntroView *)introView {
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasIntroduction"];
+//}
 @end
