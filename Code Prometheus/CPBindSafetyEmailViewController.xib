@@ -34,11 +34,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_email_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="gR5-gG-Rl7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                    <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="Fwh-0r-4Ln"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAH-UI-vEO">
-                                                    <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                    <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -46,14 +49,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="gR5-gG-Rl7" firstAttribute="top" secondItem="RCu-TK-0d5" secondAttribute="top" id="7ur-wA-MeS"/>
+                                                <constraint firstItem="gR5-gG-Rl7" firstAttribute="top" secondItem="RCu-TK-0d5" secondAttribute="top" constant="11" id="7ur-wA-MeS"/>
                                                 <constraint firstAttribute="height" constant="44" id="82M-IX-Ece"/>
-                                                <constraint firstItem="gR5-gG-Rl7" firstAttribute="leading" secondItem="RCu-TK-0d5" secondAttribute="leading" id="C5l-0n-GKo"/>
+                                                <constraint firstItem="gR5-gG-Rl7" firstAttribute="leading" secondItem="RCu-TK-0d5" secondAttribute="leading" constant="6" id="C5l-0n-GKo"/>
                                                 <constraint firstAttribute="bottom" secondItem="DAH-UI-vEO" secondAttribute="bottom" id="X9z-l9-UAY"/>
                                                 <constraint firstItem="DAH-UI-vEO" firstAttribute="top" secondItem="RCu-TK-0d5" secondAttribute="top" id="gdX-ta-5Mc"/>
                                                 <constraint firstAttribute="trailing" secondItem="DAH-UI-vEO" secondAttribute="trailing" id="ih3-7S-D3k"/>
-                                                <constraint firstItem="DAH-UI-vEO" firstAttribute="leading" secondItem="gR5-gG-Rl7" secondAttribute="trailing" id="mjL-PV-XVv"/>
-                                                <constraint firstAttribute="bottom" secondItem="gR5-gG-Rl7" secondAttribute="bottom" id="tnj-dc-NG2"/>
+                                                <constraint firstItem="DAH-UI-vEO" firstAttribute="leading" secondItem="gR5-gG-Rl7" secondAttribute="trailing" constant="6" id="mjL-PV-XVv"/>
+                                                <constraint firstAttribute="bottom" secondItem="gR5-gG-Rl7" secondAttribute="bottom" constant="11" id="tnj-dc-NG2"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ie-Gj-foC">

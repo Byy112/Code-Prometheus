@@ -40,11 +40,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_username_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="MDg-Gu-Evn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                            <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="rpT-Il-GR6"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账户名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-ei-nq3">
-                                                            <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                            <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -52,13 +55,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="MDg-Gu-Evn" firstAttribute="top" secondItem="rf7-Xx-3Cx" secondAttribute="top" id="6mc-Jy-iVA"/>
+                                                        <constraint firstItem="MDg-Gu-Evn" firstAttribute="top" secondItem="rf7-Xx-3Cx" secondAttribute="top" constant="11" id="6mc-Jy-iVA"/>
                                                         <constraint firstAttribute="trailing" secondItem="GoE-ei-nq3" secondAttribute="trailing" id="7ct-zj-4Pu"/>
                                                         <constraint firstAttribute="height" constant="44" id="MhK-WJ-Jyd"/>
-                                                        <constraint firstItem="GoE-ei-nq3" firstAttribute="leading" secondItem="MDg-Gu-Evn" secondAttribute="trailing" id="TVV-Ch-Kje"/>
-                                                        <constraint firstAttribute="bottom" secondItem="MDg-Gu-Evn" secondAttribute="bottom" id="hjF-Yq-35E"/>
+                                                        <constraint firstItem="GoE-ei-nq3" firstAttribute="leading" secondItem="MDg-Gu-Evn" secondAttribute="trailing" constant="6" id="TVV-Ch-Kje"/>
+                                                        <constraint firstAttribute="bottom" secondItem="MDg-Gu-Evn" secondAttribute="bottom" constant="11" id="hjF-Yq-35E"/>
                                                         <constraint firstItem="GoE-ei-nq3" firstAttribute="top" secondItem="rf7-Xx-3Cx" secondAttribute="top" id="nFL-r3-6Pr"/>
-                                                        <constraint firstItem="MDg-Gu-Evn" firstAttribute="leading" secondItem="rf7-Xx-3Cx" secondAttribute="leading" id="qdp-1k-7L4"/>
+                                                        <constraint firstItem="MDg-Gu-Evn" firstAttribute="leading" secondItem="rf7-Xx-3Cx" secondAttribute="leading" constant="6" id="qdp-1k-7L4"/>
                                                         <constraint firstAttribute="bottom" secondItem="GoE-ei-nq3" secondAttribute="bottom" id="tO1-dB-g5s"/>
                                                     </constraints>
                                                 </view>
@@ -67,11 +70,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_password_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="zuP-mC-ifd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                            <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="CMy-p8-9AJ"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码最少六位" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-c2-jhs">
-                                                            <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                            <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -81,11 +87,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Cle-rI-i29"/>
                                                         <constraint firstAttribute="bottom" secondItem="g1S-c2-jhs" secondAttribute="bottom" id="Oty-9C-7z5"/>
-                                                        <constraint firstItem="g1S-c2-jhs" firstAttribute="leading" secondItem="zuP-mC-ifd" secondAttribute="trailing" id="PVN-68-TEI"/>
+                                                        <constraint firstItem="g1S-c2-jhs" firstAttribute="leading" secondItem="zuP-mC-ifd" secondAttribute="trailing" constant="6" id="PVN-68-TEI"/>
                                                         <constraint firstItem="g1S-c2-jhs" firstAttribute="top" secondItem="0ay-id-Ujp" secondAttribute="top" id="Xon-Fs-XtL"/>
-                                                        <constraint firstItem="zuP-mC-ifd" firstAttribute="leading" secondItem="0ay-id-Ujp" secondAttribute="leading" id="dh7-Wa-1zx"/>
-                                                        <constraint firstAttribute="bottom" secondItem="zuP-mC-ifd" secondAttribute="bottom" id="ggf-ka-fhL"/>
-                                                        <constraint firstItem="zuP-mC-ifd" firstAttribute="top" secondItem="0ay-id-Ujp" secondAttribute="top" id="k9z-ax-k1s"/>
+                                                        <constraint firstItem="zuP-mC-ifd" firstAttribute="leading" secondItem="0ay-id-Ujp" secondAttribute="leading" constant="6" id="dh7-Wa-1zx"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zuP-mC-ifd" secondAttribute="bottom" constant="11" id="ggf-ka-fhL"/>
+                                                        <constraint firstItem="zuP-mC-ifd" firstAttribute="top" secondItem="0ay-id-Ujp" secondAttribute="top" constant="11" id="k9z-ax-k1s"/>
                                                         <constraint firstAttribute="trailing" secondItem="g1S-c2-jhs" secondAttribute="trailing" id="m4B-U7-scu"/>
                                                     </constraints>
                                                 </view>
@@ -94,11 +100,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_password_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-Vd-2Ic">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                            <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="ndO-pi-T1y"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N4H-kq-Kb6">
-                                                            <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                            <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -108,11 +117,11 @@
                                                     <constraints>
                                                         <constraint firstItem="N4H-kq-Kb6" firstAttribute="top" secondItem="prg-48-bMr" secondAttribute="top" id="444-vV-5Qy"/>
                                                         <constraint firstAttribute="height" constant="44" id="4rU-sG-urX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="nf1-Vd-2Ic" secondAttribute="bottom" id="K9d-hh-a6b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nf1-Vd-2Ic" secondAttribute="bottom" constant="11" id="K9d-hh-a6b"/>
                                                         <constraint firstAttribute="bottom" secondItem="N4H-kq-Kb6" secondAttribute="bottom" id="Lwd-PC-p6w"/>
-                                                        <constraint firstItem="N4H-kq-Kb6" firstAttribute="leading" secondItem="nf1-Vd-2Ic" secondAttribute="trailing" id="Qhb-lt-pLI"/>
-                                                        <constraint firstItem="nf1-Vd-2Ic" firstAttribute="top" secondItem="prg-48-bMr" secondAttribute="top" id="bVW-q6-nUV"/>
-                                                        <constraint firstItem="nf1-Vd-2Ic" firstAttribute="leading" secondItem="prg-48-bMr" secondAttribute="leading" id="kUV-vS-4lE"/>
+                                                        <constraint firstItem="N4H-kq-Kb6" firstAttribute="leading" secondItem="nf1-Vd-2Ic" secondAttribute="trailing" constant="6" id="Qhb-lt-pLI"/>
+                                                        <constraint firstItem="nf1-Vd-2Ic" firstAttribute="top" secondItem="prg-48-bMr" secondAttribute="top" constant="11" id="bVW-q6-nUV"/>
+                                                        <constraint firstItem="nf1-Vd-2Ic" firstAttribute="leading" secondItem="prg-48-bMr" secondAttribute="leading" constant="6" id="kUV-vS-4lE"/>
                                                         <constraint firstAttribute="trailing" secondItem="N4H-kq-Kb6" secondAttribute="trailing" id="xRx-dJ-Nlx"/>
                                                     </constraints>
                                                 </view>

@@ -36,11 +36,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_phone_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="awI-0c-hpA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                    <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="GzH-oz-7Xp"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fcl-oI-3ls">
-                                                    <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                    <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -50,12 +53,12 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="fcl-oI-3ls" secondAttribute="bottom" id="8ah-lv-qAQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="fcl-oI-3ls" secondAttribute="trailing" id="OQF-JJ-wzh"/>
-                                                <constraint firstItem="awI-0c-hpA" firstAttribute="top" secondItem="oiz-TY-hFQ" secondAttribute="top" id="a1o-tD-ANm"/>
+                                                <constraint firstItem="awI-0c-hpA" firstAttribute="top" secondItem="oiz-TY-hFQ" secondAttribute="top" constant="11" id="a1o-tD-ANm"/>
                                                 <constraint firstItem="fcl-oI-3ls" firstAttribute="top" secondItem="oiz-TY-hFQ" secondAttribute="top" id="mP7-L8-htg"/>
                                                 <constraint firstAttribute="height" constant="44" id="mgB-zL-dpS"/>
-                                                <constraint firstItem="fcl-oI-3ls" firstAttribute="leading" secondItem="awI-0c-hpA" secondAttribute="trailing" id="oMr-3Z-bck"/>
-                                                <constraint firstItem="awI-0c-hpA" firstAttribute="leading" secondItem="oiz-TY-hFQ" secondAttribute="leading" id="oqS-79-dhz"/>
-                                                <constraint firstAttribute="bottom" secondItem="awI-0c-hpA" secondAttribute="bottom" id="xTD-CH-FLz"/>
+                                                <constraint firstItem="fcl-oI-3ls" firstAttribute="leading" secondItem="awI-0c-hpA" secondAttribute="trailing" constant="6" id="oMr-3Z-bck"/>
+                                                <constraint firstItem="awI-0c-hpA" firstAttribute="leading" secondItem="oiz-TY-hFQ" secondAttribute="leading" constant="6" id="oqS-79-dhz"/>
+                                                <constraint firstAttribute="bottom" secondItem="awI-0c-hpA" secondAttribute="bottom" constant="11" id="xTD-CH-FLz"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKz-JK-vt0">
@@ -75,11 +78,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_password_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="GyS-0l-dxZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                    <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="0c6-tH-EMk"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKD-ww-8X0">
-                                                    <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                    <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -88,11 +94,11 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="YKD-ww-8X0" secondAttribute="trailing" id="29G-7h-Gf8"/>
-                                                <constraint firstAttribute="bottom" secondItem="GyS-0l-dxZ" secondAttribute="bottom" id="aWc-Z4-5qR"/>
+                                                <constraint firstAttribute="bottom" secondItem="GyS-0l-dxZ" secondAttribute="bottom" constant="11" id="aWc-Z4-5qR"/>
                                                 <constraint firstItem="YKD-ww-8X0" firstAttribute="top" secondItem="WFM-of-mJF" secondAttribute="top" id="e2x-5A-8aR"/>
-                                                <constraint firstItem="YKD-ww-8X0" firstAttribute="leading" secondItem="GyS-0l-dxZ" secondAttribute="trailing" id="oe1-GY-4Rb"/>
-                                                <constraint firstItem="GyS-0l-dxZ" firstAttribute="top" secondItem="WFM-of-mJF" secondAttribute="top" id="sam-F7-Laa"/>
-                                                <constraint firstItem="GyS-0l-dxZ" firstAttribute="leading" secondItem="WFM-of-mJF" secondAttribute="leading" id="zXq-cM-NTu"/>
+                                                <constraint firstItem="YKD-ww-8X0" firstAttribute="leading" secondItem="GyS-0l-dxZ" secondAttribute="trailing" constant="6" id="oe1-GY-4Rb"/>
+                                                <constraint firstItem="GyS-0l-dxZ" firstAttribute="top" secondItem="WFM-of-mJF" secondAttribute="top" constant="11" id="sam-F7-Laa"/>
+                                                <constraint firstItem="GyS-0l-dxZ" firstAttribute="leading" secondItem="WFM-of-mJF" secondAttribute="leading" constant="6" id="zXq-cM-NTu"/>
                                                 <constraint firstAttribute="bottom" secondItem="YKD-ww-8X0" secondAttribute="bottom" id="zlm-XD-I6n"/>
                                             </constraints>
                                         </view>

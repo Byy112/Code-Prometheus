@@ -39,11 +39,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_username_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="zzq-5n-SGP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                            <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="41F-Ga-T5X"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账户名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAI-s5-evX">
-                                                            <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                            <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -53,10 +56,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="RAI-s5-evX" secondAttribute="bottom" id="3q6-lu-qNM"/>
                                                         <constraint firstAttribute="height" constant="44" id="8r2-gL-9dX"/>
-                                                        <constraint firstItem="RAI-s5-evX" firstAttribute="leading" secondItem="zzq-5n-SGP" secondAttribute="trailing" id="BHH-eT-w4q"/>
-                                                        <constraint firstAttribute="bottom" secondItem="zzq-5n-SGP" secondAttribute="bottom" id="VrY-bV-uaF"/>
-                                                        <constraint firstItem="zzq-5n-SGP" firstAttribute="leading" secondItem="kHK-za-L9j" secondAttribute="leading" id="XZC-pt-sg9"/>
-                                                        <constraint firstItem="zzq-5n-SGP" firstAttribute="top" secondItem="kHK-za-L9j" secondAttribute="top" id="oAW-92-bCg"/>
+                                                        <constraint firstItem="RAI-s5-evX" firstAttribute="leading" secondItem="zzq-5n-SGP" secondAttribute="trailing" constant="6" id="Moj-oN-RqS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zzq-5n-SGP" secondAttribute="bottom" constant="11" id="VrY-bV-uaF"/>
+                                                        <constraint firstItem="zzq-5n-SGP" firstAttribute="leading" secondItem="kHK-za-L9j" secondAttribute="leading" constant="6" id="XZC-pt-sg9"/>
+                                                        <constraint firstItem="zzq-5n-SGP" firstAttribute="top" secondItem="kHK-za-L9j" secondAttribute="top" constant="11" id="oAW-92-bCg"/>
                                                         <constraint firstAttribute="trailing" secondItem="RAI-s5-evX" secondAttribute="trailing" id="oUV-mU-GXS"/>
                                                         <constraint firstItem="RAI-s5-evX" firstAttribute="top" secondItem="kHK-za-L9j" secondAttribute="top" id="z6u-Uc-pOI"/>
                                                     </constraints>
@@ -66,11 +69,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cp_password_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="GeC-oT-R3j">
-                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="44"/>
+                                                            <rect key="frame" x="6" y="11" width="27" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="27" id="8Df-Zj-3Df"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwM-rO-A9G">
-                                                            <rect key="frame" x="54" y="0.0" width="146" height="44"/>
+                                                            <rect key="frame" x="39" y="0.0" width="161" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -78,11 +84,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="GeC-oT-R3j" firstAttribute="leading" secondItem="6mF-Ue-L7c" secondAttribute="leading" id="EEi-3c-w3Q"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GeC-oT-R3j" secondAttribute="bottom" id="Kpp-Bm-uFE"/>
+                                                        <constraint firstItem="GeC-oT-R3j" firstAttribute="leading" secondItem="6mF-Ue-L7c" secondAttribute="leading" constant="6" id="EEi-3c-w3Q"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GeC-oT-R3j" secondAttribute="bottom" constant="11" id="Kpp-Bm-uFE"/>
                                                         <constraint firstItem="wwM-rO-A9G" firstAttribute="top" secondItem="6mF-Ue-L7c" secondAttribute="top" id="SlZ-dw-ZDZ"/>
-                                                        <constraint firstItem="wwM-rO-A9G" firstAttribute="leading" secondItem="GeC-oT-R3j" secondAttribute="trailing" id="ffc-AW-9us"/>
-                                                        <constraint firstItem="GeC-oT-R3j" firstAttribute="top" secondItem="6mF-Ue-L7c" secondAttribute="top" id="gYu-bq-rcH"/>
+                                                        <constraint firstItem="wwM-rO-A9G" firstAttribute="leading" secondItem="GeC-oT-R3j" secondAttribute="trailing" constant="6" id="ffc-AW-9us"/>
+                                                        <constraint firstItem="GeC-oT-R3j" firstAttribute="top" secondItem="6mF-Ue-L7c" secondAttribute="top" constant="11" id="gYu-bq-rcH"/>
                                                         <constraint firstAttribute="height" constant="44" id="iFI-Fh-e7m"/>
                                                         <constraint firstAttribute="trailing" secondItem="wwM-rO-A9G" secondAttribute="trailing" id="mSi-up-luK"/>
                                                         <constraint firstAttribute="bottom" secondItem="wwM-rO-A9G" secondAttribute="bottom" id="tsg-hD-r2u"/>
