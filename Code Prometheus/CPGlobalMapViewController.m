@@ -44,7 +44,7 @@
     UIButton* allContactsButton = [[UIButton alloc] init];
     [self.view addSubview:allContactsButton];
     [allContactsButton addTarget:self action:@selector(allContactsButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [allContactsButton setImage:[UIImage imageNamed:@"cp_map_all_contacts"] forState:UIControlStateNormal];
+    [allContactsButton setImage:[UIImage imageNamed:self.showAround ? @"cp_map_all_contacts" : @"cp_map_all_contacts_0"] forState:UIControlStateNormal];
     [allContactsButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(64));
         make.right.equalTo(@(-8));
@@ -92,6 +92,8 @@
         return;
     }
     self.showAround = !self.showAround;
+    
+    [sender setImage:[UIImage imageNamed:self.showAround ? @"cp_map_all_contacts" : @"cp_map_all_contacts_0"] forState:UIControlStateNormal];
     [self updateUI];
 }
 -(void) localButtonClick:(id)sender{
