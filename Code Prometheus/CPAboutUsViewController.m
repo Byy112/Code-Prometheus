@@ -10,6 +10,7 @@
 #import "CPFeedbackViewController.h"
 #import <iRate.h>
 #import <iVersion.h>
+#import <EAIntroView.h>
 
 @interface CPAboutUsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
@@ -29,7 +30,22 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:{
+            // 欢迎页
+            EAIntroPage *page1 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_01"]]];
             
+            EAIntroPage *page2 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_02"]]];
+            
+            EAIntroPage *page3 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_03"]]];
+            
+            EAIntroPage *page4 = [EAIntroPage pageWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_04"]]];
+            
+            EAIntroView *intro = [[EAIntroView alloc] initWithFrame:[[UIApplication sharedApplication] keyWindow].bounds andPages:@[page1,page2,page3,page4]];
+            intro.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+            intro.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:95/255.0 green:206/255.0 blue:200/255.0 alpha:1];
+            intro.pageControlY = 20;
+            
+            intro.skipButton = nil;
+            [intro showInView:[[UIApplication sharedApplication] keyWindow] animateDuration:0.0];
             break;
         }
         case 1:{
