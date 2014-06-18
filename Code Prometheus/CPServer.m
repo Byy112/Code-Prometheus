@@ -1093,6 +1093,7 @@ Reachability * reach;
             return YES;
         }else{
             CPLogWarn(@"上传文件,服务器返回标记为失败");
+            [wySyncSimple notifyCancelSync];
             return NO;
         }
     }else{
@@ -1110,17 +1111,40 @@ Reachability * reach;
         return;
     }
     
-    CPLogVerbose(@"准备下载文件,url:%@,cp_uuid:%@",url,cp_uuid);
+    CPLogInfo(@"准备下载文件,url:%@,cp_uuid:%@",url,cp_uuid);
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]] options:SDWebImageDownloaderContinueInBackground progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         if (image && finished){
-            CPLogVerbose(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
+            CPLogInfo(@"下载文件成功,url:%@,cp_uuid:%@",url,cp_uuid);
             [[SDImageCache sharedImageCache] storeImage:image forKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,url]];
         }else{
             CPLogWarn(@"下载文件失败,url:%@,cp_uuid:%@",url,cp_uuid);
         }
     }];
+}
+
++(void) deleteFileWithOP:(WYDatabaseOperation*)wydo{
+    CPImage* cpimage = [[CPDB getLKDBHelperByUser] searchSingle:[CPImage class] where:@{@"cp_uuid":wydo.wy_uuid} orderBy:nil];
+    if (cpimage) {
+        CPLogInfo(@"删除文件缓存, uuid:%@",cpimage.cp_uuid);
+        [[SDImageCache sharedImageCache] removeImageForKey:cpimage.cp_uuid];
+        if (cpimage.cp_url) {
+            // 若此图片在数据库中无引用,则从硬盘删除
+            int count = [[CPDB getLKDBHelperByUser] rowCount:[CPImage class] where:@{@"cp_url":cpimage.cp_url}];
+            if (count <= 1) {
+                NSString* urlStr = [NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpimage.cp_url];
+                CPLogInfo(@"删除文件缓存 url:%@",urlStr);
+                [[SDImageCache sharedImageCache] removeImageForKey:urlStr];
+            }else{
+                CPLogWarn(@"此文件 url = %@ ，有%d 条 记录与之对应，不删除缓存",cpimage.cp_url,count);
+            }
+        }else{
+            CPLogWarn(@"此文件只有 uuid = %@，不存在url!无法删除以urk为key的缓存!",cpimage.cp_uuid);
+        }
+    }else{
+        CPLogWarn(@"无法删除文件缓存，因为 uuid = %@ ， 的文件不存在",wydo.wy_uuid);
+    }
 }
 // 更新客户端,服务器时间差 客户端时间-服务器时间
 #warning 若操作队列处理时间很长,此处会有比较大的误差\
@@ -1269,22 +1293,6 @@ Reachability * reach;
         }
         databaseOperation.wy_timestamp = [[operationJson objectForKey:Jk_updatedAt] doubleValue];
         databaseOperation.wy_data = [operationJson objectForKey:Jk_content];
-        // 如果是文件,则进行 删除或者下载
-        NSString* resourceType = [operationJson objectForKey:Jk_resourceType];
-        if ([resourceType isEqualToString:Jk_resourceType_FILE]) {
-            switch (databaseOperation.wy_operation) {
-                case SynchronizationOperationAddOrUpdate:{
-                    // 下载
-                    [self downloadFileWithOP:databaseOperation];
-                    break;
-                }
-                case SynchronizationOperationDelete:{
-                    break;
-                }
-                default:
-                    break;
-            }
-        }
         [result addObject:databaseOperation];
     }
     return result;
@@ -1453,5 +1461,20 @@ Reachability * reach;
         [[NSNotificationCenter defaultCenter] postNotificationName:CPSyncDoneNotification object:nil];
     });
 }
-
+// 执行某个操作前
++(void) downloadWillDoOperation:(WYDatabaseOperation*)op{
+    // 如果是文件,则进行 删除
+    if ([op.wy_tbName isEqualToString:[CPImage getTableName]] && op.wy_operation == SynchronizationOperationDelete) {
+        // 清除本地缓存（如果存在）
+        [self deleteFileWithOP:op];
+    }
+}
+// 执行某个操作后
++(void) downloadDidDoOperation:(WYDatabaseOperation*)op{
+    // 如果是文件,则进行 删除或者下载
+    if ([op.wy_tbName isEqualToString:[CPImage getTableName]] && op.wy_operation == SynchronizationOperationAddOrUpdate) {
+        // 下载
+        [self downloadFileWithOP:op];
+    }
+}
 @end

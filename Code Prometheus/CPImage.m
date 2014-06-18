@@ -50,10 +50,20 @@
 +(void)dbDidIDeleted:(NSObject *)entity result:(BOOL)result{
     [super dbDidIDeleted:entity result:result];
     CPImage* cpimage = (CPImage*)entity;
-    // 若此图片在数据库中无引用,则从硬盘删除
+    CPLogInfo(@"删除文件缓存, uuid:%@",cpimage.cp_uuid);
     [[SDImageCache sharedImageCache] removeImageForKey:cpimage.cp_uuid];
-    if (cpimage.cp_url && [[CPDB getLKDBHelperByUser] rowCount:self where:@{@"cp_url":cpimage.cp_url}] == 0) {
-        [[SDImageCache sharedImageCache] removeImageForKey:[NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpimage.cp_url]];
+    if (cpimage.cp_url) {
+        // 若此图片在数据库中无引用,则从硬盘删除
+        int count = [[CPDB getLKDBHelperByUser] rowCount:[CPImage class] where:@{@"cp_url":cpimage.cp_url}];
+        if (count == 0) {
+            NSString* urlStr = [NSString stringWithFormat:@"%@%@",URL_SERVER_ROOT,cpimage.cp_url];
+            CPLogInfo(@"删除文件缓存 url:%@",urlStr);
+            [[SDImageCache sharedImageCache] removeImageForKey:urlStr];
+        }else{
+            CPLogWarn(@"此文件 url = %@ ，有%d 条 记录与之对应，不删除缓存",cpimage.cp_url,count);
+        }
+    }else{
+        CPLogWarn(@"此文件只有 uuid = %@，不存在url!无法删除以urk为key的缓存!",cpimage.cp_uuid);
     }
 }
 +(void)dbDidInserted:(NSObject *)entity result:(BOOL)result{
