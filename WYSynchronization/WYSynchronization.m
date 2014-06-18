@@ -289,7 +289,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
             }
             _requestJson = [self.synchronizationDelegate c2sRequestJsonWithSynchronization:self operations:self.databaseOperationsForC2S];
             if(_requestJson){
-//                WYLogVerbose(@"上行请求json:%@",_requestJson);
+                WYLogVerbose(@"上行请求json:%@",_requestJson);
                 [request setPostBody:[NSMutableData dataWithData:[_requestJson dataUsingEncoding:NSUTF8StringEncoding]]];
             }
             break;
@@ -346,7 +346,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
     }
     BOOL result = NO;
     NSString* sql = [self sqlWithDatabaseOperation:databaseOperation];
-//    WYLogVerbose(@"执行sql:%@",sql);
+    WYLogVerbose(@"执行sql:%@",sql);
     if(sql){
         LKDBHelper* helper = [CPDB getLKDBHelperByUser];
         @try {
@@ -422,7 +422,7 @@ LKDBHelper* wySyncLKDBHelper = nil;
     _responseJson = [[request responseString] objectFromJSONStringWithParseOptions:JKParseOptionStrict];
     switch (request.tag) {
         case SynchronizationTypeS2CForDatabase:{
-//            WYLogVerbose(@"下行响应json:%@",[request responseString]);
+            WYLogVerbose(@"下行响应json:%@",[request responseString]);
             BOOL ok = [self.synchronizationDelegate s2cIsSuccessWhenRequestFinishWithSynchronization:self Json:_responseJson];
             if(!ok){
                 // 失败
