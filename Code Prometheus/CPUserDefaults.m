@@ -13,13 +13,22 @@
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     NSDictionary * dict = [defs dictionaryRepresentation];
     for (id key in dict) {
-        if ([key isEqualToString:CPDelta_T_Key]) {
-            continue;
+        if ([key isEqualToString:CPUserNameKey] ||
+            [key isEqualToString:CPPasswordKey] ||
+            [key isEqualToString:CPSafetyPhoneNumberKey] ||
+            [key isEqualToString:CPSafetyEmailKey] ||
+            [key isEqualToString:CPMemberNameKey] ||
+            [key isEqualToString:CPProductIdKey] ||
+            [key isEqualToString:CPMemberPriceKey] ||
+            [key isEqualToString:CPMemberRoomKey] ||
+            [key isEqualToString:CPMemberTimeKey] ||
+            [key isEqualToString:CPMemberUsageKey] ||
+            [key isEqualToString:CPMemberUsePercentKey] ||
+            [key isEqualToString:CPMemberLeftRoomKey] ||
+            [key isEqualToString:CPMemberBalanceKey] ||
+            [key isEqualToString:CPMemberLicenseKey]) {
+            [defs removeObjectForKey:key];
         }
-        if ([key isEqualToString:CPLastSendSMSTimeIntervalKey]) {
-            continue;
-        }
-        [defs removeObjectForKey:key];
     }
     [defs synchronize];
 }
