@@ -95,7 +95,7 @@
 -(IBAction)telAction:(UIButton*)sender{
     NSString *number = self.contacts.cp_phone_number;
     if (number && ![number isEqualToString:@""]) {
-        NSArray* numbers = [number componentsSeparatedByString:@" "];
+        NSArray* numbers = [number componentsSeparatedByString:@","];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];
             self.popoverView.tag = 0;
@@ -117,7 +117,7 @@
 -(IBAction)smsAction:(UIButton*)sender{
     NSString *number = self.contacts.cp_phone_number;
     if (number && ![number isEqualToString:@""]) {
-        NSArray* numbers = [number componentsSeparatedByString:@" "];
+        NSArray* numbers = [number componentsSeparatedByString:@","];
         if (numbers.count>1) {
             self.popoverView = [PopoverView showPopoverAtPoint:[sender center] inView:[sender superview] withStringArray:numbers delegate:self];
             self.popoverView.tag = 1;
@@ -162,7 +162,7 @@
     switch (popoverView.tag) {
         case 0:{
             // 电话
-            NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@" "];
+            NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@","];
             [UIAlertView bk_showAlertViewWithTitle:@"拨打电话" message:[NSString stringWithFormat:@"确认是否拨打电话 %@",numbers[index]] cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",numbers[index]];
@@ -174,7 +174,7 @@
         }
         case 1:{
             // 短信
-            NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@" "];
+            NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@","];
             NSString *num = [[NSString alloc] initWithFormat:@"sms://%@",numbers[index]];
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:num]];
             break;

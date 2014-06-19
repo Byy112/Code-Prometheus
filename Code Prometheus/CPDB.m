@@ -116,7 +116,7 @@ static LKDBHelper* cpLKDBHelper;
                         int number = randomNumber(0,9);
                         [numbers appendFormat:@"%d",number];
                     }
-                    [numbers appendString:@" "];
+                    [numbers appendString:@","];
                 }
                 if (numbers.length>0) {
                     NSRange range;

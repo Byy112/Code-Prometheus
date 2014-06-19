@@ -98,7 +98,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 
 -(void) initPhoneNumbers{
     if (self.contacts && self.contacts.cp_phone_number) {
-        NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@" "];
+        NSArray* numbers = [self.contacts.cp_phone_number componentsSeparatedByString:@","];
         if (numbers && numbers.count>0) {
             self.phoneNumbers = [NSMutableArray arrayWithArray:numbers];
             return;
@@ -110,7 +110,7 @@ static NSString* const CP_CONTACTS_CELL_TITLE_BLOOD_TYPE_O = @"O型";
 -(NSMutableString*) phoneNumbersStringWithArray:(NSArray*)array{
     NSMutableString* phoneNumber = [NSMutableString string];
     for (NSString * num in self.phoneNumbers) {
-        [phoneNumber appendFormat:@"%@ ",num];
+        [phoneNumber appendFormat:@"%@,",num];
     }
     if (![phoneNumber isEqualToString:@""]) {
         NSRange range;
