@@ -161,7 +161,10 @@
                 contacts.cp_name = person.name;
                 NSMutableString* phoneNumbers = [NSMutableString string];
                 for (NSString* number in person.phoneNumbers.values) {
-                    [phoneNumbers appendFormat:@"%@,",number];
+                    NSString* numberRight = [number stringByReplacingOccurrencesOfString:@" " withString:@""];
+                    numberRight = [numberRight stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                    CPLogVerbose(@"%@ -> %@",person.name,numberRight);
+                    [phoneNumbers appendFormat:@"%@,",numberRight];
                 }
                 if (phoneNumbers.length>0) {
                     NSRange r;
