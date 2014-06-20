@@ -27,7 +27,7 @@
 }
 -(void) prepareLog{
     // 控制台
-    [DDLog addLogger:[DDTTYLogger sharedInstance]withLogLevel:LOG_LEVEL_DEBUG];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]withLogLevel:LOG_LEVEL_VERBOSE];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     // 文件
     DDFileLogger* fileLogger = [[DDFileLogger alloc] init];

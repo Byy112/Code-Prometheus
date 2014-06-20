@@ -209,20 +209,10 @@ LKDBHelper* wySyncLKDBHelper = nil;
     dbOperation.wy_uuid = [entity syncOperationUUID];
     dbOperation.wy_primary_key = [[entity class] syncOperationPrimaryKey];
     dbOperation.wy_data = [entity syncDataContent];
+    CPLogVerbose(@"生成操作队列(replace):%@",dbOperation);
     [globalHelper insertToDB:dbOperation];
 }
-//+(void) notifyCreatOperation:(SynchronizationOperation)op dbName:(NSString *)dbName tbName:(NSString*)tbName timestamp:(NSTimeInterval)timestamp uuid:(NSString*)uuid primaryKey:(NSString*)key data:(NSString*)data{
-//    LKDBHelper* globalHelper = [WYSynchronization getLKDBHelperForSync];
-//    WYDatabaseOperation* dbOperation = [WYDatabaseOperation new];
-//    dbOperation.wy_operation = op;
-//    dbOperation.wy_dbName = dbName;
-//    dbOperation.wy_tbName = tbName;
-//    dbOperation.wy_timestamp = timestamp;
-//    dbOperation.wy_uuid = uuid;
-//    dbOperation.wy_primary_key = key;
-//    dbOperation.wy_data = data;
-//    [globalHelper insertToDB:dbOperation];
-//}
+
 +(void) notifyDeleteEntity:(NSObject *)entity{
     LKDBHelper* globalHelper = [WYSynchronization getLKDBHelperForSync];
     WYDatabaseOperation* dbOperation = [WYDatabaseOperation new];
@@ -233,12 +223,8 @@ LKDBHelper* wySyncLKDBHelper = nil;
     dbOperation.wy_uuid = [entity syncOperationUUID];
     dbOperation.wy_primary_key = [[entity class] syncOperationPrimaryKey];
     dbOperation.wy_data = @"";
+    CPLogVerbose(@"生成操作队列(delete):%@",dbOperation);
     [globalHelper insertToDB:dbOperation];
-}
-
-+(void) replaceSyncOperation:(WYDatabaseOperation*)op{
-    LKDBHelper* globalHelper = [WYSynchronization getLKDBHelperForSync];
-    [globalHelper insertToDB:op];
 }
 
 #pragma mark private

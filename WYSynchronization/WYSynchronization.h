@@ -128,9 +128,5 @@ NSString* nameFromSynchronizationType(SynchronizationType type);
 +(void) notifyReplaceEntity:(NSObject *)entity;
 // 生成删除 操作队列
 +(void) notifyDeleteEntity:(NSObject *)entity;
-//// 生成操作队列
-//+(void) notifyCreatOperation:(SynchronizationOperation)op dbName:(NSString *)dbName tbName:(NSString*)tbName timestamp:(NSTimeInterval)timestamp uuid:(NSString*)uuid primaryKey:(NSString*)key data:(NSString*)data;
-
-+(void) replaceSyncOperation:(WYDatabaseOperation*)op;
 
 @end
