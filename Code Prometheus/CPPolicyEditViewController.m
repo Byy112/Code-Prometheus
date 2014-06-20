@@ -284,16 +284,18 @@ static const CGFloat kImageSpacing = 5;
     self.policy.cp_timestamp = @([CPServer getServerTimeByDelta_t]);
     if (!self.policyUUID) {
         // 新增
+        // 保单
+        [[CPDB getLKDBHelperByUser] insertToDB:self.policy];
         // 图片
         for (CPImage* image in self.files) {
             [[CPDB getLKDBHelperByUser] insertToDB:image];
         }
-        // 保单
-        [[CPDB getLKDBHelperByUser] insertToDB:self.policy];
         // 返回
         [self.navigationController popViewControllerAnimated:YES];
     } else{
         // 修改
+        // 保单
+        [[CPDB getLKDBHelperByUser] updateToDB:self.policy where:nil];
         // 图片
         NSMutableArray* fileInDB = [[CPDB getLKDBHelperByUser] search:[CPImage class] where:@{@"cp_r_uuid":self.policyUUID} orderBy:nil offset:0 count:-1];
         // 添加图片
@@ -310,8 +312,6 @@ static const CGFloat kImageSpacing = 5;
             }
             [[CPDB getLKDBHelperByUser] deleteToDB:image];
         }
-        // 保单
-        [[CPDB getLKDBHelperByUser] updateToDB:self.policy where:nil];
         // 返回
         [self.navigationController popViewControllerAnimated:NO];
     }
