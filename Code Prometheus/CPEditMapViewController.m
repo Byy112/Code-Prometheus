@@ -51,9 +51,9 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
 //    self.searchDisplayController.searchBar.text = self.name;
     
     // 长按手势
-    UILongPressGestureRecognizer *btnLongTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
-    btnLongTap.minimumPressDuration = 0.5;
-    [self.view addGestureRecognizer:btnLongTap];
+//    UILongPressGestureRecognizer *btnLongTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+//    btnLongTap.minimumPressDuration = 0.5;
+//    [self.view addGestureRecognizer:btnLongTap];
     
     self.goUserLocation = self.cpAnnotation == nil;
     self.goPoint = self.cpAnnotation != nil;
