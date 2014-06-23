@@ -45,10 +45,14 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if (viewController.navigationItem.backBarButtonItem.tag == 10000) {
+    // IOS 6 不改变样式
+    if (!CP_IS_IOS7_AND_UP) {
         return;
     }
     
+    if (viewController.navigationItem.backBarButtonItem.tag == 10000) {
+        return;
+    }
     if (CP_IS_IOS7_AND_UP) {
         viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }else{
