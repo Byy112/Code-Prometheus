@@ -382,10 +382,14 @@ LKDBHelper* wySyncLKDBHelper = nil;
             for (NSString* e_key in entity.allKeys) {
                 [keys appendFormat:@"%@,",e_key];
                 id e_value = [entity objectForKey:e_key];
-                if ([e_value isKindOfClass:[NSString class]]) {
-                    e_value = [e_value stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+                if ([e_value isKindOfClass:[NSNull class]]) {
+                    [values appendFormat:@"NULL,"];
+                }else{
+                    if ([e_value isKindOfClass:[NSString class]]) {
+                        e_value = [e_value stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+                    }
+                    [values appendFormat:@"'%@',",e_value];
                 }
-                [values appendFormat:@"'%@',",e_value];
             }
             if (keys.length !=0 && values.length != 0) {
                 sql = [NSString stringWithFormat:REPLACE_SQL,databaseOperation.wy_tbName,[keys substringToIndex:([keys length]-1)],[values substringToIndex:([values length]-1)]];

@@ -70,17 +70,8 @@ NSString *const CP_ENTITY_OPERATION_KEY = @"CP_ENTITY_OPERATION_KEY";
     for (int i=0; i<infos.count; i++) {
         LKDBProperty* property = [infos objectWithIndex:i];
         id value = [self modelValueWithProperty:property model:entity];
-        if (!value || value==[NSNull null]) {
-            if ([property.propertyType isEqualToString:@"NSNumber"]) {
-                value = @(0);
-            }else if([property.propertyType isEqualToString:@"int"]){
-                value = @(0);
-            }else if ([property.propertyType isEqualToString:@"NSString"]){
-                value = @"";
-            }else{
-                value = @"";
-                CPLogWarn(@"同步模块，生成操作队列警告，无法解析 %@",property.propertyType);
-            }
+        if (!value) {
+            value = [NSNull null];
         }
         [kv setObject:value forKey:property.sqlColumeName];
     }
