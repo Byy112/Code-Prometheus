@@ -23,6 +23,13 @@
 		0311827218E96C6600979264 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827018E96C6600979264 /* AMapSearchKit.framework */; };
 		0311827318E96C6600979264 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0311827118E96C6600979264 /* MAMapKit.framework */; };
 		0311827518E96D0600979264 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0311827418E96D0600979264 /* AMap.bundle */; };
+		0317DA0B195955F800D11264 /* CPCalloutTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317DA07195955F800D11264 /* CPCalloutTableView.m */; };
+		0317DA0C195955F800D11264 /* CPCalloutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317DA09195955F800D11264 /* CPCalloutTableViewCell.m */; };
+		0317DA0D195955F800D11264 /* CPCalloutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0317DA0A195955F800D11264 /* CPCalloutTableViewCell.xib */; };
+		0317DA111959605C00D11264 /* CPCalloutTableViewCellNoImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317DA0F1959605C00D11264 /* CPCalloutTableViewCellNoImage.m */; };
+		0317DA121959605C00D11264 /* CPCalloutTableViewCellNoImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0317DA101959605C00D11264 /* CPCalloutTableViewCellNoImage.xib */; };
+		0317DA1519596EA700D11264 /* cp_map_company@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317DA1319596EA700D11264 /* cp_map_company@2x.png */; };
+		0317DA1619596EA700D11264 /* cp_map_family@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0317DA1419596EA700D11264 /* cp_map_family@2x.png */; };
 		03192E491904E8D200813646 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03192E481904E8D200813646 /* Images.xcassets */; };
 		031A4AE2192C9CF1005DAA67 /* CPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 031A4AE1192C9CF1005DAA67 /* CPLocalNotificationManager.m */; };
 		031AB559192328E6001F78CF /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 031AB54E192328E6001F78CF /* License.txt */; };
@@ -86,7 +93,6 @@
 		036513B518473073006389FA /* CPContactsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513B418473073006389FA /* CPContactsDetailViewController.m */; };
 		036513BE18473B41006389FA /* CPPersonalDetailsReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036513BD18473B41006389FA /* CPPersonalDetailsReadViewController.m */; };
 		0365B63F191092E1009D55EE /* CPAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B63E191092E1009D55EE /* CPAnnotationView.m */; };
-		0365B643191094F0009D55EE /* CPCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0365B642191094F0009D55EE /* CPCustomCalloutView.m */; };
 		036C1E3718F51FF200D5EDB0 /* CPContactsInMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036C1E3518F51FF200D5EDB0 /* CPContactsInMapTableViewController.m */; };
 		036C1E3818F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036C1E3618F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib */; };
 		0378C8881918E3CC00984CF3 /* cp_email_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8871918E3CC00984CF3 /* cp_email_0.png */; };
@@ -96,8 +102,6 @@
 		0378C8901918E54000984CF3 /* cp_map_all_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C88E1918E54000984CF3 /* cp_map_all_contacts@2x.png */; };
 		0378C8931918E56A00984CF3 /* cp_map_local.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8911918E56A00984CF3 /* cp_map_local.png */; };
 		0378C8941918E56A00984CF3 /* cp_map_local@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8921918E56A00984CF3 /* cp_map_local@2x.png */; };
-		0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8951918E61D00984CF3 /* cp_map_company.png */; };
-		0378C8981918E64300984CF3 /* cp_map_family.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8971918E64300984CF3 /* cp_map_family.png */; };
 		0378C89B1918E69A00984CF3 /* cp_map_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8991918E69A00984CF3 /* cp_map_0.png */; };
 		0378C89F1918E7A400984CF3 /* cp_map_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C89D1918E7A400984CF3 /* cp_map_1.png */; };
 		0378C8A31918E7C900984CF3 /* cp_map_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0378C8A11918E7C900984CF3 /* cp_map_2.png */; };
@@ -335,6 +339,16 @@
 		0311827018E96C6600979264 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = map/AMapSearchKit.framework; sourceTree = "<group>"; };
 		0311827118E96C6600979264 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = map/MAMapKit.framework; sourceTree = "<group>"; };
 		0311827418E96D0600979264 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = ../map/MAMapKit.framework/Versions/2.2.0.1498.60159/Resources/AMap.bundle; sourceTree = "<group>"; };
+		0317DA06195955F800D11264 /* CPCalloutTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCalloutTableView.h; sourceTree = "<group>"; };
+		0317DA07195955F800D11264 /* CPCalloutTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCalloutTableView.m; sourceTree = "<group>"; };
+		0317DA08195955F800D11264 /* CPCalloutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCalloutTableViewCell.h; sourceTree = "<group>"; };
+		0317DA09195955F800D11264 /* CPCalloutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCalloutTableViewCell.m; sourceTree = "<group>"; };
+		0317DA0A195955F800D11264 /* CPCalloutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPCalloutTableViewCell.xib; sourceTree = "<group>"; };
+		0317DA0E1959605C00D11264 /* CPCalloutTableViewCellNoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCalloutTableViewCellNoImage.h; sourceTree = "<group>"; };
+		0317DA0F1959605C00D11264 /* CPCalloutTableViewCellNoImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCalloutTableViewCellNoImage.m; sourceTree = "<group>"; };
+		0317DA101959605C00D11264 /* CPCalloutTableViewCellNoImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPCalloutTableViewCellNoImage.xib; sourceTree = "<group>"; };
+		0317DA1319596EA700D11264 /* cp_map_company@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_company@2x.png"; sourceTree = "<group>"; };
+		0317DA1419596EA700D11264 /* cp_map_family@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_family@2x.png"; sourceTree = "<group>"; };
 		03192E481904E8D200813646 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		031A4AE0192C9CF1005DAA67 /* CPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPLocalNotificationManager.h; sourceTree = "<group>"; };
 		031A4AE1192C9CF1005DAA67 /* CPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPLocalNotificationManager.m; sourceTree = "<group>"; };
@@ -430,8 +444,6 @@
 		036513BD18473B41006389FA /* CPPersonalDetailsReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPersonalDetailsReadViewController.m; sourceTree = "<group>"; };
 		0365B63D191092E0009D55EE /* CPAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPAnnotationView.h; sourceTree = "<group>"; };
 		0365B63E191092E1009D55EE /* CPAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPAnnotationView.m; sourceTree = "<group>"; };
-		0365B641191094F0009D55EE /* CPCustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPCustomCalloutView.h; sourceTree = "<group>"; };
-		0365B642191094F0009D55EE /* CPCustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPCustomCalloutView.m; sourceTree = "<group>"; };
 		036C1E3418F51FF200D5EDB0 /* CPContactsInMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPContactsInMapTableViewController.h; sourceTree = "<group>"; };
 		036C1E3518F51FF200D5EDB0 /* CPContactsInMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPContactsInMapTableViewController.m; sourceTree = "<group>"; };
 		036C1E3618F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPContactsInMapTableViewController.xib; sourceTree = "<group>"; };
@@ -442,8 +454,6 @@
 		0378C88E1918E54000984CF3 /* cp_map_all_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_all_contacts@2x.png"; sourceTree = "<group>"; };
 		0378C8911918E56A00984CF3 /* cp_map_local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_local.png; sourceTree = "<group>"; };
 		0378C8921918E56A00984CF3 /* cp_map_local@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cp_map_local@2x.png"; sourceTree = "<group>"; };
-		0378C8951918E61D00984CF3 /* cp_map_company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_company.png; sourceTree = "<group>"; };
-		0378C8971918E64300984CF3 /* cp_map_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_family.png; sourceTree = "<group>"; };
 		0378C8991918E69A00984CF3 /* cp_map_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_0.png; sourceTree = "<group>"; };
 		0378C89D1918E7A400984CF3 /* cp_map_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_1.png; sourceTree = "<group>"; };
 		0378C8A11918E7C900984CF3 /* cp_map_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cp_map_2.png; sourceTree = "<group>"; };
@@ -1110,8 +1120,14 @@
 				03FB40281851A9BC0036501B /* BaseMapViewController.m */,
 				0365B63D191092E0009D55EE /* CPAnnotationView.h */,
 				0365B63E191092E1009D55EE /* CPAnnotationView.m */,
-				0365B641191094F0009D55EE /* CPCustomCalloutView.h */,
-				0365B642191094F0009D55EE /* CPCustomCalloutView.m */,
+				0317DA06195955F800D11264 /* CPCalloutTableView.h */,
+				0317DA07195955F800D11264 /* CPCalloutTableView.m */,
+				0317DA08195955F800D11264 /* CPCalloutTableViewCell.h */,
+				0317DA09195955F800D11264 /* CPCalloutTableViewCell.m */,
+				0317DA0A195955F800D11264 /* CPCalloutTableViewCell.xib */,
+				0317DA0E1959605C00D11264 /* CPCalloutTableViewCellNoImage.h */,
+				0317DA0F1959605C00D11264 /* CPCalloutTableViewCellNoImage.m */,
+				0317DA101959605C00D11264 /* CPCalloutTableViewCellNoImage.xib */,
 			);
 			name = MapHelper;
 			sourceTree = "<group>";
@@ -1163,8 +1179,8 @@
 				0378C8921918E56A00984CF3 /* cp_map_local@2x.png */,
 				0378C88B1918E52C00984CF3 /* cp_map_list.png */,
 				0378C8891918E4BB00984CF3 /* cp_map_list@2x.png */,
-				0378C8951918E61D00984CF3 /* cp_map_company.png */,
-				0378C8971918E64300984CF3 /* cp_map_family.png */,
+				0317DA1319596EA700D11264 /* cp_map_company@2x.png */,
+				0317DA1419596EA700D11264 /* cp_map_family@2x.png */,
 				0378C8991918E69A00984CF3 /* cp_map_0.png */,
 				03B287D6195127A1008AE894 /* cp_map_0@2x.png */,
 				0378C89D1918E7A400984CF3 /* cp_map_1.png */,
@@ -1656,6 +1672,7 @@
 				03C5B38718DC242C004CBE3A /* cp_home_light_01@2x.png in Resources */,
 				03EAA4571869392600EC911B /* CPFindPasswordByEmailViewController.xib in Resources */,
 				0378C8941918E56A00984CF3 /* cp_map_local@2x.png in Resources */,
+				0317DA121959605C00D11264 /* CPCalloutTableViewCellNoImage.xib in Resources */,
 				03EDC03019387DC0001D1885 /* GradientBar.png in Resources */,
 				0378C8A71918E7E700984CF3 /* cp_map_3.png in Resources */,
 				031E20A717B0851100125321 /* InfoPlist.strings in Resources */,
@@ -1690,7 +1707,6 @@
 				032C3DC51950151400607CC1 /* intro_03@2x.png in Resources */,
 				030F5914193ED09300BB070B /* cp_cancel_normal@2x.png in Resources */,
 				03B5CE6318E2A9A800151F11 /* 记事本.txt in Resources */,
-				0378C8961918E61D00984CF3 /* cp_map_company.png in Resources */,
 				031AB55A192328E6001F78CF /* Readme.md in Resources */,
 				03C5B37018DC2336004CBE3A /* cp_home_02@2x.png in Resources */,
 				03F22D001868446600C18DAD /* CPBindSafetyEmailViewController.xib in Resources */,
@@ -1701,6 +1717,7 @@
 				033425CA1871108400518C7B /* CPConsumptionLogViewController.storyboard in Resources */,
 				03F22CF618681C8400C18DAD /* CPBindSafetyPhoneNumberViewController.xib in Resources */,
 				034A103E190F48CF002D5871 /* cp_username_0.png in Resources */,
+				0317DA1619596EA700D11264 /* cp_map_family@2x.png in Resources */,
 				036C1E3818F51FF200D5EDB0 /* CPContactsInMapTableViewController.xib in Resources */,
 				03C5B36018DBF4FF004CBE3A /* cp_schedule_red@2x.png in Resources */,
 				031E20B317B0851200125321 /* Default-568h@2x.png in Resources */,
@@ -1743,7 +1760,7 @@
 				03EDC02E19387BC1001D1885 /* TileNormal.png in Resources */,
 				03056289194859E600D2623D /* cp_add_0@2x.png in Resources */,
 				03C5B37A18DC2336004CBE3A /* cp_home_12@2x.png in Resources */,
-				0378C8981918E64300984CF3 /* cp_map_family.png in Resources */,
+				0317DA0D195955F800D11264 /* CPCalloutTableViewCell.xib in Resources */,
 				037D51301871440000B740A3 /* CPMyProductViewController.xib in Resources */,
 				030DACC7193D707C00FC7254 /* cp_tab_map@2x.png in Resources */,
 				03D90121186D5A3200925CE1 /* CPAccountRechargeViewController.storyboard in Resources */,
@@ -1766,6 +1783,7 @@
 				03F2EE6B1855A0F200E003F5 /* CPFamilyMemberReadViewController.xib in Resources */,
 				034A1056190F4B58002D5871 /* cp_radio_yes.png in Resources */,
 				0349380C194ED73600C218BD /* cp_contacts_detail_call@2x.png in Resources */,
+				0317DA1519596EA700D11264 /* cp_map_company@2x.png in Resources */,
 				0349380D194ED73600C218BD /* cp_contacts_detail_email@2x.png in Resources */,
 				03F860351921D56F006EA42E /* cp_home_11_disabled@2x.png in Resources */,
 				03C5B39018DC242C004CBE3A /* cp_home_light_10@2x.png in Resources */,
@@ -1864,6 +1882,7 @@
 				03CE3BFA183DE0B000A964AA /* CPNavigationController.m in Sources */,
 				03F7BC94194AD03F00ABFF0C /* CPContactsValueTextField.m in Sources */,
 				0361437A184359A300B433DC /* NSString+CP_Aleph.m in Sources */,
+				0317DA0B195955F800D11264 /* CPCalloutTableView.m in Sources */,
 				03D9466218601ECE00FA4626 /* CPContactsListForReferViewController.m in Sources */,
 				036513B518473073006389FA /* CPContactsDetailViewController.m in Sources */,
 				030552E5185AEE3E00C2534C /* CPScheduleViewController.m in Sources */,
@@ -1952,6 +1971,7 @@
 				03FE3C7A17F808A30089AE4E /* CP_DB_Info.m in Sources */,
 				03F22CFF1868446600C18DAD /* CPBindSafetyEmailViewController.m in Sources */,
 				03EDC01D19387B8A001D1885 /* ABCalendarPickerDefaultErasProvider.m in Sources */,
+				0317DA111959605C00D11264 /* CPCalloutTableViewCellNoImage.m in Sources */,
 				03EFA15A17F9247200BEFB52 /* WYDatabaseOperation.m in Sources */,
 				038B8C781856B4C300DD0BAC /* CPMettingEditViewController.m in Sources */,
 				03EFA15C17F9247200BEFB52 /* WYSynchronization.m in Sources */,
@@ -1967,7 +1987,6 @@
 				03DA5C0E183F571F0005E5AF /* CPTabBarController.m in Sources */,
 				030772251803EA8900048A53 /* CPDB.m in Sources */,
 				03D9011E186D575700925CE1 /* CPAccountRechargeViewController.m in Sources */,
-				0365B643191094F0009D55EE /* CPCustomCalloutView.m in Sources */,
 				03EDC02119387B8A001D1885 /* ABCalendarPickerDefaultTripleWeekdaysProvider.m in Sources */,
 				03EAA4601869940900EC911B /* CPResetPasswordByPhoneNumberViewController.m in Sources */,
 				03FB40311851B0D30036501B /* CPMapUtil.m in Sources */,
@@ -1975,6 +1994,7 @@
 				0325B848185C0D0D00FFF42B /* CPCalendarPickerStyleProvider.m in Sources */,
 				03CE3C1E183E0C0200A964AA /* CPFile.m in Sources */,
 				03F1C59F184F3B8C006C3578 /* CPPolicyEditViewController.m in Sources */,
+				0317DA0C195955F800D11264 /* CPCalloutTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

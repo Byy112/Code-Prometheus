@@ -17,7 +17,7 @@
 #import "CPContactsInMapTableViewController.h"
 #import <TWMessageBarManager.h>
 
-@interface CPGlobalMapViewController ()<MAMapViewDelegate, AMapSearchDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface CPGlobalMapViewController ()<MAMapViewDelegate, AMapSearchDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource,CPAnnotationViewDelegate>
 // 地图模式
 @property (nonatomic) BOOL showAround;
 // 显示的标记
@@ -307,10 +307,9 @@
     id<MAAnnotation> selectAn = self.mapView.selectedAnnotations.firstObject;
     // 清空大头针
     [self.mapView removeAnnotations:annotationForRemove];
-    // 添加，选中需要选中的点（如果有）
+    // 添加需要选中的点（如果有）
     if (selectAn) {
         [self.mapView addAnnotation:selectAn];
-        [self.mapView selectAnnotation:selectAn animated:YES];
     }
     if (self.showAround && !(!CPMemberLicense || CPMemberLicense<=[[NSDate date] timeIntervalSince1970]) && !(fabs(CPDelta_T) > 86400)) {
         // 显示周边人脉
@@ -325,6 +324,10 @@
             [self.annotationArray removeObject:objDelete];
         }
         [self.mapView addAnnotations:self.annotationArray];
+    }
+    // 选中需要选中的点（如果有）
+    if (selectAn) {
+        [self.mapView selectAnnotation:selectAn animated:YES];
     }
 }
 
@@ -371,13 +374,7 @@
         CPAnnotationView *annotationView = (CPAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
         if (annotationView == nil){
             annotationView = [[CPAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
-            annotationView.block =  ^(CPAnnotationView* view) {
-                CPPointAnnotation* annotation = view.annotation;
-                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
-                controller.contactsUUID = annotation.uuid;
-                [self.navigationController pushViewController:controller animated:YES];
-            };
+            annotationView.delegate = self;
         }
         return annotationView;
     }
@@ -442,5 +439,36 @@
     
     [self.searchDisplayController setActive:NO animated:YES];
     self.searchDisplayController.searchBar.text = contracts.cp_name;
+}
+
+#pragma mark - CPAnnotationViewDelegate
+-(NSArray*) calloutDataWithView:(CPAnnotationView*)view{
+    CPPointAnnotation* annotation = view.annotation;
+    NSMutableArray* result = [@[] mutableCopy];
+    [result addObject:annotation];
+    for (id <MAAnnotation> an in self.mapView.annotations) {
+        if (an == annotation) {
+            continue;
+        }
+        if ([an isKindOfClass:[CPPointAnnotation class]]) {
+            CPPointAnnotation* anAn = an;
+            CGPoint pointOther = [self.mapView convertCoordinate:an.coordinate toPointToView:self.mapView];
+            CGPoint pointMe = [self.mapView convertCoordinate:annotation.coordinate toPointToView:self.mapView];
+            CGFloat xDist = (pointOther.x - pointMe.x);
+            CGFloat yDist = (pointOther.y - pointMe.y);
+            CGFloat distance = sqrt((xDist * xDist) + (yDist * yDist));
+            if (distance < 10) {
+                [result addObject:anAn];
+            }
+        }
+    }
+    return result;
+}
+-(void) didSelectRowWithView:(CPAnnotationView*)view row:(NSUInteger)row{
+    CPPointAnnotation* annotation = view.calloutView.cpData[row];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    CPContactsDetailViewController* controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"CPContactsDetailViewController"];
+    controller.contactsUUID = annotation.uuid;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

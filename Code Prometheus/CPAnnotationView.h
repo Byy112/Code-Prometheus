@@ -7,7 +7,7 @@
 //
 
 #import <MAMapKit/MAMapKit.h>
-#import "CPCustomCalloutView.h"
+#import "CPCalloutTableView.h"
 
 
 typedef NS_ENUM(NSInteger, CPPointAnnotationType) {
@@ -16,16 +16,24 @@ typedef NS_ENUM(NSInteger, CPPointAnnotationType) {
     CPPointAnnotationTypeCompany
 };
 
+
+
 @interface CPPointAnnotation : MAPointAnnotation
 @property(nonatomic)NSString* uuid;
 @property(nonatomic)CPPointAnnotationType type;
 @end
 
+
+
 @class CPAnnotationView;
 
-typedef void (^CPAnnotationCalloutClickBlock)(CPAnnotationView* view);
+@protocol CPAnnotationViewDelegate <NSObject>
+-(NSArray*) calloutDataWithView:(CPAnnotationView*)view;
+@optional
+-(void) didSelectRowWithView:(CPAnnotationView*)view row:(NSUInteger)row;
+@end
 
 @interface CPAnnotationView : MAAnnotationView
-@property (nonatomic, strong) CPCustomCalloutView *calloutView;
-@property (nonatomic, copy) CPAnnotationCalloutClickBlock block;
+@property (nonatomic, strong) CPCalloutTableView *calloutView;
+@property (nonatomic, weak) id<CPAnnotationViewDelegate> delegate;
 @end

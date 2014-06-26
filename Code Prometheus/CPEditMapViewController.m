@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, CPAnnotationType) {
 };
 
 
-@interface CPEditMapViewController ()<UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
+@interface CPEditMapViewController ()<UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate,CPAnnotationViewDelegate>
 @property(nonatomic) MBProgressHUD* hud;
 @property (nonatomic) BOOL goPoint;
 
@@ -317,6 +317,7 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
         CPAnnotationView *annotationView = (CPAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
         if (annotationView == nil){
             annotationView = [[CPAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:customReuseIndetifier];
+            annotationView.delegate = self;
         }
         return annotationView;
     }
@@ -362,5 +363,12 @@ typedef NS_ENUM(NSInteger, CP_MAP_SEARCH_TYPE) {
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     self.searchDisplayController.searchResultsTableView.contentInset = UIEdgeInsetsZero;
+}
+#pragma mark - CPAnnotationViewDelegate
+-(NSArray*) calloutDataWithView:(CPAnnotationView*)view{
+    CPPointAnnotation* annotation = view.annotation;
+    NSMutableArray* result = [@[] mutableCopy];
+    [result addObject:annotation];
+    return result;
 }
 @end
