@@ -77,7 +77,24 @@
 
     [[CPLocalNotificationManager shared] down];
     
-    [CPServer sync];
+    [CPServer loginAutoWithBlock:^(BOOL success,NSString* message) {
+        [CPServer checkLicenseBlock:^(BOOL success, NSString *message,NSTimeInterval expirationDate) {
+            if (success) {
+                if (!CPMemberLicense || CPMemberLicense != expirationDate) {
+                    CPLogInfo(@"更新 license :%@->%@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense],[NSDate dateWithTimeIntervalSince1970:expirationDate]);
+                    CPSetMemberLicense(expirationDate);
+                }else{
+                    CPLogVerbose(@"不用更新 license %@",[NSDate dateWithTimeIntervalSince1970:CPMemberLicense]);
+                }
+            }else{
+                CPLogWarn(@"check lisence 失败:%@",message);
+            }
+        }];
+        if (success) {
+            [CPServer sync];
+        }
+    }];
+    
     
     // 引导页
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hasIntroduction"]) {
