@@ -113,10 +113,10 @@
     [self layoutIfNeeded];
     
     // 背景
-    UIView* back = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    UIView* back = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     CALayer *cyanLayer = [CALayer layer];
     cyanLayer.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6].CGColor;
-    cyanLayer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    cyanLayer.frame = CGRectMake(0, 0, width, height);
     [back.layer addSublayer:cyanLayer];
     self.backgroundView = back;
     self.layer.cornerRadius = 5;
